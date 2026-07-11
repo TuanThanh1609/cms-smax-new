@@ -21,58 +21,72 @@ if (hasKeys) {
 }
 
 function fetchContentAndCompile() {
-  const targetUrl = `${supabaseUrl.replace(/\/$/, '')}/rest/v1/site_content?select=*&limit=10000`;
-  const parsedUrl = url.parse(targetUrl);
+  let allData = [];
+  let offset = 0;
+  const limit = 1000;
 
-  const headers = {
-    'apikey': supabaseAnonKey,
-    'Authorization': `Bearer ${supabaseAnonKey}`,
-    'Accept': 'application/json'
-  };
+  function fetchBatch() {
+    const targetUrl = `${supabaseUrl.replace(/\/$/, '')}/rest/v1/site_content?select=*&limit=${limit}&offset=${offset}`;
+    const parsedUrl = url.parse(targetUrl);
 
-  const reqOptions = {
-    hostname: parsedUrl.hostname,
-    port: parsedUrl.port,
-    path: parsedUrl.path,
-    method: 'GET',
-    headers: headers
-  };
+    const headers = {
+      'apikey': supabaseAnonKey,
+      'Authorization': `Bearer ${supabaseAnonKey}`,
+      'Accept': 'application/json'
+    };
 
-  const req = https.request(reqOptions, (res) => {
-    let body = '';
-    res.on('data', (chunk) => {
-      body += chunk.toString('utf8');
-    });
-    res.on('end', () => {
-      if (res.statusCode !== 200) {
-        console.error(`❌ [Smax CMS] Failed to fetch data: HTTP ${res.statusCode}`);
-        console.error('Response:', body);
-        process.exit(1);
-      }
-      
-      try {
-        const data = JSON.parse(body);
-        console.log(`✅ [Smax CMS] Loaded ${data.length} content rows from database.`);
+    const reqOptions = {
+      hostname: parsedUrl.hostname,
+      port: parsedUrl.port,
+      path: parsedUrl.path,
+      method: 'GET',
+      headers: headers
+    };
+
+    const req = https.request(reqOptions, (res) => {
+      let body = '';
+      res.on('data', (chunk) => {
+        body += chunk.toString('utf8');
+      });
+      res.on('end', () => {
+        if (res.statusCode !== 200) {
+          console.error(`❌ [Smax CMS] Failed to fetch data: HTTP ${res.statusCode}`);
+          console.error('Response:', body);
+          process.exit(1);
+        }
         
-        const contentMap = {};
-        data.forEach(row => {
-          contentMap[row.content_key] = row.content_value;
-        });
-        
-        finalizeBuild(contentMap);
-      } catch (e) {
-        console.error('❌ [Smax CMS] Failed to parse database response:', e.message);
-        process.exit(1);
-      }
+        try {
+          const data = JSON.parse(body);
+          allData = allData.concat(data);
+          
+          if (data.length === limit) {
+            // Keep fetching next batch
+            offset += limit;
+            fetchBatch();
+          } else {
+            console.log(`✅ [Smax CMS] Loaded ${allData.length} content rows from database.`);
+            const contentMap = {};
+            allData.forEach(row => {
+              contentMap[row.content_key] = row.content_value;
+            });
+            finalizeBuild(contentMap);
+          }
+        } catch (e) {
+          console.error('❌ [Smax CMS] Failed to parse database response:', e.message);
+          process.exit(1);
+        }
+      });
     });
-  });
 
-  req.on('error', (e) => {
-    console.error('❌ [Smax CMS] Connection error:', e.message);
-    process.exit(1);
-  });
+    req.on('error', (e) => {
+      console.error('❌ [Smax CMS] Connection error:', e.message);
+      process.exit(1);
+    });
 
-  req.end();
+    req.end();
+  }
+
+  fetchBatch();
 }
 
 function finalizeBuild(contentMap) {
