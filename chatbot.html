@@ -1,0 +1,1890 @@
+<!DOCTYPE html><html lang="vi"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Smax Livechat - Giải pháp quản trị hội thoại đa kênh &amp; tối ưu doanh thu bán hàng tích hợp trí tuệ nhân tạo GenAI cho doanh nghiệp dẫn đầu.">
+    <title>Smax Chatbot | Tự động hóa hội thoại đa kênh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="icon" href="asset smax/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      /* --- Filum-inspired Premium Styles for Smax Livechat --- */
+      
+      /* Reset & Base settings for this page */
+      body {
+        overflow-x: hidden;
+      }
+      
+      .livechat-page-wrapper {
+        font-family: "Be Vietnam Pro", sans-serif;
+        color: var(--primary-navy, #0F1835);
+        background: #FFFFFF;
+      }
+
+      /* Hero Section - Airy & Grid Background */
+      .premium-hero {
+        position: relative;
+        padding: 160px 0 0; /* Giảm padding bottom vì đã có ảnh mockup trình duyệt chiếm không gian */
+        background: url('https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/gridBackground.png') no-repeat center center;
+        background-size: cover;
+        text-align: center;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      /* Browser Mockup Styling for Hero Visual */
+      .hero-mockup-wrapper {
+        max-width: 1100px;
+        margin: 56px auto 0;
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        border-radius: 20px;
+        box-shadow: 0 36px 80px rgba(15, 24, 53, 0.12), 0 1px 3px rgba(15, 24, 53, 0.03);
+        overflow: hidden;
+        position: relative;
+        z-index: 5;
+        opacity: 0;
+        transform: translateY(32px);
+        animation: fadeInUpMockup 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+      }
+
+      @keyframes fadeInUpMockup {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .browser-header {
+        height: 40px;
+        background: #F8F9FC;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.06);
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        position: relative;
+      }
+
+      .browser-dots {
+        display: flex;
+        gap: 6px;
+      }
+
+      .browser-dots .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .browser-dots .dot.red { background: #FF5F56; }
+      .browser-dots .dot.yellow { background: #FFBD2E; }
+      .browser-dots .dot.green { background: #27C93F; }
+
+      .browser-address {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(15, 24, 53, 0.03);
+        padding: 4px 24px;
+        border-radius: 6px;
+        font-size: 11.5px;
+        font-weight: 500;
+        color: #667085;
+        font-family: monospace;
+        letter-spacing: 0.02em;
+      }
+
+      .browser-content {
+        position: relative;
+        background: #FFFFFF;
+        line-height: 0;
+      }
+
+      .browser-content img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .hero-grid-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: radial-gradient(rgba(15, 24, 53, 0.12) 1px, transparent 1px);
+        background-size: 32px 32px;
+        mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
+        opacity: 0.15;
+        z-index: 1;
+      }
+
+      .announcement-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 16px;
+        border-radius: 99px;
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        box-shadow: 0 2px 8px rgba(15, 24, 53, 0.04);
+        margin-bottom: 32px;
+        font-size: 13.5px;
+        font-weight: 500;
+        color: var(--primary-navy, #0F1835);
+        position: relative;
+        z-index: 2;
+        transition: all 0.3s ease;
+      }
+
+      .announcement-badge:hover {
+        border-color: rgba(66, 119, 255, 0.3);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(66, 119, 255, 0.08);
+      }
+
+      .announcement-tag {
+        background: var(--primary-coral, #FA6E5B);
+        color: #FFFFFF;
+        padding: 2px 8px;
+        border-radius: 99px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .announcement-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        color: var(--process-blue, #4277FF);
+        font-weight: 700;
+        text-decoration: none;
+        margin-left: 4px;
+      }
+
+      .announcement-link svg {
+        transition: transform 0.2s ease;
+      }
+
+      .announcement-link:hover svg {
+        transform: translateX(2px);
+      }
+
+      .hero-actions .btn {
+        border-radius: 99px !important;
+        padding: 14px 32px !important;
+        font-size: 15px !important;
+        font-weight: 700 !important;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      }
+
+      .premium-hero h1 {
+        font-size: clamp(2.5rem, 5vw, 3.8rem);
+        font-weight: 900;
+        line-height: 1.2;
+        letter-spacing: -0.03em;
+        color: var(--primary-navy, #0F1835);
+        max-width: 960px;
+        margin: 0 auto 24px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .premium-hero h1 span.highlight {
+        background: linear-gradient(95deg, var(--process-blue, #4277FF) 0%, var(--primary-coral, #FA6E5B) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .premium-hero .hero-sub {
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        max-width: 740px;
+        margin: 0 auto 40px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        margin-bottom: 0px;
+        position: relative;
+        z-index: 10;
+      }
+
+      /* Logo Wall Section */
+      .logo-wall-section {
+        padding: 60px 0;
+        background: #FFFFFF;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .logo-wall-title {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--text-secondary, #475467);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 32px;
+      }
+
+      /* Infinite Logo Carousel Styles */
+      .hero-carousel-wrapper {
+        position: relative;
+        overflow: hidden;
+        padding: 10px 0;
+        width: 100%;
+      }
+
+      .carousel-scroll-row {
+        display: flex;
+        gap: 32px;
+        width: max-content;
+      }
+
+      .carousel-scroll-row.row-1 {
+        animation: scroll-left-kf 45s linear infinite;
+      }
+
+      .carousel-icon-card {
+        height: 64px;
+        width: 64px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: #FFFFFF;
+        box-shadow: 0 4px 16px rgba(15, 24, 53, 0.05);
+        border: 1px solid rgba(15, 24, 53, 0.04);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease;
+      }
+
+      .carousel-icon-card:hover {
+        transform: scale(1.1);
+      }
+
+      .carousel-icon-card img {
+        height: 36px;
+        width: 36px;
+        object-fit: contain;
+      }
+
+      .carousel-fade-left, .carousel-fade-right {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 200px;
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      .carousel-fade-left {
+        left: 0;
+        background: linear-gradient(to right, #FFFFFF 15%, rgba(255, 255, 255, 0) 100%);
+      }
+
+      .carousel-fade-right {
+        right: 0;
+        background: linear-gradient(to left, #FFFFFF 15%, rgba(255, 255, 255, 0) 100%);
+      }
+
+      @keyframes scroll-left-kf {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+
+      /* Key Metrics Section */
+      .metrics-section {
+        padding: 80px 0;
+        background: #F8F9FC;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        text-align: center;
+      }
+
+      .metric-card {
+        padding: 24px;
+      }
+
+      .metric-value {
+        font-size: clamp(3rem, 6vw, 4.5rem);
+        font-weight: 900;
+        color: var(--process-blue, #4277FF);
+        line-height: 1;
+        margin-bottom: 16px;
+        letter-spacing: -0.03em;
+      }
+
+      .metric-value span.coral {
+        color: var(--primary-coral, #FA6E5B);
+      }
+
+      .metric-label {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 12px;
+      }
+
+      .metric-desc {
+        font-size: 14px;
+        color: var(--text-secondary, #475467);
+        line-height: 1.5;
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      /* Bento Grid Section - Styled dynamically based on reference image 1 */
+      .smax-bento-section {
+        padding: 120px 0;
+        background: #FFFFFF;
+      }
+
+      .bento-features-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .bento-item {
+        background: #FFFFFF;
+        border-radius: 24px;
+        padding: 40px;
+        border: 1px solid rgba(15, 24, 53, 0.05);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(15, 24, 53, 0.015);
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .bento-item:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(15, 24, 53, 0.08);
+      }
+
+      .bento-item.full-width {
+        grid-column: span 2;
+        flex-direction: row;
+        align-items: center;
+        gap: 60px;
+        background: #F2F6FF;
+        border-color: rgba(66, 119, 255, 0.1);
+      }
+
+      .bento-item.bg-orange {
+        background: #FFF7F5;
+        border-color: rgba(250, 110, 91, 0.1);
+      }
+
+      .bento-item.bg-green {
+        background: #F3FAF6;
+        border-color: rgba(18, 183, 106, 0.1);
+      }
+
+      .bento-info {
+        text-align: left;
+      }
+
+      .bento-info.narrow {
+        max-width: 480px;
+      }
+
+      .bento-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        color: #FFFFFF;
+      }
+
+      .bento-icon.blue { background: var(--process-blue, #4277FF); }
+      .bento-icon.orange { background: var(--primary-coral, #FA6E5B); }
+      .bento-icon.green { background: #12B76A; }
+
+      .bento-item h3 {
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 14px;
+        line-height: 1.35;
+        letter-spacing: -0.01em;
+      }
+
+      .bento-item p.desc {
+        font-size: 15px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+      }
+
+      /* iPhone Mockup inside Bento 1 */
+      .iphone-wrapper {
+        flex-shrink: 0;
+        width: 290px;
+        height: 380px;
+        background: #000000;
+        border-radius: 36px 36px 0 0;
+        border: 8px solid #000000;
+        border-bottom: none;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 20px 40px rgba(15, 24, 53, 0.15);
+      }
+
+      .iphone-island {
+        width: 90px;
+        height: 22px;
+        background: #000;
+        border-radius: 99px;
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+      }
+
+      .iphone-screen {
+        width: 100%;
+        height: 100%;
+        background: #F4F6FA;
+        padding: 38px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        overflow: hidden;
+      }
+
+      .chat-msg {
+        max-width: 80%;
+        padding: 10px 14px;
+        border-radius: 16px;
+        font-size: 11.5px;
+        line-height: 1.4;
+      }
+
+      .chat-msg.customer {
+        background: #FFFFFF;
+        color: #0F1835;
+        align-self: flex-start;
+        border-bottom-left-radius: 4px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      }
+
+      .chat-msg.supporter {
+        background: var(--process-blue, #4277FF);
+        color: #FFFFFF;
+        align-self: flex-end;
+        border-bottom-right-radius: 4px;
+        box-shadow: 0 4px 10px rgba(66, 119, 255, 0.15);
+      }
+
+      .chat-tag {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 9.5px;
+        font-weight: 700;
+        margin-top: 4px;
+      }
+
+      .chat-tag.positive { background: rgba(18, 183, 106, 0.15); color: #12B76A; }
+      .chat-tag.neutral { background: rgba(66, 119, 255, 0.15); color: #4277FF; }
+
+      /* Horizontal Bar Chart inside Bento 2 */
+      .bento-chart-container {
+        width: 100%;
+        background: #FFFFFF;
+        border-radius: 16px;
+        padding: 20px;
+        border: 1px solid rgba(15, 24, 53, 0.04);
+        margin-top: 24px;
+      }
+
+      .chart-row-label {
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: var(--text-secondary, #475467);
+        margin-bottom: 12px;
+        text-align: left;
+      }
+
+      .bar-item {
+        margin-bottom: 14px;
+      }
+
+      .bar-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .bar-label-group {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11.5px;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+
+      .bar-track {
+        height: 8px;
+        background: #F2F4F7;
+        border-radius: 99px;
+        overflow: hidden;
+      }
+
+      .bar-fill {
+        height: 100%;
+        border-radius: 99px;
+        background: var(--primary-coral, #FA6E5B);
+        transition: width 1s ease;
+      }
+
+      .bar-fill.green { background: #12B76A; }
+
+      /* Donut Chart inside Bento 3 */
+      .bento-donut-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-top: 24px;
+        background: #FFFFFF;
+        border-radius: 16px;
+        padding: 20px;
+        border: 1px solid rgba(15, 24, 53, 0.04);
+      }
+
+      .donut-graphic {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: conic-gradient(#12B76A 0% 65%, #FDB022 65% 85%, #F04438 85% 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .donut-graphic::before {
+        content: "";
+        width: 54px;
+        height: 54px;
+        background: #FFFFFF;
+        border-radius: 50%;
+        position: absolute;
+      }
+
+      .donut-text {
+        position: relative;
+        z-index: 2;
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .donut-legend {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        text-align: left;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11.5px;
+        font-weight: 600;
+      }
+
+      .legend-color {
+        width: 10px;
+        height: 10px;
+        border-radius: 3px;
+      }
+
+      .legend-color.green { background: #12B76A; }
+      .legend-color.yellow { background: #FDB022; }
+      .legend-color.red { background: #F04438; }
+
+      /* Stacked Content Cards (Sticky Overlapping Layout - inspired by image 2) */
+      .stacked-cards-section {
+        padding: 120px 0;
+        background: #F8F9FC;
+      }
+
+      .stacked-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 120px; /* Space between stickies when scrolling to show overlap clearly */
+      }
+
+      .stacked-card {
+        position: -webkit-sticky;
+        position: sticky;
+        border-radius: 32px;
+        padding: 48px 64px;
+        display: grid;
+        grid-template-columns: 1.25fr 1fr;
+        gap: 48px;
+        align-items: center;
+        height: 440px; /* Fixed height for all cards */
+        box-shadow: 0 -15px 40px rgba(15, 24, 53, 0.05);
+        transition: transform 0.3s ease;
+        overflow: hidden;
+      }
+
+      /* Stacked Cards Z-Indices, Cascading Tops & Color variations */
+      .stacked-card:nth-child(1) {
+        z-index: 1;
+        background: var(--process-blue, #4277FF);
+        color: #FFFFFF;
+        top: 110px;
+      }
+
+      .stacked-card:nth-child(2) {
+        z-index: 2;
+        background: var(--primary-coral, #FA6E5B);
+        color: #FFFFFF;
+        top: 140px;
+      }
+
+      .stacked-card:nth-child(3) {
+        z-index: 3;
+        background: var(--primary-navy, #0F1835);
+        color: #FFFFFF;
+        top: 170px;
+      }
+
+      .stacked-card:nth-child(4) {
+        z-index: 4;
+        background: #12B76A;
+        color: #FFFFFF;
+        top: 200px;
+      }
+
+      .stacked-card:nth-child(5) {
+        z-index: 5;
+        background: #6941C6;
+        color: #FFFFFF;
+        top: 230px;
+      }
+
+      .stacked-card:nth-child(6) {
+        z-index: 6;
+        background: var(--primary-coral, #FA6E5B);
+        color: #FFFFFF;
+        top: 260px;
+      }
+
+      .stacked-card-copy {
+        text-align: left;
+      }
+
+      .stacked-card-meta {
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        opacity: 0.85;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .stacked-card-copy h2 {
+        font-size: clamp(2rem, 3.5vw, 2.6rem);
+        font-weight: 900;
+        color: #FFFFFF;
+        line-height: 1.25;
+        margin-bottom: 24px;
+        letter-spacing: -0.02em;
+      }
+
+      .stacked-card-copy p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: 32px;
+      }
+
+      .stacked-card-media {
+        position: relative;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 28px 56px -16px rgba(15, 24, 53, 0.16), 0 12px 24px -12px rgba(15, 24, 53, 0.12), 0 1px 2px rgba(15, 24, 53, 0.02);
+        background: #FFFFFF;
+        overflow: hidden;
+        height: 320px; /* Fixed media height */
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px; /* Viền trắng bo 10px */
+        box-sizing: border-box;
+      }
+
+      .stacked-card-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top left;
+        display: block;
+        border-radius: 8px; /* Bo góc ảnh 8px tương ứng với viền trắng ngoài */
+      }
+
+      /* AI Assistant Highlights */
+      .ai-showcase-section {
+        padding: 120px 0;
+        background: #0F1835;
+        color: #FFFFFF;
+        overflow: hidden;
+      }
+
+      .ai-showcase-grid {
+        display: grid;
+        grid-template-columns: 5fr 7fr;
+        gap: 64px;
+        align-items: center;
+      }
+
+      .ai-showcase-copy {
+        text-align: left;
+      }
+
+      .ai-showcase-copy h2 {
+        font-size: clamp(2rem, 3.5vw, 2.6rem);
+        font-weight: 900;
+        color: #FFFFFF;
+        line-height: 1.25;
+        margin-bottom: 24px;
+      }
+
+      .ai-showcase-copy h2 span {
+        color: var(--primary-coral, #FA6E5B);
+      }
+
+      .ai-showcase-copy p {
+        font-size: 16.5px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 40px;
+      }
+
+      .ai-feature-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .ai-chip {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px 14px;
+        border-radius: 99px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.15);
+        color: #FFFFFF;
+        line-height: 1;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+      }
+
+      .ai-chip.active, .ai-chip:hover {
+        background: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.35);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
+      }
+
+      .ai-showcase-copy .ai-chip {
+        font-size: 10px !important;
+        padding: 4px 10px !important;
+        text-transform: none !important;
+        letter-spacing: 0.02em !important;
+        font-weight: 600 !important;
+      }
+
+      .ai-showcase-media .mockup-wrapper {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        background: #17234E;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+
+      .ai-showcase-media .mockup-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Section Header Global styling */
+      .section-header {
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto 56px;
+      }
+
+      .section-header h2 {
+        font-size: clamp(2rem, 3.5vw, 2.5rem);
+        font-weight: 900;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 16px;
+        letter-spacing: -0.02em;
+      }
+
+      .section-header p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+      }
+
+      /* Reports & Leaderboards Hub (Multi-Tab Interactive) */
+      .reports-hub-section {
+        padding: 120px 0;
+        background: #F8F9FC;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .reports-tab-container {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 48px;
+        flex-wrap: wrap;
+      }
+
+      .report-tab-btn {
+        padding: 12px 24px;
+        border-radius: 99px;
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        color: var(--text-secondary, #475467);
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .report-tab-btn.active, .report-tab-btn:hover {
+        background: var(--primary-navy, #0F1835);
+        color: #FFFFFF;
+        border-color: var(--primary-navy, #0F1835);
+        box-shadow: 0 4px 12px rgba(15, 24, 53, 0.1);
+      }
+
+      .report-panel {
+        display: none;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .report-panel.active {
+        display: block;
+        animation: fadeIn 0.4s ease-out;
+      }
+
+      /* Mockup Wrapper */
+      .mockup-wrapper {
+        position: relative;
+        border-radius: 16px;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        background: #FFFFFF;
+        box-shadow: 0 20px 50px rgba(15, 24, 53, 0.08);
+        overflow: hidden;
+        margin-top: 24px;
+        line-height: 0;
+      }
+
+      .mockup-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Case Study Section */
+      .casestudy-section {
+        padding: 120px 0;
+        background: #FFFFFF;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .casestudy-card {
+        background: #F8F9FC;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 32px;
+        padding: 64px;
+        display: grid;
+        grid-template-columns: 6fr 5fr;
+        gap: 64px;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .casestudy-quote {
+        text-align: left;
+      }
+
+      .casestudy-quote-mark {
+        font-size: 80px;
+        font-family: serif;
+        line-height: 1;
+        color: var(--process-blue, #4277FF);
+        margin-bottom: -20px;
+        opacity: 0.3;
+      }
+
+      .casestudy-quote p {
+        font-size: 17.5px;
+        line-height: 1.7;
+        color: var(--primary-navy, #0F1835);
+        font-weight: 500;
+        margin-bottom: 32px;
+      }
+
+      .casestudy-author {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .author-info h4 {
+        font-size: 16px;
+        font-weight: 800;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 4px;
+      }
+
+      .author-info p {
+        font-size: 13.5px;
+        color: var(--text-secondary, #475467);
+        margin-bottom: 0;
+      }
+
+      .casestudy-metrics {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        border-left: 2px solid rgba(15, 24, 53, 0.06);
+        padding-left: 48px;
+        text-align: left;
+      }
+
+      .cs-metric-num {
+        font-size: 40px;
+        font-weight: 900;
+        color: var(--primary-coral, #FA6E5B);
+        line-height: 1.1;
+        margin-bottom: 8px;
+      }
+
+      .cs-metric-label {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 4px;
+      }
+
+      .cs-metric-desc {
+        font-size: 13px;
+        color: var(--text-secondary, #475467);
+        line-height: 1.4;
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Responsive Rules */
+      @media (max-width: 1024px) {
+        .premium-hero {
+          padding-top: 140px;
+        }
+
+        .hero-actions {
+          margin-bottom: 48px;
+        }
+
+        .bento-features-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .bento-item.full-width {
+          grid-column: span 1;
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        .iphone-wrapper {
+          width: 100%;
+          max-width: 290px;
+          height: 300px;
+        }
+
+        .stacked-card {
+          grid-template-columns: 1fr;
+          padding: 40px;
+          gap: 40px;
+          min-height: auto;
+        }
+
+        .metrics-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        .ai-showcase-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .casestudy-card {
+          grid-template-columns: 1fr;
+          padding: 40px;
+          gap: 40px;
+        }
+
+        .casestudy-metrics {
+          border-left: none;
+          border-top: 2px solid rgba(15, 24, 53, 0.06);
+          padding-left: 0;
+          padding-top: 32px;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 24px;
+        }
+      }
+    
+      
+      
+      /* --- Quickstart 3 Steps Section (Card Grid) --- */
+      .quickstart-steps-section {
+        padding: 100px 0;
+        background: #FFFFFF;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .steps-header {
+        text-align: left;
+        margin-bottom: 56px;
+        max-width: 800px;
+      }
+
+      .steps-eyebrow {
+        display: block;
+        font-size: 13px;
+        color: #8C8C8C;
+        margin-bottom: 12px;
+        font-weight: 500;
+      }
+
+      .steps-title {
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 800;
+        color: #0F1835;
+        line-height: 1.3;
+        margin: 0;
+        letter-spacing: -0.02em;
+      }
+
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .step-card {
+        background: #F8F9FC;
+        border-radius: 20px;
+        padding: 40px 32px 32px 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        border: 1px solid rgba(15, 24, 53, 0.03);
+      }
+
+      .step-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 36px rgba(15, 24, 53, 0.05);
+        border-color: rgba(66, 119, 255, 0.1);
+      }
+
+      .step-card-eyebrow {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--primary-coral, #FA6E5B);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      .step-card-title {
+        font-size: 17px;
+        font-weight: 800;
+        color: #0F1835;
+        margin: 0 0 16px 0;
+        line-height: 1.4;
+        max-width: 24ch;
+      }
+
+      .step-card-desc {
+        font-size: 13.5px;
+        line-height: 1.55;
+        color: #595959;
+        margin: 0 0 28px 0;
+        text-align: left;
+      }
+
+      .step-card-visual {
+        width: 100%;
+        background: #FFFFFF;
+        border-radius: 12px;
+        padding: 10px;
+        box-shadow: 0 12px 32px rgba(15, 24, 53, 0.05);
+        border: 1px solid rgba(15, 24, 53, 0.02);
+        margin-top: auto; /* Push mockup to the bottom of the card */
+      }
+
+      .step-card-visual img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        display: block;
+      }
+
+      @media (max-width: 1023px) {
+        .steps-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .quickstart-steps-section {
+          padding: 60px 0;
+        }
+        .steps-header {
+          margin-bottom: 40px;
+        }
+      }
+</style>
+  </head>
+  <body>
+    <div class="livechat-page-wrapper">
+      <!-- Shared Header dynamically loaded via script.js -->
+      <header class="site-header" data-header=""></header>
+
+      
+      <main id="top">
+        <!-- Hero Section -->
+        <section class="premium-hero">
+          <div class="hero-grid-bg"></div>
+          <div class="container">
+            <div class="announcement-badge">
+              <span class="announcement-tag">NEW</span>
+              <span>Visual Drag &amp; Drop Chatbot</span>
+              <a href="https://docs.smax.ai" target="_blank" class="announcement-link">
+                <span>Đọc thêm</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+            <h1 data-cms="chatbot-hero-title">
+              Tự động hóa tiếp thị &amp; bán hàng đa kênh <span class="highlight">với Smax Chatbot</span>
+            </h1>
+            <p class="hero-sub" data-cms="chatbot-hero-sub">
+              Smax Chatbot giúp doanh nghiệp thiết lập kịch bản trả lời tự động, gửi tin hàng loạt chăm sóc khách hàng cũ và bứt phá doanh số vượt trội trên đa nền tảng.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-dark" href="#cta" style="background: var(--primary-navy, #0F1835); border-color: var(--primary-navy, #0F1835);">
+                Đăng ký tư vấn
+              </a>
+              <a class="btn btn-soft" href="https://docs.smax.ai" target="_blank" style="border: 1px solid rgba(15, 24, 53, 0.15); background: transparent; color: var(--primary-navy, #0F1835);">
+                Trải nghiệm miễn phí
+              </a>
+            </div>
+
+            <!-- Browser Mockup displaying the Chatbot config screenshot -->
+            <div class="hero-mockup-wrapper">
+              <div class="browser-header">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-address">smax.ai/chatbot/triggers</div>
+              </div>
+              <div class="browser-content">
+                <img data-cms-img="chatbot-hero-img" src="asset smax/hero-livechat-suite/hero-chatbot-v2.webp" alt="Giao diện Smax Chatbot với luồng bình luận, gửi tin, thu số điện thoại và chuyển nhân viên" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Social Proof Section (AI Models Connected) -->
+        <section class="logo-wall-section" style="padding-top: 80px;">
+          <div class="container">
+            <div class="logo-wall-title">Hỗ trợ nhiều nền tảng nhắn tin phổ biến</div>
+            <!-- Infinite Carousel row -->
+            <div class="hero-carousel-wrapper">
+              <div class="carousel-fade-left"></div>
+              <div class="carousel-fade-right"></div>
+              <div class="carousel-scroll-row row-1">
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/facebook.svg" alt="Facebook Messenger" data-cms-img="chatbot-img-1"></div>
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/zalo.svg" alt="Zalo OA" data-cms-img="chatbot-img-2"></div>
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/tiktok.svg" alt="TikTok" data-cms-img="chatbot-img-3"></div>
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/instagram.svg" alt="Instagram Direct" data-cms-img="chatbot-img-4"></div>
+                <div class="carousel-icon-card"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968841.png" alt="WhatsApp" data-cms-img="chatbot-img-5"></div>
+                <!-- Loop -->
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/facebook.svg" alt="Facebook Messenger" data-cms-img="chatbot-img-6"></div>
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/zalo.svg" alt="Zalo OA" data-cms-img="chatbot-img-7"></div>
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/tiktok.svg" alt="TikTok" data-cms-img="chatbot-img-8"></div>
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/instagram.svg" alt="Instagram Direct" data-cms-img="chatbot-img-9"></div>
+                <div class="carousel-icon-card"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968841.png" alt="WhatsApp" data-cms-img="chatbot-img-10"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Key Metrics Section -->
+        <section class="metrics-section">
+          <div class="container">
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="metric-value">-90%</div>
+                <div class="metric-label">Tỷ lệ hội thoại chờ xử lý</div>
+                <div class="metric-desc">Tự động trả lời nhanh các thắc mắc thường gặp 24/7 giúp khách hàng không phải chờ đợi.</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value"><span class="coral">2.5s</span></div>
+                <div class="metric-label">Thời gian phản hồi trung bình</div>
+                <div class="metric-desc">Chatbot phản hồi lập tức các tương tác từ quảng cáo, bình luận và tin nhắn mới.</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">+45%</div>
+                <div class="metric-label">Tỷ lệ chuyển đổi chốt Lead</div>
+                <div class="metric-desc">Kích hoạt kịch bản thu thập thông tin tự động giúp tối ưu hóa ngân sách marketing.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Bento Grid Section (Customer Intent & Classification) -->
+        <section class="smax-bento-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="chatbot-text-1">Tự động nhận diện ý định &amp; Rẽ nhánh kịch bản</h2>
+              <p data-cms="chatbot-text-2">Kết hợp Trigger từ khóa, Block hành động và Intentions GenAI để phân loại khách hàng theo cấu hình của doanh nghiệp.</p>
+            </div>
+
+            <div class="bento-features-grid">
+              <!-- Tile 1 (Full Width): Visual chat simulation -->
+              <div class="bento-item full-width">
+                <div class="bento-info narrow">
+                  <div class="bento-icon blue">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                  </div>
+                  <h3 data-cms="chatbot-text-3">Tự động bắt từ khóa để gửi kịch bản tặng quà và tư vấn sản phẩm</h3>
+                  <p class="desc" data-cms="chatbot-text-4">
+                    Hệ thống tự động theo dõi các từ khóa quan trọng trong câu chat của khách hàng để kích hoạt luồng bot tặng voucher, tư vấn size hoặc chuyển tiếp sales trực hỗ trợ ca trực ngay lập tức.
+                  </p>
+                </div>
+                <!-- CSS Simulated iPhone Mockup -->
+                <div class="iphone-wrapper">
+                  <div class="iphone-island"></div>
+                  <div class="iphone-screen">
+                    <div class="chat-msg customer">
+                      Tôi muốn nhận voucher khuyến mãi của shop!
+                      <div class="chat-tag neutral">Intent: Get Voucher</div>
+                    </div>
+                    <div class="chat-msg supporter">
+                      Dạ Smax Bot gửi tặng bạn mã giảm giá [SMAX20] giảm 20% cho đơn hàng đầu tiên ạ! Bạn bấm nút bên dưới để áp mã mua ngay nhé.
+                      <div style="margin-top: 8px;"><button class="btn btn-dark" style="padding: 6px 12px; font-size: 11px; width: 100%;">Áp dụng mã ngay</button></div>
+                    </div>
+                    <div class="chat-msg customer">
+                      Cảm ơn shop nhé! Cho mình hỏi thêm shop có hỗ trợ ship COD không?
+                    </div>
+                    <div class="chat-msg supporter">
+                      Dạ shop có hỗ trợ giao hàng COD toàn quốc, đồng kiểm trước khi thanh toán ạ!
+                      <div class="chat-tag positive">Intent: Shipping FAQ</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tile 2: Trigger Stats Chart -->
+              <div class="bento-item bg-orange">
+                <div class="bento-info">
+                  <div class="bento-icon orange">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-8m0 0V4m0 8h8m-8 0H4"></path></svg>
+                  </div>
+                  <h3 data-cms="chatbot-text-5">Thống kê kịch bản được kích hoạt nhiều nhất</h3>
+                  <p class="desc" data-cms="chatbot-text-6">
+                    Tự động ghi nhận số lượt kích hoạt của từng kịch bản chatbot giúp bạn đo lường chính xác hiệu quả của các luồng phễu quà tặng và Mess Ads.
+                  </p>
+                </div>
+                <!-- CSS Flat Horizontal Bar Chart -->
+                <div class="bento-chart-container">
+                  <div class="chart-row-label">Ví dụ các loại kịch bản</div>
+                  <div class="bar-item">
+                    <div class="bar-label-group">
+                      <span>Kịch bản Tặng quà Welcome</span>
+                      <span>Welcome</span>
+                    </div>
+                    <div class="bar-track"><div class="bar-fill" style="width: 88%;"></div></div>
+                  </div>
+                  <div class="bar-item">
+                    <div class="bar-label-group">
+                      <span>Kịch bản Quảng cáo (Mess Ads)</span>
+                      <span>Ads</span>
+                    </div>
+                    <div class="bar-track"><div class="bar-fill" style="width: 72%;"></div></div>
+                  </div>
+                  <div class="bar-item">
+                    <div class="bar-label-group">
+                      <span>Kịch bản Tra cứu vận đơn</span>
+                      <span>Order</span>
+                    </div>
+                    <div class="bar-track"><div class="bar-fill" style="width: 45%;"></div></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tile 3: Bot Resolution Rate -->
+              <div class="bento-item bg-green">
+                <div class="bento-info">
+                  <div class="bento-icon green">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                  </div>
+                  <h3 data-cms="chatbot-text-7">Cấu trúc Trigger – Block – Sequence rõ ràng</h3>
+                  <p class="desc" data-cms="chatbot-text-8">
+                    Trigger xác định điểm kích hoạt, Block chứa nội dung và thẻ hành động, còn Sequence tổ chức chuỗi chăm sóc theo thời gian đã cài đặt.
+                  </p>
+                </div>
+                <!-- CSS Donut Chart & Legend -->
+                <div class="bento-donut-container">
+                  <div class="donut-graphic" style="background: conic-gradient(#12B76A 0% 34%, #4277FF 34% 67%, #FA6E5B 67% 100%);">
+                    <div class="donut-text" style="font-size: 11px;">3 lớp</div>
+                  </div>
+                  <div class="donut-donut-legend donut-legend">
+                    <div class="legend-item">
+                      <div class="legend-color green"></div>
+                      <span>Trigger kích hoạt</span>
+                    </div>
+                    <div class="legend-item">
+                      <div class="legend-color blue"></div>
+                      <span>Block hành động</span>
+                    </div>
+                    <div class="legend-item">
+                      <div class="legend-color red"></div>
+                      <span>Sequence chăm sóc</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Stacked Sticky Cards Section -->
+        <section class="stacked-cards-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="chatbot-text-9">Các phân hệ tính năng chính của Smax Chatbot</h2>
+              <p data-cms="chatbot-text-10">Khám phá bộ công cụ tự động hóa kịch bản, thư viện block hành động và remarketing cũ đa kênh chuyên sâu.</p>
+            </div>
+
+            <div class="stacked-container">
+              <!-- Card 1: Kịch bản Bot kéo thả -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">01 / CONVERSATION FLOW</span>
+                  <h2 data-cms="chatbot-text-11">Kịch bản kéo thả trực quan</h2>
+                  <p data-cms="chatbot-text-12">
+                    Giao diện thiết kế luồng bot trực quan giúp bạn dễ dàng liên kết các trigger kích hoạt với các block hành động của bot mà không cần biết lập trình. Hỗ trợ rẽ nhánh thông tin linh hoạt bám đuổi theo hành vi khách.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Welcome Trigger</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Comment Auto-reply</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="asset smax/chatbot/kich-ban.webp" alt="Giao diện kịch bản chatbot kéo thả" data-cms-img="chatbot-img-11">
+                </div>
+              </div>
+
+              <!-- Card 2: Thư viện Block & Thẻ hành động -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">02 / ACTION LIBRARY</span>
+                  <h2 data-cms="chatbot-text-13">Thư viện Block &amp; Thẻ hành động đa dạng</h2>
+                  <p data-cms="chatbot-text-14">
+                    Quản lý và thiết lập chi tiết các phản hồi của chatbot từ tin nhắn văn bản, hình ảnh, bộ sưu tập sản phẩm, gán tag phân loại cho đến gửi thông tin đi CRM/Google Sheets.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Messenger Text &amp; Image</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Webhook integration</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="asset smax/chatbot/thu-vien-block.webp" alt="Thư viện Block chatbot Smax" data-cms-img="chatbot-img-12">
+                </div>
+              </div>
+
+              <!-- Card 3: Kịch bản Chăm sóc khách hàng tự động -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">03 / CUSTOMER NURTURING</span>
+                  <h2 data-cms="chatbot-text-15">Kịch bản chăm sóc theo chuỗi (Sequences)</h2>
+                  <p data-cms="chatbot-text-16">
+                    Lên lịch gửi chuỗi tin nhắn theo từng bước, thời gian chờ và khung giờ đã thiết lập; dùng thẻ Sequence để thêm hoặc chủ động gỡ khách khỏi luồng chăm sóc.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Lên lịch chuỗi tự động</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Nhắc lịch cá nhân hóa</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="asset smax/chatbot/kich-ban-cham-soc.webp" alt="Thiết lập kịch bản chăm sóc theo chuỗi" data-cms-img="chatbot-img-13">
+                </div>
+              </div>
+
+              <!-- Card 4: Broadcast & Re-marketing -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">04 / BULK BROADCAST</span>
+                  <h2 data-cms="chatbot-text-17">Gửi tin hàng loạt &amp; Remarketing đa kênh</h2>
+                  <p data-cms="chatbot-text-18">
+                    Tạo chiến dịch Broadcast theo bộ lọc và chọn đúng loại tin nhắn cho Facebook Marketing Messages, Facebook 24h, Zalo Follow OA, Zalo ZBS, Zalo UID và các kênh được hỗ trợ.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Zalo OA Broadcast</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Facebook Recurring Msg</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="asset smax/chatbot/gui-tin-nhan-hang-loat.webp" alt="Giao diện gửi tin nhắn hàng loạt và remarketing" data-cms-img="chatbot-img-14">
+                </div>
+              </div>
+
+              <!-- Card 5: Trigger & Multi-source Automation -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">05 / TRIGGERS HUB</span>
+                  <h2 data-cms="chatbot-text-19">Đa dạng điểm chạm kích hoạt bot tự động</h2>
+                  <p data-cms="chatbot-text-20">
+                    Không chỉ kích hoạt khi khách hàng inbox trực tiếp. Smax Chatbot cho phép bắt sự kiện bình luận trên bài viết để tự động inbox báo giá, quét mã QR offline tại cửa hàng, hoặc khi khách bấm vào quảng cáo Click-to-Messenger.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Comment to Inbox</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">QR Code offline trigger</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="asset smax/ai-insight/automation-setup.webp" alt="Các điểm chạm kích hoạt chatbot tự động" data-cms-img="chatbot-img-15">
+                </div>
+              </div>
+
+              <!-- Card 6: Gamification & Mini-games -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">06 / GAMIFICATION</span>
+                  <h2 data-cms="chatbot-text-21">Tích hợp Mini-game &amp; Vòng quay may mắn</h2>
+                  <p data-cms="chatbot-text-22">
+                    Kết nối luồng chatbot với Vòng quay may mắn, Mở quà, Puzzle Game hoặc Form để thu thập thông tin và trao thưởng theo cấu hình chiến dịch.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Lucky Wheel inside Chat</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Voucher coupon auto-delivery</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="asset smax/ai-insight/tu-dong-gui-bao-cao.webp" alt="Phân hệ Mini-game vòng quay may mắn chatbot" data-cms-img="chatbot-img-16">
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- AI Intent & Routing Section -->
+        <section class="ai-showcase-section">
+          <div class="container">
+            <div class="ai-showcase-grid">
+              <div class="ai-showcase-copy">
+                <h2 data-cms="chatbot-text-23">Tự động phân nhóm &amp; Điều hướng kịch bản AI</h2>
+                <p data-cms="chatbot-text-24">
+                  Trigger GenAI có thể nhận diện ý định đã cấu hình, thu thập thêm thông tin cần thiết rồi gửi Block phù hợp hoặc trả lời trực tiếp theo kịch bản.
+                </p>
+                <div class="ai-feature-chips">
+                  <span class="ai-chip active">Ý định mua hàng</span>
+                  <span class="ai-chip">Hỏi đáp báo giá</span>
+                  <span class="ai-chip">Tra cứu đơn hàng</span>
+                  <span class="ai-chip">Góp ý, khiếu nại</span>
+                  <span class="ai-chip">Gặp nhân viên hỗ trợ</span>
+                </div>
+              </div>
+              <div class="ai-showcase-media">
+                <div class="mockup-wrapper">
+                  <img src="asset smax/chatbot/phan-nhanh-tu-intent.webp" alt="Hệ thống phân tích ý định khách hàng của AI Chatbot" data-cms-img="chatbot-img-17">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Reports & Conversion Funnels Section (Interactive Tabs) -->
+        <section class="reports-hub-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="chatbot-text-25">Đo lường hiệu suất kịch bản &amp; Báo cáo phễu chốt đơn</h2>
+              <p data-cms="chatbot-text-26">Quản lý kịch bản, Sequence và chiến dịch Broadcast theo từng luồng; dữ liệu khách hàng thu thập được lưu vào hồ sơ và thuộc tính để tiếp tục lọc, chăm sóc hoặc đồng bộ.</p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="reports-tab-container">
+              <button class="report-tab-btn active" data-report-tab="performance">Báo cáo phễu bot</button>
+              <button class="report-tab-btn" data-report-tab="activity">Chiến dịch gửi tin hàng loạt</button>
+              <button class="report-tab-btn" data-report-tab="conversion">Doanh thu qua bot</button>
+            </div>
+
+            <!-- Tab Panel 1 -->
+            <div class="report-panel active" id="panel-performance">
+              <div class="mockup-wrapper">
+                <img src="asset smax/ai-insight/bao-cao-tu-van-chot-don.webp" alt="Báo cáo phễu chuyển đổi chatbot chi tiết" data-cms-img="chatbot-img-18">
+              </div>
+            </div>
+
+            <!-- Tab Panel 2 -->
+            <div class="report-panel" id="panel-activity">
+              <div class="mockup-wrapper">
+                <img src="asset smax/ai-insight/bao-cao-cham-soc-sau-mua.webp" alt="Báo cáo hiệu quả gửi tin nhắn hàng loạt" data-cms-img="chatbot-img-19">
+              </div>
+            </div>
+
+            <!-- Tab Panel 3 -->
+            <div class="report-panel" id="panel-conversion">
+              <div class="mockup-wrapper">
+                <img src="asset smax/ai-insight/bao-cao-ket-qua-chot-don.webp" alt="Báo cáo doanh số đơn hàng chốt tự động bởi bot" data-cms-img="chatbot-img-20">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        
+        
+        
+        <!-- Quickstart 3 Steps Section -->
+        <section class="quickstart-steps-section">
+          <div class="container">
+            <div class="steps-header">
+              <span class="steps-eyebrow">Thiết lập đơn giản</span>
+              <h2 class="steps-title" data-cms="chatbot-text-27">Bắt đầu kích hoạt Chatbot chỉ trong 3 bước*</h2>
+            </div>
+            <div class="steps-grid">
+
+              <!-- Step BƯỚC 01 -->
+              <div class="step-card">
+                <span class="step-card-eyebrow">BƯỚC 01</span>
+                <h3 class="step-card-title" data-cms="chatbot-text-28">Xây dựng kịch bản chatbot</h3>
+                <p class="step-card-desc" data-cms="chatbot-text-29">Truy cập module Bot-Auto &gt; Kịch bản, tạo các khối nội dung (Block) chứa văn bản, hình ảnh, nút bấm để dẫn dắt khách hàng tự động.</p>
+                <div class="step-card-visual">
+                  <img src="asset smax/chatbot/kich-ban.webp" alt="Xây dựng kịch bản chatbot" data-cms-img="chatbot-img-21">
+                </div>
+              </div>
+              <!-- Step BƯỚC 02 -->
+              <div class="step-card">
+                <span class="step-card-eyebrow">BƯỚC 02</span>
+                <h3 class="step-card-title" data-cms="chatbot-text-30">Cài đặt Trigger kích hoạt</h3>
+                <p class="step-card-desc" data-cms="chatbot-text-31">Liên kết kịch bản với điểm chạm (như tin nhắn chào mừng website, keyword tự động, bình luận hoặc đường link Messenger Ref Link).</p>
+                <div class="step-card-visual">
+                  <img src="asset smax/chatbot/phan-nhanh-tu-intent.webp" alt="Cài đặt Trigger kích hoạt" data-cms-img="chatbot-img-22">
+                </div>
+              </div>
+              <!-- Step BƯỚC 03 -->
+              <div class="step-card">
+                <span class="step-card-eyebrow">BƯỚC 03</span>
+                <h3 class="step-card-title" data-cms="chatbot-text-32">Kiểm tra &amp; Vận hành tự động</h3>
+                <p class="step-card-desc" data-cms="chatbot-text-33">Sử dụng tính năng Preview hoặc gửi test trực tiếp để kiểm tra luồng tin nhắn tự động và theo dõi dữ liệu đổ về hồ sơ khách hàng.</p>
+                <div class="step-card-visual">
+                  <img src="asset smax/chatbot/gui-tin-nhan-hang-loat.webp" alt="Kiểm tra &amp; Vận hành tự động" data-cms-img="chatbot-img-23">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Case Study Section (Success Stories) -->
+        <section class="casestudy-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="chatbot-text-34">Khách hàng thành công cùng Smax Chatbot</h2>
+              <p data-cms="chatbot-text-35">Khám phá cách thức các thương hiệu hàng đầu tự động hóa vận hành tiếp thị và nâng tầm doanh thu từ chatbot.</p>
+            </div>
+
+            <div class="casestudy-card">
+              <div class="casestudy-quote">
+                <div class="casestudy-quote-mark">“</div>
+                <p data-cms="chatbot-text-36">
+                  Nhờ ứng dụng hệ thống kịch bản chatbot tự động hóa của Smax.ai cho các chiến dịch Click-to-Messenger Ads, chúng tôi đã giảm được hơn 80% thời gian phản hồi khách đầu tiên. Đặc biệt, luồng tin nhắn chăm sóc tự động (Sequence) giúp tỷ lệ khách quay lại mua hàng lần sau tăng trưởng tới 25% mà hoàn toàn không mất chi phí quảng cáo bám đuổi.
+                </p>
+                <div class="casestudy-author">
+                  <div class="author-info">
+                    <h4 data-cms="chatbot-text-37">NGUYỄN MINH TRÍ</h4>
+                    <p data-cms="chatbot-text-38">Giám đốc Marketing - YODY Fashion</p>
+                  </div>
+                </div>
+              </div>
+              <div class="casestudy-metrics">
+                <div>
+                  <div class="cs-metric-num">-80%</div>
+                  <div class="cs-metric-label">Thời gian phản hồi đầu tiên</div>
+                  <div class="cs-metric-desc">Tự động trả lời thắc mắc, gửi bảng size và mã giảm giá ngay trong 1 giây.</div>
+                </div>
+                <div>
+                  <div class="cs-metric-num">+25%</div>
+                  <div class="cs-metric-label">Doanh số từ khách hàng cũ</div>
+                  <div class="cs-metric-desc">Kích hoạt chuỗi tin nhắn bám đuổi chăm sóc tự động sau mua đa kênh cực kỳ hiệu quả.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="chatbot-text-39">Câu hỏi thường gặp về Smax Chatbot</h2>
+              <p data-cms="chatbot-text-40">Mọi giải đáp về thiết kế kéo thả, bám đuổi khách hàng và tối ưu chiến dịch gửi tin hàng loạt trên Smax Chatbot.</p>
+            </div>
+
+            <div class="faq-container">
+              <!-- Item 1 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Smax Chatbot hỗ trợ những nền tảng nhắn tin nào?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Smax Chatbot hỗ trợ tích hợp trực tiếp và tự động hóa trên các nền tảng chat phổ biến bao gồm Facebook Messenger, Fanpage bình luận, Instagram Direct, WhatsApp và Zalo (Zalo OA, Zalo cá nhân, Zalo Group).
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Tôi có cần biết viết code để tạo chatbot không?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Hoàn toàn không. Smax cung cấp công cụ xây dựng kịch bản kéo thả (visual drag-and-drop builder) thân thiện. Bạn chỉ cần chọn điều kiện kích hoạt (trigger) và kéo nối với các khối nội dung (block) đã dựng sẵn để tạo thành luồng chatbot hoàn chỉnh.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Tính năng gửi tin hàng loạt (Broadcast) có tuân thủ chính sách của Facebook không?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Có. Smax Chatbot được thiết kế tuân thủ nghiêm ngặt các chính sách của Meta và Zalo. Chúng tôi hỗ trợ gửi tin qua thẻ tin nhắn được phê duyệt (Facebook Marketing Messages), Zalo OA Broadcast chính thức và Zalo ZNS để đảm bảo tỷ lệ nhận tin cao nhất và giữ an toàn tuyệt đối cho tài khoản trang của bạn.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 4 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Kịch bản chăm sóc Sequence hoạt động như thế nào?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Sequence cho phép bạn lên lịch tự động bám đuổi khách hàng theo chuỗi thời gian cài đặt trước. Ví dụ: Ngay khi khách hàng đăng ký nhận bot -&gt; gửi lời chào ngay -&gt; sau 2 giờ gửi tin nhắc nhở -&gt; sau 1 ngày gửi mã giảm giá khuyến mãi -&gt; sau 3 ngày khảo sát chất lượng. Tất cả đều diễn ra tự động.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 5 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Thông tin khách hàng chatbot thu thập được lưu trữ ở đâu?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Thông tin sẽ được lưu trữ tự động vào Hồ sơ khách hàng trên hệ thống Smax. Đồng thời bạn có thể thiết lập các thẻ hành động để tự động đồng bộ đẩy toàn bộ thông tin này về Google Sheets của bạn hoặc gọi API Webhook đồng bộ sang CRM nội bộ của doanh nghiệp.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Final CTA Section (Đồng bộ trang chủ) -->
+        <section class="final-cta" id="cta">
+          <div class="container cta-inner">
+            <h2 data-cms="chatbot-text-41">Bắt đầu tự động hóa doanh nghiệp ngay hôm nay</h2>
+            <p data-cms="chatbot-text-42">
+              Xây dựng Trigger, Block, Sequence và chiến dịch Broadcast đa kênh cùng Smax Chatbot.
+            </p>
+            <div class="cta-actions">
+              <a class="btn btn-dark" href="#top">Dùng thử miễn phí</a>
+              <a class="btn btn-soft" href="index.html#cta">Đặt lịch hẹn tư vấn</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div>
+            <a class="brand" href="#top">
+              <img src="asset smax/smax-ai-logo.webp" alt="Smax.ai" class="brand-logo-img">
+            </a>
+            <p>Nền tảng AI-Automation giúp doanh nghiệp vận hành bán hàng, tiếp thị và chăm sóc khách hàng đa kênh.</p>
+          </div>
+          <div>
+            <h3>Sản phẩm</h3>
+            <a href="livechat.html">Livechat</a>
+            <a href="chatbot.html">Chatbot</a>
+            <a href="genai.html">Smax GenAI</a>
+            <a href="insight.html">AI Insight</a>
+            <a>Automation Map</a>
+            <a>Remarketing</a>
+          </div>
+          <div>
+            <h3>Giải pháp</h3>
+            <a>Sales</a>
+            <a>Marketing</a>
+            <a>Customer Service</a>
+            <a>E-commerce</a>
+            <a>Omnichannel</a>
+            <a>Meta Business AI</a>
+          </div>
+          <div>
+            <h3>Tài nguyên</h3>
+            <a>Blog</a>
+            <a>Tài liệu</a>
+            <a>Video hướng dẫn</a>
+            <a>Webinar</a>
+            <a>Bot mẫu</a>
+            <a>Case Study</a>
+          </div>
+          <div>
+            <h3>Doanh nghiệp</h3>
+            <a>Về Smax.ai</a>
+            <a>Đối tác</a>
+            <a>Bảng giá</a>
+            <a>Liên hệ</a>
+            <a>Chính sách</a>
+          </div>
+        </div>
+        <div class="container footer-bottom">
+          <span>© 2026 Smax.ai</span>
+          <span>Điều khoản · Quyền riêng tư · Liên hệ tư vấn</span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Shared Header and Interactions JS -->
+    <script src="script.js?v=4.0.2"></script>
+    
+    <!-- Local Tab Interaction Logic for Reports Hub -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const tabButtons = document.querySelectorAll(".report-tab-btn");
+        const panels = document.querySelectorAll(".report-panel");
+
+        tabButtons.forEach(btn => {
+          btn.addEventListener("click", () => {
+            const targetTab = btn.getAttribute("data-report-tab");
+
+            // Toggle active buttons
+            tabButtons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            // Toggle active panels
+            panels.forEach(panel => {
+              if (panel.id === `panel-${targetTab}`) {
+                panel.classList.add("active");
+              } else {
+                panel.classList.remove("active");
+              }
+            });
+          });
+        });
+      
+        
+
+      });
+    </script>
+  
+
+</body></html>

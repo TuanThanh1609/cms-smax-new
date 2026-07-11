@@ -1,0 +1,1182 @@
+Act as a senior UI/UX designer, SaaS product designer, conversion strategist, and front-end design architect.
+
+Your task is to redesign the 2026 homepage for Smax.ai based on the visual quality and premium composition of the provided reference website.
+
+Do not copy the original website literally. Adapt its premium gradient atmosphere, editorial typography, orbital ecosystem visualization, rounded interface container, strong visual hierarchy, and modern SaaS presentation into the Smax.ai brand identity.
+
+The final website must feel like a premium Vietnamese AI Automation Platform for sales, marketing, customer service, social commerce, and omnichannel business operations.
+
+All visible website content must be written in Vietnamese.
+
+The design must be detailed enough for a UI designer and front-end developer to recreate accurately.
+
+--------------------------------------------------
+1. PROJECT CONTEXT
+--------------------------------------------------
+
+Brand name:
+Smax.ai
+
+Product positioning:
+Smax.ai is an AI-Automation Hub for Sales, Marketing, Customer Service, Social Commerce, CRM, and omnichannel business operations.
+
+Core positioning statement:
+“SmaxAI – Nền tảng AI-Automation giúp doanh nghiệp tăng trưởng mạnh mẽ trên online.”
+
+Supporting message:
+“Siêu ứng dụng hỗ trợ, chăm sóc và bán hàng đa kênh.”
+
+Smax.ai is not only a customer communication platform. It provides a comprehensive ecosystem for:
+
+- Multichannel customer communication
+- AI sales consultation
+- Automated customer service
+- Chatbot and livechat
+- Conversation management
+- AI conversation insights
+- Marketing automation
+- Customer remarketing
+- CRM and POS connection
+- Order automation
+- Customer journey optimization
+- Social commerce operations
+- AI workflow and automation map building
+
+Primary target users:
+
+- E-commerce businesses
+- Retail businesses
+- Marketing teams
+- Sales teams
+- Customer service teams
+- SMEs
+- Agencies and consultants
+- Education businesses
+- Real estate businesses
+- Omnichannel businesses
+
+--------------------------------------------------
+2. DESIGN OBJECTIVE
+--------------------------------------------------
+
+Create a premium SaaS Enterprise homepage that communicates three ideas within the first three seconds:
+
+1. Smax.ai is a comprehensive AI-Automation Platform.
+2. Smax.ai connects multiple customer channels and business systems.
+3. Smax.ai helps businesses automate the full customer journey from advertising to sales, order processing, customer service, and remarketing.
+
+The website should feel:
+
+- Premium
+- Intelligent
+- Modern
+- Trustworthy
+- Enterprise-ready
+- Technology-driven
+- Scalable
+- Human-centered
+- Easy to understand
+- Conversion-focused
+
+Avoid making the website look like:
+
+- A generic chatbot landing page
+- A cryptocurrency or Web3 product
+- A cyberpunk interface
+- A gaming website
+- A highly technical developer dashboard
+- A crowded automation canvas
+- A playful children’s application
+- A purple-heavy AI template
+- A stock-photo corporate website
+
+--------------------------------------------------
+3. BRAND COLOR SYSTEM
+--------------------------------------------------
+
+Use the official Smax.ai color direction.
+
+Primary Navy:
+#0F1835
+
+Alternative Deep Navy:
+#17234E
+
+Primary Coral:
+#FA6E5B
+
+Process Blue:
+#4277FF
+
+Electric Blue:
+#0066FF
+
+Light Blue:
+#EAF2FF
+
+Light Surface:
+#F5F6FA
+
+White:
+#FFFFFF
+
+Primary Text:
+#0F1835
+
+Secondary Text:
+#475467
+
+Muted Text:
+#98A2B3
+
+Border:
+#E4E7EC
+
+Success Green:
+#12B76A
+
+The website must not use violet or purple as the dominant brand color.
+
+Purple may only appear in very small secondary AI-related details when necessary. The main visual identity must remain Navy, Blue, Coral, White, and Soft Gray.
+
+Recommended color distribution:
+
+- 55% white and light surfaces
+- 25% navy and deep navy
+- 15% process blue
+- 5% coral accents
+
+Use coral only for important conversion points, badges, highlighted data, active states, and decorative Smax brand details.
+
+--------------------------------------------------
+4. LAYOUT STRUCTURE
+--------------------------------------------------
+
+Design the homepage using a responsive 12-column grid system.
+
+Desktop container:
+
+- Maximum width: 1440px
+- Main content width: 1240–1320px
+- Horizontal padding: 64–80px
+- Section vertical padding: 96–140px
+- Grid gap: 24–32px
+
+Desktop breakpoint:
+1440px and above
+
+Laptop breakpoint:
+1024–1439px
+
+Tablet breakpoint:
+768–1023px
+
+Mobile breakpoint:
+Below 768px
+
+The hero should use a two-column structure:
+
+- Left content: 5 columns
+- Right visualization: 7 columns
+
+Do not force the entire website into one rounded browser frame.
+
+Instead, use a premium full-width website layout with:
+
+- A dark navigation and hero area
+- Light content sections
+- Selected dark feature sections
+- Soft gradient transitions
+- Large rounded content containers
+- Floating product modules
+- Controlled glass effects
+
+Use clear content hierarchy and strong visual breathing room.
+
+--------------------------------------------------
+5. SECTION ORDER
+--------------------------------------------------
+
+Create the homepage in the following exact order.
+
+1. Dark Navigation Header
+2. Hero Section
+3. Core Value Proposition Cards
+4. Main Product Modules
+5. Automation Map
+6. Customer Journey Optimization
+7. AI Ecosystem
+8. Multi-source Customer Data
+9. Platform Integrations
+10. Marketing and Sales Capabilities
+11. Industry Applications
+12. Customer Testimonials
+13. Final Consultation CTA
+14. Footer
+
+Each section must have a clearly different visual purpose while maintaining one consistent Smax.ai design system.
+
+--------------------------------------------------
+6. NAVIGATION
+--------------------------------------------------
+
+Create a premium dark navigation header.
+
+Navigation background:
+Deep Navy #0F1835 with subtle transparency and backdrop blur.
+
+Header height:
+80–88px
+
+Header structure:
+
+Left:
+Official Smax.ai logo in the light version.
+
+Center navigation:
+
+- Sản phẩm
+- Giải pháp
+- Bảng giá
+- Tài nguyên
+- Hợp tác
+
+Right:
+
+- Đăng nhập
+- Dùng thử miễn phí
+
+Dropdown behavior:
+
+“Sản phẩm” opens a mega menu containing:
+
+- Livechat
+- Chatbot
+- Smax GenAI
+- AI Insight
+- Marketing Tools
+- Gamification
+- Remarketing
+- CRM Connect
+- AI Auto Map
+- Meta Business AI
+
+“Giải pháp” opens a mega menu grouped by business goal:
+
+- Tối ưu quảng cáo
+- Tối ưu chat sales
+- Tự động hóa chốt đơn
+- Chăm sóc khách hàng đa kênh
+- Chăm sóc khách hàng cũ
+- Tối ưu chuyển đổi Lead và Order
+
+Header behavior:
+
+- Sticky navigation after scrolling
+- Background becomes slightly more opaque
+- Header height decreases to approximately 72px
+- Add a subtle bottom border
+- Keep the free-trial CTA visible
+
+Mobile navigation:
+
+- Logo on the left
+- Hamburger icon on the right
+- Open a full-height side drawer
+- Display menu groups vertically
+- Put “Đăng nhập” and “Dùng thử miễn phí” at the bottom
+- Make “Dùng thử miễn phí” a full-width coral button
+
+--------------------------------------------------
+7. HERO SECTION
+--------------------------------------------------
+
+Create a premium dark-mode hero inspired by the reference composition.
+
+Hero background:
+
+Use a sophisticated combination of:
+
+- Deep navy base
+- Electric blue radial glow
+- Soft coral light
+- Subtle pale blue atmospheric gradient
+- Controlled glass illumination
+
+Do not create a purple gradient.
+
+Hero height:
+Approximately 760–860px on desktop.
+
+Left content:
+
+Eyebrow badge:
+“AI-AUTOMATION HUB CHO SALES & MARKETING”
+
+Main headline:
+
+“SmaxAI – Nền tảng AI-Automation giúp doanh nghiệp tăng trưởng mạnh mẽ trên online”
+
+Highlight selected phrases using white, Process Blue, and Coral.
+
+Suggested hierarchy:
+
+“SmaxAI”
+in white
+
+“AI-Automation”
+in Process Blue
+
+“tăng trưởng mạnh mẽ”
+with a subtle Coral highlight
+
+Supporting text:
+
+“Siêu ứng dụng hỗ trợ, chăm sóc và bán hàng đa kênh. Không chỉ là một giải pháp giao tiếp khách hàng, Smax.ai mang đến bộ giải pháp toàn diện về bán hàng, chăm sóc khách hàng và tự động hóa vận hành qua hội thoại.”
+
+Primary CTA:
+“Dùng thử miễn phí”
+
+Secondary CTA:
+“Xem video giới thiệu”
+
+Add a small play icon inside the secondary CTA.
+
+Below the buttons, display a compact trust line:
+
+“Đồng hành cùng hàng chục nghìn doanh nghiệp trong hành trình tự động hóa.”
+
+Only use the “hơn 50.000 doanh nghiệp” statistic when it has been verified by the business.
+
+Hero right visual:
+
+Create an orbital AI Automation Ecosystem.
+
+Place a large central Smax.ai Core module in the middle.
+
+Central module label:
+“Smax.ai Automation Core”
+
+Around the core, place concentric orbital rings containing floating product nodes:
+
+- Livechat
+- Chatbot
+- Smax GenAI
+- AI Insight
+- AI Auto Map
+- Remarketing
+- CRM Connect
+- Meta Business AI
+
+Place smaller external channel nodes around the outer orbit:
+
+- Facebook
+- Messenger
+- Zalo OA
+- Zalo cá nhân
+- Website
+- E-commerce platform
+- Retail store
+- FoodApp
+
+Use small data paths to communicate:
+
+Channel → Conversation → Smax AI → CRM/Order → Automation → Remarketing
+
+The center should include a business impact metric such as:
+
+“1 nền tảng”
+“Đa kênh”
+“Toàn hành trình”
+
+Do not use random human portraits like the reference website.
+
+Replace human portraits with:
+
+- Product icons
+- Platform icons
+- Conversation avatars
+- Customer data nodes
+- Order and CRM modules
+
+Use a mixture of:
+
+- Rounded-square product tiles
+- Circular platform nodes
+- Glass UI panels
+- Subtle blue and coral glow
+- Thin orbital lines
+- Soft motion trails
+
+--------------------------------------------------
+8. CORE VALUE PROPOSITION CARDS
+--------------------------------------------------
+
+Place four horizontal value cards directly below the hero.
+
+Card titles:
+
+1. Tự động hóa toàn diện
+2. Đa kênh mạnh mẽ
+3. AI thông minh
+4. Tăng trưởng bền vững
+
+Supporting copy:
+
+Tự động hóa toàn diện:
+“Từ thu hút khách hàng, tư vấn, chốt đơn đến chăm sóc và bán lại.”
+
+Đa kênh mạnh mẽ:
+“Kết nối Facebook, Zalo, Website, TikTok, Email, SMS và nhiều nền tảng khác.”
+
+AI thông minh:
+“AI tư vấn, phân tích hội thoại, tạo nội dung và hỗ trợ vận hành.”
+
+Tăng trưởng bền vững:
+“Tối ưu chi phí, nâng cao hiệu suất và tăng giá trị vòng đời khách hàng.”
+
+Card design:
+
+- Four-column desktop layout
+- White or translucent surface
+- 20–24px border radius
+- Minimal line icon
+- Navy heading
+- Gray supporting text
+- Subtle blue border
+- Coral highlight on hover
+- Do not use heavy shadows
+
+--------------------------------------------------
+9. MAIN PRODUCT MODULES
+--------------------------------------------------
+
+Section heading:
+“Các phân hệ tính năng chính”
+
+Supporting line:
+“Một hệ sinh thái kết nối xuyên suốt hoạt động Sales, Marketing và Customer Service.”
+
+Present the following modules:
+
+- Livechat
+- Chatbot
+- Smax GenAI
+- AI Insight
+- Marketing Tools
+- Gamification
+- Remarketing
+- CRM Connect
+
+Use a modular bento grid instead of eight identical cards.
+
+Make these modules larger:
+
+- Livechat
+- AI Insight
+- Smax GenAI
+- Remarketing
+
+Suggested content:
+
+Livechat:
+“Quản lý hội thoại đa kênh trên một giao diện.”
+
+Chatbot:
+“Tự động phản hồi, phân loại và bám đuổi khách hàng.”
+
+Smax GenAI:
+“Tạo và điều hướng câu trả lời thông minh theo dữ liệu doanh nghiệp.”
+
+AI Insight:
+“Phân tích chất lượng hội thoại, nhu cầu khách hàng và hiệu suất chăm sóc.”
+
+Marketing Tools:
+“Xây dựng chiến dịch, thu lead và kích hoạt automation.”
+
+Gamification:
+“Tạo minigame, loyalty và hoạt động tăng tương tác.”
+
+Remarketing:
+“Chăm sóc lại khách hàng đúng thời điểm trên nhiều kênh.”
+
+CRM Connect:
+“Đồng bộ lead, khách hàng, đơn hàng và dữ liệu vận hành.”
+
+Use real product UI previews, chat panels, graphs, timeline elements, workflow indicators, and small data cards.
+
+Do not use generic illustrations for every feature.
+
+--------------------------------------------------
+10. AUTOMATION MAP
+--------------------------------------------------
+
+Create a major dark section.
+
+Section heading:
+“Xây dựng bản đồ tự động hóa dành riêng cho doanh nghiệp”
+
+Supporting copy:
+“Smax.ai giúp doanh nghiệp kết nối các công cụ, dữ liệu và quy trình thành một hệ thống vận hành xuyên suốt.”
+
+Display the Automation Map horizontally.
+
+Do not create a dense node-based canvas.
+
+Organize the map into five clear stages:
+
+1. Thu hút
+2. Tư vấn
+3. Chốt đơn
+4. Vận hành
+5. Chăm sóc lại
+
+Under these stages, represent the main automation groups:
+
+- Thiết lập Livechat
+- Thiết lập Chatbot
+- Tối ưu quảng cáo Mess Ads
+- Thiết lập Haravan
+- Smax GenAI
+- Chăm sóc khách hàng cũ
+- Website
+- Tối ưu sàn
+- Tối ưu trải nghiệm
+- Tối ưu Lead Ads
+- AI Insight
+- Zalo cá nhân
+- n8n
+- Meta Business AI
+
+Use simplified module cards.
+
+Each module should show:
+
+- Product icon
+- Module name
+- Three key actions
+- Completion or connection state
+
+Example:
+
+“Thiết lập Livechat”
+
+- Kết nối Fanpage và Zalo OA
+- Tạo nhãn quản lý
+- Phân chia hội thoại
+
+Example:
+
+“Meta Business AI”
+
+- Kích hoạt Business AI
+- Đồng bộ Catalog
+- Tự động tạo Lead và Đơn hàng
+
+Add a central Smax Automation Core that connects all stages.
+
+Primary CTA:
+“Vẽ bản đồ tự động hóa cho doanh nghiệp của tôi”
+
+--------------------------------------------------
+11. CUSTOMER JOURNEY OPTIMIZATION
+--------------------------------------------------
+
+Section heading:
+“Tối ưu trọn vẹn hành trình khách hàng”
+
+Supporting copy:
+“Smax.ai giúp doanh nghiệp tối ưu bán hàng và chăm sóc khách hàng mỗi ngày.”
+
+Create a three-stage journey:
+
+1. Trước mua
+2. Trong mua
+3. Sau mua
+
+Trước mua:
+
+- AI viết nội dung
+- Dataset giúp phân phối đúng tệp
+- Chatbot tăng tỷ lệ phản hồi và tương tác
+
+Trong mua:
+
+- AI hỗ trợ tư vấn và chốt đơn
+- Chatbot bám đuổi khách hàng
+- Automation tự động tạo đơn hàng
+
+Sau mua:
+
+- AI phân tích khách hàng
+- Chăm sóc khách hàng đa kênh
+- Báo cáo hiệu quả chiến dịch
+- Kích hoạt chăm sóc lại
+
+Use a horizontal lifecycle timeline on desktop.
+
+Each stage must have:
+
+- One primary visual
+- Three supporting capabilities
+- A clear directional flow
+
+Add a highlighted conclusion bar:
+
+“Xây dựng hệ thống chăm sóc khách hàng cũ qua Facebook, Zalo OA và Zalo cá nhân.”
+
+--------------------------------------------------
+12. AI ECOSYSTEM
+--------------------------------------------------
+
+Section heading:
+“Giúp bạn ứng dụng AI mạnh mẽ vào kinh doanh”
+
+Introduce six Smax AI capabilities:
+
+1. AI Agent Chat
+2. AI Auto Map
+3. AI Assistance
+4. AI Insight
+5. AI Auto Post
+6. Meta Business AI kết hợp cùng Smax.ai
+
+Use the Smax mascot selectively.
+
+Do not place the mascot on every card in exactly the same pose.
+
+Each AI module should have a different action and visual context.
+
+AI Agent Chat:
+“Tư vấn bán hàng đa kênh tận tụy và nhất quán.”
+
+AI Auto Map:
+“Phân tích nhu cầu và đề xuất bản đồ tự động hóa phù hợp.”
+
+AI Assistance:
+“Hỗ trợ nhân viên tra cứu dữ liệu và nội dung chuyên sâu khi tư vấn.”
+
+AI Insight:
+“Phân tích khách hàng, chất lượng hội thoại và hiệu suất chăm sóc.”
+
+AI Auto Post:
+“Lên kế hoạch nội dung, tạo bài đăng và hỗ trợ thiết kế hình ảnh.”
+
+Meta Business AI:
+“Kết hợp Meta Business AI với Smax.ai để tối ưu tư vấn, tạo lead, tạo đơn và chăm sóc phía sau hội thoại.”
+
+CTA label on each card:
+“Xem sức mạnh của AI”
+
+Use a two-column or three-column modular grid.
+
+--------------------------------------------------
+13. MULTI-SOURCE CUSTOMER DATA
+--------------------------------------------------
+
+Section heading:
+“Hợp nhất khách hàng từ mọi điểm chạm”
+
+Represent customer sources:
+
+- Facebook Ads
+- Fanpage và Messenger
+- Cửa hàng offline
+- Website
+- Sàn thương mại điện tử
+- Zalo
+- FoodApp
+- Lead Ads
+
+Place these sources around a central Customer 360 profile.
+
+Visual flow:
+
+Sources → Unified Customer Profile → Segmentation → Automation → Conversion
+
+Use small customer attribute chips:
+
+- Nguồn khách hàng
+- Lịch sử hội thoại
+- Sản phẩm quan tâm
+- Trạng thái lead
+- Lịch sử mua hàng
+- Lần chăm sóc gần nhất
+
+--------------------------------------------------
+14. PLATFORM INTEGRATIONS
+--------------------------------------------------
+
+Section heading:
+“Kết nối mạnh mẽ với các nền tảng”
+
+Display integrations in a clean logo cloud or orbital platform system.
+
+Group integrations by category:
+
+Communication:
+
+- Facebook
+- Messenger
+- Zalo OA
+- Zalo cá nhân
+- Website
+- Email
+- SMS
+
+Commerce:
+
+- Haravan
+- E-commerce platforms
+- Retail POS
+- FoodApp
+
+Data and automation:
+
+- CRM
+- Google Sheets
+- Lark
+- n8n
+- API
+- Webhook
+
+Do not create an uncontrolled wall of logos.
+
+Show three integration groups inside large rounded containers.
+
+--------------------------------------------------
+15. MARKETING AND SALES CAPABILITIES
+--------------------------------------------------
+
+Section heading:
+“Cung cấp bộ kỹ năng toàn diện cho Marketer và đội ngũ Sales”
+
+Create capability groups:
+
+- Thu hút khách hàng
+- Tối ưu quảng cáo
+- Quản lý hội thoại
+- Tư vấn và chốt đơn
+- Quản lý Lead
+- Tự động tạo đơn
+- Chăm sóc sau mua
+- Remarketing khách hàng cũ
+- AI Insight và báo cáo
+
+Use one visual journey connecting:
+
+Campaign → Lead → Conversation → Order → Customer Care → Remarketing
+
+--------------------------------------------------
+16. INDUSTRY APPLICATIONS
+--------------------------------------------------
+
+Section heading:
+“Áp dụng linh hoạt cho nhiều lĩnh vực”
+
+Supporting copy:
+“Không chỉ dành cho E-commerce, Smax.ai có thể được triển khai theo quy trình riêng của từng ngành.”
+
+Create industry cards for:
+
+- E-commerce và Bán lẻ
+- Giáo dục
+- Bất động sản
+- Dịch vụ
+- F&B
+- Agency và Consultant
+
+Each card should include:
+
+- Industry icon or premium visual
+- Main use case
+- One automation example
+- One result-oriented benefit
+
+Avoid using generic stock portraits.
+
+--------------------------------------------------
+17. CUSTOMER TESTIMONIALS
+--------------------------------------------------
+
+Section heading:
+“Doanh nghiệp nói gì về Smax.ai?”
+
+Use three testimonial cards.
+
+Each card includes:
+
+- Company logo
+- Customer name
+- Role
+- Industry
+- Short testimonial
+- Business result
+- Optional product module used
+
+Use real testimonials only.
+
+Do not invent company names, quotes, or performance metrics.
+
+If real data is unavailable, display neutral placeholders clearly marked for later replacement.
+
+--------------------------------------------------
+18. FINAL CTA
+--------------------------------------------------
+
+Create a large premium CTA section with a deep navy background and soft blue-coral glow.
+
+Headline:
+“Sẵn sàng xây dựng hệ thống AI-Automation cho doanh nghiệp?”
+
+Supporting copy:
+“Bắt đầu từ quy trình hiện tại của bạn. Smax.ai sẽ giúp kết nối dữ liệu, hội thoại và automation thành một hệ thống vận hành thống nhất.”
+
+Primary CTA:
+“Dùng thử miễn phí”
+
+Secondary CTA:
+“Đăng ký tư vấn”
+
+Optional tertiary action:
+“Vẽ Automation Map”
+
+Include a compact visual showing:
+
+Facebook + Zalo + Website → Smax.ai → CRM + Đơn hàng + Chăm sóc lại
+
+--------------------------------------------------
+19. FOOTER
+--------------------------------------------------
+
+Use a dark navy footer.
+
+Footer columns:
+
+Column 1:
+Smax.ai logo and company description.
+
+Column 2 — Sản phẩm:
+
+- Livechat
+- Chatbot
+- Smax GenAI
+- AI Insight
+- Automation Map
+- Remarketing
+
+Column 3 — Giải pháp:
+
+- Sales
+- Marketing
+- Customer Service
+- E-commerce
+- Omnichannel
+- Meta Business AI
+
+Column 4 — Tài nguyên:
+
+- Blog
+- Tài liệu
+- Video hướng dẫn
+- Webinar
+- Bot mẫu
+- Case Study
+
+Column 5 — Doanh nghiệp:
+
+- Về Smax.ai
+- Đối tác
+- Bảng giá
+- Liên hệ
+- Chính sách
+
+Add:
+
+- Social links
+- Contact information
+- Copyright
+- Terms and privacy links
+
+--------------------------------------------------
+20. TYPOGRAPHY
+--------------------------------------------------
+
+Use Be Vietnam Pro as the primary Vietnamese typeface.
+
+Fallback:
+Inter, Arial, sans-serif
+
+Desktop display heading:
+
+- 64–72px
+- Weight 800–900
+- Line height 1.02–1.08
+- Letter spacing -0.03em
+
+Section heading:
+
+- 44–52px
+- Weight 700–800
+- Line height 1.12
+
+Card heading:
+
+- 20–24px
+- Weight 700
+
+Body large:
+
+- 18–20px
+- Weight 400–500
+- Line height 1.6
+
+Body standard:
+
+- 16–18px
+- Line height 1.6
+
+Navigation:
+
+- 14–15px
+- Weight 500–600
+
+Button:
+
+- 14–16px
+- Weight 600–700
+
+Ensure Vietnamese diacritics display correctly.
+
+Avoid excessively condensed fonts.
+
+--------------------------------------------------
+21. SPACING AND LAYOUT RHYTHM
+--------------------------------------------------
+
+Use an 8px spacing system.
+
+Recommended spacing:
+
+- 8px: icon-to-label
+- 12px: compact content gaps
+- 16px: small component spacing
+- 24px: card content spacing
+- 32px: card-to-card gap
+- 48px: heading-to-content
+- 72px: internal section separation
+- 96–140px: section vertical padding
+
+Card padding:
+
+- Desktop: 28–36px
+- Mobile: 20–24px
+
+Use generous negative space.
+
+Do not fill every area with text, icons, or decorative lines.
+
+--------------------------------------------------
+22. IMAGE AND VISUAL TREATMENT
+--------------------------------------------------
+
+Primary visual language:
+
+- Product UI panels
+- Conversation interfaces
+- Workflow paths
+- Data nodes
+- Platform integration icons
+- Customer lifecycle timelines
+- AI insight charts
+- CRM and order cards
+- Subtle 3D depth
+- Soft glass surfaces
+- Controlled blue and coral glow
+
+Avoid:
+
+- Generic robots
+- Generic humanoid AI faces
+- Large stock photography
+- Random futuristic cities
+- Excessive neon
+- Cyberpunk lighting
+- Overloaded dashboards
+- Complex automation diagrams
+- Cartoon visuals outside the official mascot system
+
+Use the official Smax mascot only in the AI Ecosystem or educational sections.
+
+--------------------------------------------------
+23. CARDS AND CONTENT BLOCKS
+--------------------------------------------------
+
+Card radius:
+20–28px
+
+Large container radius:
+28–40px
+
+Border:
+1px solid rgba(66,119,255,0.12)
+
+Light card background:
+#FFFFFF
+
+Dark card background:
+rgba(255,255,255,0.05)
+
+Shadow:
+Very soft, large blur, low opacity
+
+Hover behavior:
+
+- Translate upward by 4px
+- Increase border contrast
+- Add a subtle Process Blue or Coral highlight
+- Reveal additional micro-interaction
+- Transition duration between 180ms and 260ms
+
+Do not apply identical effects to every card.
+
+Use stronger emphasis for primary product modules and lighter treatment for supporting modules.
+
+--------------------------------------------------
+24. BUTTONS AND CTAS
+--------------------------------------------------
+
+Primary CTA:
+
+- Coral background #FA6E5B
+- White label
+- Height 48–54px
+- Border radius 999px or 14–16px
+- Medium shadow
+- Right arrow icon
+- Hover: slightly darker coral and translate upward 1–2px
+
+Secondary CTA:
+
+- Transparent or white background
+- Navy text
+- Subtle border
+- Optional play icon
+- Hover: light blue surface
+
+Dark-mode secondary CTA:
+
+- Transparent white surface
+- White label
+- Low-opacity white border
+- Hover: Process Blue border and soft glow
+
+Maintain a maximum of two prominent CTAs in one viewport area.
+
+--------------------------------------------------
+25. RESPONSIVE BEHAVIOR
+--------------------------------------------------
+
+Desktop:
+
+- Full two-column hero
+- Horizontal Automation Map
+- Multi-column bento grids
+- Full navigation
+
+Tablet:
+
+- Reduce headline size
+- Keep two-column hero when space permits
+- Convert product grid to two columns
+- Allow Automation Map horizontal scrolling
+
+Mobile:
+
+- Single-column layout
+- Headline: 38–44px
+- Content padding: 20–24px
+- Stack hero content above the ecosystem visual
+- Reduce orbital visual complexity
+- Use four to six visible nodes only
+- Convert tables and maps into swipeable cards
+- Use sticky bottom CTA only when it does not obstruct content
+- Buttons may become full width
+- Maintain minimum touch target of 44px
+
+--------------------------------------------------
+26. ACCESSIBILITY
+--------------------------------------------------
+
+Meet WCAG AA contrast standards.
+
+Requirements:
+
+- Clear keyboard focus state
+- Minimum body font size of 16px
+- Descriptive alt text
+- Visible focus rings
+- Do not rely only on color for status
+- Avoid motion that cannot be disabled
+- Respect prefers-reduced-motion
+- Use semantic headings
+- Keep form labels visible
+- Ensure Vietnamese text remains readable on gradients
+
+--------------------------------------------------
+27. MOTION AND MICRO-INTERACTIONS
+--------------------------------------------------
+
+Use subtle motion only.
+
+Recommended interactions:
+
+- Slow orbital movement in the hero
+- Floating product nodes with 4–8px movement
+- Animated connection paths
+- Small UI cards appearing sequentially
+- Button arrow movement
+- Automation stages lighting up while scrolling
+- Customer journey progress animation
+- Integration logo hover states
+
+Avoid:
+
+- Fast spinning
+- Strong parallax
+- Flashing neon
+- Large cursor-following effects
+- Distracting continuous animations
+
+--------------------------------------------------
+28. OVERALL DESIGN FEEL
+--------------------------------------------------
+
+The final design should feel like:
+
+“A premium AI Automation Operating System for Vietnamese businesses.”
+
+The emotional tone should communicate:
+
+- Intelligence
+- Operational control
+- Business growth
+- Connectivity
+- Automation
+- Reliability
+- Scalability
+- Human and AI collaboration
+
+The website should combine:
+
+- Premium SaaS visual quality
+- Clear enterprise structure
+- Friendly Vietnamese communication
+- Product-led storytelling
+- Strong conversion hierarchy
+- Realistic product interface previews
+- A complete customer journey narrative
+
+The final result must not feel like a template.
+
+It must look like a unique and scalable visual system built specifically for Smax.ai.

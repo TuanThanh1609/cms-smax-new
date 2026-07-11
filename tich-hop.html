@@ -1,0 +1,1199 @@
+<!DOCTYPE html><html lang="vi"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Smax.ai kết nối mạnh mẽ với hơn 50 nền tảng mạng xã hội, sàn thương mại điện tử, POS và hệ thống CRM để tự động hóa vận hành toàn diện.">
+    <title>Tích hợp hệ thống đa nền tảng | Smax.ai</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="icon" href="asset smax/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      /* --- Custom Additions for Integrations Page --- */
+      .integrations-hero {
+        position: relative;
+        padding: 120px 0 60px;
+        background: #FFFFFF;
+        text-align: center;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .integrations-hero .container {
+        position: relative;
+        z-index: 10;
+      }
+
+      .hero-grid-bg {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(15, 24, 53, 0.04) 1px, transparent 1px);
+        background-size: 24px 24px;
+        opacity: 0.7;
+        pointer-events: none;
+        z-index: 2;
+      }
+
+
+
+      .integrations-eyebrow {
+        display: inline-block;
+        padding: 6px 16px;
+        border-radius: 99px;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        background: #F8F9FC;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 24px;
+      }
+
+      .integrations-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 900;
+        color: var(--primary-navy, #0F1835);
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        max-width: 1000px;
+        margin: 0 auto 24px;
+      }
+
+      .integrations-title span.blue-highlight {
+        color: var(--process-blue, #4277FF);
+      }
+
+      .integrations-title span.coral-highlight {
+        color: var(--primary-coral, #FA6E5B);
+      }
+
+      .integrations-sub {
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        max-width: 780px;
+        margin: 0 auto 40px;
+      }
+
+      /* Hero Carousel Styles */
+      .hero-carousel-wrapper {
+        margin-top: 64px;
+        position: relative;
+        overflow: hidden;
+        padding: 10px 0;
+        width: 100%;
+      }
+
+      .carousel-scroll-row {
+        display: flex;
+        gap: 32px;
+        width: max-content;
+        margin-bottom: 20px;
+      }
+
+      .carousel-scroll-row.row-1 {
+        animation: scroll-left-kf 45s linear infinite;
+      }
+
+      .carousel-scroll-row.row-2 {
+        animation: scroll-right-kf 45s linear infinite;
+      }
+
+      .carousel-icon-card {
+        height: 64px;
+        width: 64px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: #FFFFFF;
+        box-shadow: 0 4px 16px rgba(15, 24, 53, 0.05);
+        border: 1px solid rgba(15, 24, 53, 0.04);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease;
+      }
+
+      .carousel-icon-card:hover {
+        transform: scale(1.1);
+      }
+
+      .carousel-icon-card img {
+        height: 36px;
+        width: 36px;
+        object-fit: contain;
+      }
+
+      .carousel-fade-left, .carousel-fade-right {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 200px;
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      .carousel-fade-left {
+        left: 0;
+        background: linear-gradient(to right, #FFFFFF 15%, rgba(255, 255, 255, 0) 100%);
+      }
+
+      .carousel-fade-right {
+        right: 0;
+        background: linear-gradient(to left, #FFFFFF 15%, rgba(255, 255, 255, 0) 100%);
+      }
+
+      @keyframes scroll-left-kf {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+
+      @keyframes scroll-right-kf {
+        0% { transform: translateX(-50%); }
+        100% { transform: translateX(0); }
+      }
+
+      /* Tabs Navigation Bar Styling */
+      .tabs-navigation-wrapper {
+        background: #FFFFFF;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+        position: sticky;
+        top: 72px;
+        z-index: 90;
+        padding: 16px 0;
+        transition: all 0.3s ease;
+      }
+
+      .tabs-flex-row {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+      }
+
+      .integration-tab-btn {
+        background: transparent;
+        border: none;
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--text-secondary, #475467);
+        cursor: pointer;
+        padding: 8px 16px;
+        position: relative;
+        transition: color 0.25s ease;
+      }
+
+      .integration-tab-btn:hover {
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .integration-tab-btn.active {
+        color: var(--process-blue, #4277FF);
+      }
+
+      .integration-tab-btn.active::after {
+        content: '';
+        position: absolute;
+        bottom: -16px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--process-blue, #4277FF);
+      }
+
+
+      /* Bento Section Styling */
+      .bento-section {
+        padding: 100px 0;
+        background: #F8F9FC;
+        border-top: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      .bento-card {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.05);
+        border-radius: 24px;
+        padding: 36px;
+        box-shadow: 0 4px 20px rgba(15, 24, 53, 0.015);
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .bento-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 36px rgba(15, 24, 53, 0.06);
+        border-color: rgba(66, 119, 255, 0.15);
+      }
+
+      .col-span-2 {
+        grid-column: span 2;
+      }
+
+      .col-span-3 {
+        grid-column: 1 / -1;
+      }
+
+      .overview-flow-card {
+        display: grid;
+        grid-template-columns: minmax(260px, 0.5fr) minmax(0, 1.5fr);
+        gap: 28px;
+        align-items: center;
+        padding: 28px;
+        background: linear-gradient(135deg, #FFFFFF 0%, #F7FAFF 56%, #FFF7F4 100%);
+        border-color: rgba(66, 119, 255, 0.12);
+      }
+
+      .overview-flow-copy {
+        padding: 8px 0 8px 8px;
+      }
+
+      .overview-flow-copy h3 {
+        max-width: 440px;
+        font-size: clamp(24px, 3vw, 34px);
+        line-height: 1.15;
+      }
+
+      .overview-flow-copy p {
+        max-width: 460px;
+        margin-bottom: 0;
+      }
+
+      .overview-flow-visual {
+        overflow: hidden;
+        border: 1px solid rgba(66, 119, 255, 0.12);
+        border-radius: 20px;
+        background: #FFFFFF;
+        box-shadow: 0 18px 44px rgba(31, 55, 120, 0.08);
+      }
+
+      .overview-flow-visual img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .bento-meta {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--process-blue, #4277FF);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 14px;
+      }
+
+      .bento-card h3 {
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 12px;
+        letter-spacing: -0.01em;
+      }
+
+      .bento-card p {
+        font-size: 14.5px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        margin-bottom: 24px;
+      }
+
+      /* Dynamic Flat UI Graphics inside Bento Cards */
+      .bento-ui-container {
+        background: #F8F9FC;
+        border: 1px solid rgba(15, 24, 53, 0.04);
+        border-radius: 16px;
+        padding: 16px;
+        margin-top: auto;
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      
+      .bento-card:hover .bento-ui-container {
+        transform: translateY(-2px) scale(1.01);
+        border-color: rgba(66, 119, 255, 0.12);
+        box-shadow: 0 12px 28px rgba(15, 24, 53, 0.03);
+      }
+
+      .feature-image-frame {
+        padding: 16px;
+        min-height: 190px;
+        aspect-ratio: 16 / 9;
+        background:
+          radial-gradient(circle at 22% 18%, rgba(66, 119, 255, 0.1), transparent 32%),
+          radial-gradient(circle at 82% 78%, rgba(250, 110, 91, 0.08), transparent 34%),
+          #F8F9FC;
+        border-color: rgba(66, 119, 255, 0.1);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      }
+
+      .feature-image-frame img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+        transform: scale(1.08);
+        filter: saturate(1.02);
+      }
+
+      .bento-card.col-span-1 .feature-image-frame img {
+        transform: scale(1.16);
+      }
+
+      .bento-card.col-span-1 .feature-image-frame {
+        aspect-ratio: 4 / 3;
+      }
+
+      .bento-card.col-span-2 .feature-image-frame {
+        min-height: 220px;
+      }
+
+      /* Style sub-components for dynamic UIs */
+      .flat-btn-group {
+        display: flex;
+        gap: 12px;
+      }
+
+      .flat-btn {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        border-radius: 8px;
+        padding: 8px 16px;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--primary-navy, #0F1835);
+        box-shadow: 0 2px 6px rgba(15, 24, 53, 0.02);
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        cursor: pointer;
+      }
+      .flat-btn:hover {
+        background: #F8F9FC;
+        border-color: rgba(15, 24, 53, 0.15);
+      }
+      .flat-btn:active {
+        transform: scale(0.96);
+      }
+
+      .flat-btn.accent {
+        background: var(--primary-coral, #FA6E5B);
+        color: #FFFFFF;
+        border-color: var(--primary-coral, #FA6E5B);
+      }
+
+      .flat-chip-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+      }
+
+      .flat-chip {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 99px;
+        padding: 6px 14px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--primary-navy, #0F1835);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .flat-chip-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--process-blue, #4277FF);
+      }
+
+      .flat-flow-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .flat-flow-arrow {
+        color: var(--text-secondary, #475467);
+      }
+
+      .flat-message-box {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 12px;
+        padding: 12px;
+        max-width: 240px;
+        font-size: 12.5px;
+        line-height: 1.4;
+      }
+
+      .flat-message-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        background: var(--process-blue, #4277FF);
+        color: #FFFFFF;
+        border: none;
+        border-radius: 6px;
+        padding: 6px;
+        font-weight: 700;
+        margin-top: 8px;
+        font-size: 11.5px;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        cursor: pointer;
+      }
+      .flat-message-btn:hover {
+        background: #2b60e6;
+      }
+      .flat-message-btn:active {
+        transform: scale(0.96);
+      }
+
+      .flat-chart-row {
+        display: flex;
+        align-items: flex-end;
+        gap: 16px;
+        height: 80px;
+      }
+
+      .flat-chart-bar {
+        width: 28px;
+        border-radius: 4px 4px 0 0;
+        background: var(--process-blue, #4277FF);
+        transition: height 0.5s ease;
+      }
+
+      .flat-chart-bar.coral {
+        background: var(--primary-coral, #FA6E5B);
+      }
+
+      .flat-search-box {
+        width: 100%;
+        max-width: 260px;
+      }
+
+      .flat-search-input {
+        width: 100%;
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 12.5px;
+        margin-bottom: 8px;
+        color: var(--text-secondary, #475467);
+      }
+
+      .flat-search-result {
+        background: #FFFFFF;
+        border: 1px solid rgba(12, 183, 106, 0.15);
+        border-radius: 8px;
+        padding: 8px;
+        font-size: 12px;
+        color: #12B76A;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .flat-invoice {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 12px;
+        padding: 12px;
+        width: 100%;
+        max-width: 240px;
+        font-size: 12px;
+      }
+
+      .flat-invoice-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 6px;
+      }
+
+      .flat-invoice-badge {
+        padding: 2px 6px;
+        border-radius: 4px;
+        background: rgba(18, 183, 106, 0.1);
+        color: #12B76A;
+        font-weight: 700;
+        font-size: 10.5px;
+      }
+
+      .flat-card-vip {
+        background: linear-gradient(135deg, #0F1835 0%, #1E2E62 100%);
+        border-radius: 12px;
+        padding: 16px;
+        width: 220px;
+        height: 100px;
+        color: #FFFFFF;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .flat-timeline {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .flat-timeline-node {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .flat-timeline-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #E4E7EC;
+      }
+
+      .flat-timeline-dot.active {
+        background: #12B76A;
+      }
+
+      .flat-timeline-label {
+        font-size: 10.5px;
+        color: var(--text-secondary, #475467);
+      }
+
+      .flat-timeline-line {
+        width: 32px;
+        height: 2px;
+        background: #E4E7EC;
+        margin-bottom: 14px;
+      }
+
+      .flat-timeline-line.active {
+        background: #12B76A;
+      }
+
+      .flat-alert-box {
+        background: #FEF3F2;
+        border: 1px solid #FDA29B;
+        border-radius: 8px;
+        padding: 12px;
+        color: #B42318;
+        font-size: 12px;
+        max-width: 240px;
+        font-weight: 600;
+      }
+
+      .flat-stars {
+        display: flex;
+        gap: 4px;
+        color: #FDB022;
+        font-size: 18px;
+        margin-bottom: 6px;
+        justify-content: center;
+      }
+
+      @media (max-width: 992px) {
+        .display-screen-grid {
+          grid-template-columns: 1fr;
+        }
+        .bento-grid {
+          grid-template-columns: 1fr;
+        }
+        .col-span-2 {
+          grid-column: span 1;
+        }
+        .col-span-3 {
+          grid-column: span 1;
+        }
+        .overview-flow-card {
+          grid-template-columns: 1fr;
+          padding: 22px;
+        }
+        .overview-flow-copy {
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header" data-header=""></header>
+
+    <main id="top">
+      <!-- Cinematic Hero with Infinite Scrolling Logo Carousel -->
+      <section class="integrations-hero">
+        <div class="hero-grid-bg"></div>
+
+
+        <div class="container">
+          <span class="integrations-eyebrow">⚡ Tích hợp đa kênh</span>
+          <h1 class="integrations-title" data-cms="tichhop-hero-title">Tích hợp linh hoạt với mọi ứng dụng Marketing &amp; Sales của bạn của bạn
+          </h1>
+          <p class="integrations-sub" data-cms="tichhop-hero-sub">Kết nối Smax.ai với các hệ thống CRM, POS, Sàn TMĐT và các công cụ tự động hóa qua API hoặc n8n/Make để đồng bộ dữ liệu và vận hành tự động không gián đoạn.</p>
+          <div style="display: flex; gap: 16px; justify-content: center; position: relative; z-index: 10;">
+            <a class="btn btn-dark" href="#cta">Kết nối hệ thống ngay</a>
+            <a class="btn btn-soft" href="#integrations-tabs">Tìm hiểu giải pháp</a>
+          </div>
+
+          <!-- Infinite Scrolling Logo Carousel -->
+          <div class="hero-carousel-wrapper">
+            <!-- Fade Overlays -->
+            <div class="carousel-fade-left"></div>
+            <div class="carousel-fade-right"></div>
+
+            <!-- Row 1 (Scroll Left) -->
+            <div class="carousel-scroll-row row-1">
+              <!-- First half -->
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/facebook.svg" alt="Facebook Messenger" data-cms-img="tich-hop-img-1"></div>
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/zalo.svg" alt="Zalo" data-cms-img="tich-hop-img-2"></div>
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/tiktok.svg" alt="TikTok" data-cms-img="tich-hop-img-3"></div>
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/instagram.svg" alt="Instagram" data-cms-img="tich-hop-img-4"></div>
+              <div class="carousel-icon-card"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968841.png" alt="WhatsApp" data-cms-img="tich-hop-img-5"></div>
+              <div class="carousel-icon-card"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968804.png" alt="Telegram" data-cms-img="tich-hop-img-6"></div>
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/meta.svg" alt="Meta Ads" data-cms-img="tich-hop-img-7"></div>
+              <div class="carousel-icon-card"><img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Gmail" data-cms-img="tich-hop-img-8"></div>
+              <!-- Duplicate half for seamless looping -->
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/facebook.svg" alt="Facebook Messenger" data-cms-img="tich-hop-img-9"></div>
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/zalo.svg" alt="Zalo" data-cms-img="tich-hop-img-10"></div>
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/tiktok.svg" alt="TikTok" data-cms-img="tich-hop-img-11"></div>
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/instagram.svg" alt="Instagram" data-cms-img="tich-hop-img-12"></div>
+              <div class="carousel-icon-card"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968841.png" alt="WhatsApp" data-cms-img="tich-hop-img-13"></div>
+              <div class="carousel-icon-card"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968804.png" alt="Telegram" data-cms-img="tich-hop-img-14"></div>
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/meta.svg" alt="Meta Ads" data-cms-img="tich-hop-img-15"></div>
+              <div class="carousel-icon-card"><img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Gmail" data-cms-img="tich-hop-img-16"></div>
+            </div>
+
+            <!-- Row 2 (Scroll Right) -->
+            <div class="carousel-scroll-row row-2">
+              <!-- First half -->
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/shopee.svg" alt="Shopee" data-cms-img="tich-hop-img-17"></div>
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/lazada.png" alt="Lazada" data-cms-img="tich-hop-img-18"></div>
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/tiki.png" alt="Tiki" data-cms-img="tich-hop-img-19"></div>
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/google-sheets.svg" alt="Google Sheets" data-cms-img="tich-hop-img-20"></div>
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/google-ads.svg" alt="Google Ads" data-cms-img="tich-hop-img-21"></div>
+              <div class="carousel-icon-card"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="HubSpot" data-cms-img="tich-hop-img-22"></div>
+              <div class="carousel-icon-card"><img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" alt="Shopify" data-cms-img="tich-hop-img-23"></div>
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/zapier.svg" alt="Zapier" data-cms-img="tich-hop-img-24"></div>
+              <!-- Duplicate half for seamless looping -->
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/shopee.svg" alt="Shopee" data-cms-img="tich-hop-img-25"></div>
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/lazada.png" alt="Lazada" data-cms-img="tich-hop-img-26"></div>
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/tiki.png" alt="Tiki" data-cms-img="tich-hop-img-27"></div>
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/google-sheets.svg" alt="Google Sheets" data-cms-img="tich-hop-img-28"></div>
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/google-ads.svg" alt="Google Ads" data-cms-img="tich-hop-img-29"></div>
+              <div class="carousel-icon-card"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="HubSpot" data-cms-img="tich-hop-img-30"></div>
+              <div class="carousel-icon-card"><img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" alt="Shopify" data-cms-img="tich-hop-img-31"></div>
+              <div class="carousel-icon-card"><img src="asset smax/integration-icons/zapier.svg" alt="Zapier" data-cms-img="tich-hop-img-32"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sticky Navigation Tabs Bar -->
+      <div class="tabs-navigation-wrapper" id="integrations-tabs">
+        <div class="container">
+          <div class="tabs-flex-row">
+            <button class="integration-tab-btn active" data-tab="crm">Hệ thống CRM</button>
+            <button class="integration-tab-btn" data-tab="pos">Phần mềm POS</button>
+            <button class="integration-tab-btn" data-tab="ecommerce">Sàn TMĐT &amp; Web bán hàng</button>
+            <button class="integration-tab-btn" data-tab="advanced">Tích hợp Nâng cao (n8n, API)</button>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Bento Grid Section -->
+      <section class="bento-section">
+        <div class="container">
+          <div class="bento-grid" id="bento-features-container">
+            <!-- Populated dynamically via JS based on selected tab -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA Section (Unified with Homepage) -->
+      <section class="final-cta" id="cta">
+        <div class="container cta-inner">
+          <h2 data-cms="tich-hop-text-1">Sẵn sàng xây dựng hệ thống AI-Automation cho doanh nghiệp?</h2>
+          <p data-cms="tich-hop-text-2">Bắt đầu từ quy trình hiện tại của bạn. Smax.ai sẽ giúp kết nối dữ liệu, hội thoại và automation thành một hệ thống vận hành thống nhất.</p>
+          <div class="cta-actions">
+            <a class="btn btn-dark" href="#top">Dùng thử miễn phí</a>
+            <a class="btn btn-soft" href="#top">Đăng ký tư vấn</a>
+            <a class="btn btn-soft" href="index.html#automation">Vẽ Automation Map</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (Unified with Homepage) -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand" href="#top">
+            <img src="asset smax/smax-ai-logo.webp" alt="Smax.ai" class="brand-logo-img">
+          </a>
+          <p>Nền tảng AI-Automation giúp doanh nghiệp vận hành bán hàng, tiếp thị và chăm sóc khách hàng đa kênh.</p>
+        </div>
+        <div><h3>Sản phẩm</h3><a href="livechat.html">Livechat</a><a href="chatbot.html">Chatbot</a><a href="genai.html">Smax GenAI</a><a href="insight.html">AI Insight</a><a>Automation Map</a><a>Remarketing</a></div>
+        <div><h3>Giải pháp</h3><a>Sales</a><a>Marketing</a><a>Customer Service</a><a>E-commerce</a><a>Omnichannel</a><a>Meta Business AI</a></div>
+        <div><h3>Tài nguyên</h3><a>Blog</a><a>Tài liệu</a><a>Video hướng dẫn</a><a>Webinar</a><a>Bot mẫu</a><a>Case Study</a></div>
+        <div><h3>Doanh nghiệp</h3><a>Về Smax.ai</a><a>Đối tác</a><a>Bảng giá</a><a>Liên hệ</a><a>Chính sách</a></div>
+      </div>
+      <div class="container footer-bottom"><span>© 2026 Smax.ai</span><span>Điều khoản · Quyền riêng tư · Liên hệ tư vấn</span></div>
+    </footer>
+
+    <!-- JS Logic -->
+    <script>
+
+      // Core Database for the 3 Tabs (CRM, POS, E-commerce)
+      const dataStore = {
+        crm: {
+          title: "Tích hợp CRM sâu sắc",
+          desc: "Nhúng trực tiếp panel điều hành của CRM (HubSpot, Lark Suite, Google Sheets) ngay bên phải màn hình chat Livechat Smax. Nhân viên CSKH/Sales có thể xem thông tin khách, cập nhật Deal, lên lịch hẹn mà không cần chuyển đổi ứng dụng.",
+          image: "asset smax/integration_crm_livechat.png",
+          overview: {
+            title: "Flow kết nối CRM với Smax.ai",
+            desc: "Smax.ai hợp nhất hội thoại, định danh khách hàng, trigger CRM, Zalo và AI Insight thành một luồng dữ liệu hai chiều.",
+            image: "asset smax/integration-feature-map/crm-feature-map.png",
+            alt: "Flow Smax.ai kết nối Livechat với CRM, Zalo và AI Insight"
+          },
+          features: [
+            {
+              meta: "Tính năng 01",
+              title: "Thao tác trực tiếp trên Livechat",
+              desc: "Cho phép nhân viên thao tác Lead, lên đơn hàng và đặt lịch hẹn (Booking) trực tiếp trên panel CRM nằm bên phải màn hình chat.",
+              span: "col-span-2",
+              image: "asset smax/integration-feature-cards/crm-01-livechat-actions.png",
+              ui: `<div class="flat-btn-group">
+                    <button class="flat-btn">+ Tạo Lead</button>
+                    <button class="flat-btn accent">+ Lên đơn</button>
+                    <button class="flat-btn">+ Đặt lịch</button>
+                  </div>`
+            },
+            {
+              meta: "Tính năng 02",
+              title: "Đồng bộ định danh",
+              desc: "Đẩy các trường định danh Mess ID, Facebook ID, Ad ID về CRM phục vụ đo lường tỷ lệ chuyển đổi quảng cáo chính xác.",
+              span: "col-span-1",
+              image: "asset smax/integration-feature-cards/crm-02-identity-sync.png",
+              ui: `<div class="flat-chip-group">
+                    <div class="flat-chip"><span class="flat-chip-dot"></span>Mess ID: 8912</div>
+                    <div class="flat-chip"><span class="flat-chip-dot"></span>Facebook ID</div>
+                    <div class="flat-chip"><span class="flat-chip-dot"></span>Ad Campaign ID</div>
+                  </div>`
+            },
+            {
+              meta: "Tính năng 03",
+              title: "Gửi tin ngược từ CRM",
+              desc: "CRM phát tín hiệu (Reverse Triggering) qua Smax để gửi tin xác nhận, chăm sóc đơn hoặc đẩy tập khách hàng tùy chỉnh lên Facebook.",
+              span: "col-span-1",
+              image: "asset smax/integration-feature-cards/crm-03-reverse-trigger.png",
+              ui: `<div class="flat-flow-row">
+                    <span>CRM Trigger</span>
+                    <span class="flat-flow-arrow">➔</span>
+                    <span class="flat-chip" style="background: var(--light-blue); color: var(--process-blue); border-color: rgba(66,119,255,0.2);">Smax API</span>
+                    <span class="flat-flow-arrow">➔</span>
+                    <span>Gửi tin</span>
+                  </div>`
+            },
+            {
+              meta: "Tính năng 04",
+              title: "Tự động hóa Zalo",
+              desc: "Kết nối sâu Zalo OA & Zalo cá nhân: tự động gửi tin nhắn Zalo ZBS (ZNS) thông báo đơn hàng, kết bạn và mời khách hàng vào nhóm Zalo VIP.",
+              span: "col-span-2",
+              image: "asset smax/integration-feature-cards/crm-04-zalo-automation.png",
+              ui: `<div class="flat-message-box">
+                    <div style="font-weight: 700; color: #0066FF; margin-bottom: 4px;">Zalo VIP Group</div>
+                    Chào bạn! Smax trân trọng mời bạn tham gia nhóm Zalo VIP của chúng tôi.
+                    <button class="flat-message-btn">Tham gia nhóm ngay</button>
+                  </div>`
+            },
+            {
+              meta: "Tính năng 05",
+              title: "Chiến dịch Tiếp thị lại",
+              desc: "Kích hoạt các chiến dịch Remarketing đa kênh (Facebook, Messenger, Zalo) tự động dựa trên sự thay đổi trạng thái khách hàng từ CRM.",
+              span: "col-span-2",
+              image: "asset smax/integration-feature-cards/crm-05-remarketing.png",
+              ui: `<div class="flat-chip-group">
+                    <div class="flat-chip" style="border-color: #FA6E5B; color: #FA6E5B;">Cập nhật CRM</div>
+                    <span class="flat-flow-arrow">➔</span>
+                    <div class="flat-chip">Facebook Custom Audience</div>
+                    <span class="flat-flow-arrow">➔</span>
+                    <div class="flat-chip">Zalo OA Broadcast</div>
+                  </div>`
+            },
+            {
+              meta: "Tính năng 06",
+              title: "Trích xuất AI Insight",
+              desc: "Kéo ngược dữ liệu và lịch sử hội thoại chat từ Smax về CRM để tự doanh nghiệp xây dựng Dashboard phân tích và phát triển tính năng AI Insight.",
+              span: "col-span-1",
+              image: "asset smax/integration-feature-cards/crm-06-ai-insight.png",
+              ui: `<div class="flat-chart-row">
+                    <div class="flat-chart-bar" style="height: 60px;"></div>
+                    <div class="flat-chart-bar coral" style="height: 80px;"></div>
+                    <div class="flat-chart-bar" style="height: 45px;"></div>
+                  </div>`
+            }
+          ]
+        },
+        pos: {
+          title: "Tích hợp POS & Kho vận thông minh",
+          desc: "Liên kết thời gian thực với các phần mềm quản lý cửa hàng (KiotViet, Sapo, Nhanh.vn, Poscake). Đồng bộ hóa đơn, kiểm kho tức thời và cập nhật vận đơn tự động ngay trong luồng chat.",
+          image: "asset smax/integration_pos_livechat.png",
+          overview: {
+            title: "Flow kết nối POS và kho vận",
+            desc: "Smax.ai nối Livechat với POS để tra tồn kho, tạo hóa đơn, cập nhật hội viên, giao vận, chi nhánh và cảnh báo kho.",
+            image: "asset smax/integration-feature-map/pos-feature-map.png",
+            alt: "Flow Smax.ai kết nối POS, tồn kho, đơn hàng, hội viên và giao vận"
+          },
+          features: [
+            {
+              meta: "Tính năng 01",
+              title: "Tra cứu tồn kho real-time",
+              desc: "Nhân viên CSKH nhập mã SKU tìm kiếm sản phẩm và hiển thị số lượng tồn thực tế trên hệ thống POS của từng chi nhánh kho ngay khi chat.",
+              span: "col-span-1",
+              image: "asset smax/integration-feature-cards/pos-01-inventory-lookup.png",
+              ui: `<div class="flat-search-box">
+                    <div class="flat-search-input">Tìm SKU: SMAX-CORE-PRO</div>
+                    <div class="flat-search-result">
+                      <span>Chi nhánh 1</span>
+                      <strong>Tồn: 45 cái (Còn hàng)</strong>
+                    </div>
+                  </div>`
+            },
+            {
+              meta: "Tính năng 02",
+              title: "Đồng bộ hóa đơn bán hàng",
+              desc: "Tạo hóa đơn bán hàng nhanh và tự động đẩy thông tin đơn hàng sang POS để kho đóng gói, tránh trùng lặp thao tác thủ công.",
+              span: "col-span-2",
+              image: "asset smax/integration-feature-cards/pos-02-invoice-sync.png",
+              ui: `<div class="flat-invoice">
+                    <div class="flat-invoice-row">
+                      <strong>Hóa đơn #HD-9812</strong>
+                      <span class="flat-invoice-badge">Đã tạo POS</span>
+                    </div>
+                    <div style="color: var(--text-secondary); margin-bottom: 8px;">Khách: Nguyễn Văn A - 0987...</div>
+                    <div style="font-weight: 700; text-align: right; color: var(--primary-navy);">Tổng: 320,000đ</div>
+                  </div>`
+            },
+            {
+              meta: "Tính năng 03",
+              title: "Tích điểm & Hạng thành viên",
+              desc: "Nhận diện số điện thoại chat, tự động đồng bộ điểm số và cập nhật hạng thành viên VIP Gold/Silver trực tiếp từ POS lên màn hình Livechat.",
+              span: "col-span-1",
+              image: "asset smax/integration-feature-cards/pos-03-member-points.png",
+              ui: `<div class="flat-card-vip">
+                    <div style="font-size: 11px; text-transform: uppercase; opacity: 0.8;">Smax Member Card</div>
+                    <div style="font-weight: 800; font-size: 16px;">VIP GOLD</div>
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; opacity: 0.9;">
+                      <span>Nguyễn Văn A</span>
+                      <span>2,500 điểm</span>
+                    </div>
+                  </div>`
+            },
+            {
+              meta: "Tính năng 04",
+              title: "Đồng bộ trạng thái giao vận",
+              desc: "Đơn vị vận chuyển (GHTK, GHN, Viettel Post) cập nhật hành trình, tự động gửi tin Zalo ZBS (ZNS) hoặc Messenger FUM thông báo lộ trình cho khách hàng.",
+              span: "col-span-2",
+              image: "asset smax/integration-feature-cards/pos-04-shipping-status.png",
+              ui: `<div class="flat-timeline">
+                    <div class="flat-timeline-node">
+                      <div class="flat-timeline-dot active"></div>
+                      <div class="flat-timeline-label">Xác nhận</div>
+                    </div>
+                    <div class="flat-timeline-line active"></div>
+                    <div class="flat-timeline-node">
+                      <div class="flat-timeline-dot active"></div>
+                      <div class="flat-timeline-label">Đang giao</div>
+                    </div>
+                    <div class="flat-timeline-line"></div>
+                    <div class="flat-timeline-node">
+                      <div class="flat-timeline-dot"></div>
+                      <div class="flat-timeline-label">Đã giao</div>
+                    </div>
+                  </div>`
+            },
+            {
+              meta: "Tính năng 05",
+              title: "Phân chia đơn theo chi nhánh",
+              desc: "Tự động phân phối đơn hàng của khách hàng về chi nhánh cửa hàng hoặc kho hàng gần nhất trên POS để tối ưu vận chuyển.",
+              span: "col-span-2",
+              image: "asset smax/integration-feature-cards/pos-05-branch-routing.png",
+              ui: `<div class="flat-flow-row">
+                    <span>Đơn hàng (Hà Nội)</span>
+                    <span class="flat-flow-arrow">➔</span>
+                    <span class="flat-chip" style="background: var(--light-blue); color: var(--process-blue); border-color: rgba(66,119,255,0.2);">POS Chi nhánh 1</span>
+                    <span class="flat-flow-arrow">➔</span>
+                    <span>Giao hàng nhanh</span>
+                  </div>`
+            },
+            {
+              meta: "Tính năng 06",
+              title: "Cảnh báo tồn kho thấp",
+              desc: "Tự động gửi cảnh báo khẩn cấp lên Lark/Telegram khi POS phát hiện số lượng sản phẩm trong kho giảm xuống dưới mức tối thiểu thiết lập.",
+              span: "col-span-1",
+              image: "asset smax/integration-feature-cards/pos-06-low-stock-alert.png",
+              ui: `<div class="flat-alert-box">
+                    ⚠️ CẢNH BÁO KHO THẤP<br>
+                    Sản phẩm: SMAX-BOT-PRO<br>
+                    Số lượng còn lại: 3 cái
+                  </div>`
+            }
+          ]
+        },
+        ecommerce: {
+          title: "Kết nối Sàn TMĐT đa luồng",
+          desc: "Đồng bộ phễu hội thoại từ Shopee, Lazada, TikTok Shop về Livechat Smax.ai. Kích hoạt phễu tự động hóa cứu giỏ hàng bỏ quên và xin đánh giá 5 sao sau mua tự động.",
+          image: "asset smax/integration_shop_livechat.png",
+          overview: {
+            title: "Flow kết nối Sàn TMĐT",
+            desc: "Smax.ai gom tin nhắn đa sàn, xác nhận đơn, cứu giỏ hàng, xin đánh giá, đồng bộ Flash Sale và đẩy dữ liệu CAPI.",
+            image: "asset smax/integration-feature-map/ecommerce-feature-map.png",
+            alt: "Flow Smax.ai kết nối Shopee Lazada TikTok Shop và dữ liệu quảng cáo CAPI"
+          },
+          features: [
+            {
+              meta: "Tính năng 01",
+              title: "Hợp nhất tin nhắn đa sàn",
+              desc: "Gom toàn bộ các cuộc hội thoại chat từ Shopee, Lazada, TikTok Shop của nhiều cửa hàng về quản lý tập trung trên một giao diện chat Smax.",
+              span: "col-span-2",
+              image: "asset smax/integration-feature-cards/ecommerce-01-unified-inbox.png",
+              ui: `<div class="flat-chip-group">
+                    <div class="flat-chip"><span class="flat-chip-dot" style="background:#F25822;"></span>Shopee Chat</div>
+                    <div class="flat-chip"><span class="flat-chip-dot" style="background:#0F142D;"></span>Lazada Chat</div>
+                    <div class="flat-chip"><span class="flat-chip-dot" style="background:#000000;"></span>TikTok Shop Chat</div>
+                  </div>`
+            },
+            {
+              meta: "Tính năng 02",
+              title: "Xác nhận đơn sàn tự động",
+              desc: "Khách chốt đơn thành công trên sàn TMĐT, chatbot tự động nhắn tin cảm ơn kèm thông tin vận đơn chi tiết qua Zalo OA/Messenger.",
+              span: "col-span-1",
+              image: "asset smax/integration-feature-cards/ecommerce-02-order-confirmation.png",
+              ui: `<div class="flat-message-box">
+                    Cảm ơn bạn đã mua hàng tại Shopee. Mã vận đơn của bạn là: <strong>SPX92831...</strong>
+                  </div>`
+            },
+            {
+              meta: "Tính năng 03",
+              title: "Cứu giỏ hàng bỏ quên",
+              desc: "Hệ thống phát hiện khách hàng thêm sản phẩm vào giỏ trên sàn nhưng chưa thanh toán, tự động nhắn tin nhắc nhở kèm mã coupon ưu đãi.",
+              span: "col-span-1",
+              image: "asset smax/integration-feature-cards/ecommerce-03-cart-recovery.png",
+              ui: `<div class="flat-message-box" style="border-color: #FDA29B;">
+                    Sản phẩm trong giỏ hàng Shopee của bạn đang có ưu đãi 10%. Mua ngay!
+                    <button class="flat-message-btn" style="background: #FA6E5B;">Mua hàng</button>
+                  </div>`
+            },
+            {
+              meta: "Tính năng 04",
+              title: "Tự động xin review 5 sao",
+              desc: "Sau khi đơn vị vận chuyển báo giao hàng thành công trên sàn, chatbot nhắn tin chúc mừng và gửi link xin review 5 sao nhận quà.",
+              span: "col-span-2",
+              image: "asset smax/integration-feature-cards/ecommerce-04-review-request.png",
+              ui: `<div style="text-align: center; width: 100%;">
+                    <div class="flat-stars">★ ★ ★ ★ ★</div>
+                    <div class="flat-chip" style="display:inline-flex; border-color:#FA6E5B; color:#FA6E5B; font-weight:700;">Đánh giá ngay nhận voucher 20k!</div>
+                  </div>`
+            },
+            {
+              meta: "Tính năng 05",
+              title: "Đồng bộ Flash Sale &amp; Kho",
+              desc: "Tự động khóa kho hoặc cập nhật số lượng tồn khả dụng lên các sàn Shopee/Lazada trong các khung giờ chạy Flash Sale để tránh đè đơn.",
+              span: "col-span-2",
+              image: "asset smax/integration-feature-cards/ecommerce-05-flash-sale-sync.png",
+              ui: `<div class="flat-flow-row">
+                    <span>Flash Sale Shopee</span>
+                    <span class="flat-flow-arrow">➔</span>
+                    <span class="flat-chip" style="background: var(--light-blue); color: var(--process-blue); border-color: rgba(66,119,255,0.2);">Smax Auto-Sync</span>
+                    <span class="flat-flow-arrow">➔</span>
+                    <span>Khóa kho POS</span>
+                  </div>`
+            },
+            {
+              meta: "Tính năng 06",
+              title: "Tối ưu hóa chiến dịch Ads CAPI",
+              desc: "Đẩy ngược dữ liệu đơn hàng và doanh số thành công từ sàn về Facebook Conversions API (CAPI) giúp Pixel tối ưu tệp đối tượng mua hàng.",
+              span: "col-span-1",
+              image: "asset smax/integration-feature-cards/ecommerce-06-ads-capi.png",
+              ui: `<div class="flat-flow-row">
+                    <span>Đơn hàng sàn</span>
+                    <span class="flat-flow-arrow">➔</span>
+                    <span class="flat-chip">Meta Pixel CAPI</span>
+                  </div>`
+            }
+          ]
+        },
+        advanced: {
+          title: "Tích hợp Nâng cao & Tự động hóa",
+          desc: "Khai thác sức mạnh của hệ sinh thái Smax.ai thông qua kết nối API Webhook hai chiều thời gian thực và kéo/thả xây dựng luồng tự động hóa n8n/Make.com không cần code.",
+          image: "asset smax/integration_crm.png",
+          overview: {
+            title: "Flow kết nối API, Webhook và n8n",
+            desc: "Smax.ai mở lớp kết nối kỹ thuật để hệ thống nội bộ, webhook, REST API, n8n, Make và kênh phê duyệt vận hành cùng một luồng.",
+            image: "asset smax/integration-feature-map/advanced-feature-map-v2.png",
+            alt: "Flow Smax.ai kết nối Webhook REST API n8n Make và hệ thống nội bộ"
+          },
+          features: [
+            {
+              meta: "Tính năng 01",
+              title: "Webhook hai chiều thời gian thực",
+              desc: "Tự động gửi thông tin sự kiện hội thoại (lead mới, từ khóa kích hoạt, cập nhật khách hàng) về máy chủ của bạn ngay khi phát sinh.",
+              span: "col-span-2",
+              image: "asset smax/integration-feature-cards/advanced-01-webhook.png",
+              ui: `<div class="flat-flow-row">
+                    <span>Smax Chat</span>
+                    <span class="flat-flow-arrow">➔</span>
+                    <span class="flat-chip" style="background:#FDA29B; color:#B42318; border-color:#FDA29B;">Outgoing Webhook</span>
+                    <span class="flat-flow-arrow">➔</span>
+                    <span>Client Server</span>
+                  </div>`
+            },
+            {
+              meta: "Tính năng 02",
+              title: "Tự động hóa n8n & Make.com",
+              desc: "Sử dụng các node kết nối chính thức của Smax trên n8n và Make để kéo thả xây dựng các kịch bản liên kết phức tạp.",
+              span: "col-span-1",
+              image: "asset smax/integration-feature-cards/advanced-02-n8n-make.png",
+              ui: `<div class="flat-chip-group">
+                    <div class="flat-chip">Smax Node</div>
+                    <span class="flat-flow-arrow">➔</span>
+                    <div class="flat-chip">Gmail Node</div>
+                  </div>`
+            },
+            {
+              meta: "Tính năng 03",
+              title: "Hệ thống REST API mở",
+              desc: "Truy vấn danh sách khách hàng, cập nhật thuộc tính tag hoặc gửi tin nhắn chủ động 24/7 qua cổng REST API chuẩn đầy tài liệu.",
+              span: "col-span-1",
+              image: "asset smax/integration-feature-cards/advanced-03-rest-api.png",
+              ui: `<div style="font-family:monospace; font-size:11px; background:#1E2E62; color:#fff; padding:8px; border-radius:6px; width:100%;">
+                    curl -X POST https://api.smax.ai/v1/send
+                  </div>`
+            },
+            {
+              meta: "Tính năng 04",
+              title: "Kích hoạt kịch bản từ bên ngoài",
+              desc: "Các hệ thống bên ngoài hoặc CRM tự gọi API của Smax để kích hoạt trực tiếp các kịch bản chatbot tự động gửi mã OTP hoặc voucher giảm giá.",
+              span: "col-span-2",
+              image: "asset smax/integration-feature-cards/advanced-04-external-trigger.png",
+              ui: `<div class="flat-message-box">
+                    Mã OTP xác thực của bạn là: <strong>8291</strong>. Hạn sử dụng trong 2 phút.
+                  </div>`
+            },
+            {
+              meta: "Tính năng 05",
+              title: "Đồng bộ dữ liệu hai chiều",
+              desc: "Đồng bộ hai chiều tức thời mọi thay đổi về thuộc tính (attributes, tags) của khách hàng giữa Smax và cơ sở dữ liệu nội bộ.",
+              span: "col-span-2",
+              image: "asset smax/integration-feature-cards/advanced-05-two-way-sync.png",
+              ui: `<div class="flat-flow-row">
+                    <span>Smax Database</span>
+                    <span class="flat-flow-arrow">⇄</span>
+                    <span>CRM/Internal DB</span>
+                  </div>`
+            },
+            {
+              meta: "Tính năng 06",
+              title: "Tự động hóa luồng phê duyệt",
+              desc: "Kết nối dữ liệu chat với các nền tảng giao tiếp nội bộ của doanh nghiệp như Lark Suite, Slack, Telegram để gửi yêu cầu phê duyệt đơn hàng tự động.",
+              span: "col-span-1",
+              image: "asset smax/integration-feature-cards/advanced-06-approval-flow.png",
+              ui: `<div class="flat-btn-group" style="scale: 0.9;">
+                    <button class="flat-btn accent">Duyệt Đơn</button>
+                    <button class="flat-btn">Từ Chối</button>
+                  </div>`
+            }
+          ]
+        }
+      };
+
+      // Select DOM Elements
+      const tabButtons = document.querySelectorAll('.integration-tab-btn');
+      const bentoContainer = document.getElementById('bento-features-container');
+
+      // Function to render 6 Bento cards based on tab
+      const renderBentoFeatures = (tabKey) => {
+        const tabData = dataStore[tabKey];
+        const { overview, features } = tabData;
+        const overviewCard = overview ? `
+          <div class="bento-card overview-flow-card col-span-3">
+            <div class="overview-flow-copy">
+              <p class="bento-meta">Sơ đồ kết nối</p>
+              <h3>${overview.title}</h3>
+              <p>${overview.desc}</p>
+            </div>
+            <div class="overview-flow-visual">
+              <img src="${overview.image}" alt="${overview.alt}" loading="eager" decoding="async" />
+            </div>
+          </div>
+        ` : '';
+        const featureCards = features.map(feat => `
+          <div class="bento-card ${feat.span}">
+            <div>
+              <p class="bento-meta">${feat.meta}</p>
+              <h3>${feat.title}</h3>
+              <p>${feat.desc}</p>
+            </div>
+            <div class="bento-ui-container ${feat.image ? 'feature-image-frame' : ''}">
+              ${feat.image ? `<img
+                  src="${feat.image}"
+                  alt="${feat.title}"
+                  loading="eager"
+                  decoding="async"
+                />` : feat.ui}
+            </div>
+          </div>
+        `).join('');
+        bentoContainer.innerHTML = `${overviewCard}${featureCards}`;
+      };
+
+      // Click Event Listener for Tabs
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tab = btn.getAttribute('data-tab');
+
+          // Toggle Active Class
+          tabButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          // Render corresponding Bento Grid features
+          renderBentoFeatures(tab);
+        });
+      });
+
+      // Render corresponding tab if specified in URL query
+      const urlParams = new URLSearchParams(window.location.search);
+      const activeTab = urlParams.get('tab');
+      if (activeTab && dataStore[activeTab]) {
+        const tabBtn = document.querySelector(`.integration-tab-btn[data-tab="${activeTab}"]`);
+        if (tabBtn) {
+          // Trigger click to active tab with updated UI
+          tabButtons.forEach(b => b.classList.remove('active'));
+          tabBtn.classList.add('active');
+          renderBentoFeatures(activeTab);
+        } else {
+          renderBentoFeatures('crm');
+        }
+      } else {
+        // Initial Render (Load CRM tab by default)
+        renderBentoFeatures('crm');
+      }
+    </script>
+    <script src="script.js?v=4.0.2"></script>
+  
+
+</body></html>

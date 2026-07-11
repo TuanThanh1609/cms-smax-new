@@ -1,0 +1,1427 @@
+<!DOCTYPE html><html lang="vi"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chương trình Đối tác Smax.ai - Hợp tác đào tạo, tích hợp sản phẩm CRM/POS, triển khai Agency và hoa hồng Affiliate hấp dẫn.">
+    <title>Smax.ai Chương trình Đối tác | Hợp tác cùng phát triển hệ sinh thái AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="icon" href="asset smax/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      /* --- Custom Premium Styles for Đối tác --- */
+      body {
+        overflow-x: hidden;
+      }
+      
+      .partnership-page-wrapper {
+        font-family: "Be Vietnam Pro", sans-serif;
+        color: var(--primary-navy, #0F1835);
+        background: #FFFFFF;
+      }
+
+      /* Hero Section */
+      .premium-hero {
+        position: relative;
+        padding: 160px 0 80px;
+        background: url('https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/gridBackground.png') no-repeat center center;
+        background-size: cover;
+        text-align: center;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .hero-grid-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: radial-gradient(rgba(15, 24, 53, 0.12) 1px, transparent 1px);
+        background-size: 32px 32px;
+        mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
+        opacity: 0.15;
+        z-index: 1;
+      }
+
+      .announcement-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 16px;
+        border-radius: 99px;
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        box-shadow: 0 2px 8px rgba(15, 24, 53, 0.04);
+        margin-bottom: 32px;
+        font-size: 13.5px;
+        font-weight: 500;
+        color: var(--primary-navy, #0F1835);
+        position: relative;
+        z-index: 2;
+        transition: all 0.3s ease;
+      }
+
+      .announcement-badge:hover {
+        border-color: rgba(66, 119, 255, 0.3);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(66, 119, 255, 0.08);
+      }
+
+      .announcement-tag {
+        background: var(--primary-coral, #FA6E5B);
+        color: #FFFFFF;
+        padding: 2px 8px;
+        border-radius: 99px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .premium-hero h1 {
+        font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+        font-weight: 900;
+        line-height: 1.25;
+        letter-spacing: -0.03em;
+        color: var(--primary-navy, #0F1835);
+        max-width: 960px;
+        margin: 0 auto 24px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .premium-hero h1 span.highlight {
+        background: linear-gradient(95deg, var(--process-blue, #4277FF) 0%, var(--primary-coral, #FA6E5B) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+      }
+
+      .hero-sub {
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        max-width: 60ch;
+        margin: 0 auto 40px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        position: relative;
+        z-index: 2;
+        margin-bottom: 56px;
+      }
+
+      .hero-actions .btn {
+        border-radius: 99px !important;
+        padding: 14px 32px !important;
+        font-size: 15px !important;
+        font-weight: 700 !important;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      }
+
+      .btn-dark {
+        background: var(--primary-navy, #0F1835);
+        color: #FFFFFF;
+        border: 1px solid var(--primary-navy, #0F1835);
+      }
+
+      .btn-dark:hover {
+        background: #1b2952;
+        border-color: #1b2952;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(15, 24, 53, 0.15);
+      }
+
+      .btn-soft {
+        background: transparent;
+        color: var(--primary-navy, #0F1835);
+        border: 1px solid rgba(15, 24, 53, 0.15);
+      }
+
+      .btn-soft:hover {
+        background: rgba(15, 24, 53, 0.02);
+        border-color: rgba(15, 24, 53, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .hero-mockup-wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        border-radius: 20px;
+        box-shadow: 0 36px 80px rgba(15, 24, 53, 0.12), 0 1px 3px rgba(15, 24, 53, 0.03);
+        overflow: hidden;
+        position: relative;
+        z-index: 5;
+        animation: fadeInUpMockup 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      @keyframes fadeInUpMockup {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .browser-header {
+        height: 40px;
+        background: #F8F9FC;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.06);
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        position: relative;
+      }
+
+      .browser-dots {
+        display: flex;
+        gap: 6px;
+      }
+
+      .browser-dots .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .browser-dots .dot.red { background: #FF5F56; }
+      .browser-dots .dot.yellow { background: #FFBD2E; }
+      .browser-dots .dot.green { background: #27C93F; }
+
+      .browser-address {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(15, 24, 53, 0.03);
+        padding: 4px 24px;
+        border-radius: 6px;
+        font-size: 11.5px;
+        font-weight: 500;
+        color: #667085;
+        font-family: monospace;
+        letter-spacing: 0.02em;
+      }
+
+      .browser-content {
+        position: relative;
+        background: #FFFFFF;
+        line-height: 0;
+      }
+
+      .browser-content img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Models Section (Bento Grid) */
+      .models-section {
+        padding: 120px 0;
+        background: #FFFFFF;
+      }
+
+      .section-header {
+        text-align: center;
+        max-width: 720px;
+        margin: 0 auto 60px;
+      }
+
+      .section-tag {
+        display: inline-block;
+        padding: 6px 14px;
+        border-radius: 99px;
+        background: rgba(66, 119, 255, 0.06);
+        color: var(--blue, #4277FF);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        margin-bottom: 16px;
+        border: 1px solid rgba(66, 119, 255, 0.12);
+        text-transform: uppercase;
+      }
+
+      .section-title {
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 800;
+        color: var(--primary-navy, #0F1835);
+        line-height: 1.3;
+        letter-spacing: -0.02em;
+        margin-bottom: 16px;
+      }
+
+      .section-desc {
+        font-size: 16px;
+        color: var(--text-secondary, #475467);
+        line-height: 1.6;
+      }
+
+      .models-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .model-card {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(15, 24, 53, 0.02);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .model-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 45px rgba(15, 24, 53, 0.06);
+        border-color: rgba(66, 119, 255, 0.12);
+      }
+
+      .model-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: rgba(66, 119, 255, 0.06);
+        color: var(--process-blue, #4277FF);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+      }
+
+      .model-card:nth-child(even) .model-icon {
+        background: rgba(250, 110, 91, 0.06);
+        color: var(--primary-coral, #FA6E5B);
+      }
+
+      .model-card h3 {
+        font-size: 20px;
+        font-weight: 800;
+        margin: 0 0 12px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .model-card p {
+        font-size: 15px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        margin: 0 0 24px;
+      }
+
+      .model-features {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 32px;
+      }
+
+      .model-feature-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14.5px;
+        color: var(--primary-navy, #0F1835);
+        font-weight: 500;
+      }
+
+      .model-feature-item svg {
+        color: #27C93F;
+      }
+
+      .model-btn {
+        align-self: flex-start;
+        padding: 10px 24px;
+        border-radius: 99px;
+        border: 1px solid rgba(15, 24, 53, 0.1);
+        font-size: 14px;
+        font-weight: 700;
+        transition: all 0.3s ease;
+      }
+
+      .model-card:hover .model-btn {
+        background: var(--primary-navy, #0F1835);
+        color: #FFFFFF;
+        border-color: var(--primary-navy, #0F1835);
+      }
+
+      /* Benefits Section */
+      .benefits-section {
+        padding: 100px 0;
+        background: #F8F9FC;
+        border-top: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+
+      .benefit-card {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.05);
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: 0 4px 20px rgba(15, 24, 53, 0.01);
+      }
+
+      .benefit-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(66, 119, 255, 0.08);
+        color: var(--blue, #4277FF);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .benefit-card h4 {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0 0 8px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .benefit-card p {
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--text-secondary, #475467);
+        margin: 0;
+      }
+
+      /* Sign-up Form Section */
+      .signup-section {
+        padding: 100px 0;
+        background: #FFFFFF;
+        border-top: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .signup-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .signup-info h2 {
+        font-size: clamp(2rem, 3vw, 2.4rem);
+        font-weight: 800;
+        line-height: 1.3;
+        margin-bottom: 24px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .signup-info p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        margin-bottom: 32px;
+      }
+
+      .signup-benefits {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .signup-benefit-item {
+        display: flex;
+        gap: 16px;
+      }
+
+      .signup-benefit-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: rgba(66, 119, 255, 0.08);
+        color: var(--blue, #4277FF);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .signup-benefit-text h4 {
+        font-size: 15px;
+        font-weight: 700;
+        margin: 0 0 4px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .signup-benefit-text p {
+        font-size: 13.5px;
+        line-height: 1.4;
+        color: var(--text-secondary, #475467);
+        margin: 0;
+      }
+
+      /* Premium Form Style */
+      .signup-form-card {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 20px 50px rgba(15, 24, 53, 0.05);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .form-input, .form-select, .form-textarea {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid rgba(15, 24, 53, 0.12);
+        border-radius: 12px;
+        font-size: 14.5px;
+        color: var(--primary-navy, #0F1835);
+        background: #FFFFFF;
+        transition: all 0.3s ease;
+      }
+
+      .form-input:focus, .form-select:focus, .form-textarea:focus {
+        border-color: var(--blue, #4277FF);
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(66, 119, 255, 0.08);
+      }
+
+      .form-submit-btn {
+        width: 100%;
+        padding: 14px;
+        border-radius: 12px;
+        background: var(--primary-navy, #0F1835);
+        color: #FFFFFF;
+        border: none;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .form-submit-btn:hover {
+        background: #1b2952;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(15, 24, 53, 0.15);
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 120px 0;
+        background: #FFFFFF;
+        position: relative;
+      }
+
+      .cta-card {
+        background: var(--primary-navy, #0F1835);
+        border-radius: 32px;
+        padding: 80px 48px;
+        text-align: center;
+        color: #FFFFFF;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 32px 80px rgba(15, 24, 53, 0.25);
+      }
+
+      .cta-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: 
+          radial-gradient(circle at 20% 30%, rgba(66, 119, 255, 0.15), transparent 40%),
+          radial-gradient(circle at 80% 70%, rgba(250, 110, 91, 0.12), transparent 40%);
+        pointer-events: none;
+      }
+
+      .cta-card h2 {
+        font-size: clamp(2rem, 3.5vw, 2.6rem);
+        font-weight: 800;
+        line-height: 1.25;
+        margin-bottom: 16px;
+        letter-spacing: -0.02em;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-card p {
+        font-size: 17px;
+        color: rgba(255, 255, 255, 0.7);
+        max-width: 54ch;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-actions .btn-dark {
+        background: #FFFFFF;
+        color: var(--primary-navy, #0F1835);
+        border-color: #FFFFFF;
+      }
+
+      .cta-actions .btn-dark:hover {
+        background: rgba(255, 255, 255, 0.9);
+        border-color: rgba(255, 255, 255, 0.9);
+        transform: translateY(-2px);
+      }
+
+      .cta-actions .btn-soft {
+        color: #FFFFFF;
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .cta-actions .btn-soft:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.6);
+      }
+
+      /* --- Responsive --- */
+      @media (max-width: 1023px) {
+        .premium-hero {
+          padding: 120px 0 60px;
+        }
+
+        .hero-mockup-wrapper {
+          display: none; /* Hide large mockup on mobile */
+        }
+
+        .models-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .benefits-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .signup-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .cta-card {
+          padding: 60px 24px;
+        }
+
+        .cta-actions {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .cta-actions .btn {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .benefits-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- Partnership page 2026 refresh --- */
+      .partnership-page-wrapper {
+        --partner-blue: #246BFD;
+        --partner-coral: #FA6E5B;
+        --partner-ink: #0B1538;
+        --partner-muted: #5C667F;
+        --partner-line: #E7EAF2;
+        --partner-soft: #F5F7FC;
+      }
+
+      .premium-hero {
+        min-height: 760px;
+        padding: 154px 0 88px;
+        text-align: left;
+        background:
+          radial-gradient(circle at 88% 18%, rgba(36, 107, 253, 0.16), transparent 28%),
+          radial-gradient(circle at 10% 80%, rgba(250, 110, 91, 0.12), transparent 28%),
+          linear-gradient(180deg, #FBFCFF 0%, #F4F7FF 100%);
+      }
+
+      .premium-hero .container {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(520px, 1.1fr);
+        grid-template-rows: auto auto auto auto;
+        column-gap: 58px;
+        align-items: center;
+      }
+
+      .premium-hero .announcement-badge,
+      .premium-hero h1,
+      .premium-hero .hero-sub,
+      .premium-hero .hero-actions,
+      .hero-proof-list {
+        grid-column: 1;
+      }
+
+      .premium-hero .announcement-badge {
+        justify-self: start;
+        margin-bottom: 24px;
+      }
+
+      .premium-hero h1 {
+        font-size: clamp(3rem, 5vw, 5.2rem);
+        line-height: 1.02;
+        letter-spacing: -0.055em;
+        margin: 0 0 24px;
+        max-width: 720px;
+      }
+
+      .premium-hero h1 .highlight {
+        display: block;
+      }
+
+      .premium-hero .hero-sub {
+        font-size: 17px;
+        max-width: 590px;
+        margin: 0 0 32px;
+      }
+
+      .premium-hero .hero-actions {
+        justify-content: flex-start;
+        margin: 0 0 28px;
+      }
+
+      .hero-proof-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .hero-proof-list li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #344054;
+        font-size: 13px;
+        font-weight: 650;
+      }
+
+      .hero-proof-list li::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 99px;
+        background: #23B26D;
+        box-shadow: 0 0 0 4px rgba(35, 178, 109, 0.11);
+      }
+
+      .premium-hero .hero-mockup-wrapper {
+        grid-column: 2;
+        grid-row: 1 / 6;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        border-radius: 32px;
+        border: 1px solid rgba(36, 107, 253, 0.14);
+        background: rgba(255,255,255,0.78);
+        padding: 22px;
+        box-shadow: 0 40px 100px rgba(39, 72, 150, 0.18);
+        backdrop-filter: blur(18px);
+        overflow: visible;
+      }
+
+      .premium-hero .browser-header { display: none; }
+      .premium-hero .browser-content { background: transparent; }
+      .premium-hero .browser-content img {
+        border-radius: 20px;
+        aspect-ratio: 1.48 / 1;
+        object-fit: cover;
+        box-shadow: 0 16px 48px rgba(15, 24, 53, 0.12);
+      }
+
+      .hero-float-card {
+        position: absolute;
+        right: -18px;
+        bottom: 42px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 18px;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 18px 45px rgba(15, 24, 53, 0.16);
+        color: var(--partner-ink);
+        line-height: 1.25;
+      }
+
+      .hero-float-card strong { display: block; font-size: 13px; }
+      .hero-float-card span { display: block; font-size: 11px; color: #667085; margin-top: 2px; }
+      .hero-float-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, #246BFD, #6848F5);
+        color: #fff;
+        font-size: 18px;
+      }
+
+      .partner-track {
+        border-top: 1px solid var(--partner-line);
+        border-bottom: 1px solid var(--partner-line);
+        background: #fff;
+      }
+
+      .partner-track-inner {
+        display: grid;
+        grid-template-columns: 1.15fr repeat(4, 1fr);
+        align-items: center;
+      }
+
+      .partner-track-title,
+      .partner-track-item {
+        min-height: 88px;
+        display: flex;
+        align-items: center;
+        padding: 20px 24px;
+        border-right: 1px solid var(--partner-line);
+      }
+
+      .partner-track-title { padding-left: 0; font-size: 13px; font-weight: 800; color: #667085; text-transform: uppercase; letter-spacing: .08em; }
+      .partner-track-item { gap: 10px; font-size: 14px; font-weight: 750; color: var(--partner-ink); }
+      .partner-track-item:last-child { border-right: 0; }
+      .track-number { color: var(--partner-blue); font-size: 12px; font-weight: 900; }
+
+      .models-section { padding: 116px 0; }
+      .models-grid { gap: 20px; }
+      .model-card { padding: 0; border-radius: 26px; }
+      .model-card > div:first-child { padding: 32px 32px 20px; }
+      .model-art {
+        height: 230px;
+        margin: 0 0 28px;
+        border-radius: 18px;
+        background: linear-gradient(145deg, #F4F7FF, #EEF2FB);
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+        position: relative;
+      }
+      .model-art::after {
+        content: "";
+        position: absolute;
+        inset: auto 10% -30% 10%;
+        height: 50%;
+        border-radius: 50%;
+        background: rgba(36, 107, 253, 0.16);
+        filter: blur(40px);
+      }
+      .model-art img { width: 90%; height: 92%; object-fit: contain; position: relative; z-index: 1; }
+      .model-card h3 { font-size: 23px; }
+      .model-card > .model-btn { margin: 0 32px 32px; }
+      .model-kicker { font-size: 11px; font-weight: 850; letter-spacing: .1em; color: var(--partner-blue); text-transform: uppercase; margin-bottom: 10px; }
+      .model-card:nth-child(even) .model-kicker { color: var(--partner-coral); }
+
+      .platform-section {
+        padding: 112px 0;
+        background: var(--partner-ink);
+        color: #fff;
+        overflow: hidden;
+      }
+      .platform-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 64px; align-items: center; }
+      .platform-copy .section-tag { color: #AFC7FF; border-color: rgba(255,255,255,.15); background: rgba(255,255,255,.07); }
+      .platform-copy h2 { font-size: clamp(2.2rem, 4vw, 3.7rem); line-height: 1.08; letter-spacing: -.045em; margin: 0 0 22px; }
+      .platform-copy > p { color: rgba(255,255,255,.7); font-size: 16px; line-height: 1.7; margin: 0 0 30px; }
+      .api-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .api-stat { padding: 18px; border: 1px solid rgba(255,255,255,.12); border-radius: 16px; background: rgba(255,255,255,.055); }
+      .api-stat strong { display: block; font-size: 24px; color: #fff; }
+      .api-stat span { display: block; margin-top: 4px; font-size: 11px; color: rgba(255,255,255,.58); line-height: 1.35; }
+      .platform-visual { position: relative; }
+      .platform-visual::before { content: ""; position: absolute; inset: 8% 10%; background: rgba(36,107,253,.32); filter: blur(80px); }
+      .platform-visual img { width: 100%; display: block; position: relative; filter: drop-shadow(0 32px 56px rgba(0,0,0,.3)); }
+      .platform-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 24px; color: #fff; font-size: 14px; font-weight: 750; }
+
+      .benefits-section { padding: 112px 0; }
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .benefit-card { display: grid; grid-template-columns: 48px 1fr; column-gap: 18px; padding: 28px; border-radius: 20px; }
+      .benefit-icon { grid-row: 1 / 3; margin: 0; width: 48px; height: 48px; border-radius: 14px; }
+      .benefit-card h4 { font-size: 17px; }
+      .benefit-card p { font-size: 14px; line-height: 1.6; }
+
+      .journey-section { padding: 112px 0; background: #fff; }
+      .journey-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 56px; }
+      .journey-step { position: relative; padding: 0 28px; border-left: 1px solid var(--partner-line); }
+      .journey-step:first-child { border-left: 0; padding-left: 0; }
+      .journey-step:last-child { padding-right: 0; }
+      .journey-number { width: 48px; height: 48px; border-radius: 15px; display: grid; place-items: center; background: var(--partner-ink); color: #fff; font-size: 13px; font-weight: 900; margin-bottom: 20px; }
+      .journey-step:nth-child(2) .journey-number { background: var(--partner-blue); }
+      .journey-step:nth-child(3) .journey-number { background: #6848F5; }
+      .journey-step:nth-child(4) .journey-number { background: var(--partner-coral); }
+      .journey-step h3 { font-size: 17px; margin: 0 0 10px; }
+      .journey-step p { font-size: 13.5px; line-height: 1.65; color: var(--partner-muted); margin: 0; }
+
+      .faq-partner-section { padding: 108px 0; background: var(--partner-soft); }
+      .partner-faq-grid { max-width: 900px; margin: 52px auto 0; display: grid; gap: 12px; }
+      .partner-faq { border: 1px solid var(--partner-line); border-radius: 18px; background: #fff; overflow: hidden; }
+      .partner-faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 20px; padding: 21px 24px; font-size: 15px; font-weight: 750; color: var(--partner-ink); }
+      .partner-faq summary::-webkit-details-marker { display: none; }
+      .partner-faq summary::after { content: "+"; width: 24px; height: 24px; border-radius: 8px; display: grid; place-items: center; background: #EEF3FF; color: var(--partner-blue); flex: 0 0 auto; }
+      .partner-faq[open] summary::after { content: "−"; }
+      .partner-faq p { margin: 0; padding: 0 24px 22px; color: var(--partner-muted); font-size: 14px; line-height: 1.7; }
+
+      .signup-section { padding: 118px 0; background: #fff; }
+      .signup-grid { align-items: start; }
+      .signup-info { position: sticky; top: 112px; }
+      .signup-form-card { border-radius: 28px; box-shadow: 0 26px 70px rgba(15,24,53,.09); }
+      .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      .form-note { margin: 14px 0 0; color: #7A8499; font-size: 11px; line-height: 1.5; text-align: center; }
+
+      @media (max-width: 1100px) {
+        .premium-hero .container { grid-template-columns: 1fr 1fr; column-gap: 34px; }
+        .premium-hero h1 { font-size: 3.7rem; }
+        .platform-grid { gap: 36px; }
+        .partner-track-inner { grid-template-columns: repeat(4, 1fr); }
+        .partner-track-title { display: none; }
+      }
+
+      @media (max-width: 900px) {
+        .premium-hero { padding: 124px 0 70px; }
+        .premium-hero .container { display: block; }
+        .premium-hero h1 { font-size: clamp(2.7rem, 9vw, 4rem); max-width: 680px; }
+        .premium-hero .hero-sub { max-width: 680px; }
+        .premium-hero .hero-mockup-wrapper { display: block; margin-top: 46px; }
+        .hero-float-card { right: 12px; bottom: 24px; }
+        .partner-track-inner { grid-template-columns: repeat(2, 1fr); }
+        .partner-track-item:nth-child(3) { border-right: 0; }
+        .platform-grid { grid-template-columns: 1fr; }
+        .platform-copy { max-width: 720px; }
+        .journey-grid { grid-template-columns: repeat(2, 1fr); gap: 36px 0; }
+        .journey-step:nth-child(3) { border-left: 0; padding-left: 0; }
+      }
+
+      @media (max-width: 640px) {
+        .premium-hero { min-height: auto; }
+        .premium-hero h1 { font-size: 2.75rem; }
+        .premium-hero .hero-actions { flex-direction: column; align-items: stretch; }
+        .premium-hero .hero-actions .btn { width: 100%; text-align: center; }
+        .premium-hero .hero-mockup-wrapper { padding: 10px; border-radius: 20px; }
+        .hero-float-card { display: none; }
+        .partner-track-inner { display: block; }
+        .partner-track-item { min-height: 58px; border-right: 0; border-bottom: 1px solid var(--partner-line); padding: 14px 0; }
+        .models-section, .platform-section, .benefits-section, .journey-section, .faq-partner-section, .signup-section { padding: 82px 0; }
+        .model-card > div:first-child { padding: 22px 22px 16px; }
+        .model-card > .model-btn { margin: 0 22px 24px; }
+        .model-art { height: 190px; }
+        .api-stats { grid-template-columns: 1fr; }
+        .benefits-grid, .journey-grid { grid-template-columns: 1fr; }
+        .journey-step, .journey-step:first-child, .journey-step:nth-child(3) { border-left: 0; padding: 0; }
+        .form-row { grid-template-columns: 1fr; gap: 0; }
+        .signup-form-card { padding: 24px; }
+        .signup-info { position: static; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="partnership-page-wrapper">
+      <!-- Shared Header -->
+      <header class="site-header" data-header=""></header>
+
+      <main id="top">
+        <!-- Hero Section -->
+        <section class="premium-hero">
+          <div class="hero-grid-bg"></div>
+          <div class="container">
+            <div class="announcement-badge">
+              <span class="announcement-tag">ĐỐI TÁC SMAX</span>
+              <span>Cùng bán — cùng triển khai — cùng tăng trưởng</span>
+            </div>
+            <h1 data-cms="partner-v2-hero-title">Mở rộng dịch vụ của bạn với <span class="highlight">hệ sinh thái Smax.ai</span></h1>
+            <p class="hero-sub" data-cms="partner-v2-hero-sub">Biến năng lực tư vấn, đào tạo, tích hợp hoặc xây dựng cộng đồng của bạn thành một dòng doanh thu mới — với nền tảng AI‑Automation, tài liệu triển khai và đội ngũ Smax đồng hành phía sau.</p>
+            <div class="hero-actions">
+              <a class="btn btn-dark" href="#form">
+                Đăng ký hợp tác
+              </a>
+              <a class="btn btn-soft" href="#models">
+                Xem mô hình phù hợp
+              </a>
+            </div>
+
+            <ul class="hero-proof-list" aria-label="Năng lực chương trình đối tác">
+              <li>Partner API &amp; Webhook</li>
+              <li>Tài liệu triển khai thực chiến</li>
+              <li>Hỗ trợ presales &amp; kỹ thuật</li>
+            </ul>
+
+            <!-- Browser Mockup -->
+            <div class="hero-mockup-wrapper">
+              <div class="browser-header">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-address">smax.ai/partnership</div>
+              </div>
+              <div class="browser-content">
+                <img data-cms-img="partner-v2-hero-img" src="asset smax/integration-feature-map/advanced-feature-map-v2.png" alt="Sơ đồ năng lực tích hợp Smax.ai qua Webhook, REST API, n8n, Make và cơ sở dữ liệu">
+              </div>
+              <div class="hero-float-card" aria-hidden="true">
+                <div class="hero-float-icon">↗</div>
+                <div><strong>Một nền tảng, nhiều cơ hội</strong><span>Bán hàng · Triển khai · Tích hợp · Đào tạo</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="partner-track" aria-label="Các hướng hợp tác">
+          <div class="container partner-track-inner">
+            <div class="partner-track-title">Bạn có thể bắt đầu từ</div>
+            <div class="partner-track-item"><span class="track-number">01</span> Đào tạo &amp; chuyển giao</div>
+            <div class="partner-track-item"><span class="track-number">02</span> Tích hợp sản phẩm</div>
+            <div class="partner-track-item"><span class="track-number">03</span> Agency triển khai</div>
+            <div class="partner-track-item"><span class="track-number">04</span> Affiliate &amp; cộng đồng</div>
+          </div>
+        </section>
+
+        <!-- Section 2: Partnership Models -->
+        <section class="models-section" id="models">
+          <div class="container">
+            <div class="section-header">
+              <div class="section-tag">Mô hình hợp tác</div>
+              <h2 class="section-title" data-cms="partner-v2-text-1">Chọn mô hình hợp tác phù hợp với bạn</h2>
+              <p class="section-desc" data-cms="partner-v2-text-2">
+                Smax.ai cung cấp đa dạng chính sách hợp tác linh hoạt và quyền lợi vượt trội cho từng phân nhóm đối tác.
+              </p>
+            </div>
+
+            <div class="models-grid">
+              <!-- Model 1: Đào tạo -->
+              <div class="model-card">
+                <div>
+                  <div class="model-art"><img src="asset smax/product-bento/smax-genai.png" alt="Minh họa năng lực GenAI phục vụ đào tạo và chuyển giao"></div>
+                  <div class="model-kicker">Dành cho trường học, học viện, chuyên gia</div>
+                  <h3 data-cms="partner-v2-text-3">Đối tác Đào tạo</h3>
+                  <p data-cms="partner-v2-text-4">Đưa bài toán AI‑Automation thực tế vào chương trình đào tạo, workshop hoặc khóa học về marketing, bán hàng và vận hành đa kênh.</p>
+                  <div class="model-features">
+                    <div class="model-feature-item">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
+                      Cung cấp giáo trình No-code &amp; AI Automation chuẩn.
+                    </div>
+                    <div class="model-feature-item">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
+                      Tài trợ tài khoản thực hành miễn phí cho học viên.
+                    </div>
+                    <div class="model-feature-item">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
+                      Cấp chứng chỉ Đối tác Đào tạo của Smax.ai.
+                    </div>
+                  </div>
+                </div>
+                <a class="model-btn" href="#form">Đăng ký tham gia</a>
+              </div>
+
+              <!-- Model 2: Tích hợp -->
+              <div class="model-card">
+                <div>
+                  <div class="model-art"><img src="asset smax/product-bento/crm-connect.png" alt="Minh họa đồng bộ dữ liệu CRM, đơn hàng và vận chuyển"></div>
+                  <div class="model-kicker">Dành cho CRM, POS, ERP, SaaS, developer</div>
+                  <h3 data-cms="partner-v2-text-5">Đối tác Tích hợp</h3>
+                  <p data-cms="partner-v2-text-6">Kết nối sản phẩm của bạn với dữ liệu hội thoại, khách hàng, sản phẩm, đơn hàng và kênh nhắn tin của Smax.ai.</p>
+                  <div class="model-features">
+                    <div class="model-feature-item">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
+                      Hỗ trợ tích hợp kỹ thuật qua API/Webhook đầy đủ.
+                    </div>
+                    <div class="model-feature-item">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
+                      Giải pháp đồng bộ dữ liệu real-time bảo mật cao.
+                    </div>
+                    <div class="model-feature-item">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
+                      Hợp tác tiếp thị số chéo (co-marketing) chia sẻ khách.
+                    </div>
+                  </div>
+                </div>
+                <a class="model-btn" href="#form">Đăng ký tham gia</a>
+              </div>
+
+              <!-- Model 3: Agency -->
+              <div class="model-card">
+                <div>
+                  <div class="model-art"><img src="asset smax/product-bento/marketing-tools.png" alt="Minh họa bộ công cụ Marketing Automation cho agency triển khai"></div>
+                  <div class="model-kicker">Dành cho marketing &amp; technology agency</div>
+                  <h3 data-cms="partner-v2-text-7">Agency Triển khai</h3>
+                  <p data-cms="partner-v2-text-8">Đóng gói dịch vụ tư vấn, thiết kế kịch bản và triển khai AI‑Automation cho khách hàng bằng một nền tảng thống nhất.</p>
+                  <div class="model-features">
+                    <div class="model-feature-item">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
+                      Chiết khấu tài khoản Agency hấp dẫn lên đến 35%.
+                    </div>
+                    <div class="model-feature-item">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
+                      Được bàn giao khách hàng nóng có nhu cầu tại địa phương.
+                    </div>
+                    <div class="model-feature-item">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
+                      Hỗ trợ kỹ thuật ưu tiên 24/7 từ đội ngũ Smax.
+                    </div>
+                  </div>
+                </div>
+                <a class="model-btn" href="#form">Đăng ký tham gia</a>
+              </div>
+
+              <!-- Model 4: Affiliate -->
+              <div class="model-card">
+                <div>
+                  <div class="model-art"><img src="asset smax/product-bento/remarketing.png" alt="Minh họa hành trình remarketing và tăng trưởng doanh thu"></div>
+                  <div class="model-kicker">Dành cho freelancer, KOC, cộng đồng</div>
+                  <h3 data-cms="partner-v2-text-9">Affiliate &amp; Cộng đồng</h3>
+                  <p data-cms="partner-v2-text-10">Giới thiệu Smax.ai đến đúng doanh nghiệp đang cần chuyển đổi số và nhận hoa hồng theo chính sách đối tác.</p>
+                  <div class="model-features">
+                    <div class="model-feature-item">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
+                      Hoa hồng trọn đời lên đến 30% mỗi hóa đơn thanh toán.
+                    </div>
+                    <div class="model-feature-item">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
+                      Bảng điều khiển trực quan theo dõi lead &amp; doanh số.
+                    </div>
+                    <div class="model-feature-item">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
+                      Thanh toán nhanh gọn, minh bạch vào ngày 10 hàng tháng.
+                    </div>
+                  </div>
+                </div>
+                <a class="model-btn" href="#form">Đăng ký tham gia</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="platform-section" id="partner-api">
+          <div class="container platform-grid">
+            <div class="platform-copy">
+              <div class="section-tag">Nền tảng để bạn xây dịch vụ</div>
+              <h2>Không chỉ giới thiệu phần mềm. Bạn có thể xây cả một giải pháp.</h2>
+              <p>Partner API của Smax.ai cho phép kết nối CRM, ERP, website, n8n, Make, Zapier và ứng dụng riêng. Đối tác có thể quản lý khách hàng, hội thoại, tin nhắn đa kênh, sản phẩm và đơn hàng trong cùng một kiến trúc tích hợp.</p>
+              <div class="api-stats" aria-label="Thông số Partner API">
+                <div class="api-stat"><strong>9</strong><span>nhóm chức năng chính</span></div>
+                <div class="api-stat"><strong>28+</strong><span>endpoint phục vụ tích hợp</span></div>
+                <div class="api-stat"><strong>OAS3</strong><span>HTTPS · JSON · JWT</span></div>
+              </div>
+              <a class="platform-link" href="https://smax.ai/api/partner/docs" target="_blank" rel="noopener">Khám phá tài liệu Partner API <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="platform-visual">
+              <img src="asset smax/integration-feature-cards/advanced-03-rest-api.png" alt="Minh họa REST API Smax kết nối dữ liệu khách hàng và gửi tin đa kênh">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Benefits -->
+        <section class="benefits-section">
+          <div class="container">
+            <div class="section-header">
+              <div class="section-tag">Quyền lợi đối tác</div>
+              <h2 class="section-title" data-cms="partner-v2-text-11">Tại sao nên trở thành Đối tác của Smax.ai?</h2>
+              <p class="section-desc" data-cms="partner-v2-text-12">
+                Chúng tôi không chỉ cung cấp giải pháp, chúng tôi đồng hành cùng bạn trên mọi chặng đường phát triển doanh số.
+              </p>
+            </div>
+
+            <div class="benefits-grid">
+              <!-- Benefit 1 -->
+              <div class="benefit-card">
+                <div class="benefit-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <h4 data-cms="partner-v2-text-13">Hỗ trợ kỹ thuật 24/7</h4>
+                <p data-cms="partner-v2-text-14">Đội ngũ kỹ thuật hỗ trợ riêng biệt cho các trường hợp cài đặt sâu, API/Webhook phức tạp.</p>
+              </div>
+
+              <!-- Benefit 2 -->
+              <div class="benefit-card">
+                <div class="benefit-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 14.14 14.14"></path></svg>
+                </div>
+                <h4 data-cms="partner-v2-text-15">Đào tạo chuyên sâu</h4>
+                <p data-cms="partner-v2-text-16">Tài liệu hướng dẫn triển khai, bot mẫu có sẵn và buổi train nội bộ độc quyền cho đối tác.</p>
+              </div>
+
+              <!-- Benefit 3 -->
+              <div class="benefit-card">
+                <div class="benefit-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                </div>
+                <h4 data-cms="partner-v2-text-17">Co-marketing quảng bá</h4>
+                <p data-cms="partner-v2-text-18">Phối hợp tổ chức Webinar, Case Study thực tế đăng tải trên hệ thống truyền thông của Smax.</p>
+              </div>
+
+              <!-- Benefit 4 -->
+              <div class="benefit-card">
+                <div class="benefit-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><path d="M1 10h22"></path></svg>
+                </div>
+                <h4 data-cms="partner-v2-text-19">Bảng kiểm soát doanh thu</h4>
+                <p data-cms="partner-v2-text-20">Quản trị minh bạch lượng lead, đơn hàng và hoa hồng định kỳ chuyển đổi hàng tháng.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="journey-section">
+          <div class="container">
+            <div class="section-header">
+              <div class="section-tag">Lộ trình hợp tác</div>
+              <h2 class="section-title">Từ đăng ký đến triển khai khách hàng đầu tiên</h2>
+              <p class="section-desc">Một quy trình rõ ràng để hai bên nhanh chóng thống nhất mô hình, năng lực và cách phối hợp.</p>
+            </div>
+            <div class="journey-grid">
+              <article class="journey-step">
+                <div class="journey-number">01</div>
+                <h3>Khám phá &amp; phân loại</h3>
+                <p>Smax tìm hiểu năng lực, tệp khách hàng và mục tiêu để đề xuất mô hình đối tác phù hợp.</p>
+              </article>
+              <article class="journey-step">
+                <div class="journey-number">02</div>
+                <h3>Thống nhất chính sách</h3>
+                <p>Hai bên làm rõ phạm vi hợp tác, quyền lợi, cách ghi nhận doanh số và đầu mối hỗ trợ.</p>
+              </article>
+              <article class="journey-step">
+                <div class="journey-number">03</div>
+                <h3>Đào tạo &amp; kích hoạt</h3>
+                <p>Nhận tài liệu, môi trường demo, hướng dẫn sản phẩm và hỗ trợ xây use case đầu tiên.</p>
+              </article>
+              <article class="journey-step">
+                <div class="journey-number">04</div>
+                <h3>Go-to-market</h3>
+                <p>Cùng presales, triển khai, theo dõi cơ hội và mở rộng doanh thu trên tệp khách hàng.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="faq-partner-section">
+          <div class="container">
+            <div class="section-header">
+              <div class="section-tag">Câu hỏi thường gặp</div>
+              <h2 class="section-title">Những điều đối tác thường muốn biết trước khi bắt đầu</h2>
+              <p class="section-desc">Thông tin cơ bản để bạn đánh giá mức độ phù hợp trước khi gửi đăng ký.</p>
+            </div>
+            <div class="partner-faq-grid">
+              <details class="partner-faq">
+                <summary>Tôi chưa từng triển khai Smax.ai, có thể đăng ký Agency không?</summary>
+                <p>Có. Đội ngũ Smax sẽ đánh giá nền tảng chuyên môn hiện tại, sau đó đề xuất lộ trình đào tạo sản phẩm và use case phù hợp trước khi cùng triển khai khách hàng.</p>
+              </details>
+              <details class="partner-faq">
+                <summary>Đối tác tích hợp có thể kết nối những loại dữ liệu nào?</summary>
+                <p>Partner API hỗ trợ các nhóm dữ liệu và tác vụ về khách hàng, hội thoại, tin nhắn, trang/kênh, nhãn, block, sản phẩm, đơn hàng và integration. Phạm vi triển khai cụ thể phụ thuộc quyền API và kiến trúc của từng hệ thống.</p>
+              </details>
+              <details class="partner-faq">
+                <summary>Chính sách hoa hồng và chiết khấu được áp dụng thế nào?</summary>
+                <p>Chính sách được xác định theo mô hình đối tác, cấp độ hợp tác, vai trò trong quy trình bán hàng và phạm vi triển khai. Đội ngũ phụ trách sẽ gửi bảng chính sách phù hợp sau bước trao đổi ban đầu.</p>
+              </details>
+              <details class="partner-faq">
+                <summary>Smax hỗ trợ gì trong giai đoạn presales và triển khai?</summary>
+                <p>Đối tác được cung cấp tài liệu sản phẩm, demo, tư vấn use case, đào tạo triển khai và đầu mối hỗ trợ kỹ thuật. Với cơ hội phù hợp, hai bên có thể phối hợp demo hoặc workshop cùng khách hàng.</p>
+              </details>
+              <details class="partner-faq">
+                <summary>Sau khi gửi đăng ký, bao lâu tôi nhận được phản hồi?</summary>
+                <p>Hồ sơ sẽ được chuyển đến đầu mối phụ trách để đánh giá mô hình hợp tác. Smax dự kiến liên hệ lại trong vòng 24 giờ làm việc để xác nhận thông tin và sắp xếp buổi trao đổi.</p>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Sign-up Form -->
+        <section class="signup-section" id="form">
+          <div class="container">
+            <div class="signup-grid">
+              <div class="signup-info">
+                <div class="section-tag">Đăng ký ngay</div>
+                <h2 data-cms="partner-v2-text-21">Bắt đầu hành trình hợp tác cùng Smax.ai hôm nay</h2>
+                <p data-cms="partner-v2-text-22">
+                  Hãy điền đầy đủ thông tin vào biểu mẫu bên cạnh. Đội ngũ phụ trách đối tác của Smax.ai sẽ liên hệ với bạn trong vòng 24 giờ làm việc để chia sẻ chính sách chi tiết.
+                </p>
+                <div class="signup-benefits">
+                  <div class="signup-benefit-item">
+                    <div class="signup-benefit-icon">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="signup-benefit-text">
+                      <h4 data-cms="partner-v2-text-23">Hồ sơ được duyệt nhanh chóng</h4>
+                      <p data-cms="partner-v2-text-24">Hệ thống tự động tiếp nhận thông tin và chỉ định nhân sự chuyên trách hỗ trợ bạn.</p>
+                    </div>
+                  </div>
+                  <div class="signup-benefit-item">
+                    <div class="signup-benefit-icon">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="signup-benefit-text">
+                      <h4 data-cms="partner-v2-text-25">Nhận tài liệu đối tác lập tức</h4>
+                      <p data-cms="partner-v2-text-26">Nhận ngay bộ tài liệu hướng dẫn và bot mẫu sau khi cuộc gọi tư vấn thành công.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Form Card -->
+              <div class="signup-form-card">
+                <form id="partner-signup-form" onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã đăng ký! Đội ngũ đối tác Smax.ai sẽ liên hệ lại với bạn trong vòng 24h làm việc.'); this.reset();">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="fullname">Họ và tên *</label>
+                      <input type="text" id="fullname" name="fullname" class="form-input" placeholder="Nguyễn Văn A" autocomplete="name" required="">
+                    </div>
+                    <div class="form-group">
+                      <label for="phone">Số điện thoại *</label>
+                      <input type="tel" id="phone" name="phone" class="form-input" placeholder="0901 234 567" autocomplete="tel" required="">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="email">Email công việc *</label>
+                      <input type="email" id="email" name="email" class="form-input" placeholder="partner@domain.com" autocomplete="email" required="">
+                    </div>
+                    <div class="form-group">
+                      <label for="company">Doanh nghiệp / tổ chức *</label>
+                      <input type="text" id="company" name="company" class="form-input" placeholder="Tên công ty hoặc thương hiệu" autocomplete="organization" required="">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="partnertype">Hình thức hợp tác mong muốn *</label>
+                    <select id="partnertype" name="partnertype" class="form-select" required="">
+                      <option value="" disabled="" selected="">-- Chọn hình thức --</option>
+                      <option value="education">Đối tác Đào tạo</option>
+                      <option value="integration">Đối tác Tích hợp</option>
+                      <option value="agency">Agency Triển khai</option>
+                      <option value="affiliate">Affiliate &amp; Cộng đồng</option>
+                    </select>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="website">Website / trang giới thiệu</label>
+                      <input type="url" id="website" name="website" class="form-input" placeholder="https://">
+                    </div>
+                    <div class="form-group">
+                      <label for="customerbase">Tệp khách hàng chính</label>
+                      <input type="text" id="customerbase" name="customerbase" class="form-input" placeholder="Ví dụ: bán lẻ, giáo dục, SME">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="message">Mục tiêu hợp tác *</label>
+                    <textarea id="message" name="message" class="form-textarea" rows="4" placeholder="Bạn muốn cùng Smax giải quyết bài toán gì cho khách hàng?" required=""></textarea>
+                  </div>
+                  <button type="submit" class="form-submit-btn">Đăng ký Chương trình Đối tác</button>
+                  <p class="form-note">Bằng việc gửi thông tin, bạn đồng ý để Smax.ai liên hệ tư vấn về chương trình đối tác.</p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5: CTA Card -->
+        <section class="cta-section">
+          <div class="container">
+            <div class="cta-card">
+              <h2 data-cms="partner-v2-text-27">Kiến tạo doanh số mới cùng hệ sinh thái Smax.ai</h2>
+              <p data-cms="partner-v2-text-28">
+                Cùng nhau bứt phá giới hạn công nghệ, đưa giải pháp AI-Automation tiện ích tiếp cận hàng triệu doanh nghiệp Việt Nam.
+              </p>
+              <div class="cta-actions">
+                <a class="btn btn-dark" href="#form">Đăng ký tham gia ngay</a>
+                <a class="btn btn-soft" href="index.html#cta">Liên hệ trực tiếp hỗ trợ</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div>
+            <a class="brand" href="#top">
+              <img src="asset smax/smax-ai-logo.webp" alt="Smax.ai" class="brand-logo-img">
+            </a>
+            <p>Nền tảng AI-Automation giúp doanh nghiệp vận hành bán hàng, tiếp thị và chăm sóc khách hàng đa kênh.</p>
+          </div>
+          <div>
+            <h3>Sản phẩm</h3>
+            <a href="livechat.html">Livechat</a>
+            <a href="chatbot.html">Chatbot</a>
+            <a href="genai.html">Smax GenAI</a>
+            <a href="insight.html">AI Insight</a>
+            <a href="marketing.html">Marketing Tools</a>
+            <a href="gamification.html">Gamification</a>
+            <a href="remarketing.html">Remarketing</a>
+            <a href="crm-sync.html">CRM Connect</a>
+          </div>
+          <div>
+            <h3>Giải pháp</h3>
+            <a href="ecommerce.html">E-commerce &amp; Bán lẻ</a>
+            <a href="education.html">Giáo dục</a>
+            <a href="realestate.html">Bất động sản</a>
+            <a href="service.html">Dịch vụ</a>
+            <a href="fb.html">F&amp;B</a>
+            <a href="agency.html">Agency &amp; Consultant</a>
+          </div>
+          <div>
+            <h3>Tài nguyên</h3>
+            <a>Blog</a>
+            <a>Tài liệu</a>
+            <a>Video hướng dẫn</a>
+            <a>Webinar</a>
+            <a>Bot mẫu</a>
+            <a>Case Study</a>
+          </div>
+          <div>
+            <h3>Doanh nghiệp</h3>
+            <a>Về Smax.ai</a>
+            <a href="partnership.html">Đối tác</a>
+            <a>Bảng giá</a>
+            <a>Liên hệ</a>
+            <a>Chính sách</a>
+          </div>
+        </div>
+        <div class="container footer-bottom">
+          <span>© 2026 Smax.ai</span>
+          <span>Điều khoản · Quyền riêng tư · Liên hệ tư vấn</span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Shared Header and Interactions JS -->
+    <script src="script.js?v=4.0.2"></script>
+  
+
+</body></html>

@@ -1,0 +1,1946 @@
+<!DOCTYPE html><html lang="vi"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Smax AI Insight - Phân tích chất lượng hội thoại, nhận diện xu hướng nhu cầu khách hàng và chấm điểm tự động hiệu suất chăm sóc khách hàng bằng AI.">
+    <title>Smax AI Insight | Thấu Hiểu Khách Hàng Qua Mọi Cuộc Hội Thoại</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="icon" href="asset smax/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      /* --- Filum-inspired Premium Styles for Smax AI Insight --- */
+      
+      /* Reset & Base settings for this page */
+      body {
+        overflow-x: hidden;
+      }
+      
+      .livechat-page-wrapper {
+        font-family: "Be Vietnam Pro", sans-serif;
+        color: var(--primary-navy, #0F1835);
+        background: #FFFFFF;
+      }
+
+      /* Retro Grid & Futuristic Dark Hero */
+      /* Retro Grid & Futuristic Light Hero */
+      .insight-hero {
+        position: relative;
+        padding: 180px 0 120px;
+        background: #FFFFFF; /* Nền trắng sang trọng */
+        text-align: center;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .radial-glow {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 100%;
+        max-width: 1400px;
+        background: radial-gradient(ellipse 50% 80% at 50% -20%, rgba(120, 119, 198, 0.15), transparent);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .retro-grid {
+        pointer-events: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        perspective: 200px;
+        opacity: 0.5;
+        z-index: 0;
+      }
+
+      .retro-grid-track {
+        position: absolute;
+        inset: 0%;
+        transform: rotateX(60deg);
+        transform-origin: 50% 0 0;
+      }
+
+      .retro-grid-lines {
+        background-image: linear-gradient(to right, rgba(15, 24, 53, 0.05) 1px, transparent 0),
+                          linear-gradient(to bottom, rgba(15, 24, 53, 0.05) 1px, transparent 0);
+        background-repeat: repeat;
+        background-size: 50px 50px;
+        height: 300vh;
+        width: 600vw;
+        margin-left: -250%;
+        animation: grid-animate 15s linear infinite;
+      }
+
+      @keyframes grid-animate {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(50px);
+        }
+      }
+
+      .insight-hero .container {
+        position: relative;
+        z-index: 2;
+      }
+
+      .insight-hero .announcement-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 16px;
+        border-radius: 99px;
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        box-shadow: 0 2px 8px rgba(15, 24, 53, 0.04);
+        margin-bottom: 32px;
+        font-size: 13.5px;
+        font-weight: 500;
+        color: var(--primary-navy, #0F1835);
+        transition: all 0.3s ease;
+      }
+
+      .insight-hero .announcement-badge:hover {
+        border-color: rgba(66, 119, 255, 0.3);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(66, 119, 255, 0.08);
+      }
+
+      .insight-hero .announcement-tag {
+        background: var(--primary-coral, #FA6E5B);
+        color: #FFFFFF;
+        padding: 2px 8px;
+        border-radius: 99px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .insight-hero .announcement-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        color: var(--process-blue, #4277FF);
+        font-weight: 700;
+        text-decoration: none;
+        margin-left: 4px;
+      }
+
+      .insight-hero .announcement-link svg {
+        transition: transform 0.2s ease;
+      }
+
+      .insight-hero .announcement-link:hover svg {
+        transform: translateX(2px);
+      }
+
+      .insight-hero h1 {
+        font-size: clamp(2.5rem, 5.5vw, 4rem);
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -0.04em;
+        max-width: 880px;
+        margin: 0 auto 24px;
+        background: linear-gradient(180deg, #0F1835 0%, rgba(15, 24, 53, 0.8) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .insight-hero h1 span.highlight {
+        background: linear-gradient(to right, #7C3AED, #DB2777);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .insight-hero .hero-sub {
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        max-width: 720px;
+        margin: 0 auto 40px;
+      }
+
+      /* Glowing Spinning Border Button - Light Mode */
+      .spinning-border-btn {
+        position: relative;
+        display: inline-flex;
+        padding: 1.5px;
+        border-radius: 99px;
+        overflow: hidden;
+        background: transparent;
+        cursor: pointer;
+        z-index: 10;
+        text-decoration: none;
+        transition: transform 0.2s ease;
+      }
+
+      .spinning-border-btn:active {
+        transform: scale(0.98);
+      }
+
+      .spinning-border-btn::before {
+        content: '';
+        position: absolute;
+        inset: -1000%;
+        background: conic-gradient(from 90deg at 50% 50%, #FA6E5B 0%, #4277FF 50%, #FA6E5B 100%);
+        animation: spin 3s linear infinite;
+        z-index: -2;
+      }
+
+      .spinning-border-inner {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        padding: 14px 36px;
+        border-radius: 99px;
+        background: #FFFFFF;
+        color: var(--primary-navy, #0F1835);
+        font-size: 15px;
+        font-weight: 700;
+        transition: all 0.3s ease;
+      }
+
+      .spinning-border-btn:hover .spinning-border-inner {
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 0 24px rgba(66, 119, 255, 0.2);
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin-bottom: 48px;
+        flex-wrap: wrap;
+      }
+
+      .hero-secondary-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 36px;
+        border-radius: 99px;
+        border: 1px solid rgba(15, 24, 53, 0.15);
+        background: transparent;
+        color: var(--primary-navy, #0F1835);
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .hero-secondary-btn:hover {
+        background: rgba(15, 24, 53, 0.03);
+        border-color: rgba(15, 24, 53, 0.3);
+      }
+
+      /* Hero Dashboard Preview */
+      .hero-dashboard-preview {
+        max-width: 1100px;
+        margin: 80px auto 0;
+        border-radius: 20px;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        box-shadow: 0 36px 80px rgba(15, 24, 53, 0.12), 0 0 40px rgba(120, 119, 198, 0.06);
+        overflow: hidden;
+        position: relative;
+        z-index: 10;
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .hero-dashboard-preview:hover {
+        transform: translateY(-4px) scale(1.01);
+      }
+
+      .hero-dashboard-preview img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Logo Wall Section */
+      .logo-wall-section {
+        padding: 60px 0;
+        background: #FFFFFF;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+        position: relative;
+        z-index: 10;
+      }
+
+      .logo-wall-title {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--text-secondary, #475467);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 32px;
+      }
+
+      /* Infinite Logo Carousel Styles */
+      .hero-carousel-wrapper {
+        position: relative;
+        overflow: hidden;
+        padding: 10px 0;
+        width: 100%;
+      }
+
+      .carousel-scroll-row {
+        display: flex;
+        gap: 32px;
+        width: max-content;
+      }
+
+      .carousel-scroll-row.row-1 {
+        animation: scroll-left-kf 45s linear infinite;
+      }
+
+      .carousel-icon-card {
+        height: 64px;
+        width: 64px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: #FFFFFF;
+        box-shadow: 0 4px 16px rgba(15, 24, 53, 0.05);
+        border: 1px solid rgba(15, 24, 53, 0.04);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease;
+      }
+
+      .carousel-icon-card:hover {
+        transform: scale(1.1);
+      }
+
+      .carousel-icon-card img {
+        height: 36px;
+        width: 36px;
+        object-fit: contain;
+      }
+
+      .carousel-fade-left, .carousel-fade-right {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 200px;
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      .carousel-fade-left {
+        left: 0;
+        background: linear-gradient(to right, #FFFFFF 15%, rgba(255, 255, 255, 0) 100%);
+      }
+
+      .carousel-fade-right {
+        right: 0;
+        background: linear-gradient(to left, #FFFFFF 15%, rgba(255, 255, 255, 0) 100%);
+      }
+
+      @keyframes scroll-left-kf {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+
+      /* --- Section Header & General Typography Sync --- */
+      .section-header {
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto 56px;
+      }
+
+      .section-header h2 {
+        font-size: clamp(2rem, 3.5vw, 2.5rem);
+        font-weight: 900;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 16px;
+        letter-spacing: -0.02em;
+      }
+
+      .section-header p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+      }
+
+      /* Custom list styling to sync with premium look */
+      .check-list {
+        list-style: none;
+        padding: 0;
+        margin: 24px 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .check-list li {
+        position: relative;
+        padding-left: 28px;
+        font-size: 15px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+      }
+
+      .check-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 6px;
+        width: 16px;
+        height: 16px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234277FF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center center;
+        background-size: contain;
+      }
+
+      /* Metrics Section */
+      .metrics-section {
+        padding: 100px 0;
+        background: #FFFFFF;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 48px;
+        max-width: 1100px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .metric-card {
+        padding: 16px;
+      }
+
+      .metric-num {
+        font-size: clamp(3rem, 5vw, 4.5rem);
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        margin-bottom: 16px;
+        background: linear-gradient(135deg, var(--process-blue, #4277FF) 0%, var(--primary-coral, #FA6E5B) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .metric-label {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 12px;
+      }
+
+      .metric-desc {
+        font-size: 14.5px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+      }
+
+      /* Bento Grid Section */
+      .features-bento-section {
+        padding: 120px 0;
+        background: #F8F9FC;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .bento-item {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 24px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 480px;
+        box-shadow: 0 4px 20px rgba(15, 24, 53, 0.01);
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow: hidden;
+      }
+
+      .bento-item:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(15, 24, 53, 0.06);
+        border-color: rgba(66, 119, 255, 0.15);
+      }
+
+      .bento-item.col-span-2 {
+        grid-column: span 2;
+      }
+
+      .bento-copy {
+        text-align: left;
+      }
+
+      .bento-meta {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--process-blue, #4277FF);
+        margin-bottom: 16px;
+        display: block;
+      }
+
+      .bento-item h3 {
+        font-size: 24px;
+        font-weight: 800;
+        line-height: 1.3;
+        margin-bottom: 16px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .bento-item p {
+        font-size: 15px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+      }
+
+      /* Bento visual containers */
+      .bento-visual {
+        margin-top: 32px;
+        height: 240px;
+        border-radius: 12px;
+        background: #F8F9FC;
+        border: 1px solid rgba(15, 24, 53, 0.04);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .bento-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top left;
+      }
+
+      /* Bento CSS Donut Chart Visual */
+      .bento-donut-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        height: 100%;
+        padding: 24px;
+      }
+
+      .donut-chart {
+        width: 130px;
+        height: 130px;
+        min-width: 130px;
+        min-height: 130px;
+        border-radius: 50%;
+        background: conic-gradient(
+          #12B76A 0% 72%,  /* Tích cực */
+          #E4E7EC 72% 90%, /* Trung lập */
+          #FA6E5B 90% 100% /* Tiêu cực */
+        );
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04);
+        flex-shrink: 0;
+        aspect-ratio: 1 / 1;
+      }
+
+      .donut-chart::before {
+        content: "";
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: #FFFFFF;
+      }
+
+      .donut-chart-center {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+      }
+
+      .donut-value {
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--primary-navy, #0F1835);
+        line-height: 1;
+      }
+
+      .donut-label {
+        font-size: 11px;
+        color: var(--text-secondary, #475467);
+        font-weight: 500;
+      }
+
+      .donut-legend {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        text-align: left;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .legend-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+
+      .legend-dot.green { background: #12B76A; }
+      .legend-dot.gray { background: #98A2B3; }
+      .legend-dot.coral { background: #FA6E5B; }
+
+      /* Bento CSS Bar Chart Visual */
+      .bento-bar-container {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        height: 100%;
+        justify-content: center;
+      }
+
+      .bar-item {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        text-align: left;
+      }
+
+      .bar-label-group {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .bar-track {
+        height: 10px;
+        background: #F1F3F9;
+        border-radius: 99px;
+        overflow: hidden;
+      }
+
+      .bar-fill {
+        height: 100%;
+        border-radius: 99px;
+        transition: width 1s ease;
+      }
+
+      .bar-fill.coral { background: #FA6E5B; }
+      .bar-fill.blue { background: #4277FF; }
+      .bar-fill.purple { background: #7F56D9; }
+
+      /* Stacked Cards Section */
+      .core-features-section {
+        padding: 120px 0;
+        background: #FFFFFF;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .stacked-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 120px; /* Không gian cuộn rõ rệt */
+      }
+
+      .stacked-card {
+        position: sticky;
+        border-radius: 32px;
+        padding: 56px 64px;
+        min-height: 440px;
+        height: 440px; /* Cố định chiều cao tránh vỡ layout */
+        display: grid;
+        grid-template-columns: 1.25fr 1fr;
+        gap: 64px;
+        align-items: center;
+        box-shadow: 0 -10px 40px rgba(15, 24, 53, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      /* Stacked Cards Sticky Top offsets */
+      .stacked-card:nth-child(1) {
+        z-index: 1;
+        background: #4277FF; /* Xanh công nghệ */
+        color: #FFFFFF;
+        top: 110px;
+      }
+
+      .stacked-card:nth-child(2) {
+        z-index: 2;
+        background: #FA6E5B; /* Coral cá tính */
+        color: #FFFFFF;
+        top: 140px;
+      }
+
+      .stacked-card:nth-child(3) {
+        z-index: 3;
+        background: var(--primary-navy, #0F1835); /* Navy cao cấp */
+        color: #FFFFFF;
+        top: 170px;
+      }
+
+      .stacked-card:nth-child(4) {
+        z-index: 4;
+        background: #12B76A; /* Lục năng suất */
+        color: #FFFFFF;
+        top: 200px;
+      }
+
+      .stacked-card:nth-child(5) {
+        z-index: 5;
+        background: #7F56D9; /* Tím cao cấp cho bước cuối cùng */
+        color: #FFFFFF;
+        top: 230px;
+      }
+
+      .stacked-card-copy {
+        text-align: left;
+      }
+
+      .stacked-card-meta {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        opacity: 0.8;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .stacked-card h2 {
+        font-size: clamp(2rem, 3.5vw, 2.6rem);
+        font-weight: 900;
+        line-height: 1.25;
+        margin-bottom: 20px;
+      }
+
+      .stacked-card p {
+        font-size: 16px;
+        line-height: 1.6;
+        opacity: 0.9;
+        margin-bottom: 24px;
+      }
+
+      .stacked-card-media {
+        position: relative;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 28px 56px -16px rgba(15, 24, 53, 0.16), 0 12px 24px -12px rgba(15, 24, 53, 0.12), 0 1px 2px rgba(15, 24, 53, 0.02);
+        background: #FFFFFF;
+        overflow: hidden;
+        height: 320px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px; /* Viền trắng bo 10px */
+        box-sizing: border-box;
+      }
+
+      .stacked-card-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top left;
+        display: block;
+        border-radius: 8px; /* Bo góc ảnh 8px tương ứng với viền trắng ngoài */
+      }
+
+      /* Interactive Tab Section */
+      .interactive-tabs-section {
+        padding: 100px 0;
+        background: #F8F9FC;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      /* Khống chế vị trí fixed khi GSAP ghim section để chống lệch phải */
+      .interactive-tabs-section[style*="position: fixed"] {
+        left: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .tabs-container-content {
+        max-width: 1100px;
+        margin: 0 auto;
+        text-align: center;
+        width: 100%;
+      }
+
+      .tab-buttons {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        background: #F1F3F9;
+        padding: 6px;
+        border-radius: 99px;
+        margin: 0 auto 56px;
+        width: max-content;
+        max-width: 100%;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+      }
+
+      .tab-btn {
+        padding: 10px 18px;
+        border-radius: 99px;
+        border: none;
+        background: transparent;
+        font-size: 13.5px;
+        font-weight: 700;
+        color: var(--text-secondary, #475467);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        line-height: 1.35;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (max-width: 1023px) {
+        .tab-buttons {
+          overflow-x: auto;
+          scrollbar-width: none;
+          max-width: 100%;
+          justify-content: flex-start;
+        }
+        .tab-buttons::-webkit-scrollbar {
+          display: none;
+        }
+      }
+
+      .tab-btn.active {
+        background: #FFFFFF;
+        color: var(--primary-navy, #0F1835);
+        box-shadow: 0 4px 12px rgba(15, 24, 53, 0.05);
+      }
+
+      .tab-panel {
+        display: none;
+        grid-template-columns: 2fr 8fr;
+        gap: 40px;
+        align-items: center;
+        text-align: left;
+        opacity: 0;
+      }
+
+      @media (min-width: 1024px) {
+        .tab-panel {
+          min-height: 520px;
+        }
+      }
+
+      .tab-panel.active {
+        display: grid;
+        opacity: 1;
+      }
+
+      @media (max-width: 1023px) {
+        .tab-panel {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+
+      .tab-copy h3 {
+        font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+        font-weight: 800;
+        line-height: 1.25;
+        margin-bottom: 16px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .tab-copy p {
+        font-size: 14.5px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        margin-bottom: 24px;
+      }
+
+      .tab-media {
+        border-radius: 24px;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        box-shadow: 0 20px 40px rgba(15, 24, 53, 0.05);
+        overflow: hidden;
+        height: auto;
+        max-height: 480px;
+        background: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 24px;
+      }
+
+      .tab-media img {
+        width: 100%;
+        height: auto;
+        max-height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      /* Case Study Section */
+      .casestudy-section {
+        padding: 120px 0;
+        background: #FFFFFF;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .casestudy-card {
+        background: #F8F9FC;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 32px;
+        padding: 64px;
+        display: grid;
+        grid-template-columns: 6fr 5fr;
+        gap: 64px;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .casestudy-quote {
+        text-align: left;
+      }
+
+      .casestudy-quote-mark {
+        font-size: 80px;
+        font-family: serif;
+        color: var(--process-blue, #4277FF);
+        line-height: 0.1;
+        margin-bottom: 24px;
+      }
+
+      .casestudy-quote p {
+        font-size: 18px;
+        line-height: 1.7;
+        font-weight: 500;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 28px;
+      }
+
+      .casestudy-author h4 {
+        font-size: 16px;
+        font-weight: 800;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 4px;
+      }
+
+      .casestudy-author p {
+        font-size: 13.5px;
+        color: var(--text-secondary, #475467);
+        font-weight: 500;
+      }
+
+      .casestudy-metrics {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        border-left: 2px solid rgba(15, 24, 53, 0.06);
+        padding-left: 48px;
+        text-align: left;
+      }
+
+      .cs-metric-num {
+        font-size: 40px;
+        font-weight: 900;
+        color: var(--process-blue, #4277FF);
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+
+      .cs-metric-label {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 8px;
+      }
+
+      .cs-metric-desc {
+        font-size: 13.5px;
+        line-height: 1.5;
+        color: var(--text-secondary, #475467);
+      }
+
+      /* Responsive Settings */
+      @media (max-width: 1024px) {
+        .bento-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+        .bento-item.col-span-2 {
+          grid-column: span 1;
+        }
+        .stacked-card {
+          grid-template-columns: 1fr;
+          height: auto;
+          min-height: auto;
+          gap: 32px;
+          padding: 40px;
+        }
+        .stacked-card-media {
+          height: 240px;
+        }
+        .tab-panel {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .tab-media {
+          height: 280px;
+        }
+        .casestudy-card {
+          grid-template-columns: 1fr;
+          gap: 40px;
+          padding: 40px;
+        }
+        .casestudy-metrics {
+          border-left: none;
+          border-top: 2px solid rgba(15, 24, 53, 0.06);
+          padding-left: 0;
+          padding-top: 32px;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 24px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .metrics-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+    
+      
+      
+      /* --- Quickstart 3 Steps Section (Card Grid) --- */
+      .quickstart-steps-section {
+        padding: 100px 0;
+        background: #FFFFFF;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .steps-header {
+        text-align: left;
+        margin-bottom: 56px;
+        max-width: 800px;
+      }
+
+      .steps-eyebrow {
+        display: block;
+        font-size: 13px;
+        color: #8C8C8C;
+        margin-bottom: 12px;
+        font-weight: 500;
+      }
+
+      .steps-title {
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 800;
+        color: #0F1835;
+        line-height: 1.3;
+        margin: 0;
+        letter-spacing: -0.02em;
+      }
+
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .step-card {
+        background: #F8F9FC;
+        border-radius: 20px;
+        padding: 40px 32px 32px 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        border: 1px solid rgba(15, 24, 53, 0.03);
+      }
+
+      .step-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 36px rgba(15, 24, 53, 0.05);
+        border-color: rgba(66, 119, 255, 0.1);
+      }
+
+      .step-card-eyebrow {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--primary-coral, #FA6E5B);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      .step-card-title {
+        font-size: 17px;
+        font-weight: 800;
+        color: #0F1835;
+        margin: 0 0 16px 0;
+        line-height: 1.4;
+        max-width: 24ch;
+      }
+
+      .step-card-desc {
+        font-size: 13.5px;
+        line-height: 1.55;
+        color: #595959;
+        margin: 0 0 28px 0;
+        text-align: left;
+      }
+
+      .step-card-visual {
+        width: 100%;
+        background: #FFFFFF;
+        border-radius: 12px;
+        padding: 10px;
+        box-shadow: 0 12px 32px rgba(15, 24, 53, 0.05);
+        border: 1px solid rgba(15, 24, 53, 0.02);
+        margin-top: auto; /* Push mockup to the bottom of the card */
+      }
+
+      .step-card-visual img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        display: block;
+      }
+
+      @media (max-width: 1023px) {
+        .steps-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .quickstart-steps-section {
+          padding: 60px 0;
+        }
+        .steps-header {
+          margin-bottom: 40px;
+        }
+      }
+</style>
+  </head>
+  <body>
+    <div class="livechat-page-wrapper">
+      <!-- Shared Header dynamically loaded via script.js -->
+      <header class="site-header" data-header=""></header>
+
+      <main id="top">
+        <!-- Section 1: Hero Section (Đặc biệt: Retro Grid tối mờ nghệ thuật) -->
+        <section class="insight-hero">
+          <div class="radial-glow"></div>
+          <div class="retro-grid">
+            <div class="retro-grid-track">
+              <div class="retro-grid-lines"></div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="announcement-badge">
+              <span class="announcement-tag">NEW</span>
+              <span>Smax AI Insight Engine</span>
+              <a href="https://docs.smax.ai" target="_blank" class="announcement-link">
+                <span>Đọc thêm</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+            <h1 data-cms="insight-hero-title">
+              Thấu hiểu khách hàng qua <span class="highlight">Mọi Cuộc Hội Thoại</span>
+            </h1>
+            <p class="hero-sub" data-cms="insight-hero-sub">
+              Smax AI Insight phân tích nội dung sau khi phiên hội thoại đóng, trích xuất dữ liệu theo cột tùy chỉnh và biến kết quả thành báo cáo hoặc hành động tự động.
+            </p>
+            <div class="hero-actions">
+              <a class="spinning-border-btn" href="#cta">
+                <span class="spinning-border-inner">Đặt lịch hẹn tư vấn</span>
+              </a>
+              <a class="hero-secondary-btn" href="https://docs.smax.ai" target="_blank">
+                Trải nghiệm miễn phí
+              </a>
+            </div>
+
+            <!-- Hero Dashboard Preview -->
+            <div class="hero-dashboard-preview">
+              <img data-cms-img="insight-hero-img" src="asset smax/hero-livechat-suite/hero-insight-v2.webp" alt="Giao diện Smax AI Insight phân tích nhu cầu, ý định mua, cảm xúc và cảnh báo rời bỏ" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Platform Logo Wall Section -->
+        <section class="logo-wall-section">
+          <div class="container">
+            <div class="logo-wall-title">Thu nhập Insight khách hàng đa nền tảng hội thoại</div>
+            <!-- Infinite Carousel row -->
+            <div class="hero-carousel-wrapper">
+              <div class="carousel-fade-left"></div>
+              <div class="carousel-fade-right"></div>
+              <div class="carousel-scroll-row row-1">
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/facebook.svg" alt="Facebook" data-cms-img="insight-img-1"></div>
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/zalo.svg" alt="Zalo" data-cms-img="insight-img-2"></div>
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/tiktok.svg" alt="TikTok" data-cms-img="insight-img-3"></div>
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/shopee.svg" alt="Shopee" data-cms-img="insight-img-4"></div>
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/lazada.webp" alt="Lazada" data-cms-img="insight-img-5"></div>
+                <div class="carousel-icon-card"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="HubSpot" data-cms-img="insight-img-6"></div>
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/google-sheets.svg" alt="Google Sheets" data-cms-img="insight-img-7"></div>
+                <!-- Loop -->
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/facebook.svg" alt="Facebook" data-cms-img="insight-img-8"></div>
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/zalo.svg" alt="Zalo" data-cms-img="insight-img-9"></div>
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/tiktok.svg" alt="TikTok" data-cms-img="insight-img-10"></div>
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/shopee.svg" alt="Shopee" data-cms-img="insight-img-11"></div>
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/lazada.webp" alt="Lazada" data-cms-img="insight-img-12"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Metric Section -->
+        <section class="metrics-section">
+          <div class="container">
+            <div class="metrics-grid">
+              <!-- Card 1 -->
+              <div class="metric-card">
+                <div class="metric-num">100%</div>
+                <div class="metric-label">Hội thoại được phân tích</div>
+                <div class="metric-desc">Không bỏ sót tín hiệu nhu cầu, cảm xúc và chất lượng tư vấn.</div>
+              </div>
+              <!-- Card 2 -->
+              <div class="metric-card">
+                <div class="metric-num">&lt;3s</div>
+                <div class="metric-label">Tốc độ xử lý Insight</div>
+                <div class="metric-desc">Dữ liệu được bóc tách gần như tức thì sau mỗi phiên hội thoại.</div>
+              </div>
+              <!-- Card 3 -->
+              <div class="metric-card">
+                <div class="metric-num">+45%</div>
+                <div class="metric-label">Hiệu suất chăm sóc</div>
+                <div class="metric-desc">Quản lý có dữ liệu rõ ràng để coaching và tối ưu đội ngũ.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Bento Grid (C��c tính năng phân tích trực quan) -->
+        <section class="features-bento-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="insight-text-1">Cấu hình Insight theo dữ liệu doanh nghiệp cần</h2>
+              <p data-cms="insight-text-2">Tự định nghĩa cột dữ liệu, cách lấy giá trị và dạng kết quả thay vì dùng một bộ chỉ số cố định.</p>
+            </div>
+
+            <div class="bento-grid">
+              <!-- Tile 1 (Rộng): Detailed Multi-dimensional reports -->
+              <div class="bento-item col-span-2">
+                <div class="bento-copy">
+                  <span class="bento-meta">01 / ANALYTICS REPORT</span>
+                  <h3 data-cms="insight-text-3">Cột Insight tùy chỉnh</h3>
+                  <p data-cms="insight-text-4">Tạo các cột như sản phẩm quan tâm, mức độ hài lòng, lý do chưa chốt hoặc bất kỳ tiêu chí nào phù hợp với mục tiêu phân tích.</p>
+                </div>
+                <div class="bento-visual">
+                  <img src="asset smax/ai-insight/multi-dimensional.webp" alt="Báo cáo phân tích hội thoại đa chiều Smax AI" data-cms-img="insight-img-13">
+                </div>
+              </div>
+
+              <!-- Tile 2 (Hẹp): Sentiment Donut Chart -->
+              <div class="bento-item">
+                <div class="bento-copy">
+                  <span class="bento-meta">02 / SENTIMENT ANALYZER</span>
+                  <h3 data-cms="insight-text-5">Kết quả xác định trước</h3>
+                  <p data-cms="insight-text-6">Thiết lập các lựa chọn như Tích cực, Trung lập, Tiêu cực để AI chọn một giá trị nhất quán cho báo cáo.</p>
+                </div>
+                <div class="bento-visual" style="background: #FFFFFF;">
+                  <div class="bento-donut-container">
+                    <div class="donut-chart">
+                      <div class="donut-chart-center">
+                        <div class="donut-value">72%</div>
+                        <div class="donut-label">Tích cực</div>
+                      </div>
+                    </div>
+                    <div class="donut-legend">
+                      <div class="legend-item"><span class="legend-dot green"></span><span>Tích cực (72%)</span></div>
+                      <div class="legend-item"><span class="legend-dot gray"></span><span>Trung lập (18%)</span></div>
+                      <div class="legend-item"><span class="legend-dot coral"></span><span>Tiêu cực (10%)</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tile 3 (Hẹp): Reasons for conversion drops (Bar chart) -->
+              <div class="bento-item">
+                <div class="bento-copy">
+                  <span class="bento-meta">03 / CONVERSION BARRIER</span>
+                  <h3 data-cms="insight-text-7">Kết quả do AI xác định</h3>
+                  <p data-cms="insight-text-8">Cho phép AI viết câu trả lời ngắn dựa trên toàn bộ nội dung phiên, phù hợp với các insight mở như nhu cầu hoặc lý do chưa chốt.</p>
+                </div>
+                <div class="bento-visual" style="background: #FFFFFF;">
+                  <div class="bento-bar-container">
+                    <div class="bar-item">
+                      <div class="bar-label-group"><span>Chê giá sản phẩm cao</span><span>42%</span></div>
+                      <div class="bar-track"><div class="bar-fill coral" style="width: 42%;"></div></div>
+                    </div>
+                    <div class="bar-item">
+                      <div class="bar-label-group"><span>Phí giao hàng đắt</span><span>28%</span></div>
+                      <div class="bar-track"><div class="bar-fill blue" style="width: 28%;"></div></div>
+                    </div>
+                    <div class="bar-item">
+                      <div class="bar-label-group"><span>Cần cân nhắc thêm</span><span>20%</span></div>
+                      <div class="bar-track"><div class="bar-fill purple" style="width: 20%;"></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tile 4 (Rộng): Detailed Report Overview -->
+              <div class="bento-item col-span-2">
+                <div class="bento-copy">
+                  <span class="bento-meta">04 / CUSTOM INSIGHTS</span>
+                  <h3 data-cms="insight-text-9">Kết hợp Attribute, Tag và GenAI</h3>
+                  <p data-cms="insight-text-10">Kiểm tra thuộc tính có dữ liệu, xác định khách có nhãn cụ thể hoặc dùng Chat Insight để đọc toàn bộ phiên hội thoại.</p>
+                </div>
+                <div class="bento-visual">
+                  <img src="asset smax/ai-insight/detailed-report.webp" alt="Màn hình theo dõi hành trình ý định của khách hàng" data-cms-img="insight-img-14">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5: Stacked Sticky Cards (Quy trình thu thập và tự động hóa) -->
+        <section class="core-features-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="insight-text-11">Quy trình vận hành Smax AI Insight</h2>
+              <p data-cms="insight-text-12">Thiết lập dễ dàng, tự động hóa quy trình phân tích và bứt phá chất lượng dịch vụ chăm sóc khách hàng.</p>
+            </div>
+
+            <div class="stacked-container">
+              <!-- Card 1: Setup criteria -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">01 / SETUP CRITERIA</span>
+                  <h2 data-cms="insight-text-13">Cấu hình chỉ số thu thập tự động</h2>
+                  <p data-cms="insight-text-14">
+                    Thiết lập các tiêu chí mà AI cần thu thập trong hội thoại như: Thông tin cá nhân, Sản phẩm quan tâm, Mức ngân sách dự kiến, hoặc các Vấn đề đang gặp phải của khách hàng. Không cần lập trình phức tạp.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Bóc tách thực thể</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">No-code setup</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="asset smax/ai-insight/setup-insight.webp" alt="Giao diện thiết lập chỉ số thu thập insight" data-cms-img="insight-img-15">
+                </div>
+              </div>
+
+              <!-- Card 2: Reprocess historical data -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">02 / SESSION SETUP</span>
+                  <h2 data-cms="insight-text-15">Cấu hình Phiên hội thoại</h2>
+                  <p data-cms="insight-text-16">
+                    Kích hoạt Session, đặt thời gian mở lại, cấu hình đóng phiên tự động và chọn Block gửi trước hoặc sau khi phiên kết thúc để tạo đầu vào phân tích rõ ràng.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Open / Closed / Pending</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Đóng phiên tự động</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="asset smax/ai-insight/reprocess-old-data.webp" alt="Màn hình quét lại dữ liệu hội thoại cũ" data-cms-img="insight-img-16">
+                </div>
+              </div>
+
+              <!-- Card 3: Trigger Automation -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">03 / AUTOMATION TRIGGER</span>
+                  <h2 data-cms="insight-text-17">Kích hoạt kịch bản tự động hóa</h2>
+                  <p data-cms="insight-text-18">
+                    Trong cửa sổ Automations, cấu hình chatbot tự động kích hoạt khi một giá trị Insight đáp ứng điều kiện, ví dụ gửi Block tri ân khi mức độ hài lòng là tích cực.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Automation Map</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Điều kiện Insight</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="asset smax/ai-insight/automation-setup.webp" alt="Thiết lập kịch bản tự động hóa từ kết quả insight" data-cms-img="insight-img-17">
+                </div>
+              </div>
+
+              <!-- Card 4: Supporter Evaluation -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">04 / STAFF EVALUATION</span>
+                  <h2 data-cms="insight-text-19">Theo dõi chi tiết tại Overviews</h2>
+                  <p data-cms="insight-text-20">
+                    Xem danh sách phiên cùng các cột Insight tương ứng; nhân viên có thể bổ sung Topic, Tag hoặc Lý do khi đóng phiên để tăng độ chính xác của dữ liệu.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Danh sách phiên</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Topic / Tag / Lý do</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="asset smax/ai-insight/detailed-report.webp" alt="Màn hình báo cáo phân tích năng lực nhân sự CSKH" data-cms-img="insight-img-18">
+                </div>
+              </div>
+
+              <!-- Card 5: Auto Report Delivery -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">05 / AUTO REPORT</span>
+                  <h2 data-cms="insight-text-21">Thống kê xu hướng Insight</h2>
+                  <p data-cms="insight-text-22">
+                    Cửa sổ Statistic chuyển các giá trị Insight thành biểu đồ tổng quan, ví dụ tỷ lệ chủ đề khách hàng quan tâm trong một giai đoạn.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Statistic</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Biểu đồ xu hướng</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="asset smax/ai-insight/tu-dong-gui-bao-cao.webp" alt="Màn hình cấu hình tự động gửi báo cáo định kỳ" data-cms-img="insight-img-19">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 6: Interactive Tab Section -->
+        <section class="interactive-tabs-section">
+          <div class="container tabs-container-content">
+            <div class="section-header">
+              <h2 data-cms="insight-text-23">Ba cửa sổ khai thác dữ liệu Insight</h2>
+              <p data-cms="insight-text-24">Theo dõi chi tiết tại Overviews, biến kết quả thành hành động trong Automations và xem xu hướng ở Statistic.</p>
+            </div>
+            <div class="tab-buttons">
+              <button class="tab-btn active" data-tab-target="sales-consulting">Báo cáo tư vấn<br>chốt đơn</button>
+              <button class="tab-btn" data-tab-target="chat-quality">Báo cáo chất lượng<br>hội thoại</button>
+              <button class="tab-btn" data-tab-target="post-purchase">Báo cáo chăm sóc<br>sau mua</button>
+              <button class="tab-btn" data-tab-target="customer-feedback">Báo cáo phản hồi<br>khách hàng</button>
+              <button class="tab-btn" data-tab-target="quality-control">Báo cáo kiểm soát<br>chất lượng AI</button>
+            </div>
+
+            <!-- Tab Panels -->
+            <!-- Tab 1: Báo cáo tư vấn chốt đơn -->
+            <div class="tab-panel active" id="sales-consulting">
+              <div class="tab-copy">
+                <h3 data-cms="insight-text-25">Overviews — Theo dõi từng phiên</h3>
+                <p data-cms="insight-text-26">Hiển thị danh sách phiên hội thoại và toàn bộ cột Insight đã cấu hình để quản lý có thể xem lại từng trường hợp.</p>
+                <ul class="check-list">
+                  <li>Xem trạng thái và nội dung phiên hội thoại</li>
+                  <li>Đối chiếu giá trị từng cột Insight</li>
+                  <li>Bổ sung Topic, Tag và Lý do khi đóng phiên</li>
+                </ul>
+              </div>
+              <div class="tab-media">
+                <img src="asset smax/ai-insight/bao-cao-tu-van-chot-don.webp" alt="Báo cáo tư vấn chốt đơn" data-cms-img="insight-img-20">
+              </div>
+            </div>
+
+            <!-- Tab 2: Báo cáo chất lượng hội thoại -->
+            <div class="tab-panel" id="chat-quality">
+              <div class="tab-copy">
+                <h3 data-cms="insight-text-27">Insight lấy từ Attribute</h3>
+                <p data-cms="insight-text-28">Kiểm tra một thuộc tính khách hàng đã có dữ liệu hay chưa, phù hợp với các tiêu chí như đã có số điện thoại hoặc thông tin đăng ký.</p>
+                <ul class="check-list">
+                  <li>Dùng dữ liệu có cấu trúc sẵn trong hồ sơ</li>
+                  <li>Giảm phụ thuộc vào suy luận AI</li>
+                  <li>Phù hợp với tiêu chí có/không hoặc đã thu thập/chưa</li>
+                </ul>
+              </div>
+              <div class="tab-media">
+                <img src="asset smax/ai-insight/bao-cao-chat-luong-hoi-thoai.webp" alt="Báo cáo chất lượng hội thoại" data-cms-img="insight-img-21">
+              </div>
+            </div>
+
+            <!-- Tab 3: Báo cáo chăm sóc sau mua -->
+            <div class="tab-panel" id="post-purchase">
+              <div class="tab-copy">
+                <h3 data-cms="insight-text-29">Insight lấy từ Tag</h3>
+                <p data-cms="insight-text-30">Kiểm tra khách hàng có được gắn nhãn chỉ định như VIP, Khiếu nại hoặc Đã đặt bàn để phân loại kết quả rõ ràng.</p>
+                <ul class="check-list">
+                  <li>Tận dụng hệ thống nhãn đang vận hành</li>
+                  <li>Kết hợp dữ liệu do nhân viên xác nhận</li>
+                  <li>Dùng làm điều kiện cho Automation</li>
+                </ul>
+              </div>
+              <div class="tab-media">
+                <img src="asset smax/ai-insight/bao-cao-cham-soc-sau-mua.webp" alt="Báo cáo chăm sóc sau mua" data-cms-img="insight-img-22">
+              </div>
+            </div>
+
+            <!-- Tab 4: Báo cáo phản hồi khách hàng -->
+            <div class="tab-panel" id="customer-feedback">
+              <div class="tab-copy">
+                <h3 data-cms="insight-text-31">Insight phân tích bằng GenAI</h3>
+                <p data-cms="insight-text-32">Chat Insight đọc nội dung phiên để trả về một lựa chọn định sẵn hoặc câu trả lời ngắn cho các tiêu chí cần hiểu ngữ cảnh.</p>
+                <ul class="check-list">
+                  <li>Prompt phân tích tùy theo bài toán doanh nghiệp</li>
+                  <li>Hỗ trợ kết quả đóng hoặc kết quả mở</li>
+                  <li>Cần kiểm thử và hiệu chỉnh Prompt định kỳ</li>
+                </ul>
+              </div>
+              <div class="tab-media">
+                <img src="asset smax/ai-insight/bao-cao-phan-hoi-khach-hang.webp" alt="Báo cáo phản hồi khách hàng" data-cms-img="insight-img-23">
+              </div>
+            </div>
+
+            <!-- Tab 5: Báo cáo kiểm soát chất lượng AI -->
+            <div class="tab-panel" id="quality-control">
+              <div class="tab-copy">
+                <h3 data-cms="insight-text-33">Automations &amp; Statistic</h3>
+                <p data-cms="insight-text-34">Kích hoạt chatbot khi Insight thỏa điều kiện và chuyển dữ liệu tổng hợp thành biểu đồ để theo dõi xu hướng.</p>
+                <ul class="check-list">
+                  <li>Tạo hành động theo điều kiện Insight</li>
+                  <li>Xem tỷ lệ Topic hoặc giá trị theo thời gian</li>
+                  <li>Biến dữ liệu phiên thành quy trình chăm sóc tiếp theo</li>
+                </ul>
+              </div>
+              <div class="tab-media">
+                <img src="asset smax/ai-insight/bao-cao-kiem-soat-chat-luong-ai.webp" alt="Báo cáo kiểm soát chất lượng AI" data-cms-img="insight-img-24">
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- Section 7: Case Study Section -->
+        
+        
+        
+        <!-- Quickstart 3 Steps Section -->
+        <section class="quickstart-steps-section">
+          <div class="container">
+            <div class="steps-header">
+              <span class="steps-eyebrow">Khai phá dữ liệu</span>
+              <h2 class="steps-title" data-cms="insight-text-35">Phân tích AI Insight chỉ trong 3 bước*</h2>
+            </div>
+            <div class="steps-grid">
+
+              <!-- Step BƯỚC 01 -->
+              <div class="step-card">
+                <span class="step-card-eyebrow">BƯỚC 01</span>
+                <h3 class="step-card-title" data-cms="insight-text-36">Kích hoạt Phiên hội thoại</h3>
+                <p class="step-card-desc" data-cms="insight-text-37">Cấu hình Session, thời gian đóng/mở lại và Block gửi trước hoặc sau khi phiên kết thúc.</p>
+                <div class="step-card-visual">
+                  <img src="asset smax/ai-insight/setup-insight.webp" alt="Lựa chọn Template phân tích" data-cms-img="insight-img-25">
+                </div>
+              </div>
+              <!-- Step BƯỚC 02 -->
+              <div class="step-card">
+                <span class="step-card-eyebrow">BƯỚC 02</span>
+                <h3 class="step-card-title" data-cms="insight-text-38">Tạo Chat Insight &amp; cột dữ liệu</h3>
+                <p class="step-card-desc" data-cms="insight-text-39">Viết Prompt phân tích, chọn model rồi tạo các cột lấy giá trị từ Attribute, Tag hoặc GenAI.</p>
+                <div class="step-card-visual">
+                  <img src="asset smax/ai-insight/detailed-report.webp" alt="Tinh chỉnh thông tin theo nhu cầu" data-cms-img="insight-img-26">
+                </div>
+              </div>
+              <!-- Step BƯỚC 03 -->
+              <div class="step-card">
+                <span class="step-card-eyebrow">BƯỚC 03</span>
+                <h3 class="step-card-title" data-cms="insight-text-40">Theo dõi &amp; tự động hóa</h3>
+                <p class="step-card-desc" data-cms="insight-text-41">Xem dữ liệu ở Overviews, tạo điều kiện trong Automations và theo dõi biểu đồ tại Statistic.</p>
+                <div class="step-card-visual">
+                  <img src="asset smax/ai-insight/dashboard-preview.webp" alt="Xem báo cáo Tổng quan" data-cms-img="insight-img-27">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="casestudy-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="insight-text-42">Khách hàng thành công cùng Smax.ai</h2>
+              <p data-cms="insight-text-43">Biến toàn bộ dữ liệu hội thoại thành insight phục vụ tăng trưởng.</p>
+            </div>
+
+            <div class="casestudy-card">
+              <div class="casestudy-quote">
+                <div class="casestudy-quote-mark">“</div>
+                <p data-cms="insight-text-44">
+                  AI Insight giúp Gohub Travel phân tích 100% hội thoại, nhìn thấy ngay nhu cầu nổi bật và cải thiện chất lượng tư vấn trên toàn bộ đội ngũ.
+                </p>
+                <div class="casestudy-author">
+                  <div class="author-info">
+                    <h4 data-cms="insight-text-45">TRẦN HỮU HOÀNG</h4>
+                    <p data-cms="insight-text-46">Đại diện Gohub Travel</p>
+                  </div>
+                </div>
+              </div>
+              <div class="casestudy-metrics">
+                <div>
+                  <div class="cs-metric-num">100%</div>
+                  <div class="cs-metric-label">Hội thoại được đọc</div>
+                  <div class="cs-metric-desc">Không còn phụ thuộc vào việc kiểm tra thủ công từng cuộc trò chuyện.</div>
+                </div>
+                <div>
+                  <div class="cs-metric-num">+38%</div>
+                  <div class="cs-metric-label">Hiệu suất tư vấn</div>
+                  <div class="cs-metric-desc">Insight rõ ràng giúp đội ngũ cải thiện chất lượng phục vụ nhanh hơn.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 8: FAQ Section -->
+        <section class="faq-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="insight-text-47">Câu hỏi thường gặp về Smax AI Insight</h2>
+              <p data-cms="insight-text-48">Mọi giải đáp về Phiên hội thoại, cách cấu hình cột Insight, Automations và Statistic.</p>
+            </div>
+
+            <div class="faq-container">
+              <!-- Item 1 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Smax AI Insight hoạt động dựa trên cơ chế nào?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Sau khi Phiên hội thoại đóng, hệ thống tạo dữ liệu cho các cột Insight đã cấu hình. Mỗi cột có thể lấy giá trị từ Attribute, Tag hoặc Chat Insight GenAI; kết quả GenAI có thể là lựa chọn định sẵn hoặc câu trả lời mở.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Tôi có cần biết lập trình để cấu hình các tiêu chí phân tích hội thoại không?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Không cần viết mã. Bạn tạo Chat Insight trong module GenAI, viết Prompt phân tích rồi thêm cột trong Phiên &amp; Insight. Tuy vậy, Prompt và kết quả vẫn cần được kiểm thử với hội thoại thực tế.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Tiêu chí phân tích có cố định không?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Không. Doanh nghiệp tự định nghĩa tiêu đề cột, nguồn dữ liệu và Prompt. Vì vậy có thể phân tích mức độ hài lòng, sản phẩm quan tâm, lý do chưa chốt hoặc tiêu chí QA riêng nếu Prompt được thiết kế và kiểm thử phù hợp.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 4 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Khi nào dữ liệu Insight được tạo?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Theo tài liệu hiện tại, dữ liệu được phân tích sau khi một phiên hội thoại đóng. Có thể cấu hình đóng thủ công hoặc tự động và gửi Block trước/sau thời điểm đóng phiên.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 5 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Kết quả Insight có thể kích hoạt hành động tiếp theo không?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Có. Cửa sổ Automations cho phép kích hoạt chatbot khi Insight đáp ứng điều kiện. Nếu cần đẩy dữ liệu sang hệ thống ngoài, doanh nghiệp phải cấu hình thêm integration hoặc Partner API tương ứng.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 6 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Tôi xem dữ liệu tổng hợp ở đâu?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Overviews hiển thị chi tiết từng phiên và các cột Insight. Statistic chuyển kết quả thành biểu đồ để theo dõi xu hướng như tỷ lệ Topic hoặc giá trị khách hàng quan tâm.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 9: Final CTA Section (Đồng bộ trang chủ) -->
+        <section class="final-cta" id="cta">
+          <div class="container cta-inner">
+            <h2 data-cms="insight-text-49">Đưa dữ liệu hội thoại trở thành tài sản tăng trưởng</h2>
+            <p data-cms="insight-text-50">
+              Khám phá sâu sắc nhu cầu khách hàng, nâng cao chất lượng tư vấn và bứt phá doanh thu bán hàng online cùng Smax AI Insight.
+            </p>
+            <div class="cta-actions">
+              <a class="btn btn-dark" href="#top">Dùng thử miễn phí</a>
+              <a class="btn btn-soft" href="index.html#cta">Đặt lịch hẹn tư vấn</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div>
+            <a class="brand" href="#top">
+              <img src="asset smax/smax-ai-logo.webp" alt="Smax.ai" class="brand-logo-img">
+            </a>
+            <p>Nền tảng AI-Automation giúp doanh nghiệp vận hành bán hàng, tiếp thị và chăm sóc khách hàng đa kênh.</p>
+          </div>
+          <div>
+            <h3>Sản phẩm</h3>
+            <a href="livechat.html">Livechat</a>
+            <a href="chatbot.html">Chatbot</a>
+            <a href="genai.html">Smax GenAI</a>
+            <a href="insight.html">AI Insight</a>
+            <a>Automation Map</a>
+            <a>Remarketing</a>
+          </div>
+          <div>
+            <h3>Giải pháp</h3>
+            <a>Sales</a>
+            <a>Marketing</a>
+            <a>Customer Service</a>
+            <a>E-commerce</a>
+            <a>Omnichannel</a>
+            <a>Meta Business AI</a>
+          </div>
+          <div>
+            <h3>Tài nguyên</h3>
+            <a>Blog</a>
+            <a>Tài liệu</a>
+            <a>Video hướng dẫn</a>
+            <a>Webinar</a>
+            <a>Bot mẫu</a>
+            <a>Case Study</a>
+          </div>
+          <div>
+            <h3>Doanh nghiệp</h3>
+            <a>Về Smax.ai</a>
+            <a>Đối tác</a>
+            <a>Bảng giá</a>
+            <a>Liên hệ</a>
+            <a>Chính sách</a>
+          </div>
+        </div>
+        <div class="container footer-bottom">
+          <span>© 2026 Smax.ai</span>
+          <span>Điều khoản · Quyền riêng tư · Liên hệ tư vấn</span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Main scripts for tabs, sliders, etc. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const section = document.querySelector(".interactive-tabs-section");
+        const tabBtns = document.querySelectorAll(".tab-btn");
+        const tabPanels = document.querySelectorAll(".tab-panel");
+
+        let scrollTriggerInstance = null;
+        let lastActiveIndex = 0;
+
+        // Khởi tạo trạng thái ban đầu: chỉ hiển thị panel đầu tiên
+        tabPanels.forEach((panel, idx) => {
+          if (idx === 0) {
+            panel.style.display = "grid";
+            gsap.set(panel, { opacity: 1, y: 0 });
+          } else {
+            panel.style.display = "none";
+            gsap.set(panel, { opacity: 0, y: 15 });
+          }
+        });
+
+        if (window.innerWidth >= 1024) {
+          // Chỉ chạy hiệu ứng Pin ScrollTrigger trên Desktop
+          scrollTriggerInstance = ScrollTrigger.create({
+            trigger: ".interactive-tabs-section",
+            start: () => "top -" + (document.querySelector(".tab-buttons").offsetTop - 80) + "px", // Tiêu đề cuộn đi hết, tab buttons chạm sát mép dưới header (80px) thì mới bắt đầu ghim
+            end: "+=2200", // Quãng đường scroll ảo để di chuyển qua các tab
+            pin: true,
+            scrub: true,
+            onUpdate: (self) => {
+              const progress = self.progress;
+              // Phân bổ đều 5 khoảng tiến trình cho 5 tab
+              let tabIndex = Math.floor(progress * 5);
+              if (tabIndex > 4) tabIndex = 4;
+              if (tabIndex < 0) tabIndex = 0;
+
+              // Đồng bộ active button
+              tabBtns.forEach((btn, idx) => {
+                if (idx === tabIndex) {
+                  btn.classList.add("active");
+                } else {
+                  btn.classList.remove("active");
+                }
+              });
+
+              // Chỉ animate nếu có sự thay đổi tab
+              if (tabIndex !== lastActiveIndex) {
+                tabPanels.forEach((panel, idx) => {
+                  if (idx === tabIndex) {
+                    panel.style.display = "grid";
+                    panel.classList.add("active");
+                    // Animate fade in
+                    gsap.fromTo(panel, 
+                      { opacity: 0, y: 15 },
+                      { opacity: 1, y: 0, duration: 0.4, ease: "power2.out", overwrite: "auto" }
+                    );
+                  } else {
+                    panel.classList.remove("active");
+                    panel.style.display = "none";
+                    gsap.set(panel, { opacity: 0, y: 15 });
+                  }
+                });
+                lastActiveIndex = tabIndex;
+              }
+            }
+          });
+
+          // Nhấp chuột vào nút tab sẽ tự động cuộn đến vị trí scroll tương ứng của tab đó
+          tabBtns.forEach((btn, idx) => {
+            btn.addEventListener("click", (e) => {
+              e.preventDefault();
+              if (scrollTriggerInstance) {
+                const startScroll = scrollTriggerInstance.start;
+                const endScroll = scrollTriggerInstance.end;
+                const totalScroll = endScroll - startScroll;
+                // Cuộn mượt đến giữa khoảng của tab đó để kích hoạt active mượt mà
+                const targetScroll = startScroll + (idx / 4) * totalScroll;
+                window.scrollTo({
+                  top: targetScroll,
+                  behavior: "smooth"
+                });
+              }
+            });
+          });
+        } else {
+          // Trên Mobile: Chuyển tab click thông thường không có scroll pin
+          tabBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const targetId = btn.getAttribute("data-tab-target");
+              
+              tabBtns.forEach(b => b.classList.remove("active"));
+              btn.classList.add("active");
+              
+              tabPanels.forEach((panel) => {
+                if (panel.id === targetId) {
+                  panel.style.display = "grid";
+                  panel.classList.add("active");
+                  gsap.fromTo(panel, 
+                    { opacity: 0, y: 10 },
+                    { opacity: 1, y: 0, duration: 0.3 }
+                  );
+                } else {
+                  panel.classList.remove("active");
+                  panel.style.display = "none";
+                }
+              });
+            });
+          });
+        }
+      
+        
+
+      });
+    </script>
+  
+
+</body></html>

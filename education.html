@@ -1,0 +1,1362 @@
+<!DOCTYPE html><html lang="vi"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Giải pháp AI-Automation toàn diện cho ngành Giáo dục &amp; Đào tạo giúp tối ưu tỷ lệ tuyển sinh, tự động tư vấn lộ trình học cá nhân, nhắc lịch học/thi qua Zalo OA và đồng bộ dữ liệu CRM/LMS.">
+    <title>Smax.ai Giải pháp Giáo dục &amp; Đào tạo | Tuyển sinh &amp; CSKH Học viên tự động</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="icon" href="asset smax/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      /* --- Custom Premium Styles for Giáo dục & Đào tạo --- */
+      body {
+        overflow-x: hidden;
+      }
+      
+      .education-page-wrapper {
+        font-family: "Be Vietnam Pro", sans-serif;
+        color: var(--primary-navy, #0F1835);
+        background: #FFFFFF;
+      }
+
+      /* Hero Section */
+      .premium-hero {
+        position: relative;
+        padding: 160px 0 80px;
+        background: url('https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/gridBackground.png') no-repeat center center;
+        background-size: cover;
+        text-align: center;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .hero-grid-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: radial-gradient(rgba(15, 24, 53, 0.12) 1px, transparent 1px);
+        background-size: 32px 32px;
+        mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
+        opacity: 0.15;
+        z-index: 1;
+      }
+
+      .announcement-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 16px;
+        border-radius: 99px;
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        box-shadow: 0 2px 8px rgba(15, 24, 53, 0.04);
+        margin-bottom: 32px;
+        font-size: 13.5px;
+        font-weight: 500;
+        color: var(--primary-navy, #0F1835);
+        position: relative;
+        z-index: 2;
+        transition: all 0.3s ease;
+      }
+
+      .announcement-badge:hover {
+        border-color: rgba(66, 119, 255, 0.3);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(66, 119, 255, 0.08);
+      }
+
+      .announcement-tag {
+        background: var(--primary-coral, #FA6E5B);
+        color: #FFFFFF;
+        padding: 2px 8px;
+        border-radius: 99px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .premium-hero h1 {
+        font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+        font-weight: 900;
+        line-height: 1.25;
+        letter-spacing: -0.03em;
+        color: var(--primary-navy, #0F1835);
+        max-width: 960px;
+        margin: 0 auto 24px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .premium-hero h1 span.highlight {
+        background: linear-gradient(95deg, var(--process-blue, #4277FF) 0%, var(--primary-coral, #FA6E5B) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+      }
+
+      .hero-sub {
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        max-width: 60ch;
+        margin: 0 auto 40px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        position: relative;
+        z-index: 2;
+        margin-bottom: 56px;
+      }
+
+      .hero-actions .btn {
+        border-radius: 99px !important;
+        padding: 14px 32px !important;
+        font-size: 15px !important;
+        font-weight: 700 !important;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      }
+
+      .btn-dark {
+        background: var(--primary-navy, #0F1835);
+        color: #FFFFFF;
+        border: 1px solid var(--primary-navy, #0F1835);
+      }
+
+      .btn-dark:hover {
+        background: #1b2952;
+        border-color: #1b2952;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(15, 24, 53, 0.15);
+      }
+
+      .btn-soft {
+        background: transparent;
+        color: var(--primary-navy, #0F1835);
+        border: 1px solid rgba(15, 24, 53, 0.15);
+      }
+
+      .btn-soft:hover {
+        background: rgba(15, 24, 53, 0.02);
+        border-color: rgba(15, 24, 53, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .hero-mockup-wrapper {
+        max-width: 1140px;
+        margin: 0 auto;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        overflow: visible;
+        position: relative;
+        z-index: 5;
+        animation: fadeInUpMockup 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      @keyframes fadeInUpMockup {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .browser-header {
+        display: none;
+      }
+
+      .browser-dots {
+        display: flex;
+        gap: 6px;
+      }
+
+      .browser-dots .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .browser-dots .dot.red { background: #FF5F56; }
+      .browser-dots .dot.yellow { background: #FFBD2E; }
+      .browser-dots .dot.green { background: #27C93F; }
+
+      .browser-address {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(15, 24, 53, 0.03);
+        padding: 4px 24px;
+        border-radius: 6px;
+        font-size: 11.5px;
+        font-weight: 500;
+        color: #667085;
+        font-family: monospace;
+        letter-spacing: 0.02em;
+      }
+
+      .browser-content {
+        position: relative;
+        background: transparent;
+        line-height: 0;
+      }
+
+      .browser-content img {
+        width: 100%;
+        height: auto;
+        display: block;
+        filter: drop-shadow(0 28px 42px rgba(15, 24, 53, 0.12));
+      }
+
+      /* Metrics Section */
+      .metrics-section {
+        padding: 60px 0;
+        background: #F8F9FC;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+      }
+
+      .metric-card {
+        text-align: center;
+        position: relative;
+      }
+
+      .metric-card:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: -16px;
+        top: 20%;
+        height: 60%;
+        width: 1px;
+        background: rgba(15, 24, 53, 0.08);
+      }
+
+      .metric-num {
+        font-size: clamp(2rem, 3.5vw, 2.8rem);
+        font-weight: 900;
+        line-height: 1;
+        background: linear-gradient(135deg, var(--process-blue, #4277FF) 0%, var(--primary-coral, #FA6E5B) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 8px;
+        letter-spacing: -0.03em;
+      }
+
+      .metric-label {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      /* General Section Header */
+      .section-header {
+        text-align: center;
+        max-width: 720px;
+        margin: 0 auto 60px;
+      }
+
+      .section-tag {
+        display: inline-block;
+        padding: 6px 14px;
+        border-radius: 99px;
+        background: rgba(66, 119, 255, 0.06);
+        color: var(--blue, #4277FF);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        margin-bottom: 16px;
+        border: 1px solid rgba(66, 119, 255, 0.12);
+        text-transform: uppercase;
+      }
+
+      .section-title {
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 800;
+        color: var(--primary-navy, #0F1835);
+        line-height: 1.3;
+        letter-spacing: -0.02em;
+        margin-bottom: 16px;
+      }
+
+      .section-desc {
+        font-size: 16px;
+        color: var(--text-secondary, #475467);
+        line-height: 1.6;
+      }
+
+      /* Challenges Section (Bento Grid) */
+      .challenges-section {
+        padding: 120px 0;
+        background: #FFFFFF;
+      }
+
+      .challenges-grid {
+        display: grid;
+        grid-template-columns: 1.25fr 1fr;
+        gap: 24px;
+      }
+
+      .challenge-card {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(15, 24, 53, 0.02);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .challenge-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 45px rgba(15, 24, 53, 0.06);
+        border-color: rgba(66, 119, 255, 0.12);
+      }
+
+      .challenge-top {
+        margin-bottom: 24px;
+      }
+
+      .challenge-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: rgba(250, 110, 91, 0.06);
+        color: var(--primary-coral, #FA6E5B);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .challenge-card:nth-child(even) .challenge-icon {
+        background: rgba(66, 119, 255, 0.06);
+        color: var(--process-blue, #4277FF);
+      }
+
+      .challenge-card h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0 0 12px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .challenge-card p {
+        font-size: 14.5px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        margin: 0;
+      }
+
+      .challenges-row-2 {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      /* Solution Section Layouts */
+      .solution-panel-section {
+        padding: 100px 0;
+        border-top: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .solution-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .solution-info {
+        text-align: left;
+      }
+
+      .solution-info h2 {
+        font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+        font-weight: 800;
+        line-height: 1.3;
+        margin-bottom: 20px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .solution-info .solution-desc-main {
+        font-size: 16px;
+        color: var(--text-secondary, #475467);
+        line-height: 1.6;
+        margin-bottom: 32px;
+      }
+
+      .solution-points {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .sol-point {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .sol-point-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: rgba(66, 119, 255, 0.08);
+        color: var(--blue, #4277FF);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .sol-point-content h4 {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0 0 4px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .sol-point-content p {
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--text-secondary, #475467);
+        margin: 0;
+      }
+
+      .solution-visual {
+        position: relative;
+      }
+
+      .solution-visual img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 0;
+        box-shadow: none;
+        border: 0;
+        filter: drop-shadow(0 24px 34px rgba(15, 24, 53, 0.09));
+      }
+
+      /* Solution 2 acquisition (Bento grid visual) */
+      .solution-acquisition-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 32px;
+        margin-top: 48px;
+      }
+
+      .acq-card {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: 0 8px 24px rgba(15, 24, 53, 0.02);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .acq-main-card {
+        background: radial-gradient(circle at 5% 5%, rgba(66, 119, 255, 0.04), transparent 45%), #FFFFFF;
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 32px;
+        align-items: center;
+      }
+
+      .acq-card-right-img img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 0;
+        box-shadow: none;
+        filter: drop-shadow(0 18px 28px rgba(15, 24, 53, 0.08));
+      }
+
+      .acq-sub-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        grid-column: span 2;
+      }
+
+      .acq-sub-card {
+        background: #F8F9FC;
+        border-radius: 16px;
+        padding: 24px;
+        border: 1px solid rgba(15, 24, 53, 0.04);
+      }
+
+      .acq-sub-card h4 {
+        font-size: 15.5px;
+        font-weight: 700;
+        margin: 0 0 8px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .acq-sub-card p {
+        font-size: 13.5px;
+        line-height: 1.5;
+        color: var(--text-secondary, #475467);
+        margin: 0;
+      }
+
+      /* Solution 4 Loyalty (Centered vertical stack) */
+      .solution-loyalty-section {
+        background: #F8F9FC;
+        text-align: center;
+        padding: 100px 0;
+      }
+
+      .loyalty-cards-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .loyalty-visual {
+        max-width: 1080px;
+        margin: -8px auto 44px;
+      }
+
+      .loyalty-visual img {
+        width: 100%;
+        height: auto;
+        display: block;
+        filter: drop-shadow(0 24px 34px rgba(15, 24, 53, 0.08));
+      }
+
+      .loyalty-card {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 12px 36px rgba(15, 24, 53, 0.03);
+        text-align: left;
+        transition: transform 0.3s ease;
+      }
+
+      .loyalty-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .loyalty-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(66, 119, 255, 0.08);
+        color: var(--blue, #4277FF);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+      }
+
+      .loyalty-card h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0 0 12px;
+      }
+
+      .loyalty-card p {
+        font-size: 14.5px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        margin: 0;
+      }
+
+      /* Integrations & Logos */
+      .integrations-logos {
+        margin-top: 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .int-logo {
+        background: #F8F9FC;
+        padding: 8px 16px;
+        border-radius: 8px;
+        border: 1px solid rgba(15, 24, 53, 0.05);
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-secondary, #475467);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .int-logo img {
+        height: 18px;
+        width: auto;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 120px 0;
+        background: #FFFFFF;
+        position: relative;
+      }
+
+      .cta-card {
+        background: var(--primary-navy, #0F1835);
+        border-radius: 32px;
+        padding: 80px 48px;
+        text-align: center;
+        color: #FFFFFF;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 32px 80px rgba(15, 24, 53, 0.25);
+      }
+
+      .cta-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: 
+          radial-gradient(circle at 20% 30%, rgba(66, 119, 255, 0.15), transparent 40%),
+          radial-gradient(circle at 80% 70%, rgba(250, 110, 91, 0.12), transparent 40%);
+        pointer-events: none;
+      }
+
+      .cta-card h2 {
+        font-size: clamp(2rem, 3.5vw, 2.6rem);
+        font-weight: 800;
+        line-height: 1.25;
+        margin-bottom: 16px;
+        letter-spacing: -0.02em;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-card p {
+        font-size: 17px;
+        color: rgba(255, 255, 255, 0.7);
+        max-width: 54ch;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-actions .btn-dark {
+        background: #FFFFFF;
+        color: var(--primary-navy, #0F1835);
+        border-color: #FFFFFF;
+      }
+
+      .cta-actions .btn-dark:hover {
+        background: rgba(255, 255, 255, 0.9);
+        border-color: rgba(255, 255, 255, 0.9);
+        transform: translateY(-2px);
+      }
+
+      .cta-actions .btn-soft {
+        color: #FFFFFF;
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .cta-actions .btn-soft:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.6);
+      }
+
+      /* Mobile visual display blocks */
+      .mobile-section-visual {
+        display: none;
+      }
+
+      /* --- Responsive --- */
+      @media (max-width: 1023px) {
+        .premium-hero {
+          padding: 120px 0 60px;
+        }
+
+        .hero-mockup-wrapper {
+          display: block;
+          max-width: 100%;
+          margin-top: 8px;
+        }
+
+        .metrics-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 24px;
+        }
+
+        .metric-card:nth-child(2)::after {
+          display: none;
+        }
+
+        .challenges-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .challenges-row-2 {
+          grid-column: span 1;
+          grid-template-columns: 1fr;
+        }
+
+        .solution-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .solution-visual {
+          display: none; /* Hide desktop visual */
+        }
+
+        .mobile-section-visual {
+          display: block;
+          margin-top: 24px;
+        }
+
+        .mobile-section-visual img {
+          width: 100%;
+          height: auto;
+          display: block;
+          border-radius: 0;
+          border: 0;
+          box-shadow: none;
+          filter: drop-shadow(0 16px 24px rgba(15, 24, 53, 0.08));
+        }
+
+        .solution-acquisition-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .acq-main-card {
+          grid-template-columns: 1fr;
+        }
+
+        .acq-card-right-img {
+          margin-top: 24px;
+        }
+
+        .loyalty-cards-container {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .cta-card {
+          padding: 60px 24px;
+        }
+
+        .cta-actions {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .cta-actions .btn {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          width: auto;
+          max-width: none;
+          margin-left: 16px;
+          margin-right: 16px;
+        }
+
+        .premium-hero {
+          padding: 108px 0 48px;
+        }
+
+        .announcement-badge {
+          width: 100%;
+          box-sizing: border-box;
+          justify-content: center;
+          flex-wrap: wrap;
+          padding: 8px 12px;
+          border-radius: 24px;
+        }
+
+        .premium-hero h1 {
+          width: 100%;
+          max-width: 100%;
+          font-size: clamp(2rem, 10vw, 2.4rem);
+          line-height: 1.22;
+          overflow-wrap: anywhere;
+        }
+
+        .premium-hero h1 span.highlight {
+          display: inline;
+          overflow-wrap: anywhere;
+        }
+
+        .hero-sub {
+          max-width: 100%;
+          font-size: 16px;
+        }
+
+        .hero-actions {
+          width: 100%;
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .hero-actions .btn {
+          width: 100%;
+          max-width: 100%;
+          box-sizing: border-box;
+        }
+
+        .metrics-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .metric-card::after {
+          display: none;
+        }
+
+        .acq-card,
+        .loyalty-card {
+          padding: 24px;
+        }
+
+        .loyalty-visual {
+          margin-bottom: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="education-page-wrapper">
+      <!-- Shared Header -->
+      <header class="site-header" data-header=""></header>
+
+      <main id="top">
+        <!-- Hero Section -->
+        <section class="premium-hero">
+          <div class="hero-grid-bg"></div>
+          <div class="container">
+            <div class="announcement-badge">
+              <span class="announcement-tag">GIẢI PHÁP</span>
+              <span data-cms="edu-hero-badge">Ứng dụng AI cho Ngành Giáo dục &amp; Đào tạo</span>
+            </div>
+            <h1 data-cms="edu-hero-title">Ứng dụng AI-Automation cho Ngành Giáo dục
+            </h1>
+            <p class="hero-sub" data-cms="edu-hero-sub">Tự động hóa tuyển sinh và nâng cao trải nghiệm học viên. Tối ưu toàn bộ hành trình từ tư vấn khóa học, quản lý học viên đến chăm sóc phụ huynh.</p>
+            <div class="hero-actions">
+              <a class="btn btn-dark" href="#cta">
+                Đăng ký Demo
+              </a>
+              <a class="btn btn-soft" href="#cta">
+                Liên hệ tư vấn
+              </a>
+            </div>
+
+            <!-- Browser Mockup -->
+            <div class="hero-mockup-wrapper">
+              <div class="browser-header">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-address">smax.ai/solutions/education</div>
+              </div>
+              <div class="browser-content">
+                <img data-cms-img="edu-hero-img" src="asset smax/education-v2/hero-education-map.webp" alt="Bản đồ tự động hóa hành trình tuyển sinh và chăm sóc học viên Smax">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 1: Metrics -->
+        <section class="metrics-section">
+          <div class="container">
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="metric-num">+28%</div>
+                <div class="metric-label">Tỷ lệ tuyển sinh</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-num">4.8/5.0</div>
+                <div class="metric-label">CSAT Đào tạo</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-num">&lt;15s</div>
+                <div class="metric-label">Thời gian xử lý</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-num">99.2%</div>
+                <div class="metric-label">Lead đã lọc</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Challenges -->
+        <section class="challenges-section">
+          <div class="container">
+            <div class="section-header">
+              <div class="section-tag">Thách thức</div>
+              <h2 class="section-title" data-cms="education-text-1">Những thách thức của ngành Giáo dục &amp; Đào tạo</h2>
+              <p class="section-desc" data-cms="education-text-2">
+                Các trung tâm, trường học và đơn vị đào tạo đang phải xử lý khối lượng lớn học viên, phụ huynh và dữ liệu học tập nhưng vẫn phụ thuộc vào nhiều quy trình thủ công.
+              </p>
+            </div>
+
+            <div class="challenges-grid">
+              <!-- Challenge 1 -->
+              <div class="challenge-card">
+                <div class="challenge-top">
+                  <div class="challenge-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+                  </div>
+                  <h3 data-cms="education-text-3">Lead đăng ký nhiều nhưng phản hồi chậm</h3>
+                  <p data-cms="education-text-4">Học viên để lại thông tin từ quảng cáo nhưng không được tư vấn kịp thời, làm giảm tỷ lệ đăng ký thực tế.</p>
+                </div>
+              </div>
+
+              <!-- Challenge 2 -->
+              <div class="challenge-card">
+                <div class="challenge-top">
+                  <div class="challenge-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  </div>
+                  <h3 data-cms="education-text-5">Tư vấn lộ trình học mất nhiều thời gian</h3>
+                  <p data-cms="education-text-6">Mỗi học viên có mục tiêu và trình độ khác nhau, khiến đội ngũ tư vấn phải xử lý nhiều câu hỏi lặp đi lặp lại.</p>
+                </div>
+              </div>
+
+              <!-- Challenge Row 2 -->
+              <div class="challenges-row-2">
+                <!-- Challenge 3 -->
+                <div class="challenge-card">
+                  <div class="challenge-top">
+                    <div class="challenge-icon">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><path d="m22 6-10 7L2 6"></path></svg>
+                    </div>
+                    <h3 data-cms="education-text-7">Gửi thông báo và tài liệu thủ công</h3>
+                    <p data-cms="education-text-8">Lịch học, tài liệu, bài tập hay thông báo thường được gửi rời rạc qua nhiều kênh cá nhân, tốn nhiều thời gian vận hành.</p>
+                  </div>
+                </div>
+
+                <!-- Challenge 4 -->
+                <div class="challenge-card">
+                  <div class="challenge-top">
+                    <div class="challenge-icon">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3 data-cms="education-text-9">Khó theo dõi hành trình học viên</h3>
+                    <p data-cms="education-text-10">Thông tin tuyển sinh đầu vào và kết quả học tập thực tế nằm ở nhiều hệ thống khác nhau, thiếu liên kết.</p>
+                  </div>
+                </div>
+
+                <!-- Challenge 5 -->
+                <div class="challenge-card">
+                  <div class="challenge-top">
+                    <div class="challenge-icon">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18z"></path><path d="M12 7v5l3 3"></path></svg>
+                    </div>
+                    <h3 data-cms="education-text-11">Chăm sóc sau đăng ký chưa hiệu quả</h3>
+                    <p data-cms="education-text-12">Thiếu các hoạt động nhắc lịch học, theo dõi tiến độ và chăm sóc phụ huynh định kỳ khiến học viên dễ bỏ học.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Solution 1 (Tăng tỷ lệ tuyển sinh) -->
+        <section class="solution-panel-section">
+          <div class="container">
+            <div class="solution-grid">
+              <div class="solution-info">
+                <div class="section-tag">Giải pháp 01</div>
+                <h2 data-cms="education-text-13">Tăng tỷ lệ tuyển sinh &amp; Sàng lọc học viên tiềm năng</h2>
+                <p class="solution-desc-main" data-cms="education-text-14">
+                  Tận dụng AI chatbot để tiếp cận tức thời mọi phụ huynh/học viên quan tâm từ đa kênh, phân loại nhu cầu và định tuyến tư vấn viên lập tức.
+                </p>
+                <div class="solution-points">
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="education-text-15">Tư vấn viên &amp; AI Assistant với Dataset</h4>
+                      <p data-cms="education-text-16">Sử dụng Dataset tri thức khóa học để AI tự động tư vấn lịch học, học phí và lộ trình học chuẩn xác. Cung cấp gợi ý trả lời nhanh cho tư vấn viên để chốt đơn học thử trong 15s.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="education-text-17">Lead Form thông minh &amp; Phân loại tự động</h4>
+                      <p data-cms="education-text-18">Thu thập thông tin nhu cầu học tập, độ tuổi, trình độ trực tiếp qua chat. Tự động gắn tag thuộc tính để cá nhân hóa kịch bản giới thiệu khóa học phù hợp.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="education-text-19">Tự động phân bổ &amp; Xếp hàng tư vấn</h4>
+                      <p data-cms="education-text-20">Định tuyến hội thoại thông minh chuyển tiếp đến đúng tư vấn viên theo chi nhánh, ca trực hoặc nhóm đối tượng phụ huynh/học viên.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-visual">
+                <img src="asset smax/education-v2/admissions-routing.webp" alt="Luồng tiếp nhận, sàng lọc và phân bổ tư vấn viên tuyển sinh" data-cms-img="education-img-1">
+              </div>
+            </div>
+            <!-- Mobile visual -->
+            <div class="mobile-section-visual">
+              <img src="asset smax/education-v2/admissions-routing.webp" alt="Luồng tiếp nhận, sàng lọc và phân bổ tư vấn viên tuyển sinh" data-cms-img="education-img-2">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Solution 2 (Cá nhân hóa tư vấn lộ trình) -->
+        <section class="solution-panel-section" style="background: #F8F9FC;">
+          <div class="container">
+            <div class="section-header">
+              <div class="section-tag">Giải pháp 02</div>
+              <h2 class="section-title" data-cms="education-text-21">Khảo sát &amp; Đặt lịch hẹn kiểm tra đầu vào tự động</h2>
+              <p class="section-desc" data-cms="education-text-22">
+                Cá nhân hóa phễu đánh giá năng lực học viên để đề xuất lộ trình học chuẩn xác nhất mà không tốn công sức vận hành thủ công.
+              </p>
+            </div>
+
+            <div class="solution-acquisition-grid">
+              <!-- Left Big Bento cell (Đặt lịch) -->
+              <div class="acq-card acq-main-card">
+                <div>
+                  <h3 style="font-size: 20px; font-weight: 800; margin: 0 0 12px; color: var(--primary-navy, #0F1835);" data-cms="education-text-23">Hệ thống Đặt lịch hẹn học thử &amp; Test trình độ</h3>
+                  <p style="font-size: 14.5px; line-height: 1.6; color: var(--text-secondary, #475467); margin: 0 0 20px;" data-cms="education-text-24">
+                    Cho phép học viên/phụ huynh tự chọn khung giờ rảnh để đặt lịch kiểm tra trình độ (Placement Test) trực tiếp qua Manual Selling Page (Webview). Hệ thống tự động xếp lớp, cấp link phòng Zoom hoặc phòng thi offline và gửi tin nhắn xác nhận lịch hẹn tức thì.
+                  </p>
+                </div>
+                <div class="acq-card-right-img">
+                  <img src="asset smax/education-v2/placement-scheduling.webp" alt="Luồng khảo sát trình độ, đặt lịch kiểm tra và đề xuất lộ trình" data-cms-img="education-img-3">
+                </div>
+              </div>
+
+              <!-- Right Supporting Bento cell -->
+              <div class="acq-card" style="gap: 24px;">
+                <div class="acq-sub-card">
+                  <h4 data-cms="education-text-25">Khảo sát trình độ tự động</h4>
+                  <p data-cms="education-text-26">Hỏi các câu hỏi trắc nghiệm thông minh trên chat để đánh giá mức độ phù hợp trước khi thi thử.</p>
+                </div>
+                <div class="acq-sub-card">
+                  <h4 data-cms="education-text-27">Đề xuất lộ trình cá nhân hóa</h4>
+                  <p data-cms="education-text-28">AI tự động phân tích kết quả test để đề xuất chương trình học, số buổi và học phí cá nhân hóa.</p>
+                </div>
+              </div>
+
+              <!-- Bottom sub cards row -->
+              <div class="acq-sub-grid">
+                <div class="acq-card">
+                  <h3 style="font-size: 17px; font-weight: 700; margin: 0 0 8px; color: var(--primary-navy, #0F1835);" data-cms="education-text-29">Nurturing Lead học viên bỏ dở</h3>
+                  <p style="font-size: 14px; line-height: 1.5; color: var(--text-secondary, #475467); margin: 0;" data-cms="education-text-30">Tự động phát hiện học viên chưa hoàn thành form đăng ký hoặc chưa chọn lịch test để gửi tin nhắn bám đuổi qua kịch bản Sequence chăm sóc.</p>
+                </div>
+                <div class="acq-card">
+                  <h3 style="font-size: 17px; font-weight: 700; margin: 0 0 8px; color: var(--primary-navy, #0F1835);" data-cms="education-text-31">Nhắc lịch học thử trước 1 giờ</h3>
+                  <p style="font-size: 14px; line-height: 1.5; color: var(--text-secondary, #475467); margin: 0;" data-cms="education-text-32">Tự động gửi tin nhắn kèm link Zoom và tài liệu học thử trước giờ hẹn 1 tiếng, tăng tỷ lệ tham gia lớp học lên 80%.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5: Solution 3 (Tự động vận hành) -->
+        <section class="solution-panel-section">
+          <div class="container">
+            <div class="solution-grid">
+              <div class="solution-visual">
+                <img src="asset smax/education-v2/academic-notifications.webp" alt="Luồng tự động thông báo lịch học, học phí, tài liệu và bài tập" data-cms-img="education-img-4">
+              </div>
+              <div class="solution-info">
+                <div class="section-tag">Giải pháp 03</div>
+                <h2 data-cms="education-text-33">Tự động hóa thông báo học vụ &amp; Chăm sóc học viên</h2>
+                <p class="solution-desc-main" data-cms="education-text-34">
+                  Thay thế việc gọi điện, nhắn tin thủ công của giáo vụ bằng hệ thống tin nhắn thông báo tự động và nhất quán tới phụ huynh/học viên.
+                </p>
+                <div class="solution-points">
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="education-text-35">Zalo ZBS (ZNS) nhắc lịch khai giảng &amp; Học phí</h4>
+                      <p data-cms="education-text-36">Kết nối Zalo OA gửi thông báo đóng học phí định kỳ, lịch nghỉ lễ hoặc lịch khai giảng khóa mới tự động theo đúng mẫu duyệt sẵn của Zalo.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="education-text-37">Tự động gửi tài liệu &amp; Bài tập về nhà</h4>
+                      <p data-cms="education-text-38">Hệ thống tự phát hiện buổi học kết thúc để gửi slide bài học, bài tập về nhà và giáo trình điện tử qua tin nhắn Messenger/Zalo OA.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="education-text-39">Nhắc lịch thi &amp; Lịch học định kỳ</h4>
+                      <p data-cms="education-text-40">Hệ thống tự động gửi nhắc nhở trước mỗi ca học/ca thi 1 ngày, giảm thiểu tỷ lệ quên lịch học và tối ưu công suất vận hành phòng học.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Mobile visual -->
+            <div class="mobile-section-visual">
+              <img src="asset smax/education-v2/academic-notifications.webp" alt="Luồng tự động thông báo lịch học, học phí, tài liệu và bài tập" data-cms-img="education-img-5">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 6: Solution 4 (Quản lý kết quả) -->
+        <section class="solution-loyalty-section">
+          <div class="container">
+            <div class="section-header">
+              <div class="section-tag">Giải pháp 04</div>
+              <h2 class="section-title" data-cms="education-text-41">Quản lý kết quả học tập &amp; Trả điểm test tự động</h2>
+              <p class="section-desc" data-cms="education-text-42">
+                Cập nhật kết quả thi cử, chuyên cần và nhận xét của giáo viên trực tiếp đến phụ huynh/học viên một cách nhanh chóng, minh bạch.
+              </p>
+            </div>
+
+            <div class="loyalty-visual">
+              <img src="asset smax/education-v2/learning-results.webp" alt="Luồng đồng bộ điểm, chuyên cần và gửi kết quả học tập cho phụ huynh" data-cms-img="education-img-6">
+            </div>
+
+            <div class="loyalty-cards-container">
+              <div class="loyalty-card">
+                <div class="loyalty-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 0 0 1.946-.806 3.42 3.42 0 0 1 4.438 0 3.42 3.42 0 0 0 1.946.806 3.42 3.42 0 0 1 3.138 3.138 3.42 3.42 0 0 0 .806 1.946 3.42 3.42 0 0 1 0 4.438 3.42 3.42 0 0 0-.806 1.946 3.42 3.42 0 0 1-3.138 3.138 3.42 3.42 0 0 0-1.946.806 3.42 3.42 0 0 1-4.438 0 3.42 3.42 0 0 0-1.946-.806 3.42 3.42 0 0 1-3.138-3.138 3.42 3.42 0 0 0-.806-1.946 3.42 3.42 0 0 1 0-4.438 3.42 3.42 0 0 0 .806-1.946 3.42 3.42 0 0 1 3.138-3.138z"></path></svg>
+                </div>
+                <h3 data-cms="education-text-43">Gửi bảng điểm &amp; Kết quả thi tự động</h3>
+                <p data-cms="education-text-44">Giáo viên nhập điểm trên hệ thống LMS/Google Sheets -&gt; Smax tự động đồng bộ và gửi tin nhắn thông báo bảng điểm chi tiết kèm lời nhận xét giáo viên qua Zalo/Messenger cá nhân hóa.</p>
+              </div>
+
+              <div class="loyalty-card">
+                <div class="loyalty-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M21 9H3M21 15H3M12 3v18"></path></svg>
+                </div>
+                <h3 data-cms="education-text-45">Thông báo chuyên cần &amp; Nhận xét buổi học</h3>
+                <p data-cms="education-text-46">Sau mỗi buổi học kết thúc, hệ thống gửi cập nhật về tình hình đi học của học viên (đi học, vắng có phép, vắng không phép) cùng nhận xét về thái độ học tập tới phụ huynh lập tức.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 7: Solution 5 (Tái đăng ký & Cộng đồng) -->
+        <section class="solution-panel-section">
+          <div class="container">
+            <div class="solution-grid">
+              <div class="solution-info">
+                <div class="section-tag">Giải pháp 05</div>
+                <h2 data-cms="education-text-47">Gia tăng tỷ lệ tái đăng ký &amp; Nuôi dưỡng cộng đồng</h2>
+                <p class="solution-desc-main" data-cms="education-text-48">
+                  Tận dụng kịch bản chúc mừng hoàn thành khóa học để đề xuất lớp học nâng cấp và gửi ưu đãi gia hạn học phí tự động.
+                </p>
+                <div class="solution-points">
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="education-text-49">Chứng nhận khóa học &amp; Đề xuất lớp nâng cấp</h4>
+                      <p data-cms="education-text-50">Tự động thiết kế ảnh chứng nhận tốt nghiệp hoàn thành khóa học cá nhân hóa gửi qua chat. AI tự nhận diện thời điểm hoàn thành để gợi ý lộ trình khóa học nâng cấp phù hợp.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="education-text-51">Ưu đãi tái đăng ký đóng học phí sớm</h4>
+                      <p data-cms="education-text-52">Tự động gửi các chiến dịch FMM/ZBS (ZNS) thông báo ưu đãi học phí đóng sớm (Early Bird) hoặc voucher giảm giá tri ân học viên cũ trước khi khóa học kết thúc 2 tuần.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="education-text-53">Xây dựng nhóm học viên &amp; Từ vựng mỗi ngày</h4>
+                      <p data-cms="education-text-54">Tự động phân phối kịch bản hữu ích như "Từ vựng mỗi ngày" qua Zalo/Messenger của học viên để duy trì tương tác thương hiệu, tăng tỷ lệ gắn kết và giới thiệu bạn bè.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-visual">
+                <img src="asset smax/education-v2/reenrollment-community.webp" alt="Luồng hoàn thành khóa học, ưu đãi tái đăng ký và giới thiệu bạn bè" data-cms-img="education-img-7">
+              </div>
+            </div>
+            <!-- Mobile visual -->
+            <div class="mobile-section-visual">
+              <img src="asset smax/education-v2/reenrollment-community.webp" alt="Luồng hoàn thành khóa học, ưu đãi tái đăng ký và giới thiệu bạn bè" data-cms-img="education-img-8">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 8: Solution 6 (Dữ liệu tập trung) -->
+        <section class="solution-panel-section" style="background: #F8F9FC;">
+          <div class="container">
+            <div class="solution-grid">
+              <div class="solution-visual">
+                <img src="asset smax/education-v2/student-360-report.webp" alt="Hồ sơ học viên 360 độ và báo cáo tuyển sinh thời gian thực" data-cms-img="education-img-9">
+              </div>
+              <div class="solution-info">
+                <div class="section-tag">Giải pháp 06</div>
+                <h2 data-cms="education-text-55">Hồ sơ học viên 360° &amp; Báo cáo tuyển sinh thời gian thực</h2>
+                <p class="solution-desc-main" data-cms="education-text-56">
+                  Hợp nhất mọi thông tin điểm chạm quảng cáo, kết quả tư vấn, lịch sử test đầu vào đến kết quả học tập và chuyên cần của học viên về một nơi duy nhất.
+                </p>
+                <div class="solution-points">
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="education-text-57">Đồng bộ CRM &amp; LMS (Lark Base, Google Sheets)</h4>
+                      <p data-cms="education-text-58">Tự động đẩy thông tin đăng ký, kết quả test đầu vào, trạng thái đóng học phí về hệ thống CRM/LMS của trung tâm/nhà trường thời gian thực, loại bỏ hoàn toàn việc nhập liệu thủ công.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="education-text-59">Báo cáo tuyển sinh &amp; CSAT tư vấn</h4>
+                      <p data-cms="education-text-60">Thống kê số lượng lead tuyển sinh theo từng nguồn quảng cáo, thời gian phản hồi của tư vấn viên và điểm CSAT chất lượng tư vấn thời gian thực.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="integrations-logos">
+                  <div class="int-logo"><img src="asset smax/brands/lark.svg" alt="Lark Suite" data-cms-img="education-img-10"> Lark Suite</div>
+                  <div class="int-logo"><img src="asset smax/brands/sheets.svg" alt="Google Sheets" data-cms-img="education-img-11"> Google Sheets</div>
+                  <div class="int-logo"><img src="asset smax/brands/hubspot.svg" alt="HubSpot" data-cms-img="education-img-12"> HubSpot</div>
+                  <div class="int-logo">Zalo OA (ZBS/ZNS)</div>
+                </div>
+              </div>
+            </div>
+            <!-- Mobile visual -->
+            <div class="mobile-section-visual">
+              <img src="asset smax/education-v2/student-360-report.webp" alt="Hồ sơ học viên 360 độ và báo cáo tuyển sinh thời gian thực" data-cms-img="education-img-13">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 9: CTA Section -->
+        <section class="cta-section" id="cta">
+          <div class="container">
+            <div class="cta-card">
+              <h2 data-cms="education-text-61">Số hóa quy trình Tuyển sinh &amp; CSKH Giáo dục ngay hôm nay</h2>
+              <p data-cms="education-text-62">
+                Đồng hành cùng hàng trăm trường học, trung tâm ngoại ngữ và đào tạo kỹ năng tối ưu hóa nguồn lực và bứt phá tuyển sinh cùng Smax.ai.
+              </p>
+              <div class="cta-actions">
+                <a class="btn btn-dark" href="https://smax.ai/login">Dùng thử miễn phí</a>
+                <a class="btn btn-soft" href="index.html#cta">Đặt lịch hẹn tư vấn</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div>
+            <a class="brand" href="#top">
+              <img src="asset smax/smax-ai-logo.webp" alt="Smax.ai" class="brand-logo-img">
+            </a>
+            <p>Nền tảng AI-Automation giúp doanh nghiệp vận hành bán hàng, tiếp thị và chăm sóc khách hàng đa kênh.</p>
+          </div>
+          <div>
+            <h3>Sản phẩm</h3>
+            <a href="livechat.html">Livechat</a>
+            <a href="chatbot.html">Chatbot</a>
+            <a href="genai.html">Smax GenAI</a>
+            <a href="insight.html">AI Insight</a>
+            <a href="marketing.html">Marketing Tools</a>
+            <a href="gamification.html">Gamification</a>
+            <a href="remarketing.html">Remarketing</a>
+            <a href="crm-sync.html">CRM Connect</a>
+          </div>
+          <div>
+            <h3>Giải pháp</h3>
+            <a href="ecommerce.html">E-commerce &amp; Bán lẻ</a>
+            <a href="education.html">Giáo dục</a>
+            <a href="realestate.html">Bất động sản</a>
+            <a href="service.html">Dịch vụ</a>
+            <a href="fb.html">F&amp;B</a>
+            <a href="agency.html">Agency &amp; Consultant</a>
+          </div>
+          <div>
+            <h3>Tài nguyên</h3>
+            <a>Blog</a>
+            <a>Tài liệu</a>
+            <a>Video hướng dẫn</a>
+            <a>Webinar</a>
+            <a>Bot mẫu</a>
+            <a>Case Study</a>
+          </div>
+          <div>
+            <h3>Doanh nghiệp</h3>
+            <a>Về Smax.ai</a>
+            <a href="partnership.html">Đối tác</a>
+            <a>Bảng giá</a>
+            <a>Liên hệ</a>
+            <a>Chính sách</a>
+          </div>
+        </div>
+        <div class="container footer-bottom">
+          <span>© 2026 Smax.ai</span>
+          <span>Điều khoản · Quyền riêng tư · Liên hệ tư vấn</span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Shared Header and Interactions JS -->
+    <script src="script.js?v=4.0.2"></script>
+  
+
+</body></html>

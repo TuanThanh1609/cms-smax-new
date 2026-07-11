@@ -1,0 +1,1785 @@
+<!DOCTYPE html><html lang="vi"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Smax Remarketing - Quản lý Broadcast và Sequence đa kênh qua Facebook Marketing Messages, Zalo ZBS và các hình thức gửi được hỗ trợ.">
+    <title>Smax Remarketing | Đánh thức Khách hàng cũ &amp; Tăng doanh thu lặp lại</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="icon" href="asset smax/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      body {
+        overflow-x: hidden;
+      }
+      
+      .remarketing-page-wrapper {
+        font-family: "Be Vietnam Pro", sans-serif;
+        color: var(--primary-navy, #0F1835);
+        background: #FFFFFF;
+      }
+
+      /* Stacked Content Cards */
+      .stacked-cards-section {
+        padding: 120px 0;
+        background: #F8F9FC;
+      }
+
+      .stacked-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 120px;
+      }
+
+      .stacked-card {
+        position: -webkit-sticky;
+        position: sticky;
+        border-radius: 32px;
+        padding: 48px 64px;
+        display: grid;
+        grid-template-columns: 1.25fr 1fr;
+        gap: 48px;
+        align-items: center;
+        height: 440px;
+        box-shadow: 0 -15px 40px rgba(15, 24, 53, 0.05);
+        transition: transform 0.3s ease;
+        overflow: hidden;
+      }
+
+      .stacked-card:nth-child(1) { z-index: 1; background: var(--process-blue, #4277FF); color: #FFFFFF; top: 110px; }
+      .stacked-card:nth-child(2) { z-index: 2; background: var(--primary-coral, #FA6E5B); color: #FFFFFF; top: 140px; }
+      .stacked-card:nth-child(3) { z-index: 3; background: var(--primary-navy, #0F1835); color: #FFFFFF; top: 170px; }
+      .stacked-card:nth-child(4) { z-index: 4; background: var(--process-blue, #4277FF); color: #FFFFFF; top: 200px; }
+      .stacked-card:nth-child(5) { z-index: 5; background: var(--primary-navy, #0F1835); color: #FFFFFF; top: 230px; }
+
+      .stacked-card-copy {
+        text-align: left;
+      }
+
+      .stacked-card-meta {
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        opacity: 0.85;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .stacked-card-copy h2 {
+        font-size: clamp(2rem, 3.5vw, 2.6rem);
+        font-weight: 900;
+        color: #FFFFFF;
+        line-height: 1.25;
+        margin-bottom: 24px;
+        letter-spacing: -0.02em;
+      }
+
+      .stacked-card-copy p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: 32px;
+      }
+
+      .stacked-card-media {
+        position: relative;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 28px 56px -16px rgba(15, 24, 53, 0.16), 0 12px 24px -12px rgba(15, 24, 53, 0.12), 0 1px 2px rgba(15, 24, 53, 0.02);
+        background: #FFFFFF;
+        overflow: hidden;
+        height: 320px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .stacked-card-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        display: block;
+        border-radius: 8px;
+      }
+
+      /* AI Assistant Highlights */
+      .ai-showcase-section {
+        padding: 120px 0;
+        background: #0F1835;
+        color: #FFFFFF;
+        overflow: hidden;
+      }
+
+      .ai-showcase-grid {
+        display: grid;
+        grid-template-columns: 5fr 7fr;
+        gap: 64px;
+        align-items: center;
+      }
+
+      .ai-showcase-copy {
+        text-align: left;
+      }
+
+      .ai-showcase-copy h2 {
+        font-size: clamp(2rem, 3.5vw, 2.6rem);
+        font-weight: 900;
+        color: #FFFFFF;
+        line-height: 1.25;
+        margin-bottom: 24px;
+      }
+
+      .ai-showcase-copy h2 span {
+        color: var(--primary-coral, #FA6E5B);
+      }
+
+      .ai-showcase-copy p {
+        font-size: 16.5px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 40px;
+      }
+
+      .ai-feature-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .ai-chip {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px 14px;
+        border-radius: 99px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.15);
+        color: #FFFFFF;
+        line-height: 1;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+      }
+
+      .ai-chip.active, .ai-chip:hover {
+        background: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.35);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
+      }
+
+      .ai-showcase-media .mockup-wrapper {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        background: #17234E;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+
+      .ai-showcase-media .mockup-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Section Header */
+      .section-header {
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto 56px;
+      }
+
+      .section-header h2 {
+        font-size: clamp(2rem, 3.5vw, 2.5rem);
+        font-weight: 900;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 16px;
+        letter-spacing: -0.02em;
+      }
+
+      .section-header p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+      }
+
+      /* Reports Hub */
+      .reports-hub-section {
+        padding: 120px 0;
+        background: #F8F9FC;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .reports-tab-container {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 48px;
+        flex-wrap: wrap;
+      }
+
+      .report-tab-btn {
+        padding: 12px 24px;
+        border-radius: 99px;
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        color: var(--text-secondary, #475467);
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .report-tab-btn.active, .report-tab-btn:hover {
+        background: var(--primary-navy, #0F1835);
+        color: #FFFFFF;
+        border-color: var(--primary-navy, #0F1835);
+        box-shadow: 0 4px 12px rgba(15, 24, 53, 0.1);
+      }
+
+      .report-panel {
+        display: none;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .report-panel.active {
+        display: block;
+        animation: fadeIn 0.4s ease-out;
+      }
+
+      .mockup-wrapper {
+        position: relative;
+        border-radius: 16px;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        background: #FFFFFF;
+        box-shadow: 0 20px 50px rgba(15, 24, 53, 0.08);
+        overflow: hidden;
+        margin-top: 24px;
+        line-height: 0;
+      }
+
+      .mockup-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Case Study */
+      .casestudy-section {
+        padding: 120px 0;
+        background: #FFFFFF;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .casestudy-card {
+        background: #F8F9FC;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 32px;
+        padding: 64px;
+        display: grid;
+        grid-template-columns: 6fr 5fr;
+        gap: 64px;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .casestudy-quote {
+        text-align: left;
+      }
+
+      .casestudy-quote-mark {
+        font-size: 80px;
+        font-family: serif;
+        line-height: 1;
+        color: var(--process-blue, #4277FF);
+        margin-bottom: -20px;
+        opacity: 0.3;
+      }
+
+      .casestudy-quote p {
+        font-size: 17.5px;
+        line-height: 1.7;
+        color: var(--primary-navy, #0F1835);
+        font-weight: 500;
+        margin-bottom: 32px;
+      }
+
+      .casestudy-author {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .author-info h4 {
+        font-size: 16px;
+        font-weight: 800;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 4px;
+      }
+
+      .author-info p {
+        font-size: 13.5px;
+        color: var(--text-secondary, #475467);
+        margin-bottom: 0;
+      }
+
+      .casestudy-metrics {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        border-left: 2px solid rgba(15, 24, 53, 0.06);
+        padding-left: 48px;
+        text-align: left;
+      }
+
+      .cs-metric-num {
+        font-size: 40px;
+        font-weight: 900;
+        color: var(--primary-coral, #FA6E5B);
+        line-height: 1.1;
+        margin-bottom: 8px;
+      }
+
+      .cs-metric-label {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 4px;
+      }
+
+      .cs-metric-desc {
+        font-size: 13px;
+        color: var(--text-secondary, #475467);
+        line-height: 1.4;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Responsive Rules */
+      @media (max-width: 1024px) {
+        .stacked-container { gap: 40px; }
+        .stacked-card { position: relative; top: auto !important; grid-template-columns: 1fr; padding: 40px; gap: 40px; height: auto; }
+        .ai-showcase-grid { grid-template-columns: 1fr; gap: 40px; }
+        .casestudy-card { grid-template-columns: 1fr; padding: 40px; gap: 40px; }
+        .casestudy-metrics { border-left: none; border-top: 2px solid rgba(15, 24, 53, 0.06); padding-left: 0; padding-top: 32px; flex-direction: row; flex-wrap: wrap; gap: 24px; }
+      }
+
+    
+      
+      
+      /* --- Quickstart 3 Steps Section (Card Grid) --- */
+      .quickstart-steps-section {
+        padding: 100px 0;
+        background: #FFFFFF;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .steps-header {
+        text-align: left;
+        margin-bottom: 56px;
+        max-width: 800px;
+      }
+
+      .steps-eyebrow {
+        display: block;
+        font-size: 13px;
+        color: #8C8C8C;
+        margin-bottom: 12px;
+        font-weight: 500;
+      }
+
+      .steps-title {
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 800;
+        color: #0F1835;
+        line-height: 1.3;
+        margin: 0;
+        letter-spacing: -0.02em;
+      }
+
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .step-card {
+        background: #F8F9FC;
+        border-radius: 20px;
+        padding: 40px 32px 32px 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        border: 1px solid rgba(15, 24, 53, 0.03);
+      }
+
+      .step-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 36px rgba(15, 24, 53, 0.05);
+        border-color: rgba(66, 119, 255, 0.1);
+      }
+
+      .step-card-eyebrow {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--primary-coral, #FA6E5B);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      .step-card-title {
+        font-size: 17px;
+        font-weight: 800;
+        color: #0F1835;
+        margin: 0 0 16px 0;
+        line-height: 1.4;
+        max-width: 24ch;
+      }
+
+      .step-card-desc {
+        font-size: 13.5px;
+        line-height: 1.55;
+        color: #595959;
+        margin: 0 0 28px 0;
+        text-align: left;
+      }
+
+      .step-card-visual {
+        width: 100%;
+        background: #FFFFFF;
+        border-radius: 12px;
+        padding: 10px;
+        box-shadow: 0 12px 32px rgba(15, 24, 53, 0.05);
+        border: 1px solid rgba(15, 24, 53, 0.02);
+        margin-top: auto; /* Push mockup to the bottom of the card */
+      }
+
+      .step-card-visual img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        display: block;
+      }
+
+      @media (max-width: 1023px) {
+        .steps-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .quickstart-steps-section {
+          padding: 60px 0;
+        }
+        .steps-header {
+          margin-bottom: 40px;
+        }
+      }
+</style>
+  </head>
+  <body>
+    <div class="remarketing-page-wrapper">
+      <!-- Shared Header dynamically loaded via script.js -->
+      <header class="site-header" data-header=""></header>
+
+      <main id="top">
+        <!-- Redesigned Hero Section with Grid Background -->
+        <section class="remarketing-hero">
+          <div class="hero-grid-bg"></div>
+          <div class="container">
+            <div class="hero-glass-board">
+              <!-- Row 1: Split Content -->
+              <div class="board-row-split">
+                <h1>SMAX <br><span class="highlight-blue">REMARKETING</span></h1>
+                <p data-cms="remarketing-text-1">Hệ thống tự động chăm sóc và tiếp cận lại khách hàng cũ đa kênh, tối ưu chi phí tiếp cận và gia tăng doanh số lặp lại tức thì.</p>
+              </div>
+
+              <!-- Row 2: Stacked Logos & Title -->
+              <div class="board-row-logos">
+                <div class="stacked-logos-group">
+                  <div class="stacked-logo-item" style="z-index: 6;"><img src="asset smax/integration-icons/facebook.svg" alt="Facebook" data-cms-img="remarketing-img-1"></div>
+                  <div class="stacked-logo-item" style="z-index: 5;"><img src="asset smax/integration-icons/zalo.svg" alt="Zalo" data-cms-img="remarketing-img-2"></div>
+                  <div class="stacked-logo-item" style="z-index: 4;"><img src="asset smax/integration-icons/tiktok.svg" alt="TikTok" data-cms-img="remarketing-img-3"></div>
+                  <div class="stacked-logo-item" style="z-index: 3;"><img src="asset smax/integration-icons/shopee.svg" alt="Shopee" data-cms-img="remarketing-img-4"></div>
+                  <div class="stacked-logo-item" style="z-index: 2;"><img src="asset smax/integration-icons/google-sheets.svg" alt="Google Sheets" data-cms-img="remarketing-img-5"></div>
+                </div>
+                <h2 data-cms="remarketing-text-2">CHĂM SÓC ĐA KÊNH</h2>
+              </div>
+
+              <!-- Row 3: Action & Title -->
+              <div class="board-row-action">
+                <h2 data-cms="remarketing-text-3">VƯỢT GIỚI HẠN 24H</h2>
+                <a href="#cta" class="btn-hero">Đăng ký tư vấn ngay</a>
+              </div>
+            </div>
+
+            <!-- Infinite Horizontal Marquee -->
+            <div class="marquee-wrapper-hero">
+              <div class="marquee-track-hero">
+                <!-- Card 1 -->
+                <div class="marquee-card-hero">
+                  <div class="marquee-icon-hero"><img src="asset smax/integration-icons/facebook.svg" alt="FB" data-cms-img="remarketing-img-6"></div>
+                  <div class="marquee-info-hero">
+                    <div class="marquee-header-hero">
+                      <h4 class="marquee-title-hero" data-cms="remarketing-text-4">Facebook 24h</h4>
+                      <span class="marquee-price-tag free">Miễn phí</span>
+                    </div>
+                    <p class="marquee-desc-hero" data-cms="remarketing-text-5">Gửi tin CSKH tự động cho khách tương tác trong 24h</p>
+                  </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="marquee-card-hero">
+                  <div class="marquee-icon-hero"><img src="asset smax/integration-icons/facebook.svg" alt="FB" data-cms-img="remarketing-img-7"></div>
+                  <div class="marquee-info-hero">
+                    <div class="marquee-header-hero">
+                      <h4 class="marquee-title-hero" data-cms="remarketing-text-6">Facebook FMM</h4>
+                      <span class="marquee-price-tag">200–300đ/tin</span>
+                    </div>
+                    <p class="marquee-desc-hero" data-cms="remarketing-text-7">Gửi tin quảng bá chính thống vượt luật 24h Meta</p>
+                  </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="marquee-card-hero">
+                  <div class="marquee-icon-hero"><img src="asset smax/integration-icons/zalo.svg" alt="Zalo" data-cms-img="remarketing-img-8"></div>
+                  <div class="marquee-info-hero">
+                    <div class="marquee-header-hero">
+                      <h4 class="marquee-title-hero" data-cms="remarketing-text-8">Zalo ZBS</h4>
+                      <span class="marquee-price-tag">200–300đ/tin</span>
+                    </div>
+                    <p class="marquee-desc-hero" data-cms="remarketing-text-9">Gửi thông báo mẫu cá nhân hóa theo SĐT &amp; UID</p>
+                  </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="marquee-card-hero">
+                  <div class="marquee-icon-hero"><img src="asset smax/integration-icons/zalo.svg" alt="Zalo" data-cms-img="remarketing-img-9"></div>
+                  <div class="marquee-info-hero">
+                    <div class="marquee-header-hero">
+                      <h4 class="marquee-title-hero" data-cms="remarketing-text-10">Zalo Follow OA</h4>
+                      <span class="marquee-price-tag free">Miễn phí</span>
+                    </div>
+                    <p class="marquee-desc-hero" data-cms="remarketing-text-11">Gửi tin nhắn miễn phí cho khách hàng quan tâm OA</p>
+                  </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="marquee-card-hero">
+                  <div class="marquee-icon-hero"><img src="asset smax/integration-icons/zalo.svg" alt="Zalo" data-cms-img="remarketing-img-10"></div>
+                  <div class="marquee-info-hero">
+                    <div class="marquee-header-hero">
+                      <h4 class="marquee-title-hero" data-cms="remarketing-text-12">Zalo cá nhân</h4>
+                      <span class="marquee-price-tag free">Miễn phí</span>
+                    </div>
+                    <p class="marquee-desc-hero" data-cms="remarketing-text-13">Tự động kết bạn và nhắn tin qua Zalo cá nhân</p>
+                  </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="marquee-card-hero">
+                  <div class="marquee-icon-hero"><img src="asset smax/integration-icons/zalo.svg" alt="Zalo" data-cms-img="remarketing-img-11"></div>
+                  <div class="marquee-info-hero">
+                    <div class="marquee-header-hero">
+                      <h4 class="marquee-title-hero" data-cms="remarketing-text-14">Zalo Group</h4>
+                      <span class="marquee-price-tag free">Miễn phí</span>
+                    </div>
+                    <p class="marquee-desc-hero" data-cms="remarketing-text-15">Chăm sóc &amp; gửi thông báo tự động vào nhóm Zalo</p>
+                  </div>
+                </div>
+                <!-- Loop duplicates -->
+                <div class="marquee-card-hero">
+                  <div class="marquee-icon-hero"><img src="asset smax/integration-icons/facebook.svg" alt="FB" data-cms-img="remarketing-img-12"></div>
+                  <div class="marquee-info-hero">
+                    <div class="marquee-header-hero">
+                      <h4 class="marquee-title-hero" data-cms="remarketing-text-16">Facebook 24h</h4>
+                      <span class="marquee-price-tag free">Miễn phí</span>
+                    </div>
+                    <p class="marquee-desc-hero" data-cms="remarketing-text-17">Gửi tin CSKH tự động cho khách tương tác trong 24h</p>
+                  </div>
+                </div>
+                <div class="marquee-card-hero">
+                  <div class="marquee-icon-hero"><img src="asset smax/integration-icons/facebook.svg" alt="FB" data-cms-img="remarketing-img-13"></div>
+                  <div class="marquee-info-hero">
+                    <div class="marquee-header-hero">
+                      <h4 class="marquee-title-hero" data-cms="remarketing-text-18">Facebook FMM</h4>
+                      <span class="marquee-price-tag">200–300đ/tin</span>
+                    </div>
+                    <p class="marquee-desc-hero" data-cms="remarketing-text-19">Gửi tin quảng bá chính thống vượt luật 24h Meta</p>
+                  </div>
+                </div>
+                <div class="marquee-card-hero">
+                  <div class="marquee-icon-hero"><img src="asset smax/integration-icons/zalo.svg" alt="Zalo" data-cms-img="remarketing-img-14"></div>
+                  <div class="marquee-info-hero">
+                    <div class="marquee-header-hero">
+                      <h4 class="marquee-title-hero" data-cms="remarketing-text-20">Zalo ZBS</h4>
+                      <span class="marquee-price-tag">200–300đ/tin</span>
+                    </div>
+                    <p class="marquee-desc-hero" data-cms="remarketing-text-21">Gửi thông báo mẫu cá nhân hóa theo SĐT &amp; UID</p>
+                  </div>
+                </div>
+                <div class="marquee-card-hero">
+                  <div class="marquee-icon-hero"><img src="asset smax/integration-icons/zalo.svg" alt="Zalo" data-cms-img="remarketing-img-15"></div>
+                  <div class="marquee-info-hero">
+                    <div class="marquee-header-hero">
+                      <h4 class="marquee-title-hero" data-cms="remarketing-text-22">Zalo Follow OA</h4>
+                      <span class="marquee-price-tag free">Miễn phí</span>
+                    </div>
+                    <p class="marquee-desc-hero" data-cms="remarketing-text-23">Gửi tin nhắn miễn phí cho khách hàng quan tâm OA</p>
+                  </div>
+                </div>
+                <div class="marquee-card-hero">
+                  <div class="marquee-icon-hero"><img src="asset smax/integration-icons/zalo.svg" alt="Zalo" data-cms-img="remarketing-img-16"></div>
+                  <div class="marquee-info-hero">
+                    <div class="marquee-header-hero">
+                      <h4 class="marquee-title-hero" data-cms="remarketing-text-24">Zalo cá nhân</h4>
+                      <span class="marquee-price-tag free">Miễn phí</span>
+                    </div>
+                    <p class="marquee-desc-hero" data-cms="remarketing-text-25">Tự động kết bạn và nhắn tin qua Zalo cá nhân</p>
+                  </div>
+                </div>
+                <div class="marquee-card-hero">
+                  <div class="marquee-icon-hero"><img src="asset smax/integration-icons/zalo.svg" alt="Zalo" data-cms-img="remarketing-img-17"></div>
+                  <div class="marquee-info-hero">
+                    <div class="marquee-header-hero">
+                      <h4 class="marquee-title-hero" data-cms="remarketing-text-26">Zalo Group</h4>
+                      <span class="marquee-price-tag free">Miễn phí</span>
+                    </div>
+                    <p class="marquee-desc-hero" data-cms="remarketing-text-27">Chăm sóc &amp; gửi thông báo tự động vào nhóm Zalo</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Key Metrics Section -->
+        <section class="metrics-section">
+          <div class="container">
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="metric-value">+30%</div>
+                <div class="metric-label">Doanh thu khách hàng cũ</div>
+                <div class="metric-desc">Đánh thức đúng tệp khách bằng thông điệp cá nhân hóa đa kênh.</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value"><span class="coral">85%</span></div>
+                <div class="metric-label">Tỷ lệ tin nhắn được đọc</div>
+                <div class="metric-desc">Tiếp cận khách hàng trên kênh họ thường xuyên sử dụng.</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">-60%</div>
+                <div class="metric-label">Chi phí tiếp cận lại</div>
+                <div class="metric-desc">Tối ưu ngân sách nhờ tận dụng dữ liệu khách hàng sẵn có.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Redesigned Bento Grid 12 Channels Section -->
+        <section class="bento-channels-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="remarketing-text-28">Bộ giải pháp Remarketing hoàn thiện</h2>
+              <p data-cms="remarketing-text-29">Smax hỗ trợ đầy đủ các kênh truyền thông chính thống giúp shop tiếp cận khách hàng cũ dễ dàng nhất.</p>
+            </div>
+
+            <div class="bento-channels-grid">
+              <!-- FB ngoài 24h (Extension) -->
+              <div class="bento-channel-card fb">
+                <div class="channel-card-top">
+                  <div class="channel-card-icon"><img src="asset smax/integration-icons/facebook.svg" alt="FB" data-cms-img="remarketing-img-18"></div>
+                  <span class="marquee-price-tag">Extension</span>
+                </div>
+                <div class="channel-card-body">
+                  <h3 data-cms="remarketing-text-30">Facebook ngoài 24h</h3>
+                  <p data-cms="remarketing-text-31">Gửi qua Extension cho khách từng tương tác; người vận hành phải dùng đúng mục đích và tuân thủ chính sách Meta để tránh rủi ro khóa Page.</p>
+                </div>
+                <div class="channel-card-footer">
+                  <div class="channel-card-price">3.900.000đ<span>/năm</span></div>
+                  <a href="#cta" class="channel-card-btn">Xem ngay →</a>
+                </div>
+              </div>
+
+              <!-- FB 24h -->
+              <div class="bento-channel-card fb">
+                <div class="channel-card-top">
+                  <div class="channel-card-icon"><img src="asset smax/integration-icons/facebook.svg" alt="FB" data-cms-img="remarketing-img-19"></div>
+                  <span class="marquee-price-tag free">Free</span>
+                </div>
+                <div class="channel-card-body">
+                  <h3 data-cms="remarketing-text-32">Facebook 24h</h3>
+                  <p data-cms="remarketing-text-33">Gửi tin nhắn hoàn toàn miễn phí cho những khách hàng có tương tác với Fanpage trong vòng 24h qua.</p>
+                </div>
+                <div class="channel-card-footer">
+                  <div class="channel-card-price">0đ<span>/tin</span></div>
+                  <a href="#cta" class="channel-card-btn">Bắt đầu miễn phí →</a>
+                </div>
+              </div>
+
+              <!-- FB FMM -->
+              <div class="bento-channel-card fb">
+                <div class="channel-card-top">
+                  <div class="channel-card-icon"><img src="asset smax/integration-icons/facebook.svg" alt="FB" data-cms-img="remarketing-img-20"></div>
+                  <span class="marquee-price-tag">Meta FMM</span>
+                </div>
+                <div class="channel-card-body">
+                  <h3 data-cms="remarketing-text-34">Facebook Marketing Messages (FMM)</h3>
+                  <p data-cms="remarketing-text-35">Gửi chiến dịch Marketing Messages đến tệp phù hợp; tài liệu Smax nêu chi phí tham khảo khoảng 200–300đ mỗi tin.</p>
+                </div>
+                <div class="channel-card-footer">
+                  <div class="channel-card-price">200–300đ<span>/tin</span></div>
+                  <a href="#cta" class="channel-card-btn">Tìm hiểu FMM →</a>
+                </div>
+              </div>
+
+              <!-- FB FMM 1-1 -->
+              <div class="bento-channel-card fb">
+                <div class="channel-card-top">
+                  <div class="channel-card-icon"><img src="asset smax/integration-icons/facebook.svg" alt="FB" data-cms-img="remarketing-img-21"></div>
+                  <span class="marquee-price-tag">Meta 1-1</span>
+                </div>
+                <div class="channel-card-body">
+                  <h3 data-cms="remarketing-text-36">Facebook Marketing Messages 1-1</h3>
+                  <p data-cms="remarketing-text-37">Gửi tin nhắn marketing 1-1 cho những khách hàng có tương tác đặc biệt bắt nguồn trực tiếp từ quảng cáo.</p>
+                </div>
+                <div class="channel-card-footer">
+                  <div class="channel-card-price">Theo Meta<span>/tin</span></div>
+                  <a href="#cta" class="channel-card-btn">Tìm hiểu FMM 1-1 →</a>
+                </div>
+              </div>
+
+              <!-- FB FUM -->
+              <div class="bento-channel-card fb">
+                <div class="channel-card-top">
+                  <div class="channel-card-icon"><img src="asset smax/integration-icons/facebook.svg" alt="FB" data-cms-img="remarketing-img-22"></div>
+                  <span class="marquee-price-tag free">Free</span>
+                </div>
+                <div class="channel-card-body">
+                  <h3 data-cms="remarketing-text-38">Facebook Utility Messages (FUM)</h3>
+                  <p data-cms="remarketing-text-39">Gửi tin nhắn mẫu đã đăng ký trước đó cho khách hàng để cập nhật thông tin tiện ích và giao dịch.</p>
+                </div>
+                <div class="channel-card-footer">
+                  <div class="channel-card-price">0đ<span>/tin</span></div>
+                  <a href="#cta" class="channel-card-btn">Bắt đầu miễn phí →</a>
+                </div>
+              </div>
+
+              <!-- Zalo Follow OA -->
+              <div class="bento-channel-card zalo">
+                <div class="channel-card-top">
+                  <div class="channel-card-icon"><img src="asset smax/integration-icons/zalo.svg" alt="Zalo" data-cms-img="remarketing-img-23"></div>
+                  <span class="marquee-price-tag free">Free</span>
+                </div>
+                <div class="channel-card-body">
+                  <h3 data-cms="remarketing-text-40">Zalo Follow OA</h3>
+                  <p data-cms="remarketing-text-41">Gửi tin nhắn cho các khách hàng đã bấm quan tâm và theo dõi trang Zalo Official Account của shop.</p>
+                </div>
+                <div class="channel-card-footer">
+                  <div class="channel-card-price">0đ<span>/tin</span></div>
+                  <a href="#cta" class="channel-card-btn">Bắt đầu miễn phí →</a>
+                </div>
+              </div>
+
+              <!-- Zalo ZBS -->
+              <div class="bento-channel-card zalo">
+                <div class="channel-card-top">
+                  <div class="channel-card-icon"><img src="asset smax/integration-icons/zalo.svg" alt="Zalo" data-cms-img="remarketing-img-24"></div>
+                  <span class="marquee-price-tag">ZBS</span>
+                </div>
+                <div class="channel-card-body">
+                  <h3 data-cms="remarketing-text-42">Zalo ZBS</h3>
+                  <p data-cms="remarketing-text-43">Gửi tin ZBS chính thống cho các khách hàng theo tệp định danh ID người dùng hoặc qua số điện thoại.</p>
+                </div>
+                <div class="channel-card-footer">
+                  <div class="channel-card-price">200–300đ<span>/tin</span></div>
+                  <a href="#cta" class="channel-card-btn">Tìm hiểu ZBS →</a>
+                </div>
+              </div>
+
+              <!-- Zalo UID -->
+              <div class="bento-channel-card zalo">
+                <div class="channel-card-top">
+                  <div class="channel-card-icon"><img src="asset smax/integration-icons/zalo.svg" alt="Zalo" data-cms-img="remarketing-img-25"></div>
+                  <span class="marquee-price-tag">Zalo UID</span>
+                </div>
+                <div class="channel-card-body">
+                  <h3 data-cms="remarketing-text-44">Zalo UID Broadcast</h3>
+                  <p data-cms="remarketing-text-45">Gửi tin nhắn hàng loạt cho các khách hàng đã từng phát sinh tương tác trò chuyện với Zalo OA trước đó.</p>
+                </div>
+                <div class="channel-card-footer">
+                  <div class="channel-card-price">Theo OA<span>/tin</span></div>
+                  <a href="#cta" class="channel-card-btn">Tìm hiểu Zalo UID →</a>
+                </div>
+              </div>
+
+              <!-- Zalo cá nhân -->
+              <div class="bento-channel-card zalo">
+                <div class="channel-card-top">
+                  <div class="channel-card-icon"><img src="asset smax/integration-icons/zalo.svg" alt="Zalo" data-cms-img="remarketing-img-26"></div>
+                  <span class="marquee-price-tag free">Free</span>
+                </div>
+                <div class="channel-card-body">
+                  <h3 data-cms="remarketing-text-46">Zalo cá nhân</h3>
+                  <p data-cms="remarketing-text-47">Tự động kết bạn và nhắn tin qua Zalo cá nhân.</p>
+                </div>
+                <div class="channel-card-footer">
+                  <div class="channel-card-price">0đ<span>/tin</span></div>
+                  <a href="#cta" class="channel-card-btn">Bắt đầu miễn phí →</a>
+                </div>
+              </div>
+
+              <!-- Zalo Group -->
+              <div class="bento-channel-card zalo">
+                <div class="channel-card-top">
+                  <div class="channel-card-icon"><img src="asset smax/integration-icons/zalo.svg" alt="Zalo" data-cms-img="remarketing-img-27"></div>
+                  <span class="marquee-price-tag free">Free</span>
+                </div>
+                <div class="channel-card-body">
+                  <h3 data-cms="remarketing-text-48">Zalo Group Automation</h3>
+                  <p data-cms="remarketing-text-49">Gửi tin nhắn tự động hàng loạt để chăm sóc và cập nhật thông tin cho khách hàng trong các nhóm Zalo.</p>
+                </div>
+                <div class="channel-card-footer">
+                  <div class="channel-card-price">0đ<span>/tin</span></div>
+                  <a href="#cta" class="channel-card-btn">Bắt đầu miễn phí →</a>
+                </div>
+              </div>
+
+              <!-- Whatsapp -->
+              <div class="bento-channel-card other disabled">
+                <div class="channel-card-top">
+                  <div class="channel-card-icon"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WA" data-cms-img="remarketing-img-28"></div>
+                  <span class="marquee-price-tag dev">Coming</span>
+                </div>
+                <div class="channel-card-body">
+                  <h3 data-cms="remarketing-text-50">Whatsapp Broadcast</h3>
+                  <p data-cms="remarketing-text-51">Gửi tin nhắn broadcast hàng loạt tự động tới tệp số điện thoại khách hàng sử dụng ứng dụng Whatsapp.</p>
+                </div>
+                <div class="channel-card-footer">
+                  <div class="channel-card-price">Đang phát triển</div>
+                  <span class="channel-card-btn">Coming Soon</span>
+                </div>
+              </div>
+
+              <!-- Shopee & Tiktok -->
+              <div class="bento-channel-card other disabled">
+                <div class="channel-card-top">
+                  <div class="channel-card-icon" style="display: flex; gap: 6px; align-items: center;">
+                    <img src="asset smax/integration-icons/shopee.svg" alt="Shopee" style="width: 24px; height: 24px;" data-cms-img="remarketing-img-29">
+                    <img src="asset smax/integration-icons/tiktok.svg" alt="Tiktok" style="width: 24px; height: 24px;" data-cms-img="remarketing-img-30">
+                  </div>
+                  <span class="marquee-price-tag dev">Coming</span>
+                </div>
+                <div class="channel-card-body">
+                  <h3 data-cms="remarketing-text-52">Shopee/Tiktok Broadcast</h3>
+                  <p data-cms="remarketing-text-53">Gửi tin nhắn quảng bá ưu đãi của shop đến tệp khách hàng cũ và người theo dõi trên nền tảng Shopee &amp; TikTok Shop.</p>
+                </div>
+                <div class="channel-card-footer">
+                  <div class="channel-card-price">Đang phát triển</div>
+                  <span class="channel-card-btn">Coming Soon</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Pure Typography Highlight Section -->
+        <section class="pure-typo-section">
+          <div class="typo-bg-glows"></div>
+          <div class="typo-bg-grid"></div>
+          <div class="pure-typo-container">
+            <h2 data-cms="remarketing-text-54">
+              Smax.ai giúp doanh nghiệp quản lý <span class="gradient-text-1">Broadcast &amp; Sequence</span>, chăm sóc khách hàng <span class="underline-effect">đa kênh</span> và lựa chọn <span class="gradient-text-2">đúng hình thức gửi</span> cho từng tệp
+            </h2>
+            <a href="#cta" class="pure-typo-cta-btn" data-cms="remarketing-hero-sub">Bắt đầu chăm sóc khách hàng của bạn ngay bây giờ</a>
+          </div>
+        </section>
+
+        <!-- Stacked Sticky Cards Section -->
+        <section class="stacked-cards-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="remarketing-features-title">Các tính năng vượt trội của Smax Remarketing</h2>
+              <p data-cms="remarketing-features-sub">Thiết lập chiến dịch theo kênh, bộ lọc, nội dung, lịch gửi và quy tắc vận hành tương ứng.</p>
+            </div>
+
+            <div class="stacked-container">
+              <!-- Card 1: Kết nối dữ liệu đa kênh -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">01 / DATA INTEGRATION</span>
+                  <h2 data-cms="remarketing-text-55">Kết nối dữ liệu khách hàng đa kênh</h2>
+                  <p data-cms="remarketing-text-56">
+                    Sử dụng dữ liệu khách hàng, thuộc tính, nhãn và lịch sử tương tác đã có trong Smax hoặc được đồng bộ từ hệ thống kết nối để tạo tệp gửi phù hợp.
+                  </p>
+                  <div style="margin-top: 12px; font-style: italic; color: var(--text-secondary); font-size: 14px; border-left: 2px solid var(--process-blue); padding-left: 12px;">
+                    Kết nối với Fanpage, POS, CRM để hợp nhất dữ liệu
+                  </div>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Fanpage &amp; Zalo OA</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">POS &amp; CRM Sync</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="asset smax/remarketing-features-v2/data-integration.webp" alt="Luồng hợp nhất dữ liệu Fanpage, Zalo OA, POS và CRM thành hồ sơ khách hàng" width="1536" height="1024" loading="lazy" decoding="async" data-cms-img="remarketing-img-31">
+                </div>
+              </div>
+
+              <!-- Card 2: Hệ thống Phân loại khách hàng linh hoạt -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">02 / SEGMENTATION</span>
+                  <h2 data-cms="remarketing-text-57">Hệ thống Phân loại khách hàng linh hoạt</h2>
+                  <p data-cms="remarketing-text-58">
+                    Tự động gắn tag, phân nhóm khách hàng dựa trên hành vi mua hàng, lịch sử mở tin nhắn, tần suất tương tác, giúp việc remarketing đi đúng tệp mục tiêu cụ thể một cách khoa học.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Gắn tag tự động</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Lọc tệp điều kiện sâu</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="asset smax/remarketing-features-v2/smart-segmentation.webp" alt="Luồng phân loại khách hàng tự động theo hành vi mua hàng, mở tin và tương tác" width="1536" height="1024" loading="lazy" decoding="async" data-cms-img="remarketing-img-32">
+                </div>
+              </div>
+
+              <!-- Card 3: Đa dạng nội dung chăm sóc -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">03 / RICH CONTENT</span>
+                  <h2 data-cms="remarketing-text-59">Đa dạng nội dung chăm sóc</h2>
+                  <p data-cms="remarketing-text-60">
+                    Thiết lập nội dung phong phú cho từng kênh gửi: văn bản kết hợp hình ảnh sống động, video sản phẩm hay các thẻ quay vòng trượt sản phẩm độc đáo giúp tăng tương tác tối đa.
+                  </p>
+                  <div style="margin-top: 12px; font-style: italic; color: var(--text-secondary); font-size: 14px; border-left: 2px solid var(--process-blue); padding-left: 12px;">
+                    Từ hình ảnh / video / carousel ...
+                  </div>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Carousel quay vòng</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Nút bấm CTA &amp; Quick Reply</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="asset smax/remarketing-features-v2/rich-content.webp" alt="Luồng kết hợp văn bản, hình ảnh và video thành bộ sưu tập sản phẩm tương tác" width="1536" height="1024" loading="lazy" decoding="async" data-cms-img="remarketing-img-33">
+                </div>
+              </div>
+
+              <!-- Card 4: Chuỗi Tin nhắn chăm sóc cá nhân hóa -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">04 / PERSONALIZED SEQUENCE</span>
+                  <h2 data-cms="remarketing-text-61">Chuỗi Tin nhắn chăm sóc cá nhân hóa</h2>
+                  <p data-cms="remarketing-text-62">
+                    Lên lịch trình gửi chuỗi tin nhắn tự động theo thời gian độc lập cho từng khách (Sequence). Kịch bản chạy tự động gửi mã ưu đãi vào đúng dịp đặc biệt, chăm sóc đúng quy trình dựa trên tên riêng của từng khách hàng.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Cá nhân hóa xưng hô</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Chuỗi sequence tự động</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="asset smax/remarketing-features-v2/personalized-sequence.webp" alt="Chuỗi chăm sóc cá nhân hóa tự động từ chào mừng đến gợi ý sản phẩm và tặng ưu đãi" width="1536" height="1024" loading="lazy" decoding="async" data-cms-img="remarketing-img-34">
+                </div>
+              </div>
+
+              <!-- Card 5: Đo lường & Thống kê hiệu quả ROI -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">05 / ROI ANALYTICS</span>
+                  <h2 data-cms="remarketing-text-63">Theo dõi trạng thái chiến dịch</h2>
+                  <p data-cms="remarketing-text-64">
+                    Theo dõi trạng thái gửi và các chỉ số mà từng kênh cung cấp. Với FMM, dữ liệu báo cáo được đồng bộ theo chiến dịch do Smax khởi tạo trên Meta.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Báo cáo chiến dịch</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Báo cáo theo kênh</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="asset smax/remarketing-features-v2/roi-analytics.webp" alt="Luồng đo lường chiến dịch từ gửi tin, mở tin, nhấp liên kết đến đơn hàng, doanh thu và ROI" width="1536" height="1024" loading="lazy" decoding="async" data-cms-img="remarketing-img-35">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- AI Assistant Highlights -->
+        <section class="ai-showcase-section">
+          <div class="container">
+            <div class="ai-showcase-grid">
+              <div class="ai-showcase-copy">
+                <h2 data-cms="remarketing-text-65">Quy tắc gửi tin có kiểm soát, <span>giảm rủi ro spam</span></h2>
+                <p data-cms="remarketing-text-66">
+                  Dùng bộ lọc để thu hẹp đối tượng, chọn đúng kiểu tin, lên lịch và đặt giới hạn tốc độ gửi. Với Facebook, tài liệu khuyến nghị kiểm tra Message Tag/chủ đề Marketing Message trước khi chạy Broadcast.
+                </p>
+                <div class="ai-feature-chips">
+                  <span class="ai-chip active">Tuân thủ luật 24h Meta</span>
+                  <span class="ai-chip">Tự động đặt khoảng trễ</span>
+                  <span class="ai-chip">Quản lý gói ZBS</span>
+                  <span class="ai-chip">Lọc trùng lặp danh sách</span>
+                </div>
+              </div>
+              <div class="ai-showcase-media">
+                <div class="mockup-wrapper">
+                  <img src="docs/ui-remarketing/iii-huong-dan-gui-fmm_img_6973c6bf.webp" alt="Cấu hình hệ thống chống spam tin nhắn hàng loạt Smax" data-cms-img="remarketing-img-36">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Reports Hub Section -->
+        <section class="reports-hub-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="remarketing-text-67">Đo lường hiệu quả các phễu chiến dịch gửi tin</h2>
+              <p data-cms="remarketing-text-68">Thống kê đầy đủ báo cáo chi tiết về tỷ lệ mở đọc, tỷ lệ chuyển đổi đơn hàng từ các tệp tin nhắn gửi đi.</p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="reports-tab-container">
+              <button class="report-tab-btn active" data-report-tab="performance">Báo cáo lượt gửi tin</button>
+              <button class="report-tab-btn" data-report-tab="activity">Báo cáo tương tác link</button>
+              <button class="report-tab-btn" data-report-tab="conversion">Báo cáo doanh số đơn hàng</button>
+            </div>
+
+            <!-- Tab Panel 1 -->
+            <div class="report-panel active" id="panel-performance">
+              <div class="mockup-wrapper">
+                <img src="asset smax/hero-livechat-suite/hero-remarketing-v2.webp" alt="Báo cáo lượt gửi tin và hiệu quả phễu chiến dịch Remarketing Smax" width="1600" height="900" loading="lazy" decoding="async" data-cms-img="remarketing-img-37">
+              </div>
+            </div>
+
+            <!-- Tab Panel 2 -->
+            <div class="report-panel" id="panel-activity">
+              <div class="mockup-wrapper">
+                <img src="docs/ui-remarketing/bao-cao-hieu-suat-nhan-vien.webp" alt="Báo cáo tương tác link gửi kèm tin" data-cms-img="remarketing-img-38">
+              </div>
+            </div>
+
+            <!-- Tab Panel 3 -->
+            <div class="report-panel" id="panel-conversion">
+              <div class="mockup-wrapper">
+                <img src="docs/ui-remarketing/bao-cao-ket-qua-chot-don.webp" alt="Doanh thu quy đổi từ chiến dịch remarketing" data-cms-img="remarketing-img-39">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Case Study Section -->
+        
+        
+        
+        <!-- Quickstart 3 Steps Section -->
+        <section class="quickstart-steps-section">
+          <div class="container">
+            <div class="steps-header">
+              <span class="steps-eyebrow">Nuôi dưỡng khách cũ</span>
+              <h2 class="steps-title" data-cms="remarketing-text-69">Remarketing tự động chỉ trong 3 bước*</h2>
+            </div>
+            <div class="steps-grid">
+
+              <!-- Step BƯỚC 01 -->
+              <div class="step-card">
+                <span class="step-card-eyebrow">BƯỚC 01</span>
+                <h3 class="step-card-title" data-cms="remarketing-text-70">Chọn nguồn khách &amp; ngân sách FMM</h3>
+                <p class="step-card-desc" data-cms="remarketing-text-71">Chọn Fanpage, tệp Quảng cáo/Audience/Topic, tài khoản quảng cáo và ngân sách trước khi biên tập nội dung Marketing Message.</p>
+                <div class="step-card-visual">
+                  <img src="asset smax/remarketing-features-v2/personalized-sequence.webp" alt="Đăng ký tin nhắn mẫu FMM" data-cms-img="remarketing-img-40">
+                </div>
+              </div>
+              <!-- Step BƯỚC 02 -->
+              <div class="step-card">
+                <span class="step-card-eyebrow">BƯỚC 02</span>
+                <h3 class="step-card-title" data-cms="remarketing-text-72">Lập chiến dịch Sequence</h3>
+                <p class="step-card-desc" data-cms="remarketing-text-73">Cấu hình luồng tin nhắn tự động gửi theo thời gian lập sẵn (ví dụ: sau 1 ngày, 3 ngày, 7 ngày) để nuôi dưỡng tệp khách hàng cũ.</p>
+                <div class="step-card-visual">
+                  <img src="asset smax/remarketing-features-v2/smart-segmentation.webp" alt="Lập chiến dịch Sequence" data-cms-img="remarketing-img-41">
+                </div>
+              </div>
+              <!-- Step BƯỚC 03 -->
+              <div class="step-card">
+                <span class="step-card-eyebrow">BƯỚC 03</span>
+                <h3 class="step-card-title" data-cms="remarketing-text-74">Gửi hàng loạt &amp; Phân tích</h3>
+                <p class="step-card-desc" data-cms="remarketing-text-75">Kích hoạt chiến dịch FMM hoặc ZBS phù hợp và theo dõi trạng thái/báo cáo mà từng kênh cung cấp.</p>
+                <div class="step-card-visual">
+                  <img src="asset smax/remarketing-features-v2/roi-analytics.webp" alt="Gửi hàng loạt &amp; Phân tích" data-cms-img="remarketing-img-42">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="casestudy-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="remarketing-text-76">Khách hàng thành công cùng Smax.ai</h2>
+              <p data-cms="remarketing-text-77">Remarketing đa kênh giúp thương hiệu biến khách hàng cũ thành doanh thu lặp lại.</p>
+            </div>
+
+            <div class="casestudy-card">
+              <div class="casestudy-quote">
+                <div class="casestudy-quote-mark">“</div>
+                <p data-cms="remarketing-text-78">
+                  Nhờ Smax, MARC có thể dùng FMM miễn phí để chăm sóc lại tệp khách hàng cũ, đạt tỷ lệ đọc 82% và tăng 32% doanh thu từ các chiến dịch remarketing.
+                </p>
+                <div class="casestudy-author">
+                  <div class="author-info">
+                    <h4 data-cms="remarketing-text-79">TRẦN THỊ HỒNG PHẤN</h4>
+                    <p data-cms="remarketing-text-80">Đại diện MARC</p>
+                  </div>
+                </div>
+              </div>
+              <div class="casestudy-metrics">
+                <div>
+                  <div class="cs-metric-num">82%</div>
+                  <div class="cs-metric-label">Tỷ lệ đọc tin</div>
+                  <div class="cs-metric-desc">Thông điệp tiếp cận đúng tệp khách hàng quan tâm.</div>
+                </div>
+                <div>
+                  <div class="cs-metric-num">+32%</div>
+                  <div class="cs-metric-label">Doanh thu lặp lại</div>
+                  <div class="cs-metric-desc">Tăng giá trị từ tệp khách hàng đã có của thương hiệu.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="remarketing-text-81">Câu hỏi thường gặp về Smax Remarketing</h2>
+              <p data-cms="remarketing-text-82">Mọi giải đáp về chiến dịch FMM, Zalo ZBS và hệ thống Sequence tự động.</p>
+            </div>
+
+            <div class="faq-container">
+              <!-- Item 1 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Tin nhắn FMM Facebook có bị Meta tính phí như chạy quảng cáo không?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Có. Tài liệu Smax hiện nêu chi phí FMM khoảng 200–300đ mỗi tin và yêu cầu tài khoản quảng cáo có số dư. Chi phí thực tế phụ thuộc cơ chế tính phí của Meta tại thời điểm chạy.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Tôi có thể gửi Zalo ZBS tới số điện thoại chưa follow Zalo OA không?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Có thể. ZBS gửi thông báo chủ động từ OA đến số điện thoại ngay cả khi người nhận chưa quan tâm OA, nhưng OA phải xác thực, kết nối với Smax, có gói gửi và dùng Template đã được phê duyệt.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Nếu khách hàng đã mua sản phẩm rồi thì hệ thống có tự động dừng chuỗi Sequence bám đuổi không?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Có thể dừng bằng thẻ Sequence với thao tác REMOVE. Hãy nối thao tác REMOVE vào Trigger hoặc Block được kích hoạt khi khách đạt điều kiện dừng, ví dụ sau khi hệ thống ghi nhận trạng thái đã mua hàng.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="final-cta" id="cta">
+          <div class="container cta-inner">
+            <h2 data-cms="remarketing-text-83">Bắt đầu tự động hóa chăm sóc khách hàng cũ ngay hôm nay</h2>
+            <p data-cms="remarketing-text-84">
+              Gia tăng doanh số bán hàng bền vững, tiết kiệm tối đa chi phí quảng cáo mới và nuôi dưỡng khách hàng trung thành cùng Smax Remarketing.
+            </p>
+            <div class="cta-actions">
+              <a class="btn btn-dark" href="#top">Dùng thử miễn phí</a>
+              <a class="btn btn-soft" href="index.html#cta">Đặt lịch hẹn tư vấn</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div>
+            <a class="brand" href="#top">
+              <img src="asset smax/smax-ai-logo.webp" alt="Smax.ai" class="brand-logo-img">
+            </a>
+            <p>Nền tảng AI-Automation giúp doanh nghiệp vận hành bán hàng, tiếp thị và chăm sóc khách hàng đa kênh.</p>
+          </div>
+          <div>
+            <h3>Sản phẩm</h3>
+            <a href="livechat.html">Livechat</a>
+            <a href="chatbot.html">Chatbot</a>
+            <a href="genai.html">Smax GenAI</a>
+            <a href="insight.html">AI Insight</a>
+            <a>Automation Map</a>
+            <a>Remarketing</a>
+          </div>
+          <div>
+            <h3>Giải pháp</h3>
+            <a>Sales</a>
+            <a>Marketing</a>
+            <a>Customer Service</a>
+            <a>E-commerce</a>
+            <a>Omnichannel</a>
+            <a>Meta Business AI</a>
+          </div>
+          <div>
+            <h3>Tài nguyên</h3>
+            <a>Blog</a>
+            <a>Tài liệu</a>
+            <a>Video hướng dẫn</a>
+            <a>Webinar</a>
+            <a>Bot mẫu</a>
+            <a>Case Study</a>
+          </div>
+          <div>
+            <h3>Doanh nghiệp</h3>
+            <a>Về Smax.ai</a>
+            <a>Đối tác</a>
+            <a>Bảng giá</a>
+            <a>Liên hệ</a>
+            <a>Chính sách</a>
+          </div>
+        </div>
+        <div class="container footer-bottom">
+          <span>© 2026 Smax.ai</span>
+          <span>Điều khoản · Quyền riêng tư · Liên hệ tư vấn</span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Shared Header and Interactions JS -->
+    <script src="script.js?v=4.0.2"></script>
+    <script>
+      // WebGL Gradient Wave port
+      class MiniGl {
+        constructor(canvas) {
+          this.canvas = canvas;
+          const gl = this.canvas.getContext("webgl", { antialias: true });
+          if (!gl) return;
+          this.gl = gl;
+          const context = this.gl;
+          const _miniGl = this;
+          this.meshes = [];
+
+          this.Uniform = class {
+            constructor(e) {
+              Object.assign(this, e);
+              const typeMap = {
+                float: "1f",
+                int: "1i",
+                vec2: "2fv",
+                vec3: "3fv",
+                vec4: "4fv",
+                mat4: "Matrix4fv",
+              };
+              this.typeFn = typeMap[this.type] || "1f";
+            }
+            update(location) {
+              if (this.value === undefined || location === null) return;
+              const isMatrix = this.typeFn.indexOf("Matrix") === 0;
+              const fn = `uniform${this.typeFn}`;
+              if (isMatrix) {
+                context[fn](location, this.transpose || false, this.value);
+              } else {
+                context[fn](location, this.value);
+              }
+            }
+            getDeclaration(name, type, length) {
+              if (this.excludeFrom === type) return "";
+              if (this.type === "array") {
+                return this.value[0].getDeclaration(name, type, this.value.length) + `\nconst int ${name}_length = ${this.value.length};`;
+              }
+              if (this.type === "struct") {
+                let nameNoPrefix = name.replace("u_", "");
+                nameNoPrefix = nameNoPrefix.charAt(0).toUpperCase() + nameNoPrefix.slice(1);
+                const fields = Object.entries(this.value).map(([n, u]) => u.getDeclaration(n, type).replace(/^uniform/, "")).join("");
+                return `uniform struct ${nameNoPrefix} {\n${fields}\n} ${name}${length ? `[${length}]` : ""};`;
+              }
+              return `uniform ${this.type} ${name}${length ? `[${length}]` : ""};`;
+            }
+          };
+
+          this.Attribute = class {
+            constructor(e) {
+              this.buffer = context.createBuffer();
+              this.type = context.FLOAT;
+              this.normalized = false;
+              Object.assign(this, e);
+            }
+            update() {
+              if (this.values) {
+                context.bindBuffer(this.target, this.buffer);
+                context.bufferData(this.target, this.values, context.STATIC_DRAW);
+              }
+            }
+            attach(e, t) {
+              const n = context.getAttribLocation(t, e);
+              if (this.target === context.ARRAY_BUFFER) {
+                context.bindBuffer(this.target, this.buffer);
+                context.enableVertexAttribArray(n);
+                context.vertexAttribPointer(n, this.size, this.type, this.normalized, 0, 0);
+              }
+              return n;
+            }
+            use(e) {
+              context.bindBuffer(this.target, this.buffer);
+              if (this.target === context.ARRAY_BUFFER) {
+                context.enableVertexAttribArray(e);
+                context.vertexAttribPointer(e, this.size, this.type, this.normalized, 0, 0);
+              }
+            }
+          };
+
+          this.Material = class {
+            constructor(vertexShaders, fragments, uniforms = {}) {
+              const material = this;
+              this.uniformInstances = [];
+              function getShader(type, source) {
+                const shader = context.createShader(type);
+                context.shaderSource(shader, source);
+                context.compileShader(shader);
+                if (!context.getShaderParameter(shader, context.COMPILE_STATUS)) {
+                  console.error(context.getShaderInfoLog(shader));
+                  return null;
+                }
+                return shader;
+              }
+              function getUniformDeclarations(uniforms, type) {
+                return Object.entries(uniforms).map(([uniform, value]) => value.getDeclaration(uniform, type)).join("\n");
+              }
+              material.uniforms = uniforms;
+              const prefix = "precision highp float;";
+              const vertexSource = `${prefix}\nattribute vec4 position;\nattribute vec2 uv;\nattribute vec2 uvNorm;\n${getUniformDeclarations(_miniGl.commonUniforms, "vertex")}\n${getUniformDeclarations(uniforms, "vertex")}\n${vertexShaders}`;
+              const fragmentSource = `${prefix}\n${getUniformDeclarations(_miniGl.commonUniforms, "fragment")}\n${getUniformDeclarations(uniforms, "fragment")}\n${fragments}`;
+
+              material.program = context.createProgram();
+              const vs = getShader(context.VERTEX_SHADER, vertexSource);
+              const fs = getShader(context.FRAGMENT_SHADER, fragmentSource);
+              if (!vs || !fs) return;
+              context.attachShader(material.program, vs);
+              context.attachShader(material.program, fs);
+              context.linkProgram(material.program);
+
+              if (!context.getProgramParameter(material.program, context.LINK_STATUS)) {
+                console.error(context.getProgramInfoLog(material.program));
+                return;
+              }
+              context.useProgram(material.program);
+              material.attachUniforms(undefined, _miniGl.commonUniforms);
+              material.attachUniforms(undefined, material.uniforms);
+            }
+            attachUniforms(name, uniforms) {
+              if (name === undefined) {
+                Object.entries(uniforms).forEach(([n, u]) => this.attachUniforms(n, u));
+              } else if (uniforms.type === "array") {
+                uniforms.value.forEach((u, i) => this.attachUniforms(`${name}[${i}]`, u));
+              } else if (uniforms.type === "struct") {
+                Object.entries(uniforms.value).forEach(([u, i]) => this.attachUniforms(`${name}.${u}`, i));
+              } else {
+                this.uniformInstances.push({
+                  uniform: uniforms,
+                  location: context.getUniformLocation(this.program, name),
+                });
+              }
+            }
+          };
+
+          this.PlaneGeometry = class {
+            constructor() {
+              this.width = 1;
+              this.height = 1;
+              this.vertexCount = 0;
+              this.xSegCount = 0;
+              this.ySegCount = 0;
+              this.attributes = {
+                position: new _miniGl.Attribute({ target: context.ARRAY_BUFFER, size: 3 }),
+                uv: new _miniGl.Attribute({ target: context.ARRAY_BUFFER, size: 2 }),
+                uvNorm: new _miniGl.Attribute({ target: context.ARRAY_BUFFER, size: 2 }),
+                index: new _miniGl.Attribute({ target: context.ELEMENT_ARRAY_BUFFER, size: 3, type: context.UNSIGNED_SHORT }),
+              };
+            }
+            setTopology(xSegs = 1, ySegs = 1) {
+              this.xSegCount = xSegs;
+              this.ySegCount = ySegs;
+              this.vertexCount = (this.xSegCount + 1) * (this.ySegCount + 1);
+              const quadCount = this.xSegCount * this.ySegCount * 2;
+              this.attributes.uv.values = new Float32Array(2 * this.vertexCount);
+              this.attributes.uvNorm.values = new Float32Array(2 * this.vertexCount);
+              this.attributes.index.values = new Uint16Array(3 * quadCount);
+              for (let y = 0; y <= this.ySegCount; y++) {
+                for (let x = 0; x <= this.xSegCount; x++) {
+                  const i = y * (this.xSegCount + 1) + x;
+                  this.attributes.uv.values[2 * i] = x / this.xSegCount;
+                  this.attributes.uv.values[2 * i + 1] = 1 - y / this.ySegCount;
+                  this.attributes.uvNorm.values[2 * i] = (x / this.xSegCount) * 2 - 1;
+                  this.attributes.uvNorm.values[2 * i + 1] = 1 - (y / this.ySegCount) * 2;
+                  if (x < this.xSegCount && y < this.ySegCount) {
+                    const s = y * this.xSegCount + x;
+                    this.attributes.index.values[6 * s] = i;
+                    this.attributes.index.values[6 * s + 1] = i + 1 + this.xSegCount;
+                    this.attributes.index.values[6 * s + 2] = i + 1;
+                    this.attributes.index.values[6 * s + 3] = i + 1;
+                    this.attributes.index.values[6 * s + 4] = i + 1 + this.xSegCount;
+                    this.attributes.index.values[6 * s + 5] = i + 2 + this.xSegCount;
+                  }
+                }
+              }
+              this.attributes.uv.update();
+              this.attributes.uvNorm.update();
+              this.attributes.index.update();
+            }
+            setSize(width = 1, height = 1) {
+              this.width = width;
+              this.height = height;
+              this.attributes.position.values = new Float32Array(3 * this.vertexCount);
+              const offsetX = width / -2;
+              const offsetY = height / -2;
+              const segWidth = width / this.xSegCount;
+              const segHeight = height / this.ySegCount;
+              for (let y = 0; y <= this.ySegCount; y++) {
+                const posY = offsetY + y * segHeight;
+                for (let x = 0; x <= this.xSegCount; x++) {
+                  const posX = offsetX + x * segWidth;
+                  const idx = y * (this.xSegCount + 1) + x;
+                  this.attributes.position.values[3 * idx] = posX;
+                  this.attributes.position.values[3 * idx + 1] = -posY;
+                  this.attributes.position.values[3 * idx + 2] = 0;
+                }
+              }
+              this.attributes.position.update();
+            }
+          };
+
+          this.Mesh = class {
+            constructor(geometry, material) {
+              this.geometry = geometry;
+              this.material = material;
+              this.attributeInstances = [];
+              Object.entries(this.geometry.attributes).forEach(([e, attribute]) => {
+                this.attributeInstances.push({
+                  attribute: attribute,
+                  location: attribute.attach(e, this.material.program),
+                });
+              });
+              _miniGl.meshes.push(this);
+            }
+            draw() {
+              context.useProgram(this.material.program);
+              this.material.uniformInstances.forEach(({ uniform, location }) => uniform.update(location));
+              this.attributeInstances.forEach(({ attribute, location }) => attribute.use(location));
+              context.drawElements(context.TRIANGLES, this.geometry.attributes.index.values.length, context.UNSIGNED_SHORT, 0);
+            }
+          };
+
+          const identityMatrix = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
+          this.commonUniforms = {
+            projectionMatrix: new this.Uniform({ type: "mat4", value: identityMatrix }),
+            modelViewMatrix: new this.Uniform({ type: "mat4", value: identityMatrix }),
+            resolution: new this.Uniform({ type: "vec2", value: [1, 1] }),
+            aspectRatio: new this.Uniform({ type: "float", value: 1 }),
+          };
+        }
+
+        setSize(w = 640, h = 480) {
+          this.width = w;
+          this.height = h;
+          this.canvas.width = w;
+          this.canvas.height = h;
+          this.gl.viewport(0, 0, w, h);
+          this.commonUniforms.resolution.value = [w, h];
+          this.commonUniforms.aspectRatio.value = w / h;
+        }
+
+        setOrthographicCamera() {
+          this.commonUniforms.projectionMatrix.value = [
+            2 / this.width, 0, 0, 0,
+            0, 2 / this.height, 0, 0,
+            0, 0, -0.001, 0,
+            0, 0, 0, 1,
+          ];
+        }
+
+        render() {
+          this.gl.clearColor(0, 0, 0, 0);
+          this.gl.clearDepth(1);
+          this.meshes.forEach((m) => m.draw());
+        }
+      }
+
+      function normalizeColor(hexCode) {
+        return [
+          ((hexCode >> 16) & 255) / 255,
+          ((hexCode >> 8) & 255) / 255,
+          (255 & hexCode) / 255,
+        ];
+      }
+
+      class Gradient {
+        constructor(canvas, colors) {
+          this.canvas = canvas;
+          this.colors = colors;
+          this.minigl = new MiniGl(canvas);
+          this.time = 0;
+          this.last = 0;
+          this.isPlaying = false;
+          if (this.minigl.gl) this.init();
+        }
+        init() {
+          const sectionColors = this.colors.map((hex) => normalizeColor(parseInt(hex.replace("#", "0x"), 16)));
+          const uniforms = {
+            u_time: new this.minigl.Uniform({ value: 0 }),
+            u_shadow_power: new this.minigl.Uniform({ value: 5 }),
+            u_darken_top: new this.minigl.Uniform({ value: 0 }),
+            u_active_colors: new this.minigl.Uniform({ value: [1, 1, 1, 1], type: "vec4" }),
+            u_global: new this.minigl.Uniform({
+              value: {
+                noiseFreq: new this.minigl.Uniform({ value: [0.00014, 0.00029], type: "vec2" }),
+                noiseSpeed: new this.minigl.Uniform({ value: 0.000005 }),
+              },
+              type: "struct",
+            }),
+            u_vertDeform: new this.minigl.Uniform({
+              value: {
+                incline: new this.minigl.Uniform({ value: 0.5 }),
+                offsetTop: new this.minigl.Uniform({ value: -0.5 }),
+                offsetBottom: new this.minigl.Uniform({ value: -0.5 }),
+                noiseFreq: new this.minigl.Uniform({ value: [3, 4], type: "vec2" }),
+                noiseAmp: new this.minigl.Uniform({ value: 250 }),
+                noiseSpeed: new this.minigl.Uniform({ value: 10 }),
+                noiseFlow: new this.minigl.Uniform({ value: 5 }),
+                noiseSeed: new this.minigl.Uniform({ value: 5 }),
+              },
+              type: "struct",
+              excludeFrom: "fragment",
+            }),
+            u_baseColor: new this.minigl.Uniform({ value: sectionColors[0], type: "vec3", excludeFrom: "fragment" }),
+            u_waveLayers: new this.minigl.Uniform({ value: [], excludeFrom: "fragment", type: "array" }),
+          };
+
+          for (let i = 1; i < sectionColors.length; i++) {
+            uniforms.u_waveLayers.value.push(
+              new this.minigl.Uniform({
+                value: {
+                  color: new this.minigl.Uniform({ value: sectionColors[i], type: "vec3" }),
+                  noiseFreq: new this.minigl.Uniform({ value: [2 + i / sectionColors.length, 3 + i / sectionColors.length], type: "vec2" }),
+                  noiseSpeed: new this.minigl.Uniform({ value: 11 + 0.3 * i }),
+                  noiseFlow: new this.minigl.Uniform({ value: 6.5 + 0.3 * i }),
+                  noiseSeed: new this.minigl.Uniform({ value: 5 + 10 * i }),
+                  noiseFloor: new this.minigl.Uniform({ value: 0.1 }),
+                  noiseCeil: new this.minigl.Uniform({ value: 0.63 + 0.07 * i }),
+                },
+                type: "struct",
+              })
+            );
+          }
+
+          const vertexShader = `
+            vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+            vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+            vec4 permute(vec4 x) { return mod289(((x*34.0)+1.0)*x); }
+            vec4 taylorInvSqrt(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
+            float snoise(vec3 v) {
+              const vec2 C = vec2(1.0/6.0, 1.0/3.0);
+              const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
+              vec3 i  = floor(v + dot(v, C.yyy));
+              vec3 x0 = v - i + dot(i, C.xxx);
+              vec3 g = step(x0.yzx, x0.xyz);
+              vec3 l = 1.0 - g;
+              vec3 i1 = min(g.xyz, l.zxy);
+              vec3 i2 = max(g.xyz, l.zxy);
+              vec3 x1 = x0 - i1 + C.xxx;
+              vec3 x2 = x0 - i2 + C.yyy;
+              vec3 x3 = x0 - D.yyy;
+              i = mod289(i);
+              vec4 p = permute(permute(permute(i.z + vec4(0.0, i1.z, i2.z, 1.0)) + i.y + vec4(0.0, i1.y, i2.y, 1.0)) + i.x + vec4(0.0, i1.x, i2.x, 1.0));
+              float n_ = 0.142857142857;
+              vec3 ns = n_ * D.wyz - D.xzx;
+              vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+              vec4 x_ = floor(j * ns.z);
+              vec4 y_ = floor(j - 7.0 * x_);
+              vec4 x = x_ *ns.x + ns.yyyy;
+              vec4 y = y_ *ns.x + ns.yyyy;
+              vec4 h = 1.0 - abs(x) - abs(y);
+              vec4 b0 = vec4(x.xy, y.xy);
+              vec4 b1 = vec4(x.zw, y.zw);
+              vec4 s0 = floor(b0)*2.0 + 1.0;
+              vec4 s1 = floor(b1)*2.0 + 1.0;
+              vec4 sh = -step(h, vec4(0.0));
+              vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy;
+              vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww;
+              vec3 p0 = vec3(a0.xy,h.x);
+              vec3 p1 = vec3(a0.zw,h.y);
+              vec3 p2 = vec3(a1.xy,h.z);
+              vec3 p3 = vec3(a1.zw,h.w);
+              vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));
+              p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;
+              vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
+              m = m * m;
+              return 42.0 * dot(m*m, vec4(dot(p0,x0), dot(p1,x1), dot(p2,x2), dot(p3,x3)));
+            }
+            vec3 blendNormal(vec3 base, vec3 blend) { return blend; }
+            vec3 blendNormal(vec3 base, vec3 blend, float opacity) { return (blend * opacity + base * (1.0 - opacity)); }
+            varying vec3 v_color;
+            void main() {
+              float time = u_time * u_global.noiseSpeed;
+              vec2 noiseCoord = resolution * uvNorm * u_global.noiseFreq;
+              float tilt = resolution.y / 2.0 * uvNorm.y;
+              float incline = resolution.x * uvNorm.x / 2.0 * u_vertDeform.incline;
+              float offset = resolution.x / 2.0 * u_vertDeform.incline * mix(u_vertDeform.offsetBottom, u_vertDeform.offsetTop, uv.y);
+              float noise = snoise(vec3(noiseCoord.x * u_vertDeform.noiseFreq.x + time * u_vertDeform.noiseFlow, noiseCoord.y * u_vertDeform.noiseFreq.y, time * u_vertDeform.noiseSpeed + u_vertDeform.noiseSeed)) * u_vertDeform.noiseAmp;
+              noise *= 1.0 - pow(abs(uvNorm.y), 2.0);
+              noise = max(0.0, noise);
+              vec3 pos = vec3(position.x, position.y + tilt + incline + noise - offset, position.z);
+              v_color = u_baseColor;
+              for (int i = 0; i < u_waveLayers_length; i++) {
+                if (u_active_colors[i + 1] == 1.) {
+                  WaveLayers layer = u_waveLayers[i];
+                  float layerNoise = smoothstep(layer.noiseFloor, layer.noiseCeil, snoise(vec3(noiseCoord.x * layer.noiseFreq.x + time * layer.noiseFlow, noiseCoord.y * layer.noiseFreq.y, time * layer.noiseSpeed + layer.noiseSeed)) / 2.0 + 0.5);
+                  v_color = blendNormal(v_color, layer.color, pow(layerNoise, 4.));
+                }
+              }
+              gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+            }
+          `;
+
+          const fragmentShader = `
+            varying vec3 v_color;
+            void main() {
+              vec3 color = v_color;
+              if (u_darken_top == 1.0) {
+                vec2 st = gl_FragCoord.xy/resolution.xy;
+                color.g -= pow(st.y + sin(-12.0) * st.x, u_shadow_power) * 0.4;
+              }
+              gl_FragColor = vec4(color, 1.0);
+            }
+          `;
+
+          this.mesh = new this.minigl.Mesh(new this.minigl.PlaneGeometry(), new this.minigl.Material(vertexShader, fragmentShader, uniforms));
+          this.resize();
+          window.addEventListener("resize", () => this.resize());
+        }
+        resize() {
+          const width = window.innerWidth;
+          const height = window.innerHeight;
+          this.minigl.setSize(width, height);
+          this.minigl.setOrthographicCamera();
+          const xSegCount = Math.ceil(width * 0.02);
+          const ySegCount = Math.ceil(height * 0.05);
+          this.mesh.geometry.setTopology(xSegCount, ySegCount);
+          this.mesh.geometry.setSize(width, height);
+        }
+        animate = (timestamp) => {
+          if (!this.isPlaying) return;
+          this.time += Math.min(timestamp - this.last, 1000 / 15);
+          this.last = timestamp;
+          this.mesh.material.uniforms.u_time.value = this.time;
+          this.minigl.render();
+          this.animationId = requestAnimationFrame(this.animate);
+        };
+        start() {
+          this.isPlaying = true;
+          this.animationId = requestAnimationFrame(this.animate);
+        }
+        stop() {
+          this.isPlaying = false;
+          if (this.animationId) cancelAnimationFrame(this.animationId);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // Init Tab interaction
+        const tabButtons = document.querySelectorAll(".report-tab-btn");
+        const panels = document.querySelectorAll(".report-panel");
+
+        tabButtons.forEach(btn => {
+          btn.addEventListener("click", () => {
+            const targetTab = btn.getAttribute("data-report-tab");
+            tabButtons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            panels.forEach(panel => {
+              panel.classList.toggle("active", panel.id === `panel-${targetTab}`);
+            });
+          });
+        });
+
+        // Mousemove parallax effect for pure-typo-section background grid & glows
+        const typoSection = document.querySelector(".pure-typo-section");
+        const typoGrid = document.querySelector(".typo-bg-grid");
+        const typoGlows = document.querySelector(".typo-bg-glows");
+
+        if (typoSection && typoGrid) {
+          typoSection.addEventListener("mousemove", (e) => {
+            const rect = typoSection.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            // Translate values (max 15px for grid, 25px for glows)
+            const moveX = (x / rect.width) * 15;
+            const moveY = (y / rect.height) * 15;
+
+            typoGrid.style.transform = `scale(1.05) translate(${moveX}px, ${moveY}px)`;
+            if (typoGlows) {
+              typoGlows.style.transform = `scale(1.05) translate(${moveX * 1.5}px, ${moveY * 1.5}px)`;
+            }
+          });
+
+          typoSection.addEventListener("mouseleave", () => {
+            typoGrid.style.transform = "scale(1.05) translate(0px, 0px)";
+            if (typoGlows) {
+              typoGlows.style.transform = "scale(1.05) translate(0px, 0px)";
+            }
+          });
+        }
+      
+        
+
+      });
+    </script>
+  
+
+</body></html>

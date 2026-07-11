@@ -1,0 +1,1376 @@
+<!DOCTYPE html><html lang="vi"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Smax GenAI - Đưa Trí Tuệ Nhân Tạo GenAI Vào Vận Hành Doanh Nghiệp. Tự động hóa CSKH, tối ưu chat sales &amp; nạp tri thức doanh nghiệp.">
+    <title>Smax GenAI | Đưa Trí Tuệ Nhân Tạo GenAI vào Vận Hành Doanh Nghiệp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="icon" href="asset smax/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      /* --- Filum-inspired Premium Styles for Smax GenAI --- */
+      
+      /* Reset & Base settings for this page */
+      body {
+        overflow-x: hidden;
+      }
+      
+      .livechat-page-wrapper {
+        font-family: "Be Vietnam Pro", sans-serif;
+        color: var(--primary-navy, #0F1835);
+        background: #FFFFFF;
+      }
+
+      /* Hero Section - Airy & Grid Background */
+      .premium-hero {
+        position: relative;
+        padding: 160px 0 0; /* Giảm padding bottom vì đã có ảnh mockup trình duyệt chiếm không gian */
+        background: url('https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/gridBackground.png') no-repeat center center;
+        background-size: cover;
+        text-align: center;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      /* Browser Mockup Styling for Hero Visual */
+      .hero-mockup-wrapper {
+        max-width: 1100px;
+        margin: 56px auto 0;
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        border-radius: 20px;
+        box-shadow: 0 36px 80px rgba(15, 24, 53, 0.12), 0 1px 3px rgba(15, 24, 53, 0.03);
+        overflow: hidden;
+        position: relative;
+        z-index: 5;
+        opacity: 0;
+        transform: translateY(32px);
+        animation: fadeInUpMockup 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+      }
+
+      @keyframes fadeInUpMockup {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .browser-header {
+        height: 40px;
+        background: #F8F9FC;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.06);
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        position: relative;
+      }
+
+      .browser-dots {
+        display: flex;
+        gap: 6px;
+      }
+
+      .browser-dots .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .browser-dots .dot.red { background: #FF5F56; }
+      .browser-dots .dot.yellow { background: #FFBD2E; }
+      .browser-dots .dot.green { background: #27C93F; }
+
+      .browser-address {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(15, 24, 53, 0.03);
+        padding: 4px 24px;
+        border-radius: 6px;
+        font-size: 11.5px;
+        font-weight: 500;
+        color: #667085;
+        font-family: monospace;
+        letter-spacing: 0.02em;
+      }
+
+      .browser-content {
+        position: relative;
+        background: #FFFFFF;
+        line-height: 0;
+      }
+
+      .browser-content img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .hero-grid-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: radial-gradient(rgba(15, 24, 53, 0.12) 1px, transparent 1px);
+        background-size: 32px 32px;
+        mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
+        opacity: 0.15;
+        z-index: 1;
+      }
+
+      .announcement-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 16px;
+        border-radius: 99px;
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        box-shadow: 0 2px 8px rgba(15, 24, 53, 0.04);
+        margin-bottom: 32px;
+        font-size: 13.5px;
+        font-weight: 500;
+        color: var(--primary-navy, #0F1835);
+        position: relative;
+        z-index: 2;
+        transition: all 0.3s ease;
+      }
+
+      .announcement-badge:hover {
+        border-color: rgba(66, 119, 255, 0.3);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(66, 119, 255, 0.08);
+      }
+
+      .announcement-tag {
+        background: var(--primary-coral, #FA6E5B);
+        color: #FFFFFF;
+        padding: 2px 8px;
+        border-radius: 99px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .announcement-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        color: var(--process-blue, #4277FF);
+        font-weight: 700;
+        text-decoration: none;
+        margin-left: 4px;
+      }
+
+      .announcement-link svg {
+        transition: transform 0.2s ease;
+      }
+
+      .announcement-link:hover svg {
+        transform: translateX(2px);
+      }
+
+      .hero-actions .btn {
+        border-radius: 99px !important;
+        padding: 14px 32px !important;
+        font-size: 15px !important;
+        font-weight: 700 !important;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      }
+
+      .premium-hero h1 {
+        font-size: clamp(2.5rem, 5vw, 3.8rem);
+        font-weight: 900;
+        line-height: 1.2;
+        letter-spacing: -0.03em;
+        color: var(--primary-navy, #0F1835);
+        max-width: 960px;
+        margin: 0 auto 24px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .premium-hero h1 span.highlight {
+        background: linear-gradient(95deg, var(--process-blue, #4277FF) 0%, var(--primary-coral, #FA6E5B) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .premium-hero .hero-sub {
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        max-width: 740px;
+        margin: 0 auto 40px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        margin-bottom: 0px;
+        position: relative;
+        z-index: 10;
+      }
+
+      /* Logo Wall Section */
+      .logo-wall-section {
+        padding: 60px 0;
+        background: #FFFFFF;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .logo-wall-title {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--text-secondary, #475467);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 32px;
+      }
+
+      /* Infinite Logo Carousel Styles */
+      .hero-carousel-wrapper {
+        position: relative;
+        overflow: hidden;
+        padding: 10px 0;
+        width: 100%;
+      }
+
+      .carousel-scroll-row {
+        display: flex;
+        gap: 32px;
+        width: max-content;
+      }
+
+      .carousel-scroll-row.row-1 {
+        animation: scroll-left-kf 45s linear infinite;
+      }
+
+      .carousel-icon-card {
+        height: 64px;
+        width: 64px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: #FFFFFF;
+        box-shadow: 0 4px 16px rgba(15, 24, 53, 0.05);
+        border: 1px solid rgba(15, 24, 53, 0.04);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease;
+      }
+
+      .carousel-icon-card:hover {
+        transform: scale(1.1);
+      }
+
+      .carousel-icon-card img {
+        height: 36px;
+        width: 36px;
+        object-fit: contain;
+      }
+
+      .carousel-fade-left, .carousel-fade-right {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 200px;
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      .carousel-fade-left {
+        left: 0;
+        background: linear-gradient(to right, #FFFFFF 15%, rgba(255, 255, 255, 0) 100%);
+      }
+
+      .carousel-fade-right {
+        right: 0;
+        background: linear-gradient(to left, #FFFFFF 15%, rgba(255, 255, 255, 0) 100%);
+      }
+
+      @keyframes scroll-left-kf {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+
+      /* Key Metrics Section */
+      .metrics-section {
+        padding: 80px 0;
+        background: #F8F9FC;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        text-align: center;
+      }
+
+      .metric-card {
+        padding: 24px;
+      }
+
+      .metric-value {
+        font-size: clamp(3rem, 6vw, 4.5rem);
+        font-weight: 900;
+        color: var(--process-blue, #4277FF);
+        line-height: 1;
+        margin-bottom: 16px;
+        letter-spacing: -0.03em;
+      }
+
+      .metric-value span.coral {
+        color: var(--primary-coral, #FA6E5B);
+      }
+
+      .metric-label {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 12px;
+      }
+
+      .metric-desc {
+        font-size: 14px;
+        color: var(--text-secondary, #475467);
+        line-height: 1.5;
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      /* Bento Grid Section - Styled dynamically based on reference image 1 */
+      .smax-bento-section {
+        padding: 120px 0;
+        background: #FFFFFF;
+      }
+
+      .bento-features-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .bento-item {
+        background: #FFFFFF;
+        border-radius: 24px;
+        padding: 40px;
+        border: 1px solid rgba(15, 24, 53, 0.05);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(15, 24, 53, 0.015);
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .bento-item:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(15, 24, 53, 0.08);
+      }
+
+      .bento-item.full-width {
+        grid-column: span 2;
+        flex-direction: row;
+        align-items: center;
+        gap: 60px;
+        background: #F4F3FA;
+        border-color: rgba(66, 119, 255, 0.1);
+      }
+
+      .bento-item.bg-orange {
+        background: #FFF7F5;
+        border-color: rgba(250, 110, 91, 0.1);
+      }
+
+      .bento-item.bg-green {
+        background: #F3FAF6;
+        border-color: rgba(18, 183, 106, 0.1);
+      }
+
+      .bento-info {
+        text-align: left;
+      }
+
+      .bento-info.narrow {
+        max-width: 480px;
+      }
+
+      .bento-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        color: #FFFFFF;
+      }
+
+      .bento-icon.blue { background: var(--process-blue, #4277FF); }
+      .bento-icon.orange { background: var(--primary-coral, #FA6E5B); }
+      .bento-icon.green { background: #12B76A; }
+
+      .bento-item h3 {
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 14px;
+        line-height: 1.35;
+        letter-spacing: -0.01em;
+      }
+
+      .bento-item p.desc {
+        font-size: 15px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+      }
+
+      /* Bento media style */
+      .bento-media-frame {
+        width: 400px;
+        border-radius: 16px;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        box-shadow: 0 15px 30px rgba(15, 24, 53, 0.08);
+        background: #FFFFFF;
+        overflow: hidden;
+      }
+
+      .bento-media-frame img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Stacked Content Cards (Sticky Overlapping Layout - inspired by image 2) */
+      .stacked-cards-section {
+        padding: 120px 0;
+        background: #F8F9FC;
+      }
+
+      .stacked-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 120px; /* Space between stickies when scrolling to show overlap clearly */
+      }
+
+      .stacked-card {
+        position: -webkit-sticky;
+        position: sticky;
+        border-radius: 32px;
+        padding: 48px 64px;
+        display: grid;
+        grid-template-columns: 1.25fr 1fr;
+        gap: 48px;
+        align-items: center;
+        height: 440px; /* Fixed height for all cards */
+        box-shadow: 0 -15px 40px rgba(15, 24, 53, 0.05);
+        transition: transform 0.3s ease;
+        overflow: hidden;
+      }
+
+      /* Stacked Cards Z-Indices, Cascading Tops & Color variations */
+      .stacked-card:nth-child(1) {
+        z-index: 1;
+        background: var(--process-blue, #4277FF);
+        color: #FFFFFF;
+        top: 110px;
+      }
+
+      .stacked-card:nth-child(2) {
+        z-index: 2;
+        background: var(--primary-coral, #FA6E5B);
+        color: #FFFFFF;
+        top: 140px;
+      }
+
+      .stacked-card:nth-child(3) {
+        z-index: 3;
+        background: var(--primary-navy, #0F1835);
+        color: #FFFFFF;
+        top: 170px;
+      }
+
+      .stacked-card:nth-child(4) {
+        z-index: 4;
+        background: #12B76A;
+        color: #FFFFFF;
+        top: 200px;
+      }
+
+      .stacked-card-copy {
+        text-align: left;
+      }
+
+      .stacked-card-meta {
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        opacity: 0.85;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .stacked-card-copy h2 {
+        font-size: clamp(2rem, 3.5vw, 2.6rem);
+        font-weight: 900;
+        color: #FFFFFF;
+        line-height: 1.25;
+        margin-bottom: 24px;
+        letter-spacing: -0.02em;
+      }
+
+      .stacked-card-copy p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: 32px;
+      }
+
+      .stacked-card-media {
+        position: relative;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 28px 56px -16px rgba(15, 24, 53, 0.16), 0 12px 24px -12px rgba(15, 24, 53, 0.12), 0 1px 2px rgba(15, 24, 53, 0.02);
+        background: #FFFFFF;
+        overflow: hidden;
+        height: 320px; /* Fixed media height */
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px; /* Viền trắng bo 10px */
+        box-sizing: border-box;
+      }
+
+      .stacked-card-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top left;
+        display: block;
+        border-radius: 8px; /* Bo góc ảnh 8px tương ứng với viền trắng ngoài */
+      }
+
+      /* Section Header Global styling */
+      .section-header {
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto 56px;
+      }
+
+      .section-header h2 {
+        font-size: clamp(2rem, 3.5vw, 2.5rem);
+        font-weight: 900;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 16px;
+        letter-spacing: -0.02em;
+      }
+
+      .section-header p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+      }
+
+      /* Responsive Rules */
+      @media (max-width: 1024px) {
+        .premium-hero {
+          padding-top: 140px;
+        }
+
+        .hero-actions {
+          margin-bottom: 48px;
+        }
+
+        .bento-features-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .bento-item.full-width {
+          grid-column: span 1;
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        .bento-media-frame {
+          width: 100%;
+        }
+
+        .stacked-card {
+          grid-template-columns: 1fr;
+          padding: 40px;
+          gap: 40px;
+          min-height: auto;
+          height: auto;
+        }
+
+        .stacked-card-media {
+          height: 240px;
+        }
+
+        .metrics-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        .casestudy-card {
+          grid-template-columns: 1fr;
+          padding: 40px;
+          gap: 40px;
+        }
+
+        .casestudy-metrics {
+          border-left: none;
+          border-top: 2px solid rgba(15, 24, 53, 0.06);
+          padding-left: 0;
+          padding-top: 32px;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 24px;
+        }
+      }
+
+      /* Case Study Section */
+      .casestudy-section {
+        padding: 120px 0;
+        background: #FFFFFF;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .casestudy-card {
+        background: #F8F9FC;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 32px;
+        padding: 64px;
+        display: grid;
+        grid-template-columns: 6fr 5fr;
+        gap: 64px;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .casestudy-quote {
+        text-align: left;
+      }
+
+      .casestudy-quote-mark {
+        font-size: 80px;
+        font-family: serif;
+        line-height: 1;
+        color: var(--process-blue, #4277FF);
+        margin-bottom: -20px;
+        opacity: 0.3;
+      }
+
+      .casestudy-quote p {
+        font-size: 17.5px;
+        line-height: 1.7;
+        color: var(--primary-navy, #0F1835);
+        font-weight: 500;
+        margin-bottom: 32px;
+      }
+
+      .casestudy-author {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .author-info h4 {
+        font-size: 16px;
+        font-weight: 800;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 4px;
+      }
+
+      .author-info p {
+        font-size: 13.5px;
+        color: var(--text-secondary, #475467);
+        margin-bottom: 0;
+      }
+
+      .casestudy-metrics {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        border-left: 2px solid rgba(15, 24, 53, 0.06);
+        padding-left: 48px;
+        text-align: left;
+      }
+
+      .cs-metric-num {
+        font-size: 40px;
+        font-weight: 900;
+        color: var(--primary-coral, #FA6E5B);
+        line-height: 1.1;
+        margin-bottom: 8px;
+      }
+
+      .cs-metric-label {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 4px;
+      }
+
+      .cs-metric-desc {
+        font-size: 13px;
+        color: var(--text-secondary, #475467);
+        line-height: 1.4;
+      }
+    
+      
+      
+      /* --- Quickstart 3 Steps Section (Card Grid) --- */
+      .quickstart-steps-section {
+        padding: 100px 0;
+        background: #FFFFFF;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .steps-header {
+        text-align: left;
+        margin-bottom: 56px;
+        max-width: 800px;
+      }
+
+      .steps-eyebrow {
+        display: block;
+        font-size: 13px;
+        color: #8C8C8C;
+        margin-bottom: 12px;
+        font-weight: 500;
+      }
+
+      .steps-title {
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 800;
+        color: #0F1835;
+        line-height: 1.3;
+        margin: 0;
+        letter-spacing: -0.02em;
+      }
+
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .step-card {
+        background: #F8F9FC;
+        border-radius: 20px;
+        padding: 40px 32px 32px 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        border: 1px solid rgba(15, 24, 53, 0.03);
+      }
+
+      .step-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 36px rgba(15, 24, 53, 0.05);
+        border-color: rgba(66, 119, 255, 0.1);
+      }
+
+      .step-card-eyebrow {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--primary-coral, #FA6E5B);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      .step-card-title {
+        font-size: 17px;
+        font-weight: 800;
+        color: #0F1835;
+        margin: 0 0 16px 0;
+        line-height: 1.4;
+        max-width: 24ch;
+      }
+
+      .step-card-desc {
+        font-size: 13.5px;
+        line-height: 1.55;
+        color: #595959;
+        margin: 0 0 28px 0;
+        text-align: left;
+      }
+
+      .step-card-visual {
+        width: 100%;
+        background: #FFFFFF;
+        border-radius: 12px;
+        padding: 10px;
+        box-shadow: 0 12px 32px rgba(15, 24, 53, 0.05);
+        border: 1px solid rgba(15, 24, 53, 0.02);
+        margin-top: auto; /* Push mockup to the bottom of the card */
+      }
+
+      .step-card-visual img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        display: block;
+      }
+
+      @media (max-width: 1023px) {
+        .steps-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .quickstart-steps-section {
+          padding: 60px 0;
+        }
+        .steps-header {
+          margin-bottom: 40px;
+        }
+      }
+</style>
+  </head>
+  <body>
+    <div class="livechat-page-wrapper">
+      <!-- Shared Header dynamically loaded via script.js -->
+      <header class="site-header" data-header=""></header>
+
+      <main id="top">
+        <!-- Hero Section -->
+        <section class="premium-hero">
+          <div class="hero-grid-bg"></div>
+          <div class="container">
+            <div class="announcement-badge">
+              <span class="announcement-tag">NEW</span>
+              <span>Smax GenAI Platform</span>
+              <a href="https://docs.smax.ai" target="_blank" class="announcement-link">
+                <span>Đọc thêm</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+            <h1 data-cms="genai-hero-title">
+              Đưa trí tuệ nhân tạo GenAI vào <span class="highlight">Vận Hành Doanh Nghiệp</span>
+            </h1>
+            <p class="hero-sub" data-cms="genai-hero-sub">
+              Smax GenAI giúp doanh nghiệp cấu hình Prompt, quản lý Knowledge, nhận diện ý định và triển khai các trợ lý AI chuyên biệt trong quy trình chăm sóc khách hàng.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-dark" href="#cta" style="background: var(--primary-navy, #0F1835); border-color: var(--primary-navy, #0F1835);">
+                Đăng ký tư vấn
+              </a>
+              <a class="btn btn-soft" href="https://docs.smax.ai" target="_blank" style="border: 1px solid rgba(15, 24, 53, 0.15); background: transparent; color: var(--primary-navy, #0F1835);">
+                Trải nghiệm miễn phí
+              </a>
+            </div>
+
+            <!-- Browser Mockup displaying the GenAI config screenshot -->
+            <div class="hero-mockup-wrapper">
+              <div class="browser-header">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-address">smax.ai/genai/setup</div>
+              </div>
+              <div class="browser-content">
+                <img data-cms-img="genai-hero-img" src="asset smax/hero-livechat-suite/hero-genai-v2.webp" alt="Giao diện Smax GenAI kết nối kho tri thức, hiểu ý định và gợi ý sản phẩm" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Social Proof Section (AI Models Connected) -->
+        <section class="logo-wall-section" style="padding-top: 80px;">
+          <div class="container">
+            <div class="logo-wall-title">Tương thích với các mô hình ngôn ngữ lớn mạnh nhất thế giới</div>
+            <!-- Infinite Carousel row -->
+            <div class="hero-carousel-wrapper">
+              <div class="carousel-fade-left"></div>
+              <div class="carousel-fade-right"></div>
+              <div class="carousel-scroll-row row-1">
+                <!-- Large Language Model representation icons/text badges -->
+                <div class="carousel-icon-card"><img src="https://cdn.icon-icons.com/icons2/3911/PNG/512/openai_logo_icon_247192.png" alt="OpenAI" data-cms-img="genai-img-1"></div>
+                <div class="carousel-icon-card"><img src="https://assets.vercel.com/image/upload/v1647466548/front/next-js/v2/next-logo.png" style="opacity: 0; position:absolute;" data-cms-img="genai-img-2"><span style="font-weight:900; font-size:12px; color:#4277FF;">CLAUDE</span></div>
+                <div class="carousel-icon-card"><img src="https://logospng.org/download/google-gemini/logo-google-gemini-icon-2048.png" alt="Gemini" data-cms-img="genai-img-3"></div>
+                <div class="carousel-icon-card"><span style="font-weight:900; font-size:12px; color:#FA6E5B;">LLAMA</span></div>
+                <div class="carousel-icon-card"><img src="https://cdn.icon-icons.com/icons2/3911/PNG/512/openai_logo_icon_247192.png" alt="GPT-4o" data-cms-img="genai-img-4"></div>
+                <!-- Loop -->
+                <div class="carousel-icon-card"><img src="https://cdn.icon-icons.com/icons2/3911/PNG/512/openai_logo_icon_247192.png" alt="OpenAI" data-cms-img="genai-img-5"></div>
+                <div class="carousel-icon-card"><span style="font-weight:900; font-size:12px; color:#4277FF;">CLAUDE</span></div>
+                <div class="carousel-icon-card"><img src="https://logospng.org/download/google-gemini/logo-google-gemini-icon-2048.png" alt="Gemini" data-cms-img="genai-img-6"></div>
+                <div class="carousel-icon-card"><span style="font-weight:900; font-size:12px; color:#FA6E5B;">LLAMA</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Key Metrics Section -->
+        <section class="metrics-section">
+          <div class="container">
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="metric-value">-85%</div>
+                <div class="metric-label">Khối lượng câu hỏi lặp lại</div>
+                <div class="metric-desc">AI tự động giải đáp tức thì dựa trên kho tri thức doanh nghiệp.</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value"><span class="coral">95%</span></div>
+                <div class="metric-label">Độ chính xác câu trả lời</div>
+                <div class="metric-desc">Phản hồi nhất quán theo dữ liệu và ngữ cảnh đã được huấn luyện.</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">24/7</div>
+                <div class="metric-label">Tư vấn không gián đoạn</div>
+                <div class="metric-desc">AI Agent luôn sẵn sàng hỗ trợ khách hàng trên mọi kênh hội thoại.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Bento Grid Section - Inspired by reference image 1 -->
+        <section class="smax-bento-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="genai-text-1">Nạp tri thức chuyên biệt cho AI Agent của bạn</h2>
+              <p data-cms="genai-text-2">Khởi tạo trợ lý ảo am hiểu sâu sắc sản phẩm và chuyên môn nghiệp vụ của riêng doanh nghiệp.</p>
+            </div>
+
+            <div class="bento-features-grid">
+              <!-- Tile 1 (Full Width): Knowledge Base upload -->
+              <div class="bento-item full-width">
+                <div class="bento-info narrow">
+                  <div class="bento-icon blue">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                  </div>
+                  <h3 data-cms="genai-text-3">Kho Knowledge của doanh nghiệp</h3>
+                  <p class="desc" data-cms="genai-text-4">
+                    Quản lý các văn bản kiến thức về doanh nghiệp, sản phẩm, ưu đãi và quy trình để AI có nguồn thông tin tham chiếu khi trả lời khách hàng.
+                  </p>
+                </div>
+                <div class="bento-media-frame">
+                  <img src="asset smax/genai/knowledge-base.webp" alt="Màn hình nạp tri thức dữ liệu FAQ cho AI Smax" data-cms-img="genai-img-7">
+                </div>
+              </div>
+
+              <!-- Tile 2: Prompt Templates -->
+              <div class="bento-item bg-orange">
+                <div class="bento-info">
+                  <div class="bento-icon orange">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                  </div>
+                  <h3 data-cms="genai-text-5">Thư viện Prompt mẫu tinh chỉnh theo ngành nghề</h3>
+                  <p class="desc" data-cms="genai-text-6">
+                    Chọn mẫu Prompt theo ngành nghề, dùng trực tiếp hoặc sao chép để tùy chỉnh; công cụ tối ưu Prompt hỗ trợ viết lại dựa trên yêu cầu và kết quả debug.
+                  </p>
+                </div>
+                <div class="bento-chart-container" style="padding: 16px;">
+                  <img src="asset smax/genai/prompt-library.webp" alt="Thư viện template prompt mẫu cho bot" style="width: 100%; border-radius: 8px;" data-cms-img="genai-img-8">
+                </div>
+              </div>
+
+              <!-- Tile 3: Intent extraction -->
+              <div class="bento-item bg-green">
+                <div class="bento-info">
+                  <div class="bento-icon green">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                  </div>
+                  <h3 data-cms="genai-text-7">Nhận diện ý định &amp; thu thập thông tin</h3>
+                  <p class="desc" data-cms="genai-text-8">
+                    Cấu hình Intention để AI nhận diện mục đích như hủy đơn hoặc đặt lịch, hỏi thêm thông tin cần thiết rồi gửi Block hoặc câu trả lời phù hợp qua Trigger GenAI.
+                  </p>
+                </div>
+                <div class="bento-chart-container" style="padding: 16px;">
+                  <img src="asset smax/genai/intent-extraction.webp" alt="Nhận diện ý định và tự động trích xuất data" style="width: 100%; border-radius: 8px;" data-cms-img="genai-img-9">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Stacked Sticky Cards Section - Inspired by reference image 2 -->
+        <section class="stacked-cards-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="genai-text-9">Bộ công cụ GenAI theo đúng quy trình vận hành</h2>
+              <p data-cms="genai-text-10">Thiết lập, thử nghiệm, kết nối model và chọn đúng loại GenAI cho từng nhiệm vụ.</p>
+            </div>
+
+            <div class="stacked-container">
+              <!-- Card 1: Easy Setup -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">01 / SETUP AGENT</span>
+                  <h2 data-cms="genai-text-11">Giao diện cấu hình Agent thân thiện, dễ dàng setup</h2>
+                  <p data-cms="genai-text-12">
+                    Không cần biết viết code! Bạn có thể tự mình thiết lập tính cách cho Bot, hướng dẫn cách xưng hô, chỉ định kịch bản trả lời và kiểm thử hội thoại giả lập ngay bên cạnh chỉ trong vài phút.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">No-Code Builder</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Simulator Test</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="asset smax/genai/easy-setup.webp" alt="Giao diện cấu hình thiết lập AI Agent no-code" data-cms-img="genai-img-10">
+                </div>
+              </div>
+
+              <!-- Card 2: Multichannel AI -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">02 / CHANNELS DEPLOY</span>
+                  <h2 data-cms="genai-text-13">Nhiều loại GenAI chuyên biệt</h2>
+                  <p data-cms="genai-text-14">
+                    Ngoài AI Chatbot, Smax có Message Content, Conversation Note, Translate, Chat Insight, Quiz Maker và Post Content cho các tác vụ khác nhau.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Đa kênh đồng bộ</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Quản trị tập trung</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="asset smax/genai/multichannel-ai.webp" alt="Màn hình kết nối AI vào hàng loạt fanpage mạng xã hội" data-cms-img="genai-img-11">
+                </div>
+              </div>
+
+              <!-- Card 3: LLM Connection -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">03 / AI MODEL SYSTEM</span>
+                  <h2 data-cms="genai-text-15">Kết nối linh hoạt các Model AI mạnh mẽ</h2>
+                  <p data-cms="genai-text-16">
+                    Kết nối API Key từ OpenAI, Gemini, Groq, Claude, xAI hoặc DeepSeek; sau đó chọn model phù hợp với ngân sách và yêu cầu chất lượng của doanh nghiệp.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">OpenAI / Gemini / Claude</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">API Key riêng linh hoạt</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="asset smax/genai/ai-models.webp" alt="Bảng kết nối quản trị mô hình LLMs" data-cms-img="genai-img-12">
+                </div>
+              </div>
+
+              <!-- Card 4: Multitask Assistant -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">04 / SUPPORT ASSISTANCE</span>
+                  <h2 data-cms="genai-text-17">Trợ lý GenAI đa năng hỗ trợ nhân sự trực page</h2>
+                  <p data-cms="genai-text-18">
+                    Message Content hỗ trợ viết lại, dài hơn, ngắn hơn và đổi tông giọng; Conversation Note tóm tắt hội thoại; Translate hỗ trợ dịch tự động ngay trong module Nhắn tin.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">AI Co-pilot</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">5 Giọng điệu tư vấn</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="asset smax/genai/multitask-assistant.webp" alt="Trợ lý GenAI hỗ trợ trực page đa nhiệm" data-cms-img="genai-img-13">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        
+        
+        
+        <!-- Quickstart 3 Steps Section -->
+        <section class="quickstart-steps-section">
+          <div class="container">
+            <div class="steps-header">
+              <span class="steps-eyebrow">Thiết lập đơn giản</span>
+              <h2 class="steps-title" data-cms="genai-text-19">Kích hoạt AI Agent bán hàng chỉ trong 3 bước*</h2>
+            </div>
+            <div class="steps-grid">
+
+              <!-- Step BƯỚC 01 -->
+              <div class="step-card">
+                <span class="step-card-eyebrow">BƯỚC 01</span>
+                <h3 class="step-card-title" data-cms="genai-text-20">Huấn luyện Kiến thức AI</h3>
+                <p class="step-card-desc" data-cms="genai-text-21">Tạo và quản lý nội dung Knowledge về doanh nghiệp, sản phẩm, ưu đãi và quy trình để AI dùng làm nguồn tham chiếu.</p>
+                <div class="step-card-visual">
+                  <img src="asset smax/genai/knowledge-base.webp" alt="Huấn luyện Kiến thức AI" data-cms-img="genai-img-14">
+                </div>
+              </div>
+              <!-- Step BƯỚC 02 -->
+              <div class="step-card">
+                <span class="step-card-eyebrow">BƯỚC 02</span>
+                <h3 class="step-card-title" data-cms="genai-text-22">Tối ưu Prompt &amp; Giọng điệu</h3>
+                <p class="step-card-desc" data-cms="genai-text-23">Cấu hình System Prompt để định hình cá tính, mục tiêu tư vấn và thiết lập các biến thu thập thông tin tự động (Tên, SĐT, Nhu cầu).</p>
+                <div class="step-card-visual">
+                  <img src="asset smax/genai/prompt-library.webp" alt="Tối ưu Prompt &amp; Giọng điệu" data-cms-img="genai-img-15">
+                </div>
+              </div>
+              <!-- Step BƯỚC 03 -->
+              <div class="step-card">
+                <span class="step-card-eyebrow">BƯỚC 03</span>
+                <h3 class="step-card-title" data-cms="genai-text-24">Demo, Review &amp; kết nối Trigger</h3>
+                <p class="step-card-desc" data-cms="genai-text-25">Chat thử, sửa Prompt/Knowledge khi cần rồi chọn cấu hình GenAI trong Trigger để triển khai vào luồng chatbot phù hợp.</p>
+                <div class="step-card-visual">
+                  <img src="asset smax/genai/multitask-assistant.webp" alt="AI Copilot hỗ trợ chốt đơn" data-cms-img="genai-img-16">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Case Study Section (Success Stories) -->
+        <section class="casestudy-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="genai-text-26">Khách hàng thành công cùng Smax.ai</h2>
+              <p data-cms="genai-text-27">GenAI giúp doanh nghiệp mở rộng năng lực tư vấn mà không làm tăng áp lực vận hành.</p>
+            </div>
+
+            <div class="casestudy-card">
+              <div class="casestudy-quote">
+                <div class="casestudy-quote-mark">“</div>
+                <p data-cms="genai-text-28">
+                  Smax GenAI giúp Gohub duy trì tư vấn 24/7, trả lời đồng nhất theo kho tri thức và giảm đáng kể khối lượng công việc lặp lại cho đội ngũ chăm sóc khách hàng.
+                </p>
+                <div class="casestudy-author">
+                  <div class="author-info">
+                    <h4 data-cms="genai-text-29">NGÔ THÁI BẢO</h4>
+                    <p data-cms="genai-text-30">Đại diện Gohub</p>
+                  </div>
+                </div>
+              </div>
+              <div class="casestudy-metrics">
+                <div>
+                  <div class="cs-metric-num">24/7</div>
+                  <div class="cs-metric-label">Tư vấn liên tục</div>
+                  <div class="cs-metric-desc">Khách hàng luôn nhận được phản hồi ngay cả ngoài giờ làm việc.</div>
+                </div>
+                <div>
+                  <div class="cs-metric-num">-40%</div>
+                  <div class="cs-metric-label">Chi phí vận hành</div>
+                  <div class="cs-metric-desc">Tối ưu nguồn lực nhờ tự động hóa các yêu cầu thường gặp.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="genai-text-31">Câu hỏi thường gặp về Smax GenAI</h2>
+              <p data-cms="genai-text-32">Mọi giải đáp về cách thức nạp tri thức, mô hình ngôn ngữ lớn (LLMs) và an toàn bảo mật trên Smax GenAI.</p>
+            </div>
+
+            <div class="faq-container">
+              <!-- Item 1 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Smax GenAI là gì và nó khác biệt gì với Chatbot thông thường?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Khác với Chatbot thông thường hoạt động theo các kịch bản cứng nhắc định sẵn, Smax GenAI ứng dụng mô hình trí tuệ nhân tạo GenAI để đọc hiểu ngôn ngữ tự nhiên của khách hàng. Nó tự động tìm kiếm thông tin trong bộ tài liệu tri thức bạn đã cung cấp và tự soạn thảo câu trả lời thông minh, linh hoạt như một nhân sự thật sự.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Tôi nạp dữ liệu tri thức (Knowledge Base) cho AI Agent bằng cách nào?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Trong module GenAI, khu vực Knowledge dùng để quản lý các văn bản kiến thức về doanh nghiệp, sản phẩm và quy trình. Hãy kiểm tra lại nội dung ở Demo sau mỗi lần cập nhật trước khi đưa AI vào vận hành.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Làm sao để đảm bảo AI Agent trả lời chính xác, không tự bịa thông tin (Hallucination)?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Không hệ thống GenAI nào nên được mô tả là không thể bịa thông tin. Bạn cần viết System Prompt rõ ràng, duy trì Knowledge chính xác, kiểm thử trong Demo và cấu hình luồng chuyển sang nhân viên cho những trường hợp AI không chắc chắn.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 4 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Smax GenAI tương thích và kết nối được với những mô hình ngôn ngữ lớn (LLM) nào?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Tài liệu hiện liệt kê OpenAI, Gemini, Groq, Claude, xAI và DeepSeek. Doanh nghiệp nhập API Key của nhà cung cấp rồi chọn model phù hợp trong cấu hình GenAI.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 5 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>AI Agent có thể tự động ghi nhận số điện thoại và thông tin đơn hàng của khách không?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Có thể cấu hình Intention để AI nhận diện mục đích và thu thập thêm các trường thông tin cần thiết, sau đó Trigger GenAI gửi Block hoặc phản hồi phù hợp. Việc ghi sang CRM cần cấu hình tích hợp/Partner API riêng.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 6 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Tôi có thể sử dụng AI để hỗ trợ nhân viên tư vấn viết nháp tin nhắn nhanh hơn không?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Có. Message Content GenAI hỗ trợ viết lại, điều chỉnh độ dài và tông giọng; Conversation Note hỗ trợ tóm tắt; Translate hỗ trợ dịch tin nhắn ngay trong module Nhắn tin.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Final CTA Section (Đồng bộ trang chủ) -->
+        <section class="final-cta" id="cta">
+          <div class="container cta-inner">
+            <h2 data-cms="genai-text-33">Bắt đầu đưa AI thông minh vào doanh nghiệp của bạn</h2>
+            <p data-cms="genai-text-34">
+              Nạp tri thức sản phẩm, cấu hình AI Agent tự động và trải nghiệm CSKH không khoảng cách cùng Smax GenAI.
+            </p>
+            <div class="cta-actions">
+              <a class="btn btn-dark" href="#top">Dùng thử miễn phí</a>
+              <a class="btn btn-soft" href="index.html#cta">Đặt lịch hẹn tư vấn</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div>
+            <a class="brand" href="#top">
+              <img src="asset smax/smax-ai-logo.webp" alt="Smax.ai" class="brand-logo-img">
+            </a>
+            <p>Nền tảng AI-Automation giúp doanh nghiệp vận hành bán hàng, tiếp thị và chăm sóc khách hàng đa kênh.</p>
+          </div>
+          <div>
+            <h3>Sản phẩm</h3>
+            <a href="livechat.html">Livechat</a>
+            <a href="chatbot.html">Chatbot</a>
+            <a href="genai.html">Smax GenAI</a>
+            <a href="insight.html">AI Insight</a>
+            <a>Automation Map</a>
+            <a>Remarketing</a>
+          </div>
+          <div>
+            <h3>Giải pháp</h3>
+            <a>Sales</a>
+            <a>Marketing</a>
+            <a>Customer Service</a>
+            <a>E-commerce</a>
+            <a>Omnichannel</a>
+            <a>Meta Business AI</a>
+          </div>
+          <div>
+            <h3>Tài nguyên</h3>
+            <a>Blog</a>
+            <a>Tài liệu</a>
+            <a>Video hướng dẫn</a>
+            <a>Webinar</a>
+            <a>Bot mẫu</a>
+            <a>Case Study</a>
+          </div>
+          <div>
+            <h3>Doanh nghiệp</h3>
+            <a>Về Smax.ai</a>
+            <a>Đối tác</a>
+            <a>Bảng giá</a>
+            <a>Liên hệ</a>
+            <a>Chính sách</a>
+          </div>
+        </div>
+        <div class="container footer-bottom">
+          <span>© 2026 Smax.ai</span>
+          <span>Điều khoản · Quyền riêng tư · Liên hệ tư vấn</span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Shared Header and Interactions JS -->
+    <script src="script.js?v=4.0.2"></script>
+  
+    <!-- Local Tab Interaction Logic for Quickstart -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        
+      });
+    </script>
+
+    
+
+</body></html>

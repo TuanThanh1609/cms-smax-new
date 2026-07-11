@@ -1,0 +1,267 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - navigation "Điều hướng chính" [ref=e4]:
+      - link "Smax.ai trang chủ" [ref=e5] [cursor=pointer]:
+        - /url: index.html#top
+        - img "Smax.ai" [ref=e6]
+      - generic [ref=e7]:
+        - button "Sản phẩm" [ref=e9] [cursor=pointer]: Sản phẩm
+        - button "Giải Pháp" [ref=e12] [cursor=pointer]: Giải Pháp
+        - button "Tích Hợp" [ref=e15] [cursor=pointer]: Tích Hợp
+        - link "Template AI" [ref=e17] [cursor=pointer]:
+          - /url: templates.html
+        - link "Tin Tức" [ref=e18] [cursor=pointer]:
+          - /url: https://smax.ai/blog
+        - link "Đối Tác" [ref=e19] [cursor=pointer]:
+          - /url: https://smax.ai/Partnership
+        - link "Bảng Giá" [ref=e20] [cursor=pointer]:
+          - /url: https://smax.ai/Pricing
+        - link "Liên Hệ" [ref=e21] [cursor=pointer]:
+          - /url: index.html#cta
+      - link "Đăng Nhập" [ref=e23] [cursor=pointer]:
+        - /url: https://smax.ai/login
+  - main [ref=e24]:
+    - generic [ref=e26]:
+      - generic [ref=e27]:
+        - generic [ref=e28]: INTEGRATIONS
+        - generic [ref=e29]: Real-time CRM & Orders Sync
+        - link "Đọc thêm" [ref=e30] [cursor=pointer]:
+          - /url: https://docs.smax.ai
+          - generic [ref=e31]: Đọc thêm
+          - img [ref=e32]
+      - heading "Đồng bộ dữ liệu CRM & Đơn hàng toàn diện, tự động" [level=1] [ref=e34]
+      - paragraph [ref=e35]: Kết nối Smax với CRM/POS để tự động hóa quy trình lên đơn, cập nhật trạng thái giao vận và kích hoạt kịch bản chăm sóc khách hàng đa kênh lập tức.
+      - generic [ref=e36]:
+        - link "Đăng ký tư vấn" [ref=e37] [cursor=pointer]:
+          - /url: "#cta"
+        - link "Trải nghiệm miễn phí" [ref=e38] [cursor=pointer]:
+          - /url: https://docs.smax.ai
+      - generic [ref=e39]:
+        - generic [ref=e45]: smax.ai/integrations/crm-sync
+        - img "Giao diện Smax CRM đồng bộ đơn hàng, khách hàng và tồn kho với CRM, POS và sàn thương mại điện tử" [ref=e47]
+    - generic [ref=e49]:
+      - generic [ref=e50]: Nền tảng tích hợp và hỗ trợ đa kết nối
+      - generic [ref=e52]:
+        - img "KiotViet" [ref=e54]
+        - img "Sapo" [ref=e56]
+        - img "Shopify" [ref=e58]
+        - img "Google Sheets" [ref=e60]
+        - img "LadiPage" [ref=e62]
+        - img "Shopee" [ref=e64]
+        - img "Lazada" [ref=e66]
+        - img "KiotViet" [ref=e68]
+        - img "Sapo" [ref=e70]
+        - img "Shopify" [ref=e72]
+        - img "Google Sheets" [ref=e74]
+        - img "LadiPage" [ref=e76]
+    - generic [ref=e79]:
+      - generic [ref=e80]:
+        - generic [ref=e81]: 100%
+        - generic [ref=e82]: Đồng bộ dữ liệu thời gian thực (Real-time)
+        - generic [ref=e83]: Hóa đơn, tồn kho sản phẩm được cập nhật ngay lập tức giữa các hệ thống bán hàng và chatbot.
+      - generic [ref=e84]:
+        - generic [ref=e85]: 0%
+        - generic [ref=e86]: Sai sót và chênh lệch kho hàng
+        - generic [ref=e87]: Tự động khóa hoặc cập nhật lượng tồn của từng mã hàng khi phát sinh đơn mới toàn kênh.
+      - generic [ref=e88]:
+        - generic [ref=e89]: "-90%"
+        - generic [ref=e90]: Thời gian thao tác tạo đơn thủ công
+        - generic [ref=e91]: Nhân viên sales lên đơn trực tiếp ngay trong chat, tự động đồng bộ hóa hóa đơn về POS/ERP.
+    - generic [ref=e93]:
+      - generic [ref=e94]:
+        - heading "Quản lý dữ liệu tập trung, vận hành tinh gọn" [level=2] [ref=e95]
+        - paragraph [ref=e96]: Hệ thống kết nối mạnh mẽ giúp đồng bộ thông tin khách hàng toàn diện từ mọi kênh bán hàng.
+      - generic [ref=e97]:
+        - generic [ref=e98]:
+          - generic [ref=e99]:
+            - img [ref=e101]
+            - heading "Lên đơn trực tiếp từ cột phải của Smax" [level=3] [ref=e103]
+            - paragraph [ref=e104]: Nhân viên tư vấn (Sales) có thể tra cứu tồn kho từng chi nhánh tại chỗ và lập đơn hàng chốt gửi trực tiếp ngay ở cột thông tin bên phải màn hình chat Smax, giúp tiết kiệm 90% thời gian thao tác và hạn chế tối đa việc chuyển đổi tab.
+          - img "Giao diện lên đơn hàng trực tiếp cột bên phải của Smax" [ref=e106]
+        - generic [ref=e107]:
+          - generic [ref=e108]:
+            - img [ref=e110]
+            - heading "Đồng bộ đơn hàng 2 chiều giữa POS và Smax" [level=3] [ref=e112]
+            - paragraph [ref=e113]: Kết nối hai chiều chặt chẽ với KiotViet, Sapo, Nhanh.vn, POSCake và Shopify. Dữ liệu tồn kho, mã vạch sản phẩm, giá bán và hóa đơn chốt được cập nhật tự động real-time tức thời.
+          - img "Đồng bộ dữ liệu hai chiều Smax với hệ thống POS bán lẻ" [ref=e115]
+        - generic [ref=e116]:
+          - generic [ref=e117]:
+            - img [ref=e119]
+            - heading "Tạo Selling Miniweb chốt đơn nhanh" [level=3] [ref=e122]
+            - paragraph [ref=e123]: Cho phép bạn tạo các trang web mua hàng mini (Miniweb) sành điệu tích hợp ngay trong ô chat. Khách hàng có thể tự do xem catalogue, chọn sản phẩm, áp mã coupon giảm giá và thanh toán nhanh chóng.
+          - img "Selling Miniweb mua hàng tiện dụng trong chatbot" [ref=e125]
+        - generic [ref=e126]:
+          - generic [ref=e127]:
+            - img [ref=e129]
+            - heading "Tự động gửi Dataset tối ưu Facebook Ads" [level=3] [ref=e131]
+            - paragraph [ref=e132]: Tự động ghi nhận và đẩy các sự kiện chuyển đổi mua sắm thực tế từ chat lên tập dữ liệu Meta Dataset (Facebook Conversions API) để giúp thuật toán học máy tối ưu tệp đối tượng chạy Ads hiệu quả nhất.
+          - img "Tự động gửi Dataset tối ưu Facebook Ads Conversions API" [ref=e134]
+        - generic [ref=e135]:
+          - generic [ref=e136]:
+            - img [ref=e138]
+            - heading "Đồng bộ chỉ số bán hàng lên Facebook Ads" [level=3] [ref=e139]
+            - paragraph [ref=e140]: Gửi ngược toàn bộ giá trị hóa đơn chốt đơn thực tế từ CRM về trình quản lý quảng cáo Facebook Ads Manager, cung cấp chỉ số hoàn vốn quảng cáo ROI thực tế chính xác tới từng chiến dịch.
+          - img "Đo lường chỉ số ROI doanh thu bán lẻ trên Facebook Ads Manager" [ref=e142]
+        - generic [ref=e143]:
+          - generic [ref=e144]:
+            - img [ref=e146]
+            - heading "Báo cáo đơn hàng gặp sự cố vào nhóm Lark & Zalo" [level=3] [ref=e148]
+            - paragraph [ref=e149]: Ngay khi hệ thống CRM phát hiện có đơn hàng bị giao thất bại, hoàn trả hoặc bom hàng, Smax tự động phát cảnh báo tức thì kèm thông tin đơn lỗi vào nhóm chat nội bộ Lark (Lark Bot API) và nhóm chat Zalo của đội ngũ Sales để xử lý thu hồi đơn ngay lập tức.
+          - img "Báo cáo lỗi đơn hàng tự động vào nhóm chat Lark và nhóm Zalo" [ref=e151]
+    - generic [ref=e153]:
+      - generic [ref=e154]:
+        - heading "Chuỗi kịch bản chăm sóc khách hàng tự động sau mua" [level=2] [ref=e155]
+        - paragraph [ref=e156]: Khám phá các giải pháp kết nối dữ liệu giữa Smax và các hệ thống CRM giúp tự động hóa chăm sóc 100%.
+      - generic [ref=e157]:
+        - generic [ref=e158]:
+          - generic [ref=e159]:
+            - generic [ref=e160]: 01 / ORDER STATUS ALERTS
+            - heading "Thông báo hành trình đơn hàng qua Messenger & Zalo" [level=2] [ref=e161]
+            - paragraph [ref=e162]: Tự động gửi tin nhắn xác nhận đơn, cập nhật mã vận đơn và hành trình giao vận (Đang giao, Đã giao thành công) qua Messenger API FUM (Utility Message) hoặc Zalo ZBS tới số điện thoại khách hàng ngay khi CRM đổi trạng thái.
+            - generic [ref=e163]:
+              - generic [ref=e164]: Messenger API FUM
+              - generic [ref=e165]: Zalo ZBS Automation
+          - img "Tự động thông báo hành trình đơn hàng qua Messenger FUM và Zalo ZBS" [ref=e167]
+        - generic [ref=e168]:
+          - generic [ref=e169]:
+            - generic [ref=e170]: 02 / ZALO VIP COMMUNITY
+            - heading "Tự động kết bạn Zalo & Mời nhóm VIP Săn Sale" [level=2] [ref=e171]
+            - paragraph [ref=e172]: Hệ thống tự động kích hoạt lời mời kết bạn từ tài khoản Zalo cá nhân của shop và gửi tin nhắn tự động mời tham gia nhóm VIP/Săn Sale ngay khi đơn hàng CRM thành công, giúp giữ chân và bám đuổi khách cũ lâu dài.
+            - generic [ref=e173]:
+              - generic [ref=e174]: Kết bạn Zalo cá nhân
+              - generic [ref=e175]: Mời nhóm Zalo VIP
+          - img "Tự động kết bạn Zalo cá nhân và kéo khách vào nhóm Zalo VIP" [ref=e177]
+        - generic [ref=e178]:
+          - generic [ref=e179]:
+            - generic [ref=e180]: 03 / LOYALTY & REWARDS
+            - heading "Tặng mã giảm giá & Tích điểm thành viên sau mua" [level=2] [ref=e181]
+            - paragraph [ref=e182]: Tự động cập nhật số điểm tích lũy thành viên thực tế từ CRM và gửi tin nhắn tặng mã voucher ưu đãi độc quyền tri ân qua Zalo/Facebook sau mỗi đơn hàng chốt thành công, kích thích tỷ lệ mua lại (Retention Rate).
+            - generic [ref=e183]:
+              - generic [ref=e184]: Tích điểm tự động CRM
+              - generic [ref=e185]: Tặng voucher tri ân
+          - img "Tích điểm thành viên và tự động tặng coupon tri ân khách hàng cũ" [ref=e187]
+        - generic [ref=e188]:
+          - generic [ref=e189]:
+            - generic [ref=e190]: 04 / MULTICHANNEL REMARKETING
+            - heading "Quy trình chăm sóc sau mua & Remarketing ngoài 24h" [level=2] [ref=e191]
+            - paragraph [ref=e192]: Lập trình chuỗi sequence tự động (Hướng dẫn sử dụng sau 1 ngày, khảo sát hài lòng sau 3 ngày) và kích hoạt gửi tin nhắn chăm sóc cá nhân hóa số lượng lớn ngoài 24h qua Messenger FMM và Zalo cá nhân cực kỳ an toàn.
+            - generic [ref=e193]:
+              - generic [ref=e194]: Chuỗi Sequence chăm sóc
+              - generic [ref=e195]: FMM & Zalo cá nhân ngoài 24h
+          - img "Quy trình chăm sóc sau mua và remarketing hàng loạt ngoài 24h" [ref=e197]
+    - generic [ref=e200]:
+      - generic [ref=e201]:
+        - heading "Bản đồ hóa dữ liệu thông minh không cần viết code" [level=2] [ref=e202]
+        - paragraph [ref=e203]: "Dễ dàng map các trường dữ liệu thu thập được từ hội thoại (Ví dụ: Họ tên, Số điện thoại, Tên sản phẩm) vào các cột tương ứng trên Google Sheets hoặc hệ thống CRM POS của bạn chỉ bằng vài thao tác kéo thả trực quan."
+        - generic [ref=e204]:
+          - generic [ref=e205]: Map trường Google Sheet
+          - generic [ref=e206]: Map trường KiotViet
+          - generic [ref=e207]: Map trường LadiPage
+          - generic [ref=e208]: Map Custom JSON Field
+      - img "Màn hình ánh xạ map dữ liệu Smax" [ref=e211]
+    - generic [ref=e213]:
+      - generic [ref=e214]:
+        - heading "Theo dõi hiệu quả phễu đồng bộ đơn hàng" [level=2] [ref=e215]
+        - paragraph [ref=e216]: Thống kê số lượng đơn hàng đồng bộ thành công, doanh thu chốt đơn toàn kênh thực tế.
+      - generic [ref=e217]:
+        - button "Báo cáo đơn đồng bộ" [ref=e218] [cursor=pointer]
+        - button "Hiệu suất vận chuyển" [ref=e219] [cursor=pointer]
+        - button "Doanh thu chốt đơn" [ref=e220] [cursor=pointer]
+      - img "Báo cáo đơn hàng đồng bộ thành công" [ref=e223]
+    - generic [ref=e225]:
+      - generic [ref=e226]:
+        - heading "Khách hàng thành công cùng Smax CRM & Đơn hàng Sync" [level=2] [ref=e227]
+        - paragraph [ref=e228]: Khám phá cách thức các doanh nghiệp bán lẻ bứt phá năng suất vận hành chốt đơn toàn kênh.
+      - generic [ref=e229]:
+        - generic [ref=e230]:
+          - generic [ref=e231]: “
+          - paragraph [ref=e232]: Trước đây, mỗi ngày nhân viên tư vấn của chúng tôi phải vừa chat vừa chuyển tab sang KiotViet để tạo đơn cho khách, dẫn đến việc nhập nhầm lẫn thông tin khách hàng và lệch số lượng tồn kho liên tục. Sau khi tích hợp cổng đồng bộ đơn hàng Smax CRM Connect, nhân viên sales có thể tra tồn kho tại chỗ và tạo đơn chốt gửi thẳng về KiotViet trong 5 giây ngay tại ô chat. Toàn bộ sai sót nhập liệu giảm về 0%, năng suất chốt đơn của cả đội tăng gấp 3 lần.
+          - generic [ref=e234]:
+            - heading "PHẠM THẾ VINH" [level=4] [ref=e235]
+            - paragraph [ref=e236]: Giám đốc Vận hành - YODY Fashion
+        - generic [ref=e237]:
+          - generic [ref=e238]:
+            - generic [ref=e239]: 5s
+            - generic [ref=e240]: Thời gian tạo đơn và đồng bộ
+            - generic [ref=e241]: Tự động đồng bộ hóa hóa đơn chốt từ chat về Retail POS ngay lập tức.
+          - generic [ref=e242]:
+            - generic [ref=e243]: 0%
+            - generic [ref=e244]: Tỷ lệ sai lệch nhập liệu đơn hàng
+            - generic [ref=e245]: Không còn tình trạng lệch tồn kho, nhầm lẫn số điện thoại địa chỉ giao nhận.
+    - generic [ref=e247]:
+      - generic [ref=e248]:
+        - heading "Câu hỏi thường gặp về Smax CRM & Đơn hàng Sync" [level=2] [ref=e249]
+        - paragraph [ref=e250]: Mọi giải đáp về thời gian cập nhật dữ liệu, giới hạn số dòng Google Sheet và độ bảo mật tích hợp.
+      - generic [ref=e251]:
+        - generic [ref=e252]:
+          - button "Dữ liệu tồn kho từ KiotViet/Sapo đồng bộ về Smax có độ trễ bao lâu?" [ref=e253] [cursor=pointer]:
+            - generic [ref=e254]: Dữ liệu tồn kho từ KiotViet/Sapo đồng bộ về Smax có độ trễ bao lâu?
+            - img [ref=e256]
+          - generic [ref=e257]: "Hệ thống Smax đồng bộ dữ liệu tồn kho real-time qua Webhook. Ngay khi có biến động tồn kho trên POS (Ví dụ: khách mua tại quầy), số lượng tồn mới sẽ được cập nhật tức thì về giao diện chat Smax trong chưa đầy 1 giây."
+        - generic [ref=e258]:
+          - button "Google Sheets có giới hạn số dòng ghi nhận dữ liệu từ chatbot không?" [ref=e259] [cursor=pointer]:
+            - generic [ref=e260]: Google Sheets có giới hạn số dòng ghi nhận dữ liệu từ chatbot không?
+            - img [ref=e262]
+          - generic [ref=e263]: "Smax kết nối API Google Sheets chính thống, hỗ trợ ghi nhận dữ liệu không giới hạn số lượng dòng (tuân thủ giới hạn lưu trữ tối đa của Google Sheets là 10 triệu ô dữ liệu). Khuyên dùng: Bạn nên phân chia dữ liệu ghi nhận theo tháng hoặc quý để sheet tải nhanh nhất."
+        - generic [ref=e264]:
+          - button "Mã token API kết nối giữa các hệ thống có được bảo mật an toàn không?" [ref=e265] [cursor=pointer]:
+            - generic [ref=e266]: Mã token API kết nối giữa các hệ thống có được bảo mật an toàn không?
+            - img [ref=e268]
+          - generic [ref=e269]: Hoàn toàn an toàn. Mọi mã token kết nối API (như API Key KiotViet, Access Token Shopify, Client Secret Sapo) đều được mã hóa lưu trữ ở mức độ bảo mật cao nhất (AES-256) trên máy chủ Smax và chỉ được sử dụng cho việc xác thực cuộc gọi API đồng bộ dữ liệu được bạn cấp quyền.
+    - generic [ref=e271]:
+      - heading "Smax.ai là nền tảng duy nhất giúp bạn đồng bộ đơn hàng, tối ưu hóa quảng cáo & chăm sóc khách hàng sau mua tự động" [level=2] [ref=e272]
+      - link "Bắt đầu đồng bộ dữ liệu ngay bây giờ" [ref=e273] [cursor=pointer]:
+        - /url: "#cta"
+    - generic [ref=e275]:
+      - heading "Bắt đầu đồng bộ hóa dữ liệu toàn kênh bán hàng ngay hôm nay" [level=2] [ref=e276]
+      - paragraph [ref=e277]: Hợp nhất dữ liệu khách hàng, tự động cập nhật tồn kho hóa đơn real-time và giải phóng tối đa năng suất sales cùng Smax CRM & Đơn hàng Sync.
+      - generic [ref=e278]:
+        - link "Dùng thử miễn phí" [ref=e279] [cursor=pointer]:
+          - /url: "#top"
+        - link "Đặt lịch hẹn tư vấn" [ref=e280] [cursor=pointer]:
+          - /url: index.html#cta
+  - contentinfo [ref=e281]:
+    - generic [ref=e282]:
+      - generic [ref=e283]:
+        - link "Smax.ai" [ref=e284] [cursor=pointer]:
+          - /url: "#top"
+          - img "Smax.ai" [ref=e285]
+        - paragraph [ref=e286]: Nền tảng AI-Automation giúp doanh nghiệp vận hành bán hàng, tiếp thị và chăm sóc khách hàng đa kênh.
+      - generic [ref=e287]:
+        - heading "Sản phẩm" [level=3] [ref=e288]
+        - link "Livechat" [ref=e289] [cursor=pointer]:
+          - /url: livechat.html
+        - link "Chatbot" [ref=e290] [cursor=pointer]:
+          - /url: chatbot.html
+        - link "Smax GenAI" [ref=e291] [cursor=pointer]:
+          - /url: genai.html
+        - link "AI Insight" [ref=e292] [cursor=pointer]:
+          - /url: insight.html
+        - generic [ref=e293]: Automation Map
+        - generic [ref=e294]: Remarketing
+      - generic [ref=e295]:
+        - heading "Giải pháp" [level=3] [ref=e296]
+        - generic [ref=e297]: Sales
+        - generic [ref=e298]: Marketing
+        - generic [ref=e299]: Customer Service
+        - generic [ref=e300]: E-commerce
+        - generic [ref=e301]: Omnichannel
+        - generic [ref=e302]: Meta Business AI
+      - generic [ref=e303]:
+        - heading "Tài nguyên" [level=3] [ref=e304]
+        - generic [ref=e305]: Blog
+        - generic [ref=e306]: Tài liệu
+        - generic [ref=e307]: Video hướng dẫn
+        - generic [ref=e308]: Webinar
+        - generic [ref=e309]: Bot mẫu
+        - generic [ref=e310]: Case Study
+      - generic [ref=e311]:
+        - heading "Doanh nghiệp" [level=3] [ref=e312]
+        - generic [ref=e313]: Về Smax.ai
+        - generic [ref=e314]: Đối tác
+        - generic [ref=e315]: Bảng giá
+        - generic [ref=e316]: Liên hệ
+        - generic [ref=e317]: Chính sách
+    - generic [ref=e318]:
+      - generic [ref=e319]: © 2026 Smax.ai
+      - generic [ref=e320]: Điều khoản · Quyền riêng tư · Liên hệ tư vấn

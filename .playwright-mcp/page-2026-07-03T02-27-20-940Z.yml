@@ -1,0 +1,440 @@
+- generic [ref=f20e2]:
+  - banner [ref=f20e3]:
+    - navigation "Điều hướng chính" [ref=f20e4]:
+      - link "Smax.ai trang chủ" [ref=f20e5] [cursor=pointer]:
+        - /url: index.html#top
+        - img "Smax.ai" [ref=f20e6]
+      - button "Mở menu" [ref=f20e7]
+  - main [ref=f20e11]:
+    - generic [ref=f20e13]:
+      - generic [ref=f20e14]:
+        - generic [ref=f20e15]:
+          - heading "SMAX REMARKETING" [level=1] [ref=f20e16]:
+            - text: SMAX
+            - text: REMARKETING
+          - paragraph [ref=f20e17]: Hệ thống tự động chăm sóc và tiếp cận lại khách hàng cũ đa kênh, tối ưu chi phí tiếp cận và gia tăng doanh số lặp lại tức thì.
+        - generic [ref=f20e18]:
+          - generic [ref=f20e19]:
+            - img "Facebook" [ref=f20e21]
+            - img "Zalo" [ref=f20e23]
+            - img "TikTok" [ref=f20e25]
+            - img "Shopee" [ref=f20e27]
+            - img "Google Sheets" [ref=f20e29]
+          - heading "CHĂM SÓC ĐA KÊNH" [level=2] [ref=f20e30]
+        - generic [ref=f20e31]:
+          - heading "VƯỢT GIỚI HẠN 24H" [level=2] [ref=f20e32]
+          - link "Đăng ký tư vấn ngay" [ref=f20e33] [cursor=pointer]:
+            - /url: "#cta"
+      - generic [ref=f20e35]:
+        - generic [ref=f20e36]:
+          - img "FB" [ref=f20e38]
+          - generic [ref=f20e39]:
+            - generic [ref=f20e40]:
+              - heading "Facebook 24h" [level=4] [ref=f20e41]
+              - generic [ref=f20e42]: Miễn phí
+            - paragraph [ref=f20e43]: Gửi tin CSKH tự động cho khách tương tác trong 24h
+        - generic [ref=f20e44]:
+          - img "FB" [ref=f20e46]
+          - generic [ref=f20e47]:
+            - generic [ref=f20e48]:
+              - heading "Facebook FMM" [level=4] [ref=f20e49]
+              - generic [ref=f20e50]: 250đ/tin
+            - paragraph [ref=f20e51]: Gửi tin quảng bá chính thống vượt luật 24h Meta
+        - generic [ref=f20e52]:
+          - img "Zalo" [ref=f20e54]
+          - generic [ref=f20e55]:
+            - generic [ref=f20e56]:
+              - heading "Zalo ZBS" [level=4] [ref=f20e57]
+              - generic [ref=f20e58]: 210đ/tin
+            - paragraph [ref=f20e59]: Gửi thông báo mẫu cá nhân hóa theo SĐT & UID
+        - generic [ref=f20e60]:
+          - img "Zalo" [ref=f20e62]
+          - generic [ref=f20e63]:
+            - generic [ref=f20e64]:
+              - heading "Zalo Follow OA" [level=4] [ref=f20e65]
+              - generic [ref=f20e66]: Miễn phí
+            - paragraph [ref=f20e67]: Gửi tin nhắn miễn phí cho khách hàng quan tâm OA
+        - generic [ref=f20e68]:
+          - img "Zalo" [ref=f20e70]
+          - generic [ref=f20e71]:
+            - generic [ref=f20e72]:
+              - heading "Zalo cá nhân" [level=4] [ref=f20e73]
+              - generic [ref=f20e74]: Miễn phí
+            - paragraph [ref=f20e75]: Tự động kết bạn và nhắn tin qua Zalo cá nhân
+        - generic [ref=f20e76]:
+          - img "Zalo" [ref=f20e78]
+          - generic [ref=f20e79]:
+            - generic [ref=f20e80]:
+              - heading "Zalo Group" [level=4] [ref=f20e81]
+              - generic [ref=f20e82]: Miễn phí
+            - paragraph [ref=f20e83]: Chăm sóc & gửi thông báo tự động vào nhóm Zalo
+        - generic [ref=f20e84]:
+          - img "FB" [ref=f20e86]
+          - generic [ref=f20e87]:
+            - generic [ref=f20e88]:
+              - heading "Facebook 24h" [level=4] [ref=f20e89]
+              - generic [ref=f20e90]: Miễn phí
+            - paragraph [ref=f20e91]: Gửi tin CSKH tự động cho khách tương tác trong 24h
+        - generic [ref=f20e92]:
+          - img "FB" [ref=f20e94]
+          - generic [ref=f20e95]:
+            - generic [ref=f20e96]:
+              - heading "Facebook FMM" [level=4] [ref=f20e97]
+              - generic [ref=f20e98]: 250đ/tin
+            - paragraph [ref=f20e99]: Gửi tin quảng bá chính thống vượt luật 24h Meta
+        - generic [ref=f20e100]:
+          - img "Zalo" [ref=f20e102]
+          - generic [ref=f20e103]:
+            - generic [ref=f20e104]:
+              - heading "Zalo ZBS" [level=4] [ref=f20e105]
+              - generic [ref=f20e106]: 210đ/tin
+            - paragraph [ref=f20e107]: Gửi thông báo mẫu cá nhân hóa theo SĐT & UID
+        - generic [ref=f20e108]:
+          - img "Zalo" [ref=f20e110]
+          - generic [ref=f20e111]:
+            - generic [ref=f20e112]:
+              - heading "Zalo Follow OA" [level=4] [ref=f20e113]
+              - generic [ref=f20e114]: Miễn phí
+            - paragraph [ref=f20e115]: Gửi tin nhắn miễn phí cho khách hàng quan tâm OA
+        - generic [ref=f20e116]:
+          - img "Zalo" [ref=f20e118]
+          - generic [ref=f20e119]:
+            - generic [ref=f20e120]:
+              - heading "Zalo cá nhân" [level=4] [ref=f20e121]
+              - generic [ref=f20e122]: Miễn phí
+            - paragraph [ref=f20e123]: Tự động kết bạn và nhắn tin qua Zalo cá nhân
+        - generic [ref=f20e124]:
+          - img "Zalo" [ref=f20e126]
+          - generic [ref=f20e127]:
+            - generic [ref=f20e128]:
+              - heading "Zalo Group" [level=4] [ref=f20e129]
+              - generic [ref=f20e130]: Miễn phí
+            - paragraph [ref=f20e131]: Chăm sóc & gửi thông báo tự động vào nhóm Zalo
+    - generic [ref=f20e134]:
+      - generic [ref=f20e135]:
+        - generic [ref=f20e136]: +30%
+        - generic [ref=f20e137]: Tỷ lệ mua lại (Repeat Purchase)
+        - generic [ref=f20e138]: Tự động kích hoạt lại nhu cầu của tệp khách hàng cũ bằng các kịch bản ưu đãi độc quyền.
+      - generic [ref=f20e139]:
+        - generic [ref=f20e140]: 85%
+        - generic [ref=f20e141]: Tỷ lệ mở đọc tin nhắn trong 5p
+        - generic [ref=f20e142]: Các hình thức gửi tin nhắn trực tiếp qua Messenger, Zalo đạt hiệu quả tiếp cận vượt trội.
+      - generic [ref=f20e143]:
+        - generic [ref=f20e144]: "-60%"
+        - generic [ref=f20e145]: Chi phí tiếp cận lại (CAC)
+        - generic [ref=f20e146]: Tận dụng tối đa giá trị tệp khách hàng cũ tự nhiên thay vì đổ tiền chạy quảng cáo mới.
+    - generic [ref=f20e148]:
+      - generic [ref=f20e149]:
+        - heading "Bộ giải pháp Remarketing hoàn thiện" [level=2] [ref=f20e150]
+        - paragraph [ref=f20e151]: Smax hỗ trợ đầy đủ các kênh truyền thông chính thống giúp shop tiếp cận khách hàng cũ dễ dàng nhất.
+      - generic [ref=f20e152]:
+        - generic [ref=f20e153]:
+          - generic [ref=f20e154]:
+            - img "FB" [ref=f20e156]
+            - generic [ref=f20e157]: Extension
+          - generic [ref=f20e158]:
+            - heading "Facebook ngoài 24h" [level=3] [ref=f20e159]
+            - paragraph [ref=f20e160]: Gửi tin nhắn qua Extension an toàn cho những khách hàng đã từng tương tác với page.
+          - generic [ref=f20e161]:
+            - generic [ref=f20e162]: 3.900.000đ/năm
+            - link "Xem ngay →" [ref=f20e163] [cursor=pointer]:
+              - /url: "#cta"
+        - generic [ref=f20e164]:
+          - generic [ref=f20e165]:
+            - img "FB" [ref=f20e167]
+            - generic [ref=f20e168]: Free
+          - generic [ref=f20e169]:
+            - heading "Facebook 24h" [level=3] [ref=f20e170]
+            - paragraph [ref=f20e171]: Gửi tin nhắn hoàn toàn miễn phí cho những khách hàng có tương tác với Fanpage trong vòng 24h qua.
+          - generic [ref=f20e172]:
+            - generic [ref=f20e173]: 0đ/tin
+            - link "Bắt đầu miễn phí →" [ref=f20e174] [cursor=pointer]:
+              - /url: "#cta"
+        - generic [ref=f20e175]:
+          - generic [ref=f20e176]:
+            - img "FB" [ref=f20e178]
+            - generic [ref=f20e179]: Meta FMM
+          - generic [ref=f20e180]:
+            - heading "Facebook Marketing Messages (FMM)" [level=3] [ref=f20e181]
+            - paragraph [ref=f20e182]: Gửi tin nhắn marketing theo tệp số điện thoại hoặc email mà bạn thu thập được, bắt đầu chỉ từ 250đ/tin.
+          - generic [ref=f20e183]:
+            - generic [ref=f20e184]: ~250đ/tin
+            - link "Bắt đầu từ 250đ →" [ref=f20e185] [cursor=pointer]:
+              - /url: "#cta"
+        - generic [ref=f20e186]:
+          - generic [ref=f20e187]:
+            - img "FB" [ref=f20e189]
+            - generic [ref=f20e190]: Meta 1-1
+          - generic [ref=f20e191]:
+            - heading "Facebook Marketing Messages 1-1" [level=3] [ref=f20e192]
+            - paragraph [ref=f20e193]: Gửi tin nhắn marketing 1-1 cho những khách hàng có tương tác đặc biệt bắt nguồn trực tiếp từ quảng cáo.
+          - generic [ref=f20e194]:
+            - generic [ref=f20e195]: ~250đ/tin
+            - link "Bắt đầu từ 250đ →" [ref=f20e196] [cursor=pointer]:
+              - /url: "#cta"
+        - generic [ref=f20e197]:
+          - generic [ref=f20e198]:
+            - img "FB" [ref=f20e200]
+            - generic [ref=f20e201]: Free
+          - generic [ref=f20e202]:
+            - heading "Facebook Utility Messages (FUM)" [level=3] [ref=f20e203]
+            - paragraph [ref=f20e204]: Gửi tin nhắn mẫu đã đăng ký trước đó cho khách hàng để cập nhật thông tin tiện ích và giao dịch.
+          - generic [ref=f20e205]:
+            - generic [ref=f20e206]: 0đ/tin
+            - link "Bắt đầu miễn phí →" [ref=f20e207] [cursor=pointer]:
+              - /url: "#cta"
+        - generic [ref=f20e208]:
+          - generic [ref=f20e209]:
+            - img "Zalo" [ref=f20e211]
+            - generic [ref=f20e212]: Free
+          - generic [ref=f20e213]:
+            - heading "Zalo Follow OA" [level=3] [ref=f20e214]
+            - paragraph [ref=f20e215]: Gửi tin nhắn cho các khách hàng đã bấm quan tâm và theo dõi trang Zalo Official Account của shop.
+          - generic [ref=f20e216]:
+            - generic [ref=f20e217]: 0đ/tin
+            - link "Bắt đầu miễn phí →" [ref=f20e218] [cursor=pointer]:
+              - /url: "#cta"
+        - generic [ref=f20e219]:
+          - generic [ref=f20e220]:
+            - img "Zalo" [ref=f20e222]
+            - generic [ref=f20e223]: ZBS
+          - generic [ref=f20e224]:
+            - heading "Zalo ZBS" [level=3] [ref=f20e225]
+            - paragraph [ref=f20e226]: Gửi tin ZBS chính thống cho các khách hàng theo tệp định danh ID người dùng hoặc qua số điện thoại.
+          - generic [ref=f20e227]:
+            - generic [ref=f20e228]: ~210đ/tin
+            - link "Bắt đầu từ 210đ →" [ref=f20e229] [cursor=pointer]:
+              - /url: "#cta"
+        - generic [ref=f20e230]:
+          - generic [ref=f20e231]:
+            - img "Zalo" [ref=f20e233]
+            - generic [ref=f20e234]: Zalo UID
+          - generic [ref=f20e235]:
+            - heading "Zalo UID Broadcast" [level=3] [ref=f20e236]
+            - paragraph [ref=f20e237]: Gửi tin nhắn hàng loạt cho các khách hàng đã từng phát sinh tương tác trò chuyện với Zalo OA trước đó.
+          - generic [ref=f20e238]:
+            - generic [ref=f20e239]: ~210đ/tin
+            - link "Bắt đầu từ 210đ →" [ref=f20e240] [cursor=pointer]:
+              - /url: "#cta"
+        - generic [ref=f20e241]:
+          - generic [ref=f20e242]:
+            - img "Zalo" [ref=f20e244]
+            - generic [ref=f20e245]: Free
+          - generic [ref=f20e246]:
+            - heading "Zalo cá nhân" [level=3] [ref=f20e247]
+            - paragraph [ref=f20e248]: Tự động kết bạn và nhắn tin qua Zalo cá nhân.
+          - generic [ref=f20e249]:
+            - generic [ref=f20e250]: 0đ/tin
+            - link "Bắt đầu miễn phí →" [ref=f20e251] [cursor=pointer]:
+              - /url: "#cta"
+        - generic [ref=f20e252]:
+          - generic [ref=f20e253]:
+            - img "Zalo" [ref=f20e255]
+            - generic [ref=f20e256]: Free
+          - generic [ref=f20e257]:
+            - heading "Zalo Group Automation" [level=3] [ref=f20e258]
+            - paragraph [ref=f20e259]: Gửi tin nhắn tự động hàng loạt để chăm sóc và cập nhật thông tin cho khách hàng trong các nhóm Zalo.
+          - generic [ref=f20e260]:
+            - generic [ref=f20e261]: 0đ/tin
+            - link "Bắt đầu miễn phí →" [ref=f20e262] [cursor=pointer]:
+              - /url: "#cta"
+        - generic [ref=f20e263]:
+          - generic [ref=f20e264]:
+            - img "WA" [ref=f20e266]
+            - generic [ref=f20e267]: Coming
+          - generic [ref=f20e268]:
+            - heading "Whatsapp Broadcast" [level=3] [ref=f20e269]
+            - paragraph [ref=f20e270]: Gửi tin nhắn broadcast hàng loạt tự động tới tệp số điện thoại khách hàng sử dụng ứng dụng Whatsapp.
+          - generic [ref=f20e271]:
+            - generic [ref=f20e272]: Đang phát triển
+            - generic [ref=f20e273]: Coming Soon
+        - generic [ref=f20e274]:
+          - generic [ref=f20e275]:
+            - generic [ref=f20e276]:
+              - img "Shopee" [ref=f20e277]
+              - img "Tiktok" [ref=f20e278]
+            - generic [ref=f20e279]: Coming
+          - generic [ref=f20e280]:
+            - heading "Shopee/Tiktok Broadcast" [level=3] [ref=f20e281]
+            - paragraph [ref=f20e282]: Gửi tin nhắn quảng bá ưu đãi của shop đến tệp khách hàng cũ và người theo dõi trên nền tảng Shopee & TikTok Shop.
+          - generic [ref=f20e283]:
+            - generic [ref=f20e284]: Đang phát triển
+            - generic [ref=f20e285]: Coming Soon
+    - generic [ref=f20e287]:
+      - heading "Smax.ai là nền tảng duy nhất tại Việt Nam giúp bạn chăm sóc khách hàng đa kênh , hiệu quả & đúng luật" [level=2] [ref=f20e288]:
+        - text: Smax.ai là nền tảng duy nhất tại Việt Nam giúp bạn chăm sóc khách hàng
+        - generic [ref=f20e289]: đa kênh
+        - text: ", hiệu quả &"
+        - generic [ref=f20e290]: đúng luật
+      - link "Bắt đầu chăm sóc khách hàng của bạn ngay bây giờ" [ref=f20e291] [cursor=pointer]:
+        - /url: "#cta"
+    - generic [ref=f20e293]:
+      - generic [ref=f20e294]:
+        - heading "Các tính năng vượt trội của Smax Remarketing" [level=2] [ref=f20e295]
+        - paragraph [ref=f20e296]: Khám phá phân hệ thiết lập chiến dịch chăm sóc lại khách hàng cũ một cách toàn diện, an toàn và hiệu quả.
+      - generic [ref=f20e297]:
+        - generic [ref=f20e298]:
+          - generic [ref=f20e299]:
+            - generic [ref=f20e300]: 01 / DATA INTEGRATION
+            - heading "Kết nối dữ liệu khách hàng đa kênh" [level=2] [ref=f20e301]
+            - paragraph [ref=f20e302]: Kết nối trực tiếp với Fanpage, POS, CRM để hợp nhất dữ liệu lịch sử mua sắm và tương tác của khách hàng về một mối duy nhất, giúp tối ưu hóa chân dung khách hàng.
+            - generic [ref=f20e303]: Kết nối với Fanpage, POS, CRM để hợp nhất dữ liệu
+            - generic [ref=f20e304]:
+              - generic [ref=f20e305]: Fanpage & Zalo OA
+              - generic [ref=f20e306]: POS & CRM Sync
+          - img [ref=f20e308]:
+            - generic [ref=f20e318]: CRM
+            - generic [ref=f20e320]: POS
+            - generic [ref=f20e322]: SMAX
+        - generic [ref=f20e323]:
+          - generic [ref=f20e324]:
+            - generic [ref=f20e325]: 02 / SEGMENTATION
+            - heading "Hệ thống Phân loại khách hàng linh hoạt" [level=2] [ref=f20e326]
+            - paragraph [ref=f20e327]: Tự động gắn tag, phân nhóm khách hàng dựa trên hành vi mua hàng, lịch sử mở tin nhắn, tần suất tương tác, giúp việc remarketing đi đúng tệp mục tiêu cụ thể một cách khoa học.
+            - generic [ref=f20e328]:
+              - generic [ref=f20e329]: Gắn tag tự động
+              - generic [ref=f20e330]: Lọc tệp điều kiện sâu
+          - img "Giao diện gắn nhãn tag và cấu hình phân loại khách hàng Smax" [ref=f20e332]
+        - generic [ref=f20e333]:
+          - generic [ref=f20e334]:
+            - generic [ref=f20e335]: 03 / RICH CONTENT
+            - heading "Đa dạng nội dung chăm sóc" [level=2] [ref=f20e336]
+            - paragraph [ref=f20e337]: "Thiết lập nội dung phong phú cho từng kênh gửi: văn bản kết hợp hình ảnh sống động, video sản phẩm hay các thẻ quay vòng trượt sản phẩm độc đáo giúp tăng tương tác tối đa."
+            - generic [ref=f20e338]: Từ hình ảnh / video / carousel ...
+            - generic [ref=f20e339]:
+              - generic [ref=f20e340]: Carousel quay vòng
+              - generic [ref=f20e341]: Nút bấm CTA & Quick Reply
+          - img [ref=f20e343]:
+            - generic [ref=f20e345]: Bộ sưu tập thu đông mới nhất của Smax Shop
+            - generic [ref=f20e353]: Mua ngay
+            - generic [ref=f20e361]: Xem chi tiết
+        - generic [ref=f20e366]:
+          - generic [ref=f20e367]:
+            - generic [ref=f20e368]: 04 / PERSONALIZED SEQUENCE
+            - heading "Chuỗi Tin nhắn chăm sóc cá nhân hóa" [level=2] [ref=f20e369]
+            - paragraph [ref=f20e370]: Lên lịch trình gửi chuỗi tin nhắn tự động theo thời gian độc lập cho từng khách (Sequence). Kịch bản chạy tự động gửi mã ưu đãi vào đúng dịp đặc biệt, chăm sóc đúng quy trình dựa trên tên riêng của từng khách hàng.
+            - generic [ref=f20e371]:
+              - generic [ref=f20e372]: Cá nhân hóa xưng hô
+              - generic [ref=f20e373]: Chuỗi sequence tự động
+          - img "Sơ đồ thiết lập chuỗi tin nhắn chăm sóc cá nhân hóa sequence" [ref=f20e375]
+        - generic [ref=f20e376]:
+          - generic [ref=f20e377]:
+            - generic [ref=f20e378]: 05 / ROI ANALYTICS
+            - heading "Đo lường & Thống kê hiệu quả ROI" [level=2] [ref=f20e379]
+            - paragraph [ref=f20e380]: "Hệ thống báo cáo chi tiết thời gian thực: tỉ lệ tin nhắn gửi thành công, tỉ lệ mở đọc, số lượt click link, doanh số chuyển đổi đơn hàng và chỉ số đo lường hiệu quả thu hồi vốn (ROI) thực tế."
+            - generic [ref=f20e381]:
+              - generic [ref=f20e382]: Báo cáo thời gian thực
+              - generic [ref=f20e383]: Đo lường chuyển đổi ROI
+          - img "Báo cáo phân tích doanh thu chuyển đổi và ROI" [ref=f20e385]
+    - generic [ref=f20e388]:
+      - generic [ref=f20e389]:
+        - heading "Quy tắc gửi tin an toàn, chống spam thông minh" [level=2] [ref=f20e390]
+        - paragraph [ref=f20e391]: Smax Remarketing tích hợp các bộ lọc và khoảng trễ ngẫu nhiên (delay) thông minh khi gửi tin nhắn số lượng lớn, đảm bảo tuân thủ nghiêm ngặt chính sách chống spam của các nhà mạng và nền tảng Meta.
+        - generic [ref=f20e392]:
+          - generic [ref=f20e393]: Tuân thủ luật 24h Meta
+          - generic [ref=f20e394]: Tự động đặt khoảng trễ
+          - generic [ref=f20e395]: Quản lý hạn mức ZNS
+          - generic [ref=f20e396]: Lọc trùng lặp danh sách
+      - img "Cấu hình hệ thống chống spam tin nhắn hàng loạt Smax" [ref=f20e399]
+    - generic [ref=f20e401]:
+      - generic [ref=f20e402]:
+        - heading "Đo lường hiệu quả các phễu chiến dịch gửi tin" [level=2] [ref=f20e403]
+        - paragraph [ref=f20e404]: Thống kê đầy đủ báo cáo chi tiết về tỷ lệ mở đọc, tỷ lệ chuyển đổi đơn hàng từ các tệp tin nhắn gửi đi.
+      - generic [ref=f20e405]:
+        - button "Báo cáo lượt gửi tin" [ref=f20e406] [cursor=pointer]
+        - button "Báo cáo tương tác link" [ref=f20e407] [cursor=pointer]
+        - button "Báo cáo doanh số đơn hàng" [ref=f20e408] [cursor=pointer]
+      - img "Báo cáo lượt gửi tin chi tiết" [ref=f20e411]
+    - generic [ref=f20e413]:
+      - generic [ref=f20e414]:
+        - heading "Khách hàng thành công cùng Smax Remarketing" [level=2] [ref=f20e415]
+        - paragraph [ref=f20e416]: Khám phá cách thức các thương hiệu hàng đầu gắn kết khách hàng cũ và bứt phá doanh thu.
+      - generic [ref=f20e417]:
+        - generic [ref=f20e418]:
+          - generic [ref=f20e419]: “
+          - paragraph [ref=f20e420]: Trước đây, chi phí để chạy quảng cáo Facebook tiếp cận khách hàng cũ của chúng tôi cực kỳ đắt đỏ và không đo lường được hiệu quả mua lại. Sau khi kết nối tính năng Facebook Marketing Messages (FMM) của Smax.ai, chúng tôi đã tạo phễu gửi tin nhắn ưu đãi định kỳ hàng tuần hoàn toàn miễn phí cho tệp khách đã đăng ký nhận tin. Tỷ lệ mở đọc tin nhắn FMM đạt tới 82%, mang về mức tăng trưởng 32% doanh số mua lại của hệ thống cửa hàng.
+          - generic [ref=f20e422]:
+            - heading "TRẦN THỊ HỒNG PHẤN" [level=4] [ref=f20e423]
+            - paragraph [ref=f20e424]: Giám đốc Thương hiệu - MARC Fashion
+        - generic [ref=f20e425]:
+          - generic [ref=f20e426]:
+            - generic [ref=f20e427]: 82%
+            - generic [ref=f20e428]: Tỷ lệ mở đọc tin nhắn FMM
+            - generic [ref=f20e429]: Tương tác tự nhiên, vượt trội so với gửi tin nhắn qua Email hoặc SMS truyền thống.
+          - generic [ref=f20e430]:
+            - generic [ref=f20e431]: +32%
+            - generic [ref=f20e432]: Tăng trưởng doanh thu mua lại
+            - generic [ref=f20e433]: Tạo ra phễu khách hàng trung thành, phát sinh đơn hàng đều đặn mỗi tháng.
+    - generic [ref=f20e435]:
+      - generic [ref=f20e436]:
+        - heading "Câu hỏi thường gặp về Smax Remarketing" [level=2] [ref=f20e437]
+        - paragraph [ref=f20e438]: Mọi giải đáp về chính sách gửi tin nhắn FMM Meta, cấu hình Zalo ZNS và hệ thống sequence tự động.
+      - generic [ref=f20e439]:
+        - generic [ref=f20e440]:
+          - button "Tin nhắn FMM Facebook có bị Meta tính phí như chạy quảng cáo không?" [ref=f20e441] [cursor=pointer]:
+            - generic [ref=f20e442]: Tin nhắn FMM Facebook có bị Meta tính phí như chạy quảng cáo không?
+            - img [ref=f20e444]
+          - generic [ref=f20e445]: Không. Hiện tại, tính năng Facebook Marketing Messages (FMM) của Meta đang cho phép gửi tin nhắn hàng loạt hoàn toàn miễn phí tới tệp người dùng đã Opt-in đồng ý nhận tin nhắn khuyến mãi từ trang Fanpage của bạn.
+        - generic [ref=f20e446]:
+          - button "Tôi có thể gửi tin nhắn Zalo ZNS tới những số điện thoại chưa follow Zalo OA không?" [ref=f20e447] [cursor=pointer]:
+            - generic [ref=f20e448]: Tôi có thể gửi tin nhắn Zalo ZNS tới những số điện thoại chưa follow Zalo OA không?
+            - img [ref=f20e450]
+          - generic [ref=f20e451]: Có. Zalo ZNS là dịch vụ tin nhắn thông báo chính thống cho phép bạn gửi tin nhắn thông báo (xác nhận đơn hàng, hành trình giao nhận, thông báo hóa đơn...) tới mọi số điện thoại khách hàng, bất kể họ đã theo dõi trang Zalo OA của bạn hay chưa.
+        - generic [ref=f20e452]:
+          - button "Nếu khách hàng đã mua sản phẩm rồi thì hệ thống có tự động dừng chuỗi Sequence bám đuổi không?" [ref=f20e453] [cursor=pointer]:
+            - generic [ref=f20e454]: Nếu khách hàng đã mua sản phẩm rồi thì hệ thống có tự động dừng chuỗi Sequence bám đuổi không?
+            - img [ref=f20e456]
+          - generic [ref=f20e457]: "Có. Smax hỗ trợ hệ thống quy tắc dừng thông minh (Goal Rule). Bạn có thể thiết lập quy tắc: Khi khách hàng nhận được thẻ Tag \"Đã Mua Hàng\" hoặc thay đổi thuộc tính đơn hàng sang \"Thành công\", kịch bản chatbot sẽ tự động loại khách hàng đó khỏi chuỗi Sequence bám đuổi để tránh spam."
+    - generic [ref=f20e459]:
+      - heading "Bắt đầu tự động hóa chăm sóc khách hàng cũ ngay hôm nay" [level=2] [ref=f20e460]
+      - paragraph [ref=f20e461]: Gia tăng doanh số bán hàng bền vững, tiết kiệm tối đa chi phí quảng cáo mới và nuôi dưỡng khách hàng trung thành cùng Smax Remarketing.
+      - generic [ref=f20e462]:
+        - link "Dùng thử miễn phí" [ref=f20e463] [cursor=pointer]:
+          - /url: "#top"
+        - link "Đặt lịch hẹn tư vấn" [ref=f20e464] [cursor=pointer]:
+          - /url: index.html#cta
+  - contentinfo [ref=f20e465]:
+    - generic [ref=f20e466]:
+      - generic [ref=f20e467]:
+        - link "Smax.ai" [ref=f20e468] [cursor=pointer]:
+          - /url: "#top"
+          - img "Smax.ai" [ref=f20e469]
+        - paragraph [ref=f20e470]: Nền tảng AI-Automation giúp doanh nghiệp vận hành bán hàng, tiếp thị và chăm sóc khách hàng đa kênh.
+      - generic [ref=f20e471]:
+        - heading "Sản phẩm" [level=3] [ref=f20e472]
+        - link "Livechat" [ref=f20e473] [cursor=pointer]:
+          - /url: livechat.html
+        - link "Chatbot" [ref=f20e474] [cursor=pointer]:
+          - /url: chatbot.html
+        - link "Smax GenAI" [ref=f20e475] [cursor=pointer]:
+          - /url: genai.html
+        - link "AI Insight" [ref=f20e476] [cursor=pointer]:
+          - /url: insight.html
+        - generic [ref=f20e477]: Automation Map
+        - generic [ref=f20e478]: Remarketing
+      - generic [ref=f20e479]:
+        - heading "Giải pháp" [level=3] [ref=f20e480]
+        - generic [ref=f20e481]: Sales
+        - generic [ref=f20e482]: Marketing
+        - generic [ref=f20e483]: Customer Service
+        - generic [ref=f20e484]: E-commerce
+        - generic [ref=f20e485]: Omnichannel
+        - generic [ref=f20e486]: Meta Business AI
+      - generic [ref=f20e487]:
+        - heading "Tài nguyên" [level=3] [ref=f20e488]
+        - generic [ref=f20e489]: Blog
+        - generic [ref=f20e490]: Tài liệu
+        - generic [ref=f20e491]: Video hướng dẫn
+        - generic [ref=f20e492]: Webinar
+        - generic [ref=f20e493]: Bot mẫu
+        - generic [ref=f20e494]: Case Study
+      - generic [ref=f20e495]:
+        - heading "Doanh nghiệp" [level=3] [ref=f20e496]
+        - generic [ref=f20e497]: Về Smax.ai
+        - generic [ref=f20e498]: Đối tác
+        - generic [ref=f20e499]: Bảng giá
+        - generic [ref=f20e500]: Liên hệ
+        - generic [ref=f20e501]: Chính sách
+    - generic [ref=f20e502]:
+      - generic [ref=f20e503]: © 2026 Smax.ai
+      - generic [ref=f20e504]: Điều khoản · Quyền riêng tư · Liên hệ tư vấn

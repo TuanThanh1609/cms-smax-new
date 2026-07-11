@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smax CMS | Hệ thống Quản trị Nội dung Website</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Glassmorphism utilities */
+    .glass {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.3);
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 99px;
+    }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans overflow-x-hidden selection:bg-indigo-500 selection:text-white">
+
+  <!-- ================= SETUP SCREEN ================= -->
+  <div id="setup-screen" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/90 backdrop-blur-sm p-4">
+    <div class="glass w-full max-w-md rounded-2xl p-8 shadow-2xl flex flex-col gap-6">
+      <div class="text-center">
+        <h1 class="text-2xl font-extrabold text-indigo-400">Cấu hình Smax CMS</h1>
+        <p class="text-sm text-zinc-400 mt-2">Nhập khóa cấu hình Supabase để bắt đầu kết nối dự án của bạn.</p>
+      </div>
+      
+      <div class="flex flex-col gap-4">
+        <div>
+          <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Supabase Project URL</label>
+          <input type="text" id="setup-url" placeholder="https://xxxx.supabase.co" class="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 text-white placeholder-zinc-600 transition-colors">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Supabase Public Anon Key</label>
+          <input type="password" id="setup-key" placeholder="eyJhbGciOi..." class="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 text-white placeholder-zinc-600 transition-colors">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Vercel Deploy Webhook URL (Tùy chọn)</label>
+          <input type="text" id="setup-webhook" placeholder="https://api.vercel.com/v1/integrations/deploy/..." class="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 text-white placeholder-zinc-600 transition-colors">
+          <p class="text-[11px] text-zinc-500 mt-1">Dùng để kích hoạt rebuild và đẩy nội dung lên live Vercel khi xuất bản.</p>
+        </div>
+      </div>
+      
+      <button onclick="saveSetupConfig()" class="w-full bg-indigo-600 hover:bg-indigo-500 active:scale-[0.98] text-white font-semibold py-3 rounded-xl transition-all shadow-lg shadow-indigo-600/20">
+        Lưu &amp; Kết nối Hệ thống
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= LOGIN SCREEN ================= -->
+  <div id="login-screen" class="hidden fixed inset-0 z-40 flex items-center justify-center bg-zinc-950 p-4">
+    <div class="glass w-full max-w-sm rounded-2xl p-8 shadow-2xl flex flex-col gap-6">
+      <div class="text-center">
+        <h1 class="text-2xl font-extrabold text-indigo-400">Smax Admin Login</h1>
+        <p class="text-sm text-zinc-400 mt-2">Chỉ dành cho quản trị viên kiểm soát website.</p>
+      </div>
+      
+      <div class="flex flex-col gap-4">
+        <div>
+          <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Email Quản trị</label>
+          <input type="email" id="login-email" placeholder="admin@smax.ai" class="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 text-white placeholder-zinc-600 transition-colors">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Mật khẩu</label>
+          <input type="password" id="login-password" placeholder="••••••••" class="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 text-white placeholder-zinc-600 transition-colors">
+        </div>
+      </div>
+      
+      <button onclick="handleLogin()" class="w-full bg-indigo-600 hover:bg-indigo-500 active:scale-[0.98] text-white font-semibold py-3 rounded-xl transition-all">
+        Đăng nhập CMS
+      </button>
+      
+      <div class="text-center">
+        <button onclick="resetSetupConfig()" class="text-xs text-zinc-500 hover:text-zinc-400 transition-colors">
+          Cấu hình lại kết nối Supabase
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MAIN DASHBOARD ================= -->
+  <div id="dashboard" class="hidden flex-1 flex flex-col">
+    <!-- Header -->
+    <header class="glass sticky top-0 z-30 px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="bg-indigo-600/10 p-2 rounded-xl border border-indigo-500/20">
+          <i data-lucide="layers" class="text-indigo-400 w-6 h-6"></i>
+        </div>
+        <div>
+          <h2 class="text-lg font-bold leading-tight">Smax CMS Dashboard</h2>
+          <p class="text-xs text-zinc-500">Quản lý nội dung &amp; hình ảnh toàn website</p>
+        </div>
+      </div>
+      
+      <div class="flex items-center gap-3">
+        <!-- Rebuild Trigger Webhook -->
+        <button id="vercel-deploy-btn" onclick="triggerVercelDeploy()" class="bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] text-white px-4 py-2 text-sm font-semibold rounded-xl transition-all flex items-center gap-2 shadow-lg shadow-emerald-600/15">
+          <i data-lucide="send" class="w-4 h-4"></i>
+          Xuất bản lên Vercel (Live)
+        </button>
+        
+        <button onclick="handleLogout()" class="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-400 hover:text-zinc-200 px-4 py-2 text-sm font-medium rounded-xl transition-all flex items-center gap-2">
+          <i data-lucide="log-out" class="w-4 h-4"></i>
+          Đăng xuất
+        </button>
+      </div>
+    </header>
+
+    <!-- Content Workspace -->
+    <div class="flex-1 flex overflow-hidden">
+      <!-- Left Sidebar (Pages list) -->
+      <aside class="w-72 bg-zinc-950 border-r border-zinc-900 p-6 flex flex-col gap-6">
+        <div>
+          <h3 class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-3">Danh sách trang</h3>
+          <div class="flex flex-col gap-1 max-h-[60vh] overflow-y-auto custom-scroll" id="pages-list">
+            <!-- Dynamic pages -->
+          </div>
+        </div>
+        
+        <div class="mt-auto border-t border-zinc-900 pt-4 flex flex-col gap-2">
+          <div class="flex items-center gap-2 text-xs text-zinc-500">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Kết nối Supabase ổn định</span>
+          </div>
+          <button onclick="resetSetupConfig()" class="text-left text-xs text-zinc-500 hover:text-zinc-300 transition-colors flex items-center gap-1.5 mt-2">
+            <i data-lucide="settings" class="w-3.5 h-3.5"></i>
+            Thay đổi Supabase Config
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Editor Panel -->
+      <main class="flex-1 bg-zinc-900/20 flex flex-col overflow-hidden">
+        <!-- Scrollable fields wrapper -->
+        <div class="flex-1 p-8 overflow-y-auto custom-scroll">
+          <div class="max-w-4xl mx-auto flex flex-col gap-6">
+            <div class="flex justify-between items-center">
+              <div>
+                <h1 class="text-2xl font-extrabold" id="active-page-title">Chọn trang để sửa đổi</h1>
+                <p class="text-sm text-zinc-500 mt-1" id="active-page-sub">Danh sách các khối nội dung và hình ảnh có thể tùy chỉnh.</p>
+              </div>
+              
+              <button id="add-field-btn" onclick="openAddFieldModal()" class="hidden bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-400 border border-indigo-500/20 px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all flex items-center gap-1.5">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                Thêm thuộc tính mới
+              </button>
+            </div>
+            
+            <!-- Editor Form Fields Container -->
+            <div class="flex flex-col gap-6" id="editor-fields">
+              <div class="glass rounded-2xl p-12 text-center text-zinc-500 flex flex-col items-center gap-3">
+                <i data-lucide="file-edit" class="w-12 h-12 text-zinc-600"></i>
+                <p class="font-medium">Vui lòng chọn một trang ở danh mục bên trái để bắt đầu hiệu chỉnh nội dung.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Pinned Actions bar -->
+        <div id="editor-actions" class="hidden glass border-t border-zinc-800/80 px-8 py-4 flex justify-end gap-3 z-20">
+          <button onclick="loadPageContent(currentSelectedPage)" class="bg-zinc-900 hover:bg-zinc-800 text-zinc-400 px-6 py-2.5 rounded-xl font-medium transition-all text-sm">
+            Hủy bỏ thay đổi
+          </button>
+          <button onclick="handleLivePreview()" class="bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-500 border border-emerald-500/20 px-6 py-2.5 rounded-xl font-medium transition-all text-sm flex items-center gap-2">
+            <i data-lucide="eye" class="w-4 h-4"></i>
+            Xem trước (Live Preview)
+          </button>
+          <button onclick="savePageChanges()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-2.5 rounded-xl font-semibold transition-all text-sm flex items-center gap-2 shadow-lg shadow-indigo-600/20">
+            <i data-lucide="save" class="w-4 h-4"></i>
+            Lưu thay đổi trang
+          </button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- ================= ADD FIELD MODAL ================= -->
+  <div id="add-field-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/80 backdrop-blur-sm p-4">
+    <div class="glass w-full max-w-md rounded-2xl p-6 shadow-2xl flex flex-col gap-5">
+      <div class="flex justify-between items-center border-b border-zinc-800 pb-3">
+        <h3 class="text-lg font-bold text-indigo-400 flex items-center gap-1.5">
+          <i data-lucide="plus-circle" class="w-5 h-5"></i>
+          Thêm khóa thuộc tính mới
+        </h3>
+        <button onclick="closeAddFieldModal()" class="text-zinc-400 hover:text-zinc-200">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      
+      <div class="flex flex-col gap-4">
+        <div>
+          <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Loại thuộc tính</label>
+          <select id="modal-type" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-indigo-500 text-white">
+            <option value="text">Văn bản (Text/HTML)</option>
+            <option value="image">Hình ảnh (Image URL)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Khóa thuộc tính (Unique Key)</label>
+          <input type="text" id="modal-key" placeholder="ví dụ: hero-title hoặc client-logo-1" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-indigo-500 text-white placeholder-zinc-600">
+          <p class="text-[11px] text-zinc-500 mt-1">Dùng làm giá trị cho thuộc tính data-cms="{Key}" hoặc data-cms-img="{Key}" trong HTML.</p>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Giá trị mặc định</label>
+          <textarea id="modal-value" rows="3" placeholder="Nhập giá trị văn bản hoặc URL ảnh..." class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-indigo-500 text-white placeholder-zinc-600"></textarea>
+        </div>
+      </div>
+      
+      <div class="flex justify-end gap-2 border-t border-zinc-800 pt-4">
+        <button onclick="closeAddFieldModal()" class="bg-zinc-900 hover:bg-zinc-800 text-zinc-400 px-4 py-2 rounded-xl text-sm font-medium transition-colors">
+          Hủy
+        </button>
+        <button onclick="submitNewField()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-2 rounded-xl text-sm font-semibold transition-colors">
+          Xác nhận thêm
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="glass flex items-center gap-3 px-6 py-4 rounded-xl shadow-2xl border border-indigo-500/20">
+      <span id="toast-icon-box" class="p-1 rounded-lg"></span>
+      <span id="toast-message" class="text-sm font-medium">Message</span>
+    </div>
+  </div>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    let supabaseClient = null;
+    let currentSelectedPage = '';
+    let currentPageFields = [];
+    
+    // Website HTML Pages list
+    const sitePages = [
+      { key: 'index', name: 'Trang chủ (index.html)' },
+      { key: 'ecommerce', name: 'E-commerce (ecommerce.html)' },
+      { key: 'education', name: 'Giáo dục (education.html)' },
+      { key: 'realestate', name: 'Bất động sản (realestate.html)' },
+      { key: 'service', name: 'Spa & Phòng khám (service.html)' },
+      { key: 'fb', name: 'F&B Nhà hàng (fb.html)' },
+      { key: 'agency', name: 'Agency & Tư vấn (agency.html)' },
+      { key: 'partnership', name: 'Đối tác (partnership.html)' },
+      { key: 'tich-hop', name: 'Tích hợp (tich-hop.html)' },
+      { key: 'crm-sync', name: 'CRM & Đơn hàng (crm-sync.html)' },
+      { key: 'livechat', name: 'Livechat (livechat.html)' },
+      { key: 'chatbot', name: 'Chatbot (chatbot.html)' },
+      { key: 'genai', name: 'Smax GenAI (genai.html)' },
+      { key: 'insight', name: 'AI Insight (insight.html)' },
+      { key: 'marketing', name: 'Marketing Tools (marketing.html)' },
+      { key: 'gamification', name: 'Gamification (gamification.html)' },
+      { key: 'remarketing', name: 'Re-Marketing (remarketing.html)' },
+      { key: 'blog', name: 'Tin tức & Blog (blog.html)' },
+      { key: 'blog-detail', name: 'Chi tiết Blog (blog-detail.html)' },
+      { key: 'global', name: 'Dùng chung (Header, Footer)' }
+    ];
+
+
+    // Initial check
+    window.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      initCMS();
+    });
+
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('toast');
+      const msgSpan = document.getElementById('toast-message');
+      const iconBox = document.getElementById('toast-icon-box');
+      
+      msgSpan.textContent = message;
+      
+      if (type === 'success') {
+        iconBox.className = 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400';
+        iconBox.innerHTML = '<i data-lucide="check-circle" class="w-4 h-4"></i>';
+      } else {
+        iconBox.className = 'bg-rose-500/10 border border-rose-500/20 text-rose-400';
+        iconBox.innerHTML = '<i data-lucide="alert-triangle" class="w-4 h-4"></i>';
+      }
+      
+      lucide.createIcons();
+      
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3000);
+    }
+
+    function initCMS() {
+      const url = localStorage.getItem('supabase_url');
+      const key = localStorage.getItem('supabase_anon_key');
+      
+      if (!url || !key) {
+        document.getElementById('setup-screen').classList.remove('hidden');
+        document.getElementById('login-screen').classList.add('hidden');
+        document.getElementById('dashboard').classList.add('hidden');
+      } else {
+        document.getElementById('setup-screen').classList.add('hidden');
+        // Initialize Supabase Client
+        supabaseClient = supabase.createClient(url, key);
+        checkSession();
+      }
+    }
+
+    async function checkSession() {
+      const { data: { session }, error } = await supabaseClient.auth.getSession();
+      
+      if (error || !session) {
+        document.getElementById('login-screen').classList.remove('hidden');
+        document.getElementById('dashboard').classList.add('hidden');
+      } else {
+        document.getElementById('login-screen').classList.add('hidden');
+        document.getElementById('dashboard').classList.remove('hidden');
+        loadSidebarPages();
+      }
+    }
+
+    // Setup Config
+    function saveSetupConfig() {
+      const url = document.getElementById('setup-url').value.trim();
+      const key = document.getElementById('setup-key').value.trim();
+      const webhook = document.getElementById('setup-webhook').value.trim();
+      
+      if (!url || !key) {
+        alert('Vui lòng nhập đầy đủ thông tin Supabase URL và Public Anon Key!');
+        return;
+      }
+      
+      localStorage.setItem('supabase_url', url);
+      localStorage.setItem('supabase_anon_key', key);
+      if (webhook) {
+        localStorage.setItem('vercel_deploy_webhook', webhook);
+      }
+      
+      showToast('Đã lưu cấu hình kết nối dự án!');
+      initCMS();
+    }
+
+    function resetSetupConfig() {
+      if (confirm('Bạn có chắc muốn cấu hình lại dự án Supabase? Tất cả phiên đăng nhập sẽ bị xóa.')) {
+        localStorage.removeItem('supabase_url');
+        localStorage.removeItem('supabase_anon_key');
+        localStorage.removeItem('vercel_deploy_webhook');
+        supabaseClient = null;
+        initCMS();
+      }
+    }
+
+    // Login Handle
+    async function handleLogin() {
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value.trim();
+      
+      if (!email || !password) {
+        alert('Vui lòng điền tài khoản và mật khẩu!');
+        return;
+      }
+      
+      const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+      
+      if (error) {
+        alert(`Đăng nhập thất bại: ${error.message}`);
+      } else {
+        showToast('Đăng nhập thành công!');
+        checkSession();
+      }
+    }
+
+    async function handleLogout() {
+      await supabaseClient.auth.signOut();
+      showToast('Đã đăng xuất khỏi tài khoản.');
+      checkSession();
+    }
+
+    // Load Sidebar
+    function loadSidebarPages() {
+      const pagesContainer = document.getElementById('pages-list');
+      pagesContainer.innerHTML = sitePages.map(page => `
+        <button onclick="selectPage('${page.key}', '${page.name}')" id="page-btn-${page.key}" class="w-full text-left px-4 py-2.5 text-sm font-medium rounded-xl hover:bg-zinc-900 hover:text-zinc-100 text-zinc-400 transition-all flex items-center gap-2">
+          <i data-lucide="file" class="w-4 h-4"></i>
+          <span>${page.name}</span>
+        </button>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    // Select Active Page
+    function selectPage(pageKey, pageName) {
+      currentSelectedPage = pageKey;
+      
+      // Update Active class
+      sitePages.forEach(p => {
+        const btn = document.getElementById(`page-btn-${p.key}`);
+        if (btn) {
+          if (p.key === pageKey) {
+            btn.className = "w-full text-left px-4 py-2.5 text-sm font-semibold rounded-xl bg-indigo-600/10 text-indigo-400 border border-indigo-500/10 transition-all flex items-center gap-2";
+          } else {
+            btn.className = "w-full text-left px-4 py-2.5 text-sm font-medium rounded-xl hover:bg-zinc-900 hover:text-zinc-100 text-zinc-400 transition-all flex items-center gap-2";
+          }
+        }
+      });
+      
+      document.getElementById('active-page-title').textContent = pageName;
+      document.getElementById('active-page-sub').textContent = `Chỉnh sửa nội dung và hình ảnh cho ${pageName}`;
+      
+      // Show action buttons
+      document.getElementById('editor-actions').classList.remove('hidden');
+      document.getElementById('add-field-btn').classList.remove('hidden');
+      
+      loadPageContent(pageKey);
+    }
+
+    // Load page content from Supabase
+    async function loadPageContent(pageKey) {
+      const formContainer = document.getElementById('editor-fields');
+      formContainer.innerHTML = `
+        <div class="flex items-center justify-center p-12 text-zinc-400 gap-2">
+          <svg class="animate-spin h-5 w-5 text-indigo-500" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          Đang tải và phân tích dữ liệu trang...
+        </div>
+      `;
+      
+      const { data, error } = await supabaseClient
+        .from('site_content')
+        .select('*')
+        .eq('page_name', pageKey);
+        
+      if (error) {
+        formContainer.innerHTML = `<div class="bg-rose-500/10 text-rose-400 border border-rose-500/20 rounded-xl p-4 text-sm">Lỗi tải dữ liệu: ${error.message}</div>`;
+        return;
+      }
+      
+      // CMS Field Sorting based on HTML DOM
+      let sortedData = [...data];
+      try {
+        const htmlResp = await fetch(`/${pageKey}.html`);
+        if (htmlResp.ok) {
+          const htmlText = await htmlResp.text();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(htmlText, 'text/html');
+          
+          const orderedKeys = [];
+          const elements = doc.querySelectorAll('[data-cms], [data-cms-img]');
+          elements.forEach(el => {
+            const key = el.getAttribute('data-cms') || el.getAttribute('data-cms-img');
+            if (key) orderedKeys.push(key);
+          });
+          
+          const uniqueOrderedKeys = [...new Set(orderedKeys)];
+          
+          sortedData.sort((a, b) => {
+            const idxA = uniqueOrderedKeys.indexOf(a.content_key);
+            const idxB = uniqueOrderedKeys.indexOf(b.content_key);
+            if (idxA === -1 && idxB === -1) return 0;
+            if (idxA === -1) return 1; // Not found, push down
+            if (idxB === -1) return -1;
+            return idxA - idxB;
+          });
+        }
+      } catch (e) {
+        console.warn("Không thể tải cấu trúc HTML để sắp xếp:", e);
+      }
+      
+      currentPageFields = sortedData;
+      
+      if (data.length === 0) {
+        formContainer.innerHTML = `
+          <div class="glass rounded-2xl p-12 text-center text-zinc-500 flex flex-col items-center gap-3">
+            <i data-lucide="alert-circle" class="w-12 h-12 text-zinc-600"></i>
+            <p class="font-medium">Chưa có khóa thuộc tính nào được đăng ký cho trang này.</p>
+            <button onclick="openAddFieldModal()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 text-xs font-semibold rounded-xl transition-all">
+              Tạo thuộc tính đầu tiên
+            </button>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+      
+      formContainer.innerHTML = data.map((field, index) => {
+        const isImage = field.content_key.includes('img') || field.content_key.includes('logo') || field.content_key.includes('avatar') || field.content_value.startsWith('http') && (field.content_value.endsWith('.png') || field.content_value.endsWith('.jpg') || field.content_value.endsWith('.webp') || field.content_value.endsWith('.svg'));
+        
+        if (isImage) {
+          return `
+            <div class="glass rounded-xl p-5 flex flex-col gap-3">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-semibold text-zinc-400 uppercase tracking-wider">${field.content_key}</span>
+                <span class="bg-indigo-500/10 text-indigo-400 text-[10px] px-2 py-0.5 rounded font-mono">Image</span>
+              </div>
+              <div class="flex gap-4 items-center">
+                <div class="w-20 h-20 bg-zinc-950 border border-zinc-800 rounded-lg flex items-center justify-center overflow-hidden flex-shrink-0">
+                  <img src="${field.content_value}" alt="${field.content_key}" id="img-preview-${index}" class="object-contain w-full h-full" onerror="this.src='https://placehold.co/100'" />
+                </div>
+                <div class="flex-1 flex flex-col gap-2">
+                  <input type="text" id="input-val-${index}" value="${field.content_value}" oninput="updateImagePreview(${index})" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-indigo-500 text-white placeholder-zinc-700">
+                  
+                  <div class="flex items-center gap-2">
+                    <label class="cursor-pointer bg-zinc-800 hover:bg-zinc-700 active:scale-[0.98] text-xs font-medium px-3 py-1.5 rounded-lg border border-zinc-700 transition-all flex items-center gap-1">
+                      <i data-lucide="upload-cloud" class="w-3.5 h-3.5"></i>
+                      <span>Upload ảnh mới</span>
+                      <input type="file" accept="image/*" class="hidden" onchange="uploadImage(this, ${index})">
+                    </label>
+                    <span id="upload-status-${index}" class="text-[11px] text-zinc-500">Hoặc dán URL ảnh trực tiếp ở trên</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        } else {
+          const isMultiline = field.content_value.length > 80;
+          return `
+            <div class="glass rounded-xl p-5 flex flex-col gap-2">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-semibold text-zinc-400 uppercase tracking-wider">${field.content_key}</span>
+                <span class="bg-indigo-500/10 text-indigo-400 text-[10px] px-2 py-0.5 rounded font-mono">Text</span>
+              </div>
+              ${isMultiline ? `
+                <textarea id="input-val-${index}" rows="4" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-indigo-500 text-white leading-relaxed custom-scroll">${field.content_value}</textarea>
+              ` : `
+                <input type="text" id="input-val-${index}" value="${field.content_value}" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-indigo-500 text-white">
+              `}
+            </div>
+          `;
+        }
+      }).join('');
+      
+      lucide.createIcons();
+    }
+
+    function updateImagePreview(index) {
+      const input = document.getElementById(`input-val-${index}`);
+      const img = document.getElementById(`img-preview-${index}`);
+      if (input && img) {
+        img.src = input.value;
+      }
+    }
+
+    // Upload Image and Convert to WebP
+    async function uploadImage(fileInput, index) {
+      const file = fileInput.files[0];
+      if (!file) return;
+      
+      const statusSpan = document.getElementById(`upload-status-${index}`);
+      statusSpan.textContent = 'Đang nén và convert sang WebP...';
+      statusSpan.className = 'text-[11px] text-amber-400';
+      
+      try {
+        // Convert image to WebP
+        const img = new Image();
+        img.src = URL.createObjectURL(file);
+        await new Promise((resolve, reject) => {
+          img.onload = resolve;
+          img.onerror = reject;
+        });
+        
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+        
+        const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/webp', 0.85));
+        
+        // Make unique name
+        const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.webp`;
+        const filePath = `cms-assets/${fileName}`;
+        
+        statusSpan.textContent = 'Đang tải lên Supabase...';
+        
+        // Upload to storage bucket site_assets
+        const { data, error } = await supabaseClient.storage
+          .from('site_assets')
+          .upload(filePath, blob, { cacheControl: '3600', upsert: false, contentType: 'image/webp' });
+          
+        if (error) {
+          // If bucket doesn't exist, try creating it automatically
+          if (error.message.includes('bucket not found') || error.message.includes('does not exist')) {
+            statusSpan.textContent = '❌ Lỗi: Hãy tạo bucket "site_assets" ở Supabase!';
+            statusSpan.className = 'text-[11px] text-rose-400';
+            alert('Lỗi: Bucket "site_assets" chưa được tạo trên Supabase Storage. Hãy tạo một bucket công khai (public) có tên "site_assets" trong trang quản trị Supabase rồi tải lại!');
+          } else {
+            statusSpan.textContent = `❌ Lỗi: ${error.message}`;
+            statusSpan.className = 'text-[11px] text-rose-400';
+          }
+          return;
+        }
+        
+        // Get public URL
+        const { data: { publicUrl } } = supabaseClient.storage
+          .from('site_assets')
+          .getPublicUrl(filePath);
+          
+        // Update input and preview
+        document.getElementById(`input-val-${index}`).value = publicUrl;
+        document.getElementById(`img-preview-${index}`).src = publicUrl;
+        
+        statusSpan.textContent = '✅ Upload thành công!';
+        statusSpan.className = 'text-[11px] text-emerald-400';
+        
+      } catch (err) {
+        statusSpan.textContent = `❌ Lỗi kết nối`;
+        statusSpan.className = 'text-[11px] text-rose-400';
+        console.error(err);
+      }
+    }
+
+    // Save Changes
+    async function savePageChanges() {
+      const updates = currentPageFields.map((field, index) => {
+        const value = document.getElementById(`input-val-${index}`).value;
+        return {
+          id: field.id,
+          page_name: field.page_name,
+          content_key: field.content_key,
+          content_value: value,
+          updated_at: new Date().toISOString()
+        };
+      });
+      
+      const { error } = await supabaseClient
+        .from('site_content')
+        .upsert(updates);
+        
+      if (error) {
+        alert(`Lỗi khi lưu dữ liệu: ${error.message}`);
+      } else {
+        showToast('Lưu nội dung thành công!');
+        loadPageContent(currentSelectedPage);
+      }
+    }
+
+    // Live Preview
+    async function handleLivePreview() {
+      try {
+        const htmlResp = await fetch(`/${currentSelectedPage}.html`);
+        if (!htmlResp.ok) throw new Error("Không thể tải mã HTML của trang này để xem trước.");
+        const htmlText = await htmlResp.text();
+        
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlText, 'text/html');
+        
+        currentPageFields.forEach((field, index) => {
+          const inputEl = document.getElementById(`input-val-${index}`);
+          if (!inputEl) return;
+          const val = inputEl.value;
+          
+          if (field.content_key.includes('img') || field.content_key.includes('logo') || field.content_key.includes('avatar') || (field.content_type && field.content_type === 'image')) {
+            const imgEl = doc.querySelector(`[data-cms-img="${field.content_key}"]`);
+            if (imgEl) imgEl.src = val;
+          } else {
+            const el = doc.querySelector(`[data-cms="${field.content_key}"]`);
+            if (el) el.innerHTML = val.replace(/\n/g, '<br/>');
+          }
+        });
+        
+        // Remove links so they don't navigate out
+        const links = doc.querySelectorAll('a');
+        links.forEach(a => {
+          if (a.href && !a.href.startsWith('#')) {
+             a.href = 'javascript:void(0)';
+             a.onclick = () => alert("Tính năng chuyển hướng đã bị vô hiệu hóa trong chế độ Xem Trước.");
+          }
+        });
+        
+        const blob = new Blob([doc.documentElement.outerHTML], { type: 'text/html' });
+        const url = URL.createObjectURL(blob);
+        window.open(url, '_blank');
+      } catch (err) {
+        alert("Lỗi khi tạo Preview: " + err.message);
+      }
+    }
+
+    // Add Field Modal
+    function openAddFieldModal() {
+      document.getElementById('add-field-modal').classList.remove('hidden');
+    }
+
+    function closeAddFieldModal() {
+      document.getElementById('add-field-modal').classList.add('hidden');
+      document.getElementById('modal-key').value = '';
+      document.getElementById('modal-value').value = '';
+    }
+
+    async function submitNewField() {
+      const type = document.getElementById('modal-type').value;
+      const rawKey = document.getElementById('modal-key').value.trim();
+      const value = document.getElementById('modal-value').value.trim();
+      
+      if (!rawKey || !value) {
+        alert('Vui lòng nhập đầy đủ khóa và giá trị!');
+        return;
+      }
+      
+      // Force tag formatting for key
+      const key = type === 'image' && !rawKey.includes('img') && !rawKey.includes('logo') 
+        ? `img-${rawKey}` 
+        : rawKey;
+        
+      const newField = {
+        page_name: currentSelectedPage,
+        content_key: key,
+        content_value: value
+      };
+      
+      const { error } = await supabaseClient
+        .from('site_content')
+        .insert([newField]);
+        
+      if (error) {
+        alert(`Không thể tạo: ${error.message}`);
+      } else {
+        showToast('Thêm thuộc tính mới thành công!');
+        closeAddFieldModal();
+        loadPageContent(currentSelectedPage);
+      }
+    }
+
+    // Trigger Vercel Deploy Webhook with countdown & build polling
+    let isDeploying = false;
+    async function triggerVercelDeploy() {
+      if (isDeploying) return;
+      
+      const webhookUrl = localStorage.getItem('vercel_deploy_webhook');
+      if (!webhookUrl) {
+        alert('Cảnh báo: Bạn chưa cấu hình "Vercel Deploy Webhook URL".\n\nVui lòng nhấn "Thay đổi Supabase Config" ở góc dưới bên trái để điền link Deploy Webhook của dự án Vercel của bạn, giúp website tự động biên dịch lại nội dung mới khi xuất bản!');
+        return;
+      }
+      
+      if (!confirm('Bạn có chắc muốn đẩy bản cập nhật mới lên Live Vercel? Trang web sẽ được tự động biên dịch và triển khai.')) {
+        return;
+      }
+      
+      isDeploying = true;
+      const btn = document.getElementById('vercel-deploy-btn');
+      const originalHtml = btn.innerHTML;
+      
+      btn.disabled = true;
+      btn.className = 'opacity-75 cursor-not-allowed bg-zinc-800 text-zinc-400 border border-zinc-700 px-4 py-2 text-sm font-medium rounded-xl transition-all flex items-center gap-2';
+      btn.innerHTML = `<i data-lucide="loader" class="animate-spin w-4 h-4"></i> Đang kết nối...`;
+      lucide.createIcons();
+      
+      // Get previous build time first
+      let prevBuildTime = '0';
+      try {
+        const tResp = await fetch('/build-time.txt?t=' + Date.now());
+        if (tResp.ok) {
+          prevBuildTime = (await tResp.text()).trim();
+        }
+      } catch (err) {
+        console.warn("Không lấy được thời gian build trước đó:", err);
+      }
+      
+      try {
+        const response = await fetch(webhookUrl, { method: 'POST' });
+        if (!response.ok) throw new Error("Vercel rejected the deploy webhook request.");
+        
+        showToast('Đang kích hoạt Vercel build...', 'success');
+        
+        let secondsLeft = 60; // Max countdown
+        btn.innerHTML = `<i data-lucide="loader" class="animate-spin w-4 h-4"></i> Đang đóng gói (<span id="deploy-countdown">${secondsLeft}</span>s)...`;
+        lucide.createIcons();
+        
+        const countdownInterval = setInterval(() => {
+          secondsLeft--;
+          const counterEl = document.getElementById('deploy-countdown');
+          if (counterEl) {
+            counterEl.textContent = secondsLeft > 0 ? secondsLeft : '0';
+          }
+          if (secondsLeft <= 0) {
+            clearInterval(countdownInterval);
+          }
+        }, 1000);
+        
+        // Poll for build-time.txt updates
+        let pollAttempts = 0;
+        const maxPollAttempts = 30; // 30 attempts * 4s = 120s
+        
+        const pollInterval = setInterval(async () => {
+          pollAttempts++;
+          try {
+            const checkResp = await fetch('/build-time.txt?t=' + Date.now());
+            if (checkResp.ok) {
+              const currentBuildTime = (await checkResp.text()).trim();
+              if (currentBuildTime !== prevBuildTime) {
+                // Deployment finished!
+                clearInterval(pollInterval);
+                clearInterval(countdownInterval);
+                
+                btn.disabled = false;
+                btn.className = 'bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] text-white px-4 py-2 text-sm font-semibold rounded-xl transition-all flex items-center gap-2 shadow-lg shadow-emerald-600/15';
+                btn.innerHTML = originalHtml;
+                isDeploying = false;
+                
+                showToast('Website đã được cập nhật thành công!', 'success');
+                alert('🎉 Tuyệt vời! Vercel đã hoàn tất biên dịch và triển khai website thành công. Toàn bộ các thay đổi nội dung mới đã chính thức hoạt động trên trang live!');
+                return;
+              }
+            }
+          } catch (e) {
+            console.warn("Lỗi kiểm tra trạng thái build:", e);
+          }
+          
+          if (pollAttempts >= maxPollAttempts) {
+            clearInterval(pollInterval);
+            clearInterval(countdownInterval);
+            
+            btn.disabled = false;
+            btn.className = 'bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] text-white px-4 py-2 text-sm font-semibold rounded-xl transition-all flex items-center gap-2 shadow-lg shadow-emerald-600/15';
+            btn.innerHTML = originalHtml;
+            isDeploying = false;
+            
+            alert('Quá trình xuất bản đang mất nhiều thời gian hơn bình thường. Bạn hãy kiểm tra lại website sau 1-2 phút!');
+          }
+        }, 4000);
+        
+      } catch (err) {
+        alert('Lỗi khi gửi yêu cầu tới Vercel: ' + err.message);
+        btn.disabled = false;
+        btn.className = 'bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] text-white px-4 py-2 text-sm font-semibold rounded-xl transition-all flex items-center gap-2 shadow-lg shadow-emerald-600/15';
+        btn.innerHTML = originalHtml;
+        isDeploying = false;
+      }
+    }
+  </script>
+</body>
+</html>

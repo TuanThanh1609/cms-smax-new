@@ -1,0 +1,252 @@
+- generic [ref=f1e2]:
+  - banner [ref=f1e3]:
+    - navigation "Điều hướng chính" [ref=f1e4]:
+      - link "Smax.ai trang chủ" [ref=f1e5] [cursor=pointer]:
+        - /url: index.html#top
+        - img "Smax.ai" [ref=f1e6]
+      - generic [ref=f1e7]:
+        - button "Sản phẩm" [ref=f1e9] [cursor=pointer]: Sản phẩm
+        - button "Giải Pháp" [ref=f1e12] [cursor=pointer]: Giải Pháp
+        - button "Tích Hợp" [ref=f1e15] [cursor=pointer]: Tích Hợp
+        - link "Template AI" [ref=f1e17] [cursor=pointer]:
+          - /url: templates.html
+        - link "Tin Tức" [ref=f1e18] [cursor=pointer]:
+          - /url: https://smax.ai/blog
+        - link "Đối Tác" [ref=f1e19] [cursor=pointer]:
+          - /url: https://smax.ai/Partnership
+        - link "Bảng Giá" [ref=f1e20] [cursor=pointer]:
+          - /url: https://smax.ai/Pricing
+        - link "Liên Hệ" [ref=f1e21] [cursor=pointer]:
+          - /url: index.html#cta
+      - link "Đăng Nhập" [ref=f1e23] [cursor=pointer]:
+        - /url: https://smax.ai/login
+  - main [ref=f1e24]:
+    - generic [ref=f1e26]:
+      - generic [ref=f1e27]:
+        - generic [ref=f1e28]: HOT
+        - generic [ref=f1e29]: Viral Marketing Campaign
+        - link "Đọc thêm" [ref=f1e30] [cursor=pointer]:
+          - /url: https://docs.smax.ai
+          - generic [ref=f1e31]: Đọc thêm
+          - img [ref=f1e32]
+      - heading "Bùng nổ tương tác & Thu hút khách hàng với Smax Gamification" [level=1] [ref=f1e34]
+      - paragraph [ref=f1e35]: Tạo minigame, vòng quay may mắn và các chương trình tích điểm đổi quà trực tiếp trong chat để kích thích mua sắm, bùng nổ tương tác và bứt phá doanh số vượt trội.
+      - generic [ref=f1e36]:
+        - link "Đăng ký tư vấn" [ref=f1e37] [cursor=pointer]:
+          - /url: "#cta"
+        - link "Trải nghiệm miễn phí" [ref=f1e38] [cursor=pointer]:
+          - /url: https://docs.smax.ai
+      - generic [ref=f1e39]:
+        - generic [ref=f1e45]: smax.ai/gamification/luckywheel
+        - img "Smax Gamification Configuration Workspace" [ref=f1e47]
+    - generic [ref=f1e49]:
+      - generic [ref=f1e50]: Bùng nổ chiến dịch Viral cùng các thương hiệu lớn
+      - generic [ref=f1e52]:
+        - img "Facebook Messenger" [ref=f1e54]
+        - img "Zalo OA" [ref=f1e56]
+        - img "TikTok" [ref=f1e58]
+        - img "Instagram Direct" [ref=f1e60]
+        - img "Shopee" [ref=f1e62]
+        - img "Facebook Messenger" [ref=f1e64]
+        - img "Zalo OA" [ref=f1e66]
+        - img "TikTok" [ref=f1e68]
+        - img "Instagram Direct" [ref=f1e70]
+        - img "Shopee" [ref=f1e72]
+    - generic [ref=f1e75]:
+      - generic [ref=f1e76]:
+        - generic [ref=f1e77]: +300%
+        - generic [ref=f1e78]: Tương tác Fanpage tự nhiên
+        - generic [ref=f1e79]: Kích thích khách hàng comment bài viết để nhận link chơi game nhận quà độc quyền.
+      - generic [ref=f1e80]:
+        - generic [ref=f1e81]: "-60%"
+        - generic [ref=f1e82]: Chi phí thu thập khách tiềm năng
+        - generic [ref=f1e83]: Cơ chế Viral Loop khuyến khích chia sẻ game giúp thu về lượng lớn dữ liệu Lead miễn phí.
+      - generic [ref=f1e84]:
+        - generic [ref=f1e85]: +35%
+        - generic [ref=f1e86]: Tỷ lệ quy đổi đơn hàng từ mã quà tặng
+        - generic [ref=f1e87]: Tự động gửi mã giảm giá độc nhất kích thích khách hàng hoàn thành giao dịch tại cửa hàng.
+    - generic [ref=f1e89]:
+      - generic [ref=f1e90]:
+        - heading "Trải nghiệm Gamification cá nhân hóa trong Chat" [level=2] [ref=f1e91]
+        - paragraph [ref=f1e92]: Trải nghiệm chiến dịch minigame mượt mà nhờ sự kết hợp giữa luồng kịch bản tự động và cơ chế trả thưởng thời gian thực.
+      - generic [ref=f1e93]:
+        - generic [ref=f1e94]:
+          - generic [ref=f1e95]:
+            - img [ref=f1e97]
+            - heading "Trải nghiệm chơi game và nhận quà liền mạch ngay tại giao diện chat" [level=3] [ref=f1e99]
+            - paragraph [ref=f1e100]: Khách hàng chỉ cần bình luận trên bài viết để kích hoạt chatbot tự động gửi tin nhắn kèm link game. Khách hàng click quay thưởng, nhận quà và mã giảm giá được đồng bộ gửi trực tiếp vào inbox.
+          - figure [ref=f1e101]:
+            - img "Luồng khách hàng bình luận, nhận link game trong chat, quay thưởng và nhận voucher" [ref=f1e102]
+        - generic [ref=f1e103]:
+          - generic [ref=f1e104]:
+            - img [ref=f1e106]
+            - heading "Thống kê quà tặng được phân phối" [level=3] [ref=f1e108]
+            - paragraph [ref=f1e109]: Hệ thống tự động thống kê số lượng quà tặng đã phát ra thời gian thực giúp bạn kiểm soát ngân sách chiến dịch khuyến mãi một cách chặt chẽ.
+          - figure [ref=f1e110]:
+            - img "Luồng hệ thống phân loại và theo dõi số lượng voucher, miễn phí vận chuyển và quà tặng" [ref=f1e111]
+        - generic [ref=f1e112]:
+          - generic [ref=f1e113]:
+            - img [ref=f1e115]
+            - heading "Kết quả sử dụng quà tặng mua hàng" [level=3] [ref=f1e118]
+            - paragraph [ref=f1e119]: Hơn 35% khách hàng trúng mã giảm giá đã nhanh chóng áp dụng mã để mua hàng ngay trong ngày, thúc đẩy chuyển đổi doanh số bán hàng thần tốc.
+          - figure [ref=f1e120]:
+            - img "Luồng voucher được áp dụng vào đơn hàng và tạo ra tăng trưởng doanh thu" [ref=f1e121]
+    - generic [ref=f1e123]:
+      - generic [ref=f1e124]:
+        - heading "Tính năng cốt lõi của Smax Gamification" [level=2] [ref=f1e125]
+        - paragraph [ref=f1e126]: Khám phá bộ phân hệ thiết lập minigame, quản lý quà tặng và thống kê hiệu quả chuyển đổi chiến dịch.
+      - generic [ref=f1e127]:
+        - generic [ref=f1e128]:
+          - generic [ref=f1e129]:
+            - generic [ref=f1e130]: 01 / LUCKY WHEEL
+            - heading "Thiết lập Vòng quay may mắn dễ dàng" [level=2] [ref=f1e131]
+            - paragraph [ref=f1e132]: Giao diện thiết kế vòng quay trực quan cho phép bạn tự tùy chỉnh số lượng ô giải thưởng, tải lên hình ảnh quà tặng, cài đặt tỷ lệ trúng thưởng chính xác cho từng phần quà và giới hạn số lượt quay của mỗi khách hàng.
+            - generic [ref=f1e133]:
+              - generic [ref=f1e134]: Tùy chỉnh ô quà tặng
+              - generic [ref=f1e135]: Cấu hình tỷ lệ trúng
+          - img "Giao diện vòng quay may mắn chatbot" [ref=f1e137]
+        - generic [ref=f1e138]:
+          - generic [ref=f1e139]:
+            - generic [ref=f1e140]: 02 / VIRAL LOOP
+            - heading "Cơ chế chia sẻ nhận thêm lượt quay" [level=2] [ref=f1e141]
+            - paragraph [ref=f1e142]: "Tạo các thử thách kích thích tính lan truyền tự nhiên: Khách hàng chia sẻ game cho bạn bè hoặc tag 3 người bạn vào bài viết để nhận thêm lượt quay thưởng miễn phí. Giúp thương hiệu tiếp cận thêm hàng triệu khách hàng mới với chi phí 0đ."
+            - generic [ref=f1e143]:
+              - generic [ref=f1e144]: Chia sẻ nhận lượt quay
+              - generic [ref=f1e145]: Viral tự nhiên đa kênh
+          - img "Thiết lập kịch bản viral chia sẻ nhận lượt quay" [ref=f1e147]
+        - generic [ref=f1e148]:
+          - generic [ref=f1e149]:
+            - generic [ref=f1e150]: 03 / COUPON DEPLOYER
+            - heading "Quản lý kho quà & Phát Voucher thông minh" [level=2] [ref=f1e151]
+            - paragraph [ref=f1e152]: Tích hợp trực tiếp với hệ thống POS cửa hàng của bạn để nhập kho mã giảm giá độc quyền. Chatbot tự động bốc và phát mã duy nhất cho khách khi trúng thưởng, đồng thời tự động cập nhật số lượng quà còn lại thời gian thực.
+            - generic [ref=f1e153]:
+              - generic [ref=f1e154]: Mã giảm giá độc nhất
+              - generic [ref=f1e155]: Đồng bộ kho POS trực tiếp
+          - img "Hệ thống tự động phát voucher và quản lý kho quà" [ref=f1e157]
+        - generic [ref=f1e158]:
+          - generic [ref=f1e159]:
+            - generic [ref=f1e160]: 04 / ANALYTICS HUB
+            - heading "Báo cáo hiệu quả & Danh sách trúng thưởng" [level=2] [ref=f1e161]
+            - paragraph [ref=f1e162]: Hệ thống thống kê chi tiết số lượng khách tham gia chơi game, danh sách khách hàng trúng thưởng các giải lớn, tỷ lệ quy đổi mã quà tặng thành đơn hàng thành công giúp bạn đo lường hiệu suất ROI chiến dịch chính xác.
+            - generic [ref=f1e163]:
+              - generic [ref=f1e164]: Danh sách trúng thưởng
+              - generic [ref=f1e165]: Báo cáo tỷ lệ quy đổi ROI
+          - img "Báo cáo phân tích hiệu quả chiến dịch minigame" [ref=f1e167]
+    - generic [ref=f1e170]:
+      - generic [ref=f1e171]:
+        - heading "Cơ chế phân nhóm & Tự động hóa trao giải" [level=2] [ref=f1e172]
+        - paragraph [ref=f1e173]: Hệ thống tự động phân loại khách hàng trúng các loại giải thưởng khác nhau, gắn thẻ tag phễu chăm sóc remarketing và gửi kịch bản chúc mừng tự động hóa vào inbox khách hàng thời gian thực.
+        - generic [ref=f1e174]:
+          - generic [ref=f1e175]: Giải đặc biệt (iPhone)
+          - generic [ref=f1e176]: Giải khuyến khích (Voucher 100k)
+          - generic [ref=f1e177]: Quà tri ân (Ebook)
+          - generic [ref=f1e178]: Mã freeship
+          - generic [ref=f1e179]: Lượt quay miễn phí
+      - img "Màn hình quản lý trao giải minigame Smax" [ref=f1e182]
+    - generic [ref=f1e184]:
+      - generic [ref=f1e185]:
+        - heading "Đo lường hiệu quả phễu Minigame" [level=2] [ref=f1e186]
+        - paragraph [ref=f1e187]: Hệ thống thống kê chi tiết tỷ lệ chuyển đổi từ số người click chơi game, số mã voucher phát ra và doanh thu thu về từ voucher.
+      - generic [ref=f1e188]:
+        - button "Báo cáo lượt chơi" [ref=f1e189] [cursor=pointer]
+        - button "Báo cáo phát quà" [ref=f1e190] [cursor=pointer]
+        - button "Doanh thu quy đổi" [ref=f1e191] [cursor=pointer]
+      - img "Báo cáo lượt chơi minigame chi tiết" [ref=f1e194]
+    - generic [ref=f1e196]:
+      - generic [ref=f1e197]:
+        - heading "Khách hàng thành công cùng Smax Gamification" [level=2] [ref=f1e198]
+        - paragraph [ref=f1e199]: Khám phá cách thức các thương hiệu hàng đầu bùng nổ chiến dịch viral thu hút triệu khách hàng tiềm năng.
+      - generic [ref=f1e200]:
+        - generic [ref=f1e201]:
+          - generic [ref=f1e202]: “
+          - paragraph [ref=f1e203]: Chiến dịch Vòng quay may mắn kỷ niệm sinh nhật thương hiệu kết hợp chatbot Smax.ai của chúng tôi đã mang lại kết quả bùng nổ ngoài mong đợi. Trong vòng 7 ngày, fanpage thu hút hơn 120.000 lượt tham gia chơi game, thu thập 45.000 số điện thoại khách hàng tiềm năng mới và tỷ lệ khách hàng áp dụng mã voucher trúng thưởng để chốt đơn đạt 38% tại hệ thống cửa hàng.
+          - generic [ref=f1e205]:
+            - heading "PHẠM KHÁNH LY" [level=4] [ref=f1e206]
+            - paragraph [ref=f1e207]: Giám đốc Vận hành - Mắt Việt Group
+        - generic [ref=f1e208]:
+          - generic [ref=f1e209]:
+            - generic [ref=f1e210]: +120K
+            - generic [ref=f1e211]: Lượt chơi trong 7 ngày
+            - generic [ref=f1e212]: Tự động xử lý trả lời và trao thưởng lập tức cho hàng trăm nghìn khách cùng lúc.
+          - generic [ref=f1e213]:
+            - generic [ref=f1e214]: 38%
+            - generic [ref=f1e215]: Tỷ lệ sử dụng voucher chốt đơn
+            - generic [ref=f1e216]: Kích thích nhu cầu mua sắm và tạo ra doanh thu kỷ lục cho chiến dịch offline.
+    - generic [ref=f1e218]:
+      - generic [ref=f1e219]:
+        - heading "Câu hỏi thường gặp về Smax Gamification" [level=2] [ref=f1e220]
+        - paragraph [ref=f1e221]: Mọi giải đáp về thiết kế game, tích hợp chatbot và chính sách trao thưởng trên Smax Gamification.
+      - generic [ref=f1e222]:
+        - generic [ref=f1e223]:
+          - button "Trò chơi minigame hiển thị như thế nào trên điện thoại?" [ref=f1e224] [cursor=pointer]:
+            - generic [ref=f1e225]: Trò chơi minigame hiển thị như thế nào trên điện thoại?
+            - img [ref=f1e227]
+          - generic [ref=f1e228]: Các trò chơi minigame của Smax được tối ưu hóa hiển thị 100% trên thiết bị di động. Game sẽ mở dưới dạng Webview mượt mà ngay bên trong ứng dụng Messenger hoặc Zalo của khách hàng mà không bắt buộc họ phải tải ứng dụng ngoài hoặc chuyển sang trình duyệt độc lập.
+        - generic [ref=f1e229]:
+          - button "Làm thế nào để chatbot tự động gửi game cho khách hàng comment?" [ref=f1e230] [cursor=pointer]:
+            - generic [ref=f1e231]: Làm thế nào để chatbot tự động gửi game cho khách hàng comment?
+            - img [ref=f1e233]
+          - generic [ref=f1e234]: "Bạn chỉ cần thiết lập một Trigger bình luận (Comment Trigger) trên bài viết lựa chọn và cài đặt từ khóa tương ứng (ví dụ: #quayso, #nhanqua). Khi khách bình luận đúng cú pháp, Smax sẽ tự động inbox và gửi đường link chơi game riêng biệt cho từng khách hàng."
+        - generic [ref=f1e235]:
+          - button "Tôi có thể cài đặt giới hạn số quà tặng lớn (như iPhone) để không bị trúng bừa bãi không?" [ref=f1e236] [cursor=pointer]:
+            - generic [ref=f1e237]: Tôi có thể cài đặt giới hạn số quà tặng lớn (như iPhone) để không bị trúng bừa bãi không?
+            - img [ref=f1e239]
+          - generic [ref=f1e240]: "Hoàn toàn được. Smax hỗ trợ hệ thống cài đặt tỷ lệ trúng thưởng thông minh và giới hạn tổng số lượng giải thưởng phát ra cho từng phần quà. Ví dụ: Bạn có thể cài đặt chỉ phát tối đa 1 giải đặc biệt iPhone trong suốt chiến dịch và bot sẽ tự động đóng giải thưởng này khi số lượng chạm giới hạn, chuyển tỷ lệ trúng sang các quà tặng khác."
+        - generic [ref=f1e241]:
+          - button "Các mã giảm giá voucher phát ra có bị trùng lặp không?" [ref=f1e242] [cursor=pointer]:
+            - generic [ref=f1e243]: Các mã giảm giá voucher phát ra có bị trùng lặp không?
+            - img [ref=f1e245]
+          - generic [ref=f1e246]: Không. Bạn có thể tải lên kho mã giảm giá được tạo sẵn từ hệ thống POS hoặc website của bạn (mỗi mã là độc nhất). Chatbot Smax sẽ tự động bốc ngẫu nhiên một mã trong kho phát cho khách hàng trúng giải và đánh dấu mã đó đã được sử dụng để không phát lại cho người sau.
+    - generic [ref=f1e248]:
+      - heading "Bắt đầu chiến dịch Viral bùng nổ ngay hôm nay" [level=2] [ref=f1e249]
+      - paragraph [ref=f1e250]: Thu hút hàng triệu lượt tương tác, bùng nổ dữ liệu khách hàng tiềm năng và tối ưu hóa chuyển đổi mua sắm tự động cùng Smax Gamification.
+      - generic [ref=f1e251]:
+        - link "Dùng thử miễn phí" [ref=f1e252] [cursor=pointer]:
+          - /url: "#top"
+        - link "Đặt lịch hẹn tư vấn" [ref=f1e253] [cursor=pointer]:
+          - /url: index.html#cta
+  - contentinfo [ref=f1e254]:
+    - generic [ref=f1e255]:
+      - generic [ref=f1e256]:
+        - link "Smax.ai" [ref=f1e257] [cursor=pointer]:
+          - /url: "#top"
+          - img "Smax.ai" [ref=f1e258]
+        - paragraph [ref=f1e259]: Nền tảng AI-Automation giúp doanh nghiệp vận hành bán hàng, tiếp thị và chăm sóc khách hàng đa kênh.
+      - generic [ref=f1e260]:
+        - heading "Sản phẩm" [level=3] [ref=f1e261]
+        - link "Livechat" [ref=f1e262] [cursor=pointer]:
+          - /url: livechat.html
+        - link "Chatbot" [ref=f1e263] [cursor=pointer]:
+          - /url: chatbot.html
+        - link "Smax GenAI" [ref=f1e264] [cursor=pointer]:
+          - /url: genai.html
+        - link "AI Insight" [ref=f1e265] [cursor=pointer]:
+          - /url: insight.html
+        - generic [ref=f1e266]: Automation Map
+        - generic [ref=f1e267]: Remarketing
+      - generic [ref=f1e268]:
+        - heading "Giải pháp" [level=3] [ref=f1e269]
+        - generic [ref=f1e270]: Sales
+        - generic [ref=f1e271]: Marketing
+        - generic [ref=f1e272]: Customer Service
+        - generic [ref=f1e273]: E-commerce
+        - generic [ref=f1e274]: Omnichannel
+        - generic [ref=f1e275]: Meta Business AI
+      - generic [ref=f1e276]:
+        - heading "Tài nguyên" [level=3] [ref=f1e277]
+        - generic [ref=f1e278]: Blog
+        - generic [ref=f1e279]: Tài liệu
+        - generic [ref=f1e280]: Video hướng dẫn
+        - generic [ref=f1e281]: Webinar
+        - generic [ref=f1e282]: Bot mẫu
+        - generic [ref=f1e283]: Case Study
+      - generic [ref=f1e284]:
+        - heading "Doanh nghiệp" [level=3] [ref=f1e285]
+        - generic [ref=f1e286]: Về Smax.ai
+        - generic [ref=f1e287]: Đối tác
+        - generic [ref=f1e288]: Bảng giá
+        - generic [ref=f1e289]: Liên hệ
+        - generic [ref=f1e290]: Chính sách
+    - generic [ref=f1e291]:
+      - generic [ref=f1e292]: © 2026 Smax.ai
+      - generic [ref=f1e293]: Điều khoản · Quyền riêng tư · Liên hệ tư vấn

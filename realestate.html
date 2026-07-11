@@ -1,0 +1,1256 @@
+<!DOCTYPE html><html lang="vi"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Giải pháp AI-Automation toàn diện cho ngành Bất động sản giúp tự động hóa sàng lọc lead, gửi tài liệu dự án PDF và đặt lịch xem nhà mẫu qua Manual Selling Page (Webview).">
+    <title>Smax.ai Giải pháp Bất động sản | Sàng lọc Lead &amp; Đặt lịch xem nhà tự động</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="icon" href="asset smax/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      /* --- Custom Premium Styles for Bất động sản --- */
+      body {
+        overflow-x: hidden;
+      }
+      
+      .realestate-page-wrapper {
+        font-family: "Be Vietnam Pro", sans-serif;
+        color: var(--primary-navy, #0F1835);
+        background: #FFFFFF;
+      }
+
+      /* Hero Section */
+      .premium-hero {
+        position: relative;
+        padding: 160px 0 80px;
+        background: url('https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/gridBackground.png') no-repeat center center;
+        background-size: cover;
+        text-align: center;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .hero-grid-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: radial-gradient(rgba(15, 24, 53, 0.12) 1px, transparent 1px);
+        background-size: 32px 32px;
+        mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
+        opacity: 0.15;
+        z-index: 1;
+      }
+
+      .announcement-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 16px;
+        border-radius: 99px;
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        box-shadow: 0 2px 8px rgba(15, 24, 53, 0.04);
+        margin-bottom: 32px;
+        font-size: 13.5px;
+        font-weight: 500;
+        color: var(--primary-navy, #0F1835);
+        position: relative;
+        z-index: 2;
+        transition: all 0.3s ease;
+      }
+
+      .announcement-badge:hover {
+        border-color: rgba(66, 119, 255, 0.3);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(66, 119, 255, 0.08);
+      }
+
+      .announcement-tag {
+        background: var(--primary-coral, #FA6E5B);
+        color: #FFFFFF;
+        padding: 2px 8px;
+        border-radius: 99px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .premium-hero h1 {
+        font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+        font-weight: 900;
+        line-height: 1.25;
+        letter-spacing: -0.03em;
+        color: var(--primary-navy, #0F1835);
+        max-width: 960px;
+        margin: 0 auto 24px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .premium-hero h1 span.highlight {
+        background: linear-gradient(95deg, var(--process-blue, #4277FF) 0%, var(--primary-coral, #FA6E5B) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+      }
+
+      .hero-sub {
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        max-width: 60ch;
+        margin: 0 auto 40px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        position: relative;
+        z-index: 2;
+        margin-bottom: 56px;
+      }
+
+      .hero-actions .btn {
+        border-radius: 99px !important;
+        padding: 14px 32px !important;
+        font-size: 15px !important;
+        font-weight: 700 !important;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      }
+
+      .btn-dark {
+        background: var(--primary-navy, #0F1835);
+        color: #FFFFFF;
+        border: 1px solid var(--primary-navy, #0F1835);
+      }
+
+      .btn-dark:hover {
+        background: #1b2952;
+        border-color: #1b2952;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(15, 24, 53, 0.15);
+      }
+
+      .btn-soft {
+        background: transparent;
+        color: var(--primary-navy, #0F1835);
+        border: 1px solid rgba(15, 24, 53, 0.15);
+      }
+
+      .btn-soft:hover {
+        background: rgba(15, 24, 53, 0.02);
+        border-color: rgba(15, 24, 53, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .hero-mockup-wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        border-radius: 20px;
+        box-shadow: 0 36px 80px rgba(15, 24, 53, 0.12), 0 1px 3px rgba(15, 24, 53, 0.03);
+        overflow: hidden;
+        position: relative;
+        z-index: 5;
+        animation: fadeInUpMockup 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      @keyframes fadeInUpMockup {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .browser-header {
+        height: 40px;
+        background: #F8F9FC;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.06);
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        position: relative;
+      }
+
+      .browser-dots {
+        display: flex;
+        gap: 6px;
+      }
+
+      .browser-dots .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .browser-dots .dot.red { background: #FF5F56; }
+      .browser-dots .dot.yellow { background: #FFBD2E; }
+      .browser-dots .dot.green { background: #27C93F; }
+
+      .browser-address {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(15, 24, 53, 0.03);
+        padding: 4px 24px;
+        border-radius: 6px;
+        font-size: 11.5px;
+        font-weight: 500;
+        color: #667085;
+        font-family: monospace;
+        letter-spacing: 0.02em;
+      }
+
+      .browser-content {
+        position: relative;
+        background: #FFFFFF;
+        line-height: 0;
+      }
+
+      .browser-content img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Metrics Section */
+      .metrics-section {
+        padding: 60px 0;
+        background: #F8F9FC;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+      }
+
+      .metric-card {
+        text-align: center;
+        position: relative;
+      }
+
+      .metric-card:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: -16px;
+        top: 20%;
+        height: 60%;
+        width: 1px;
+        background: rgba(15, 24, 53, 0.08);
+      }
+
+      .metric-num {
+        font-size: clamp(2rem, 3.5vw, 2.8rem);
+        font-weight: 900;
+        line-height: 1;
+        background: linear-gradient(135deg, var(--process-blue, #4277FF) 0%, var(--primary-coral, #FA6E5B) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 8px;
+        letter-spacing: -0.03em;
+      }
+
+      .metric-label {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      /* General Section Header */
+      .section-header {
+        text-align: center;
+        max-width: 720px;
+        margin: 0 auto 60px;
+      }
+
+      .section-tag {
+        display: inline-block;
+        padding: 6px 14px;
+        border-radius: 99px;
+        background: rgba(66, 119, 255, 0.06);
+        color: var(--blue, #4277FF);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        margin-bottom: 16px;
+        border: 1px solid rgba(66, 119, 255, 0.12);
+        text-transform: uppercase;
+      }
+
+      .section-title {
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 800;
+        color: var(--primary-navy, #0F1835);
+        line-height: 1.3;
+        letter-spacing: -0.02em;
+        margin-bottom: 16px;
+      }
+
+      .section-desc {
+        font-size: 16px;
+        color: var(--text-secondary, #475467);
+        line-height: 1.6;
+      }
+
+      /* Challenges Section (Bento Grid) */
+      .challenges-section {
+        padding: 120px 0;
+        background: #FFFFFF;
+      }
+
+      .challenges-grid {
+        display: grid;
+        grid-template-columns: 1.25fr 1fr;
+        gap: 24px;
+      }
+
+      .challenge-card {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(15, 24, 53, 0.02);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .challenge-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 45px rgba(15, 24, 53, 0.06);
+        border-color: rgba(66, 119, 255, 0.12);
+      }
+
+      .challenge-top {
+        margin-bottom: 24px;
+      }
+
+      .challenge-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: rgba(250, 110, 91, 0.06);
+        color: var(--primary-coral, #FA6E5B);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .challenge-card:nth-child(even) .challenge-icon {
+        background: rgba(66, 119, 255, 0.06);
+        color: var(--process-blue, #4277FF);
+      }
+
+      .challenge-card h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0 0 12px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .challenge-card p {
+        font-size: 14.5px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        margin: 0;
+      }
+
+      .challenges-row-2 {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      /* Solution Section Layouts */
+      .solution-panel-section {
+        padding: 100px 0;
+        border-top: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .solution-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .solution-info {
+        text-align: left;
+      }
+
+      .solution-info h2 {
+        font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+        font-weight: 800;
+        line-height: 1.3;
+        margin-bottom: 20px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .solution-info .solution-desc-main {
+        font-size: 16px;
+        color: var(--text-secondary, #475467);
+        line-height: 1.6;
+        margin-bottom: 32px;
+      }
+
+      .solution-points {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .sol-point {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .sol-point-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: rgba(66, 119, 255, 0.08);
+        color: var(--blue, #4277FF);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .sol-point-content h4 {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0 0 4px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .sol-point-content p {
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--text-secondary, #475467);
+        margin: 0;
+      }
+
+      .solution-visual {
+        position: relative;
+      }
+
+      .solution-visual img {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 0 20px 50px rgba(15, 24, 53, 0.08);
+        border: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      /* Solution 2 acquisition (Bento grid visual) */
+      .solution-acquisition-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 32px;
+        margin-top: 48px;
+      }
+
+      .acq-card {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: 0 8px 24px rgba(15, 24, 53, 0.02);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .acq-main-card {
+        background: radial-gradient(circle at 5% 5%, rgba(66, 119, 255, 0.04), transparent 45%), #FFFFFF;
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 32px;
+        align-items: center;
+      }
+
+      .acq-card-right-img img {
+        width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 10px 24px rgba(15, 24, 53, 0.05);
+      }
+
+      .acq-sub-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        grid-column: span 2;
+      }
+
+      .acq-sub-card {
+        background: #F8F9FC;
+        border-radius: 16px;
+        padding: 24px;
+        border: 1px solid rgba(15, 24, 53, 0.04);
+      }
+
+      .acq-sub-card h4 {
+        font-size: 15.5px;
+        font-weight: 700;
+        margin: 0 0 8px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .acq-sub-card p {
+        font-size: 13.5px;
+        line-height: 1.5;
+        color: var(--text-secondary, #475467);
+        margin: 0;
+      }
+
+      /* Solution 4 Loyalty (Centered vertical stack) */
+      .solution-loyalty-section {
+        background: #F8F9FC;
+        text-align: center;
+        padding: 100px 0;
+      }
+
+      .loyalty-cards-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        max-width: 900px;
+        margin: 48px auto 0;
+      }
+
+      .loyalty-card {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 12px 36px rgba(15, 24, 53, 0.03);
+        text-align: left;
+        transition: transform 0.3s ease;
+      }
+
+      .loyalty-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .loyalty-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(66, 119, 255, 0.08);
+        color: var(--blue, #4277FF);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+      }
+
+      .loyalty-card h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0 0 12px;
+      }
+
+      .loyalty-card p {
+        font-size: 14.5px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        margin: 0;
+      }
+
+      /* Integrations & Logos */
+      .integrations-logos {
+        margin-top: 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .int-logo {
+        background: #F8F9FC;
+        padding: 8px 16px;
+        border-radius: 8px;
+        border: 1px solid rgba(15, 24, 53, 0.05);
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-secondary, #475467);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .int-logo img {
+        height: 18px;
+        width: auto;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 120px 0;
+        background: #FFFFFF;
+        position: relative;
+      }
+
+      .cta-card {
+        background: var(--primary-navy, #0F1835);
+        border-radius: 32px;
+        padding: 80px 48px;
+        text-align: center;
+        color: #FFFFFF;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 32px 80px rgba(15, 24, 53, 0.25);
+      }
+
+      .cta-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: 
+          radial-gradient(circle at 20% 30%, rgba(66, 119, 255, 0.15), transparent 40%),
+          radial-gradient(circle at 80% 70%, rgba(250, 110, 91, 0.12), transparent 40%);
+        pointer-events: none;
+      }
+
+      .cta-card h2 {
+        font-size: clamp(2rem, 3.5vw, 2.6rem);
+        font-weight: 800;
+        line-height: 1.25;
+        margin-bottom: 16px;
+        letter-spacing: -0.02em;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-card p {
+        font-size: 17px;
+        color: rgba(255, 255, 255, 0.7);
+        max-width: 54ch;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-actions .btn-dark {
+        background: #FFFFFF;
+        color: var(--primary-navy, #0F1835);
+        border-color: #FFFFFF;
+      }
+
+      .cta-actions .btn-dark:hover {
+        background: rgba(255, 255, 255, 0.9);
+        border-color: rgba(255, 255, 255, 0.9);
+        transform: translateY(-2px);
+      }
+
+      .cta-actions .btn-soft {
+        color: #FFFFFF;
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .cta-actions .btn-soft:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.6);
+      }
+
+      /* Mobile visual display blocks */
+      .mobile-section-visual {
+        display: none;
+      }
+
+      /* --- Responsive --- */
+      @media (max-width: 1023px) {
+        .premium-hero {
+          padding: 120px 0 60px;
+        }
+
+        .hero-mockup-wrapper {
+          display: none; /* Hide large browser mockup */
+        }
+
+        .metrics-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 24px;
+        }
+
+        .metric-card:nth-child(2)::after {
+          display: none;
+        }
+
+        .challenges-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .challenges-row-2 {
+          grid-column: span 1;
+          grid-template-columns: 1fr;
+        }
+
+        .solution-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .solution-visual {
+          display: none; /* Hide desktop visual */
+        }
+
+        .mobile-section-visual {
+          display: block;
+          margin-top: 24px;
+        }
+
+        .mobile-section-visual img {
+          width: 100%;
+          border-radius: 16px;
+          border: 1px solid rgba(15, 24, 53, 0.06);
+          box-shadow: 0 10px 30px rgba(15, 24, 53, 0.04);
+        }
+
+        .solution-acquisition-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .acq-main-card {
+          grid-template-columns: 1fr;
+        }
+
+        .acq-card-right-img {
+          margin-top: 24px;
+        }
+
+        .loyalty-cards-container {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .cta-card {
+          padding: 60px 24px;
+        }
+
+        .cta-actions {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .cta-actions .btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="realestate-page-wrapper">
+      <!-- Shared Header -->
+      <header class="site-header" data-header=""></header>
+
+      <main id="top">
+        <!-- Hero Section -->
+        <section class="premium-hero">
+          <div class="hero-grid-bg"></div>
+          <div class="container">
+            <div class="announcement-badge">
+              <span class="announcement-tag">GIẢI PHÁP</span>
+              <span data-cms="estate-hero-badge">Ứng dụng AI cho Bất động sản</span>
+            </div>
+            <h1 data-cms="estate-hero-title">Ứng dụng AI-Automation cho Bất động sản
+            </h1>
+            <p class="hero-sub" data-cms="estate-hero-sub">Giới thiệu dự án, tự động hóa phễu thu lead chất lượng từ quảng cáo, xếp lịch tư vấn và nhắc lịch hẹn đi xem căn hộ mẫu</p>
+            <div class="hero-actions">
+              <a class="btn btn-dark" href="#cta">
+                Đăng ký Demo
+              </a>
+              <a class="btn btn-soft" href="#cta">
+                Liên hệ tư vấn
+              </a>
+            </div>
+
+            <!-- Browser Mockup -->
+            <div class="hero-mockup-wrapper">
+              <div class="browser-header">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-address">smax.ai/solutions/realestate</div>
+              </div>
+              <div class="browser-content">
+                <img data-cms-img="estate-hero-img" src="asset smax/realestate/hero-dashboard.png" alt="Smax Real Estate AI Dashboard Mockup">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 1: Metrics -->
+        <section class="metrics-section">
+          <div class="container">
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="metric-num">+38%</div>
+                <div class="metric-label">Lead quan tâm</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-num">95%</div>
+                <div class="metric-label">Trả lời tự động</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-num">&lt;10s</div>
+                <div class="metric-label">Thời gian phản hồi</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-num">2.4x</div>
+                <div class="metric-label">Lượt xem nhà (Site Visit)</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Challenges -->
+        <section class="challenges-section">
+          <div class="container">
+            <div class="section-header">
+              <div class="section-tag">Thách thức</div>
+              <h2 class="section-title" data-cms="realestate-text-1">Những thách thức của ngành kinh doanh Bất động sản</h2>
+              <p class="section-desc" data-cms="realestate-text-2">
+                Quá trình lọc thông tin, xếp lịch và chăm sóc lead bất động sản đòi hỏi sự nhanh chóng, nhất quán để tránh rớt lead sang đối thủ.
+              </p>
+            </div>
+
+            <div class="challenges-grid">
+              <!-- Challenge 1 -->
+              <div class="challenge-card">
+                <div class="challenge-top">
+                  <div class="challenge-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+                  </div>
+                  <h3 data-cms="realestate-text-3">Lead Ads giá cao nhưng khó tiếp cận</h3>
+                  <p data-cms="realestate-text-4">Chi phí lấy số điện thoại lớn nhưng telesales liên hệ chậm làm lead nguội lạnh, tỷ lệ kết nối thành công giảm sút.</p>
+                </div>
+              </div>
+
+              <!-- Challenge 2 -->
+              <div class="challenge-card">
+                <div class="challenge-top">
+                  <div class="challenge-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  </div>
+                  <h3 data-cms="realestate-text-5">Tư vấn thông tin dự án lặp đi lặp lại</h3>
+                  <p data-cms="realestate-text-6">Sales tốn nhiều thời gian trả lời các câu hỏi cơ bản về vị trí, giá bán, mặt bằng, tiến độ xây dựng của dự án.</p>
+                </div>
+              </div>
+
+              <!-- Challenge Row 2 -->
+              <div class="challenges-row-2">
+                <!-- Challenge 3 -->
+                <div class="challenge-card">
+                  <div class="challenge-top">
+                    <div class="challenge-icon">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><path d="m22 6-10 7L2 6"></path></svg>
+                    </div>
+                    <h3 data-cms="realestate-text-7">Quên nhắc hẹn dẫn khách xem căn hộ</h3>
+                    <p data-cms="realestate-text-8">Khách hẹn xem nhà mẫu (site visit) nhưng sales quên nhắc, dẫn đến tỷ lệ bỏ hẹn (no-show) cao, lãng phí tài nguyên.</p>
+                  </div>
+                </div>
+
+                <!-- Challenge 4 -->
+                <div class="challenge-card">
+                  <div class="challenge-top">
+                    <div class="challenge-icon">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3 data-cms="realestate-text-9">Mất dấu lịch sử nhu cầu khách hàng</h3>
+                    <p data-cms="realestate-text-10">Không nắm được thông tin khách đang tìm căn mấy phòng ngủ, hướng nào, tầm tài chính bao nhiêu khi đổi nhân sự tư vấn.</p>
+                  </div>
+                </div>
+
+                <!-- Challenge 5 -->
+                <div class="challenge-card">
+                  <div class="challenge-top">
+                    <div class="challenge-icon">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18z"></path><path d="M12 7v5l3 3"></path></svg>
+                    </div>
+                    <h3 data-cms="realestate-text-11">Phân phối lead thủ công thiếu công bằng</h3>
+                    <p data-cms="realestate-text-12">Việc chuyển tiếp lead nóng cho sales thủ công gây chậm trễ và dễ xảy ra tranh chấp quyền lợi trong đội ngũ.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Solution 1 (Sàng lọc Lead) -->
+        <section class="solution-panel-section">
+          <div class="container">
+            <div class="solution-grid">
+              <div class="solution-info">
+                <div class="section-tag">Giải pháp 01</div>
+                <h2 data-cms="realestate-text-13">Sàng lọc Lead &amp; Tiếp nhận tự động từ quảng cáo</h2>
+                <p class="solution-desc-main" data-cms="realestate-text-14">
+                  Tích hợp trực tiếp quảng cáo Click-to-Chat của Meta để chatbot sàng lọc nhu cầu khách hàng tiềm năng lập tức.
+                </p>
+                <div class="solution-points">
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="realestate-text-15">Phễu Ads Lead Form thông minh</h4>
+                      <p data-cms="realestate-text-16">Thu thập thông tin SĐT, tầm tài chính, diện tích căn hộ, số phòng ngủ mong muốn tự động qua form chat mà không gây phiền phức.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="realestate-text-17">Gửi tín hiệu Lead chuyển đổi về Meta</h4>
+                      <p data-cms="realestate-text-18">Tự động truyền tín hiệu Lead ngược lại Meta Ads ngay khi khách hàng điền xong SĐT, tối ưu hóa tệp đối tượng quảng cáo thời gian thực.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-visual">
+                <img src="asset smax/module-feature-images/livechat/staff-assignment.webp" alt="Sàng lọc lead bất động sản tự động" data-cms-img="realestate-img-1">
+              </div>
+            </div>
+            <!-- Mobile visual -->
+            <div class="mobile-section-visual">
+              <img src="asset smax/module-feature-images/livechat/staff-assignment.webp" alt="Sàng lọc lead bất động sản tự động" data-cms-img="realestate-img-2">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Solution 2 (Đặt lịch xem nhà) -->
+        <section class="solution-panel-section" style="background: #F8F9FC;">
+          <div class="container">
+            <div class="section-header">
+              <div class="section-tag">Giải pháp 02</div>
+              <h2 class="section-title" data-cms="realestate-text-19">Hệ thống Đặt lịch hẹn xem nhà mẫu (Site Visit)</h2>
+              <p class="section-desc" data-cms="realestate-text-20">
+                Giảm thiểu tỷ lệ quên lịch hẹn và tối ưu hóa hiệu suất của đội ngũ tư vấn căn hộ mẫu.
+              </p>
+            </div>
+
+            <div class="solution-acquisition-grid">
+              <!-- Left Big Bento cell (Đặt lịch) -->
+              <div class="acq-card acq-main-card">
+                <div>
+                  <h3 style="font-size: 20px; font-weight: 800; margin: 0 0 12px; color: var(--primary-navy, #0F1835);" data-cms="realestate-text-21">Đăng ký tham quan căn hộ mẫu qua Manual Selling Page</h3>
+                  <p style="font-size: 14.5px; line-height: 1.6; color: var(--text-secondary, #475467); margin: 0 0 20px;" data-cms="realestate-text-22">
+                    Khách hàng chủ động chọn ngày, giờ rảnh và điền thông tin để đăng ký tham quan thực tế căn hộ mẫu. Chatbot tự động gửi tin nhắn nhắc nhở trước giờ hẹn 2 tiếng kèm vị trí bản đồ chính xác và số điện thoại hỗ trợ.
+                  </p>
+                </div>
+                <div class="acq-card-right-img">
+                  <img src="asset smax/module-feature-images/livechat/saved-replies.webp" alt="Xếp lịch hẹn site visit căn hộ mẫu" data-cms-img="realestate-img-3">
+                </div>
+              </div>
+
+              <!-- Right Supporting Bento cell -->
+              <div class="acq-card" style="gap: 24px;">
+                <div class="acq-sub-card">
+                  <h4 data-cms="realestate-text-23">Định tuyến lead thông minh (Round Robin)</h4>
+                  <p data-cms="realestate-text-24">Tự động phân bổ lead nóng xoay vòng cho các nhân viên tư vấn theo ca trực, công bằng và tức thì.</p>
+                </div>
+                <div class="acq-sub-card">
+                  <h4 data-cms="realestate-text-25">Nhắc lịch hẹn qua Zalo ZBS (ZNS)</h4>
+                  <p data-cms="realestate-text-26">Tự động gửi tin nhắn mẫu Zalo ZBS (ZNS) để nhắc lịch hẹn, tăng tỷ lệ xuất hiện của khách hàng.</p>
+                </div>
+              </div>
+
+              <!-- Bottom sub cards row -->
+              <div class="acq-sub-grid">
+                <div class="acq-card">
+                  <h3 style="font-size: 17px; font-weight: 700; margin: 0 0 8px; color: var(--primary-navy, #0F1835);" data-cms="realestate-text-27">Theo dõi tiến độ chăm sóc</h3>
+                  <p style="font-size: 14px; line-height: 1.5; color: var(--text-secondary, #475467); margin: 0;" data-cms="realestate-text-28">Lưu trữ vết trạng thái chăm sóc của sales (Đã liên hệ, Đã đặt lịch, Đã đi xem nhà, Đóng cọc).</p>
+                </div>
+                <div class="acq-card">
+                  <h3 style="font-size: 17px; font-weight: 700; margin: 0 0 8px; color: var(--primary-navy, #0F1835);" data-cms="realestate-text-29">Tự động phân nhóm đối tượng</h3>
+                  <p style="font-size: 14px; line-height: 1.5; color: var(--text-secondary, #475467); margin: 0;" data-cms="realestate-text-30">Phân loại tệp khách theo dự án quan tâm (Vinhomes, Masterise, Novaland) để chạy chiến dịch FMM.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5: Solution 3 (Gửi Brochure PDF) -->
+        <section class="solution-panel-section">
+          <div class="container">
+            <div class="solution-grid">
+              <div class="solution-visual">
+                <img src="asset smax/chatbot/kich-ban-cham-soc.webp" alt="Tự động gửi brochure tài liệu dự án" data-cms-img="realestate-img-4">
+              </div>
+              <div class="solution-info">
+                <div class="section-tag">Giải pháp 03</div>
+                <h2 data-cms="realestate-text-31">Tự động cung cấp bảng giá &amp; Brochure dự án</h2>
+                <p class="solution-desc-main" data-cms="realestate-text-32">
+                  AI chatbot tự động cung cấp thông tin, hình ảnh thực tế và file PDF tài liệu bán hàng ngay khi khách yêu cầu.
+                </p>
+                <div class="solution-points">
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="realestate-text-33">Gửi tài liệu dự án tự động</h4>
+                      <p data-cms="realestate-text-34">Khách hàng bấm chọn "Mặt bằng căn hộ" hoặc "Chính sách chiết khấu" -&gt; Chatbot tự động gửi file PDF chất lượng cao tức thì.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="realestate-text-35">Kịch bản bám đuổi giá trị</h4>
+                      <p data-cms="realestate-text-36">Sử dụng Sequence bám đuổi tự động sau 1 ngày, 3 ngày để hỏi cảm nhận của khách về mặt bằng căn hộ mẫu, kéo gần cơ hội chốt cọc.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Mobile visual -->
+            <div class="mobile-section-visual">
+              <img src="asset smax/chatbot/kich-ban-cham-soc.webp" alt="Tự động gửi brochure tài liệu dự án" data-cms-img="realestate-img-5">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 6: Solution 4 (Nuôi dưỡng Sequence) -->
+        <section class="solution-panel-section" style="background: #F8F9FC;">
+          <div class="container">
+            <div class="solution-grid">
+              <div class="solution-info">
+                <div class="section-tag">Giải pháp 04</div>
+                <h2 data-cms="realestate-text-37">Nuôi dưỡng Lead dài hạn qua kịch bản Sequence</h2>
+                <p class="solution-desc-main" data-cms="realestate-text-38">
+                  Duy trì sự kết nối liên tục với khách hàng bằng chuỗi thông điệp tự động bám sát tiến độ dự án.
+                </p>
+                <div class="solution-points">
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="realestate-text-39">Chuỗi tin nhắn bám đuổi tiến độ</h4>
+                      <p data-cms="realestate-text-40">Cập nhật hình ảnh thi công thực tế dự án hàng tuần, gửi thông tin chính sách chiết khấu mới nhất qua Sequence chăm sóc tự động.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="realestate-text-41">Cơ chế tự động ngừng Sequence</h4>
+                      <p data-cms="realestate-text-42">Hệ thống tự động hủy trạng thái bám đuổi ngay khi khách hàng tương tác đặt lịch hẹn đi xem căn hộ thực tế, tránh gây phiền hà.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-visual">
+                <img src="asset smax/remarketing-features-v2/personalized-sequence.webp" alt="Nuôi dưỡng lead bất động sản bằng sequence" data-cms-img="realestate-img-6">
+              </div>
+            </div>
+            <!-- Mobile visual -->
+            <div class="mobile-section-visual">
+              <img src="asset smax/remarketing-features-v2/personalized-sequence.webp" alt="Nuôi dưỡng lead bất động sản bằng sequence" data-cms-img="realestate-img-7">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 7: Solution 5 (Bàn giao Lead cho Sales) -->
+        <section class="solution-panel-section">
+          <div class="container">
+            <div class="solution-grid">
+              <div class="solution-visual">
+                <img src="asset smax/module-feature-images/livechat/staff-assignment.webp" alt="Bàn giao lead nóng cho Sales" data-cms-img="realestate-img-8">
+              </div>
+              <div class="solution-info">
+                <div class="section-tag">Giải pháp 05</div>
+                <h2 data-cms="realestate-text-43">Bàn giao Lead nóng tức thì &amp; Thông báo cho Sales</h2>
+                <p class="solution-desc-main" data-cms="realestate-text-44">
+                  Tăng tốc độ kết nối cuộc gọi đầu tiên của Sales bằng hệ thống thông báo đẩy trực tiếp qua các nền tảng chat doanh nghiệp.
+                </p>
+                <div class="solution-points">
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="realestate-text-45">Thông báo đẩy qua Zalo ZBS (ZNS) / Lark</h4>
+                      <p data-cms="realestate-text-46">Gửi thông báo tức thì chứa đầy đủ thông tin nhu cầu, SĐT và loại căn hộ mong muốn cho Sales phụ trách ngay khi lead vừa phát sinh.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="realestate-text-47">Theo dõi thời gian tương tác đầu tiên</h4>
+                      <p data-cms="realestate-text-48">Hệ thống tự động ghi nhận thời điểm Sales thực hiện cuộc gọi đầu tiên cho lead để đánh giá hiệu suất trực tiếp trên KPI.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Mobile visual -->
+            <div class="mobile-section-visual">
+              <img src="asset smax/module-feature-images/livechat/staff-assignment.webp" alt="Bàn giao lead nóng cho Sales" data-cms-img="realestate-img-9">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 8: Solution 6 (Đồng bộ CRM) -->
+        <section class="solution-panel-section" style="background: #F8F9FC;">
+          <div class="container">
+            <div class="solution-grid">
+              <div class="solution-info">
+                <div class="section-tag">Giải pháp 06</div>
+                <h2 data-cms="realestate-text-49">Hồ sơ Lead 360° &amp; Đồng bộ CRM tức thì</h2>
+                <p class="solution-desc-main" data-cms="realestate-text-50">
+                  Hợp nhất mọi thông tin tương tác của khách hàng từ nguồn quảng cáo đến lịch sử xem nhà thực tế lên hệ thống quản lý.
+                </p>
+                <div class="solution-points">
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="realestate-text-51">Đồng bộ dữ liệu CRM/LMS tự động</h4>
+                      <p data-cms="realestate-text-52">Tự động đẩy thông tin lead mới thu thập về Google Sheets, Lark Base, HubSpot, Salesforce để đội ngũ chăm sóc xử lý tức thì.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="realestate-text-53">Báo cáo phễu quảng cáo và ROI chuyển đổi</h4>
+                      <p data-cms="realestate-text-54">Theo dõi chính xác chi phí trên từng số điện thoại quan tâm, tỷ lệ site-visit thành công theo từng nguồn Ads campaign.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="integrations-logos">
+                  <div class="int-logo"><img src="asset smax/brands/lark.svg" alt="Lark Suite" data-cms-img="realestate-img-10"> Lark Suite</div>
+                  <div class="int-logo"><img src="asset smax/brands/sheets.svg" alt="Google Sheets" data-cms-img="realestate-img-11"> Google Sheets</div>
+                  <div class="int-logo"><img src="asset smax/brands/hubspot.svg" alt="HubSpot" data-cms-img="realestate-img-12"> HubSpot</div>
+                  <div class="int-logo">Zalo OA (ZBS/ZNS)</div>
+                </div>
+              </div>
+              <div class="solution-visual">
+                <img src="asset smax/module-feature-images/crm-connect/customer-360.webp" alt="Hồ sơ khách hàng 360 bất động sản" data-cms-img="realestate-img-13">
+              </div>
+            </div>
+            <!-- Mobile visual -->
+            <div class="mobile-section-visual">
+              <img src="asset smax/module-feature-images/crm-connect/customer-360.webp" alt="Hồ sơ khách hàng 360 bất động sản" data-cms-img="realestate-img-14">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 9: CTA Section -->
+        <section class="cta-section" id="cta">
+          <div class="container">
+            <div class="cta-card">
+              <h2 data-cms="realestate-text-55">Số hóa quy trình Tuyển lead &amp; Chăm sóc Bất động sản cùng Smax.ai</h2>
+              <p data-cms="realestate-text-56">
+                Bứt phá doanh thu bán hàng, giảm tỷ lệ bỏ lỡ cuộc gọi và tối ưu hóa tỷ lệ đi xem nhà thực tế của khách hàng tiềm năng.
+              </p>
+              <div class="cta-actions">
+                <a class="btn btn-dark" href="https://smax.ai/login">Dùng thử miễn phí</a>
+                <a class="btn btn-soft" href="index.html#cta">Đặt lịch hẹn tư vấn</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div>
+            <a class="brand" href="#top">
+              <img src="asset smax/smax-ai-logo.webp" alt="Smax.ai" class="brand-logo-img">
+            </a>
+            <p>Nền tảng AI-Automation giúp doanh nghiệp vận hành bán hàng, tiếp thị và chăm sóc khách hàng đa kênh.</p>
+          </div>
+          <div>
+            <h3>Sản phẩm</h3>
+            <a href="livechat.html">Livechat</a>
+            <a href="chatbot.html">Chatbot</a>
+            <a href="genai.html">Smax GenAI</a>
+            <a href="insight.html">AI Insight</a>
+            <a href="marketing.html">Marketing Tools</a>
+            <a href="gamification.html">Gamification</a>
+            <a href="remarketing.html">Remarketing</a>
+            <a href="crm-sync.html">CRM Connect</a>
+          </div>
+          <div>
+            <h3>Giải pháp</h3>
+            <a href="ecommerce.html">E-commerce &amp; Bán lẻ</a>
+            <a href="education.html">Giáo dục</a>
+            <a href="realestate.html">Bất động sản</a>
+            <a href="service.html">Dịch vụ</a>
+            <a href="fb.html">F&amp;B</a>
+            <a href="agency.html">Agency &amp; Consultant</a>
+          </div>
+          <div>
+            <h3>Tài nguyên</h3>
+            <a>Blog</a>
+            <a>Tài liệu</a>
+            <a>Video hướng dẫn</a>
+            <a>Webinar</a>
+            <a>Bot mẫu</a>
+            <a>Case Study</a>
+          </div>
+          <div>
+            <h3>Doanh nghiệp</h3>
+            <a>Về Smax.ai</a>
+            <a href="partnership.html">Đối tác</a>
+            <a>Bảng giá</a>
+            <a>Liên hệ</a>
+            <a>Chính sách</a>
+          </div>
+        </div>
+        <div class="container footer-bottom">
+          <span>© 2026 Smax.ai</span>
+          <span>Điều khoản · Quyền riêng tư · Liên hệ tư vấn</span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Shared Header and Interactions JS -->
+    <script src="script.js?v=4.0.2"></script>
+  
+
+</body></html>

@@ -1,0 +1,1256 @@
+<!DOCTYPE html><html lang="vi"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Giải pháp AI-Automation chuyên sâu cho ngành F&amp;B giúp tự động hóa đặt bàn trước, gọi món tại bàn qua FnB Selling Page (E-menu) và xây dựng phễu tích điểm Loyalty.">
+    <title>Smax.ai Giải pháp F&amp;B | E-Menu Gọi món tại bàn &amp; Đặt bàn tự động</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="icon" href="asset smax/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      /* --- Custom Premium Styles for F&B --- */
+      body {
+        overflow-x: hidden;
+      }
+      
+      .fb-page-wrapper {
+        font-family: "Be Vietnam Pro", sans-serif;
+        color: var(--primary-navy, #0F1835);
+        background: #FFFFFF;
+      }
+
+      /* Hero Section */
+      .premium-hero {
+        position: relative;
+        padding: 160px 0 80px;
+        background: url('https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/gridBackground.png') no-repeat center center;
+        background-size: cover;
+        text-align: center;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .hero-grid-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: radial-gradient(rgba(15, 24, 53, 0.12) 1px, transparent 1px);
+        background-size: 32px 32px;
+        mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
+        opacity: 0.15;
+        z-index: 1;
+      }
+
+      .announcement-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 16px;
+        border-radius: 99px;
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        box-shadow: 0 2px 8px rgba(15, 24, 53, 0.04);
+        margin-bottom: 32px;
+        font-size: 13.5px;
+        font-weight: 500;
+        color: var(--primary-navy, #0F1835);
+        position: relative;
+        z-index: 2;
+        transition: all 0.3s ease;
+      }
+
+      .announcement-badge:hover {
+        border-color: rgba(66, 119, 255, 0.3);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(66, 119, 255, 0.08);
+      }
+
+      .announcement-tag {
+        background: var(--primary-coral, #FA6E5B);
+        color: #FFFFFF;
+        padding: 2px 8px;
+        border-radius: 99px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .premium-hero h1 {
+        font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+        font-weight: 900;
+        line-height: 1.25;
+        letter-spacing: -0.03em;
+        color: var(--primary-navy, #0F1835);
+        max-width: 960px;
+        margin: 0 auto 24px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .premium-hero h1 span.highlight {
+        background: linear-gradient(95deg, var(--process-blue, #4277FF) 0%, var(--primary-coral, #FA6E5B) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+      }
+
+      .hero-sub {
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        max-width: 60ch;
+        margin: 0 auto 40px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        position: relative;
+        z-index: 2;
+        margin-bottom: 56px;
+      }
+
+      .hero-actions .btn {
+        border-radius: 99px !important;
+        padding: 14px 32px !important;
+        font-size: 15px !important;
+        font-weight: 700 !important;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      }
+
+      .btn-dark {
+        background: var(--primary-navy, #0F1835);
+        color: #FFFFFF;
+        border: 1px solid var(--primary-navy, #0F1835);
+      }
+
+      .btn-dark:hover {
+        background: #1b2952;
+        border-color: #1b2952;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(15, 24, 53, 0.15);
+      }
+
+      .btn-soft {
+        background: transparent;
+        color: var(--primary-navy, #0F1835);
+        border: 1px solid rgba(15, 24, 53, 0.15);
+      }
+
+      .btn-soft:hover {
+        background: rgba(15, 24, 53, 0.02);
+        border-color: rgba(15, 24, 53, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .hero-mockup-wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        border-radius: 20px;
+        box-shadow: 0 36px 80px rgba(15, 24, 53, 0.12), 0 1px 3px rgba(15, 24, 53, 0.03);
+        overflow: hidden;
+        position: relative;
+        z-index: 5;
+        animation: fadeInUpMockup 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      @keyframes fadeInUpMockup {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .browser-header {
+        height: 40px;
+        background: #F8F9FC;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.06);
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        position: relative;
+      }
+
+      .browser-dots {
+        display: flex;
+        gap: 6px;
+      }
+
+      .browser-dots .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .browser-dots .dot.red { background: #FF5F56; }
+      .browser-dots .dot.yellow { background: #FFBD2E; }
+      .browser-dots .dot.green { background: #27C93F; }
+
+      .browser-address {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(15, 24, 53, 0.03);
+        padding: 4px 24px;
+        border-radius: 6px;
+        font-size: 11.5px;
+        font-weight: 500;
+        color: #667085;
+        font-family: monospace;
+        letter-spacing: 0.02em;
+      }
+
+      .browser-content {
+        position: relative;
+        background: #FFFFFF;
+        line-height: 0;
+      }
+
+      .browser-content img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Metrics Section */
+      .metrics-section {
+        padding: 60px 0;
+        background: #F8F9FC;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+      }
+
+      .metric-card {
+        text-align: center;
+        position: relative;
+      }
+
+      .metric-card:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: -16px;
+        top: 20%;
+        height: 60%;
+        width: 1px;
+        background: rgba(15, 24, 53, 0.08);
+      }
+
+      .metric-num {
+        font-size: clamp(2rem, 3.5vw, 2.8rem);
+        font-weight: 900;
+        line-height: 1;
+        background: linear-gradient(135deg, var(--process-blue, #4277FF) 0%, var(--primary-coral, #FA6E5B) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 8px;
+        letter-spacing: -0.03em;
+      }
+
+      .metric-label {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      /* General Section Header */
+      .section-header {
+        text-align: center;
+        max-width: 720px;
+        margin: 0 auto 60px;
+      }
+
+      .section-tag {
+        display: inline-block;
+        padding: 6px 14px;
+        border-radius: 99px;
+        background: rgba(66, 119, 255, 0.06);
+        color: var(--blue, #4277FF);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        margin-bottom: 16px;
+        border: 1px solid rgba(66, 119, 255, 0.12);
+        text-transform: uppercase;
+      }
+
+      .section-title {
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 800;
+        color: var(--primary-navy, #0F1835);
+        line-height: 1.3;
+        letter-spacing: -0.02em;
+        margin-bottom: 16px;
+      }
+
+      .section-desc {
+        font-size: 16px;
+        color: var(--text-secondary, #475467);
+        line-height: 1.6;
+      }
+
+      /* Challenges Section (Bento Grid) */
+      .challenges-section {
+        padding: 120px 0;
+        background: #FFFFFF;
+      }
+
+      .challenges-grid {
+        display: grid;
+        grid-template-columns: 1.25fr 1fr;
+        gap: 24px;
+      }
+
+      .challenge-card {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(15, 24, 53, 0.02);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .challenge-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 45px rgba(15, 24, 53, 0.06);
+        border-color: rgba(66, 119, 255, 0.12);
+      }
+
+      .challenge-top {
+        margin-bottom: 24px;
+      }
+
+      .challenge-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: rgba(250, 110, 91, 0.06);
+        color: var(--primary-coral, #FA6E5B);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .challenge-card:nth-child(even) .challenge-icon {
+        background: rgba(66, 119, 255, 0.06);
+        color: var(--process-blue, #4277FF);
+      }
+
+      .challenge-card h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0 0 12px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .challenge-card p {
+        font-size: 14.5px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        margin: 0;
+      }
+
+      .challenges-row-2 {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      /* Solution Section Layouts */
+      .solution-panel-section {
+        padding: 100px 0;
+        border-top: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .solution-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .solution-info {
+        text-align: left;
+      }
+
+      .solution-info h2 {
+        font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+        font-weight: 800;
+        line-height: 1.3;
+        margin-bottom: 20px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .solution-info .solution-desc-main {
+        font-size: 16px;
+        color: var(--text-secondary, #475467);
+        line-height: 1.6;
+        margin-bottom: 32px;
+      }
+
+      .solution-points {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .sol-point {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .sol-point-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: rgba(66, 119, 255, 0.08);
+        color: var(--blue, #4277FF);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .sol-point-content h4 {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0 0 4px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .sol-point-content p {
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--text-secondary, #475467);
+        margin: 0;
+      }
+
+      .solution-visual {
+        position: relative;
+      }
+
+      .solution-visual img {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 0 20px 50px rgba(15, 24, 53, 0.08);
+        border: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      /* Solution 2 acquisition (Bento grid visual) */
+      .solution-acquisition-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 32px;
+        margin-top: 48px;
+      }
+
+      .acq-card {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: 0 8px 24px rgba(15, 24, 53, 0.02);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .acq-main-card {
+        background: radial-gradient(circle at 5% 5%, rgba(66, 119, 255, 0.04), transparent 45%), #FFFFFF;
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 32px;
+        align-items: center;
+      }
+
+      .acq-card-right-img img {
+        width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 10px 24px rgba(15, 24, 53, 0.05);
+      }
+
+      .acq-sub-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        grid-column: span 2;
+      }
+
+      .acq-sub-card {
+        background: #F8F9FC;
+        border-radius: 16px;
+        padding: 24px;
+        border: 1px solid rgba(15, 24, 53, 0.04);
+      }
+
+      .acq-sub-card h4 {
+        font-size: 15.5px;
+        font-weight: 700;
+        margin: 0 0 8px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .acq-sub-card p {
+        font-size: 13.5px;
+        line-height: 1.5;
+        color: var(--text-secondary, #475467);
+        margin: 0;
+      }
+
+      /* Solution 4 Loyalty (Centered vertical stack) */
+      .solution-loyalty-section {
+        background: #F8F9FC;
+        text-align: center;
+        padding: 100px 0;
+      }
+
+      .loyalty-cards-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        max-width: 900px;
+        margin: 48px auto 0;
+      }
+
+      .loyalty-card {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 12px 36px rgba(15, 24, 53, 0.03);
+        text-align: left;
+        transition: transform 0.3s ease;
+      }
+
+      .loyalty-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .loyalty-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(66, 119, 255, 0.08);
+        color: var(--blue, #4277FF);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+      }
+
+      .loyalty-card h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0 0 12px;
+      }
+
+      .loyalty-card p {
+        font-size: 14.5px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        margin: 0;
+      }
+
+      /* Integrations & Logos */
+      .integrations-logos {
+        margin-top: 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .int-logo {
+        background: #F8F9FC;
+        padding: 8px 16px;
+        border-radius: 8px;
+        border: 1px solid rgba(15, 24, 53, 0.05);
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-secondary, #475467);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .int-logo img {
+        height: 18px;
+        width: auto;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 120px 0;
+        background: #FFFFFF;
+        position: relative;
+      }
+
+      .cta-card {
+        background: var(--primary-navy, #0F1835);
+        border-radius: 32px;
+        padding: 80px 48px;
+        text-align: center;
+        color: #FFFFFF;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 32px 80px rgba(15, 24, 53, 0.25);
+      }
+
+      .cta-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: 
+          radial-gradient(circle at 20% 30%, rgba(66, 119, 255, 0.15), transparent 40%),
+          radial-gradient(circle at 80% 70%, rgba(250, 110, 91, 0.12), transparent 40%);
+        pointer-events: none;
+      }
+
+      .cta-card h2 {
+        font-size: clamp(2rem, 3.5vw, 2.6rem);
+        font-weight: 800;
+        line-height: 1.25;
+        margin-bottom: 16px;
+        letter-spacing: -0.02em;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-card p {
+        font-size: 17px;
+        color: rgba(255, 255, 255, 0.7);
+        max-width: 54ch;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-actions .btn-dark {
+        background: #FFFFFF;
+        color: var(--primary-navy, #0F1835);
+        border-color: #FFFFFF;
+      }
+
+      .cta-actions .btn-dark:hover {
+        background: rgba(255, 255, 255, 0.9);
+        border-color: rgba(255, 255, 255, 0.9);
+        transform: translateY(-2px);
+      }
+
+      .cta-actions .btn-soft {
+        color: #FFFFFF;
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .cta-actions .btn-soft:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.6);
+      }
+
+      /* Mobile visual display blocks */
+      .mobile-section-visual {
+        display: none;
+      }
+
+      /* --- Responsive --- */
+      @media (max-width: 1023px) {
+        .premium-hero {
+          padding: 120px 0 60px;
+        }
+
+        .hero-mockup-wrapper {
+          display: none; /* Hide large browser mockup */
+        }
+
+        .metrics-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 24px;
+        }
+
+        .metric-card:nth-child(2)::after {
+          display: none;
+        }
+
+        .challenges-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .challenges-row-2 {
+          grid-column: span 1;
+          grid-template-columns: 1fr;
+        }
+
+        .solution-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .solution-visual {
+          display: none; /* Hide desktop visual */
+        }
+
+        .mobile-section-visual {
+          display: block;
+          margin-top: 24px;
+        }
+
+        .mobile-section-visual img {
+          width: 100%;
+          border-radius: 16px;
+          border: 1px solid rgba(15, 24, 53, 0.06);
+          box-shadow: 0 10px 30px rgba(15, 24, 53, 0.04);
+        }
+
+        .solution-acquisition-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .acq-main-card {
+          grid-template-columns: 1fr;
+        }
+
+        .acq-card-right-img {
+          margin-top: 24px;
+        }
+
+        .loyalty-cards-container {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .cta-card {
+          padding: 60px 24px;
+        }
+
+        .cta-actions {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .cta-actions .btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fb-page-wrapper">
+      <!-- Shared Header -->
+      <header class="site-header" data-header=""></header>
+
+      <main id="top">
+        <!-- Hero Section -->
+        <section class="premium-hero">
+          <div class="hero-grid-bg"></div>
+          <div class="container">
+            <div class="announcement-badge">
+              <span class="announcement-tag">GIẢI PHÁP</span>
+              <span data-cms="fb-hero-badge">Ứng dụng AI cho ngành F&amp;B</span>
+            </div>
+            <h1 data-cms="fb-hero-title">Ứng dụng AI-Automation cho ngành F&amp;B
+            </h1>
+            <p class="hero-sub" data-cms="fb-hero-sub">Tự động hóa phễu đặt bàn trước, gọi món tại bàn qua FnB Selling Page (E-menu) kết nối trực tiếp nhà bếp và xây dựng hệ thống tích điểm Loyalty giữ chân khách hàng.</p>
+            <div class="hero-actions">
+              <a class="btn btn-dark" href="#cta">
+                Đăng ký Demo
+              </a>
+              <a class="btn btn-soft" href="#cta">
+                Liên hệ tư vấn
+              </a>
+            </div>
+
+            <!-- Browser Mockup -->
+            <div class="hero-mockup-wrapper">
+              <div class="browser-header">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-address">smax.ai/solutions/fb</div>
+              </div>
+              <div class="browser-content">
+                <img data-cms-img="fb-hero-img" src="asset smax/fb/hero-dashboard.png" alt="Smax F&amp;B AI Dashboard Mockup">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 1: Metrics -->
+        <section class="metrics-section">
+          <div class="container">
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="metric-num">+25%</div>
+                <div class="metric-label">Tốc độ phục vụ</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-num">+18%</div>
+                <div class="metric-label">Đơn trung bình (AOV)</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-num">88%</div>
+                <div class="metric-label">Khách hàng quay lại</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-num">99.8%</div>
+                <div class="metric-label">Không sai sót món</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Challenges -->
+        <section class="challenges-section">
+          <div class="container">
+            <div class="section-header">
+              <div class="section-tag">Thách thức</div>
+              <h2 class="section-title" data-cms="fb-text-1">Những thách thức của ngành hàng F&amp;B</h2>
+              <p class="section-desc" data-cms="fb-text-2">
+                Quá trình gọi món thủ công, đặt lịch hẹn và remarketing cho tệp khách cũ tốn chi phí và dễ xảy ra sai sót khi quán đông khách.
+              </p>
+            </div>
+
+            <div class="challenges-grid">
+              <!-- Challenge 1 -->
+              <div class="challenge-card">
+                <div class="challenge-top">
+                  <div class="challenge-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+                  </div>
+                  <h3 data-cms="fb-text-3">Quá tải order vào giờ cao điểm</h3>
+                  <p data-cms="fb-text-4">Nhân viên phục vụ không kịp lấy order, dẫn đến sai sót món, chậm trễ phục vụ làm giảm sự hài lòng của khách hàng.</p>
+                </div>
+              </div>
+
+              <!-- Challenge 2 -->
+              <div class="challenge-card">
+                <div class="challenge-top">
+                  <div class="challenge-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  </div>
+                  <h3 data-cms="fb-text-5">Trùng lịch và sai thông tin đặt bàn</h3>
+                  <p data-cms="fb-text-6">Nhận đặt bàn qua điện thoại/tin nhắn thủ công dễ gây nhầm lẫn vị trí bàn, trùng giờ hoặc quên chuẩn bị cho các bàn vip.</p>
+                </div>
+              </div>
+
+              <!-- Challenge Row 2 -->
+              <div class="challenges-row-2">
+                <!-- Challenge 3 -->
+                <div class="challenge-card">
+                  <div class="challenge-top">
+                    <div class="challenge-icon">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><path d="m22 6-10 7L2 6"></path></svg>
+                    </div>
+                    <h3 data-cms="fb-text-7">Tỷ lệ khách quay lại nhà hàng thấp</h3>
+                    <p data-cms="fb-text-8">Thiếu cơ chế tự động remarketing, gửi ưu đãi vào ngày lễ hoặc ngày sinh nhật của khách để kích cầu ăn uống trở lại.</p>
+                  </div>
+                </div>
+
+                <!-- Challenge 4 -->
+                <div class="challenge-card">
+                  <div class="challenge-top">
+                    <div class="challenge-icon">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3 data-cms="fb-text-9">Không thu thập được hồ sơ khách hàng</h3>
+                    <p data-cms="fb-text-10">Khách thanh toán xong rời quán mà không lưu lại bất cứ thông tin nào, gây khó khăn cho việc tối ưu quảng cáo lại.</p>
+                  </div>
+                </div>
+
+                <!-- Challenge 5 -->
+                <div class="challenge-card">
+                  <div class="challenge-top">
+                    <div class="challenge-icon">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18z"></path><path d="M12 7v5l3 3"></path></svg>
+                    </div>
+                    <h3 data-cms="fb-text-11">Tích điểm &amp; Tặng quà rườm rà</h3>
+                    <p data-cms="fb-text-12">Áp dụng thẻ cứng hoặc điền số điện thoại tích điểm thủ công làm chậm tốc độ thanh toán tại quầy thu ngân.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Solution 1 (QR Menu) -->
+        <section class="solution-panel-section">
+          <div class="container">
+            <div class="solution-grid">
+              <div class="solution-info">
+                <div class="section-tag">Giải pháp 01</div>
+                <h2 data-cms="fb-text-13">E-Menu Gọi món tại bàn &amp; Tự động hóa order</h2>
+                <p class="solution-desc-main" data-cms="fb-text-14">
+                  Tận dụng mã QR Code đặt tại bàn ăn để khách quét mở FnB Selling Page (E-menu), chọn món, thanh toán qua Payment Hub và gửi thẳng về máy in bếp.
+                </p>
+                <div class="solution-points">
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="fb-text-15">FnB Selling Page (E-Menu) trực quan</h4>
+                      <p data-cms="fb-text-16">Giao diện thực đơn đẹp mắt, tích hợp hình ảnh sinh động giúp khách hàng dễ dàng lựa chọn món ăn và đồ uống trực tiếp.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="fb-text-17">Đồng bộ POS &amp; Máy in bếp lập tức</h4>
+                      <p data-cms="fb-text-18">Order từ khách tự động chuyển tiếp đến máy in bếp và cập nhật dữ liệu đơn về phần mềm thu ngân, loại bỏ 100% sai sót món.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-visual">
+                <img src="asset smax/module-feature-images/livechat/staff-assignment.webp" alt="E-menu gọi món tại bàn nhà hàng" data-cms-img="fb-img-1">
+              </div>
+            </div>
+            <!-- Mobile visual -->
+            <div class="mobile-section-visual">
+              <img src="asset smax/module-feature-images/livechat/staff-assignment.webp" alt="E-menu gọi món tại bàn nhà hàng" data-cms-img="fb-img-2">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Solution 2 (Đặt bàn tự động) -->
+        <section class="solution-panel-section" style="background: #F8F9FC;">
+          <div class="container">
+            <div class="section-header">
+              <div class="section-tag">Giải pháp 02</div>
+              <h2 class="section-title" data-cms="fb-text-19">Hệ thống Đặt bàn trước &amp; Xác nhận lịch tự động</h2>
+              <p class="section-desc" data-cms="fb-text-20">
+                Hợp lý hóa quy trình đặt bàn trước giúp nâng cao chất lượng chuẩn bị của nhà hàng.
+              </p>
+            </div>
+
+            <div class="solution-acquisition-grid">
+              <!-- Left Big Bento cell (Đặt bàn) -->
+              <div class="acq-card acq-main-card">
+                <div>
+                  <h3 style="font-size: 20px; font-weight: 800; margin: 0 0 12px; color: var(--primary-navy, #0F1835);" data-cms="fb-text-21">Đặt bàn trước qua chatbot tiện lợi</h3>
+                  <p style="font-size: 14.5px; line-height: 1.6; color: var(--text-secondary, #475467); margin: 0 0 20px;" data-cms="fb-text-22">
+                    Khách chọn chi nhánh, số lượng người, thời gian đến và vị trí bàn mong muốn qua FnB Selling Page (Webview). Hệ thống tự động gửi tin nhắn xác nhận lịch đặt kèm hướng dẫn đường đi và số điện thoại hotline hỗ trợ.
+                  </p>
+                </div>
+                <div class="acq-card-right-img">
+                  <img src="asset smax/module-feature-images/livechat/saved-replies.webp" alt="Đặt bàn trước tự động nhà hàng" data-cms-img="fb-img-3">
+                </div>
+              </div>
+
+              <!-- Right Supporting Bento cell -->
+              <div class="acq-card" style="gap: 24px;">
+                <div class="acq-sub-card">
+                  <h4 data-cms="fb-text-23">Tự động gửi nhắc nhở trước 1h</h4>
+                  <p data-cms="fb-text-24">Nhắn tin nhắc lịch đặt bàn trước 1 tiếng, giúp khách không quên giờ hẹn và tối ưu hiệu suất phục vụ.</p>
+                </div>
+                <div class="acq-sub-card">
+                  <h4 data-cms="fb-text-25">Minigame tích điểm (Puzzle / Lucky Wheel)</h4>
+                  <p data-cms="fb-text-26">Tích hợp các minigame tặng voucher trà sữa/món phụ để khách hàng hào hứng lưu thông tin tích điểm thành viên.</p>
+                </div>
+              </div>
+
+              <!-- Bottom sub cards row -->
+              <div class="acq-sub-grid">
+                <div class="acq-card">
+                  <h3 style="font-size: 17px; font-weight: 700; margin: 0 0 8px; color: var(--primary-navy, #0F1835);" data-cms="fb-text-27">Khảo sát đánh giá CSAT sau ăn</h3>
+                  <p style="font-size: 14px; line-height: 1.5; color: var(--text-secondary, #475467); margin: 0;" data-cms="fb-text-28">Tự động gửi tin hỏi thăm chất lượng món ăn và dịch vụ của nhân viên sau khi khách rời quán 1 tiếng.</p>
+                </div>
+                <div class="acq-card">
+                  <h3 style="font-size: 17px; font-weight: 700; margin: 0 0 8px; color: var(--primary-navy, #0F1835);" data-cms="fb-text-29">Sequence chăm sóc ngày sinh nhật</h3>
+                  <p style="font-size: 14px; line-height: 1.5; color: var(--text-secondary, #475467); margin: 0;" data-cms="fb-text-30">Gửi tin tặng bánh ngọt hoặc giảm giá 10% cho nhóm đi đông người nhân dịp sinh nhật khách cũ.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5: Solution 3 (Loyalty Game) -->
+        <section class="solution-panel-section">
+          <div class="container">
+            <div class="solution-grid">
+              <div class="solution-visual">
+                <img src="asset smax/chatbot/kich-ban-cham-soc.webp" alt="Minigame lật hình và vòng quay may mắn" data-cms-img="fb-img-4">
+              </div>
+              <div class="solution-info">
+                <div class="section-tag">Giải pháp 03</div>
+                <h2 data-cms="fb-text-31">Xây dựng tệp khách hàng trung thành (Loyalty) bằng Game</h2>
+                <p class="solution-desc-main" data-cms="fb-text-32">
+                  Tăng tương tác và kích cầu quay lại của khách hàng bằng kịch bản Minigame trúng thưởng thú vị.
+                </p>
+                <div class="solution-points">
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="fb-text-33">Vòng quay may mắn (Lucky Wheel)</h4>
+                      <p data-cms="fb-text-34">Khách hàng quét QR tại bàn để chơi game trúng voucher giảm giá hoặc quà tặng dùng cho lần ăn sau.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="fb-text-35">Tích điểm thành viên tự động trên chat</h4>
+                      <p data-cms="fb-text-36">Lưu trữ điểm thưởng của khách hàng trực tiếp trên hệ thống chatbot, tự động quy đổi thành mã voucher khi đủ điểm chạm.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Mobile visual -->
+            <div class="mobile-section-visual">
+              <img src="asset smax/chatbot/kich-ban-cham-soc.webp" alt="Minigame lật hình và vòng quay may mắn" data-cms-img="fb-img-5">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 6: Solution 4 (Khảo sát dịch vụ sau ăn) -->
+        <section class="solution-panel-section" style="background: #F8F9FC;">
+          <div class="container">
+            <div class="solution-grid">
+              <div class="solution-info">
+                <div class="section-tag">Giải pháp 04</div>
+                <h2 data-cms="fb-text-37">Khảo sát đánh giá CSAT món ăn &amp; Phản hồi dịch vụ</h2>
+                <p class="solution-desc-main" data-cms="fb-text-38">
+                  Tự động ghi nhận ý kiến phản hồi về chất lượng món ăn và thái độ phục vụ của nhân viên để kịp thời nâng cấp cơ sở.
+                </p>
+                <div class="solution-points">
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="fb-text-39">Khảo sát CSAT tự động gửi sau ăn</h4>
+                      <p data-cms="fb-text-40">Hệ thống tự động gửi tin nhắn lấy ý kiến khách hàng 1 tiếng sau khi hóa đơn được thanh toán xong tại POS.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="fb-text-41">Tặng voucher tri ân đóng góp ý kiến</h4>
+                      <p data-cms="fb-text-42">Tự động gửi mã giảm giá 10% cho lần ghé tiếp theo để khuyến khích khách hàng điền khảo sát phản hồi.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-visual">
+                <img src="asset smax/module-feature-images/crm-connect/customer-360.webp" alt="Khảo sát CSAT nhà hàng F&amp;B" data-cms-img="fb-img-6">
+              </div>
+            </div>
+            <!-- Mobile visual -->
+            <div class="mobile-section-visual">
+              <img src="asset smax/module-feature-images/crm-connect/customer-360.webp" alt="Khảo sát CSAT nhà hàng F&amp;B" data-cms-img="fb-img-7">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 7: Solution 5 (Sequence sinh nhật & Ưu đãi) -->
+        <section class="solution-panel-section">
+          <div class="container">
+            <div class="solution-grid">
+              <div class="solution-visual">
+                <img src="asset smax/remarketing-features-v2/personalized-sequence.webp" alt="Chăm sóc sinh nhật khách hàng" data-cms-img="fb-img-8">
+              </div>
+              <div class="solution-info">
+                <div class="section-tag">Giải pháp 05</div>
+                <h2 data-cms="fb-text-43">Kịch bản Sinh nhật tự động &amp; Kích thích đặt bàn nhóm</h2>
+                <p class="solution-desc-main" data-cms="fb-text-44">
+                  Tận dụng kịch bản sinh nhật cá nhân hóa để thuyết phục khách hàng lựa chọn nhà hàng làm địa điểm tổ chức tiệc.
+                </p>
+                <div class="solution-points">
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="fb-text-45">Món quà sinh nhật chúc mừng</h4>
+                      <p data-cms="fb-text-46">Sequence chúc mừng sinh nhật gửi tự động trước ngày sinh nhật của khách 3 ngày, tặng bánh sinh nhật hoặc voucher giảm giá 15% đặt bàn nhóm.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="fb-text-47">Chiến dịch remarketing FMM diện rộng</h4>
+                      <p data-cms="fb-text-48">Gửi tin quảng bá món ăn mới, chi nhánh mới hàng loạt cho toàn bộ tệp khách hàng cũ qua Meta FMM an toàn tuyệt đối.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Mobile visual -->
+            <div class="mobile-section-visual">
+              <img src="asset smax/remarketing-features-v2/personalized-sequence.webp" alt="Chăm sóc sinh nhật khách hàng" data-cms-img="fb-img-9">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 8: Solution 6 (Đồng bộ POS) -->
+        <section class="solution-panel-section" style="background: #F8F9FC;">
+          <div class="container">
+            <div class="solution-grid">
+              <div class="solution-info">
+                <div class="section-tag">Giải pháp 06</div>
+                <h2 data-cms="fb-text-49">Báo cáo hiệu quả &amp; Đồng bộ POS nhà hàng</h2>
+                <p class="solution-desc-main" data-cms="fb-text-50">
+                  Kết nối trực tiếp dữ liệu đơn hàng F&amp;B về hệ thống quản lý POS tập trung.
+                </p>
+                <div class="solution-points">
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="fb-text-51">Đồng bộ phần mềm thu ngân (KiotViet, Sapo)</h4>
+                      <p data-cms="fb-text-52">Tự động đẩy thông tin đơn hàng, số bàn và doanh thu về phần mềm POS để quản lý xuất nhập tồn kho nguyên liệu thời gian thực.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="fb-text-53">Báo cáo doanh số &amp; Món ăn yêu thích</h4>
+                      <p data-cms="fb-text-54">Thống kê số lượng order thành công, doanh thu bán hàng online/offline và đánh giá món ăn được đặt nhiều nhất thời gian thực.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="integrations-logos">
+                  <div class="int-logo"><img src="asset smax/brands/lark.svg" alt="Lark Suite" data-cms-img="fb-img-10"> Lark Suite</div>
+                  <div class="int-logo"><img src="asset smax/brands/sheets.svg" alt="Google Sheets" data-cms-img="fb-img-11"> Google Sheets</div>
+                  <div class="int-logo"><img src="asset smax/brands/hubspot.svg" alt="HubSpot" data-cms-img="fb-img-12"> HubSpot</div>
+                  <div class="int-logo">Zalo OA (ZBS/ZNS)</div>
+                </div>
+              </div>
+              <div class="solution-visual">
+                <img src="asset smax/module-feature-images/crm-connect/customer-360.webp" alt="Hồ sơ khách hàng 360 nhà hàng F&amp;B" data-cms-img="fb-img-13">
+              </div>
+            </div>
+            <!-- Mobile visual -->
+            <div class="mobile-section-visual">
+              <img src="asset smax/module-feature-images/crm-connect/customer-360.webp" alt="Hồ sơ khách hàng 360 nhà hàng F&amp;B" data-cms-img="fb-img-14">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 9: CTA Section -->
+        <section class="cta-section" id="cta">
+          <div class="container">
+            <div class="cta-card">
+              <h2 data-cms="fb-text-55">Số hóa quy trình Gọi món &amp; CSKH Nhà hàng cùng Smax.ai</h2>
+              <p data-cms="fb-text-56">
+                Bứt phá tốc độ phục vụ bàn ăn, tối ưu hóa nguyên liệu, nâng cao giá trị đơn hàng trung bình và gia tăng lượng khách quay lại quán.
+              </p>
+              <div class="cta-actions">
+                <a class="btn btn-dark" href="https://smax.ai/login">Dùng thử miễn phí</a>
+                <a class="btn btn-soft" href="index.html#cta">Đặt lịch hẹn tư vấn</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div>
+            <a class="brand" href="#top">
+              <img src="asset smax/smax-ai-logo.webp" alt="Smax.ai" class="brand-logo-img">
+            </a>
+            <p>Nền tảng AI-Automation giúp doanh nghiệp vận hành bán hàng, tiếp thị và chăm sóc khách hàng đa kênh.</p>
+          </div>
+          <div>
+            <h3>Sản phẩm</h3>
+            <a href="livechat.html">Livechat</a>
+            <a href="chatbot.html">Chatbot</a>
+            <a href="genai.html">Smax GenAI</a>
+            <a href="insight.html">AI Insight</a>
+            <a href="marketing.html">Marketing Tools</a>
+            <a href="gamification.html">Gamification</a>
+            <a href="remarketing.html">Remarketing</a>
+            <a href="crm-sync.html">CRM Connect</a>
+          </div>
+          <div>
+            <h3>Giải pháp</h3>
+            <a href="ecommerce.html">E-commerce &amp; Bán lẻ</a>
+            <a href="education.html">Giáo dục</a>
+            <a href="realestate.html">Bất động sản</a>
+            <a href="service.html">Dịch vụ</a>
+            <a href="fb.html">F&amp;B</a>
+            <a href="agency.html">Agency &amp; Consultant</a>
+          </div>
+          <div>
+            <h3>Tài nguyên</h3>
+            <a>Blog</a>
+            <a>Tài liệu</a>
+            <a>Video hướng dẫn</a>
+            <a>Webinar</a>
+            <a>Bot mẫu</a>
+            <a>Case Study</a>
+          </div>
+          <div>
+            <h3>Doanh nghiệp</h3>
+            <a>Về Smax.ai</a>
+            <a href="partnership.html">Đối tác</a>
+            <a>Bảng giá</a>
+            <a>Liên hệ</a>
+            <a>Chính sách</a>
+          </div>
+        </div>
+        <div class="container footer-bottom">
+          <span>© 2026 Smax.ai</span>
+          <span>Điều khoản · Quyền riêng tư · Liên hệ tư vấn</span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Shared Header and Interactions JS -->
+    <script src="script.js?v=4.0.2"></script>
+  
+
+</body></html>

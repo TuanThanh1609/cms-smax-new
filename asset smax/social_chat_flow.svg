@@ -1,0 +1,249 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1400" viewBox="0 0 2400 1400" fill="none">
+  <defs>
+    <linearGradient id="bgWash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8FAFF"/>
+      <stop offset="100%" stop-color="#F3F6FB"/>
+    </linearGradient>
+    <radialGradient id="peachGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(2050 240) rotate(120) scale(500 420)">
+      <stop offset="0%" stop-color="#FFD7D0" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#FFD7D0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blueGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(260 1220) rotate(20) scale(680 420)">
+      <stop offset="0%" stop-color="#DCE7FF" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#DCE7FF" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" stroke="#DFE6F2" stroke-width="1" opacity="0.85"/>
+    </pattern>
+    <filter id="stageShadow" x="-10%" y="-10%" width="120%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="28" flood-color="#0F1835" flood-opacity="0.08"/>
+    </filter>
+    <filter id="blockShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#0F1835" flood-opacity="0.10"/>
+    </filter>
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#12203F" flood-opacity="0.06"/>
+    </filter>
+    <filter id="lineGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#FA6E5B" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <rect width="2400" height="1400" fill="url(#bgWash)"/>
+  <rect width="2400" height="1400" fill="url(#grid)"/>
+  <rect width="2400" height="1400" fill="url(#peachGlow)"/>
+  <rect width="2400" height="1400" fill="url(#blueGlow)"/>
+
+  <g filter="url(#stageShadow)">
+    <rect x="100" y="98" width="2200" height="1200" rx="34" fill="#FFFFFF" fill-opacity="0.56" stroke="#E3E9F5"/>
+    <rect x="101" y="99" width="2198" height="1198" rx="33" fill="url(#grid)" opacity="0.26"/>
+  </g>
+
+  <g>
+    <rect x="150" y="138" width="290" height="46" rx="23" fill="#FFFFFF" stroke="#E1E8F3"/>
+    <circle cx="178" cy="161" r="7" fill="#FA6E5B"/>
+    <text x="198" y="146" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#16213C" dominant-baseline="text-before-edge">Smax.ai Workflow Builder</text>
+
+    <rect x="462" y="138" width="260" height="46" rx="23" fill="#F7FAFF" stroke="#E1E8F3"/>
+    <text x="494" y="146" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="19" font-weight="600" fill="#62718D" dominant-baseline="text-before-edge">Canvas / OTP-ZaloCaNhan</text>
+
+    <rect x="1910" y="138" width="146" height="46" rx="23" fill="#F5F8FE" stroke="#E1E8F3"/>
+    <circle cx="1937" cy="161" r="6" fill="#31C48D"/>
+    <text x="1952" y="146" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="#30506D" dominant-baseline="text-before-edge">Auto saved</text>
+
+    <rect x="2080" y="138" width="100" height="46" rx="23" fill="#FFFFFF" stroke="#E1E8F3"/>
+    <text x="2130" y="146" text-anchor="middle" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="#56657F" dominant-baseline="text-before-edge">100%</text>
+  </g>
+
+  <g filter="url(#lineGlow)">
+    <path d="M720 510 C810 510 840 550 932 550" stroke="#FA6E5B" stroke-opacity="0.6" stroke-width="10" stroke-linecap="round" fill="none"/>
+    <path d="M1472 562 C1560 562 1588 470 1662 470" stroke="#FA6E5B" stroke-opacity="0.6" stroke-width="10" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <g>
+    <circle cx="720" cy="510" r="9" fill="#FA6E5B" fill-opacity="0.78"/>
+    <circle cx="932" cy="550" r="9" fill="#FA6E5B" fill-opacity="0.78"/>
+    <circle cx="1472" cy="562" r="9" fill="#FA6E5B" fill-opacity="0.78"/>
+    <circle cx="1662" cy="470" r="9" fill="#FA6E5B" fill-opacity="0.78"/>
+    <circle cx="826" cy="530" r="6" fill="#FFD4CC"/>
+    <circle cx="1550" cy="528" r="6" fill="#FFD4CC"/>
+  </g>
+
+  <g filter="url(#blockShadow)">
+    <rect x="180" y="334" width="540" height="72" rx="16" fill="#0F1835"/>
+    <rect x="180" y="386" width="540" height="20" fill="#0F1835"/>
+    <rect x="200" y="356" width="18" height="18" rx="5" fill="#22305E" stroke="#324270"/>
+    <rect x="224" y="356" width="18" height="18" rx="5" fill="#192548" stroke="#2D3A66"/>
+    <circle cx="260" cy="365" r="9" fill="#263461"/>
+    <path d="M260 358.8 262 363 266.2 365 262 367 260 371.2 258 367 253.8 365 258 363Z" fill="#FFD989" opacity="0.9"/>
+    <text x="278" y="355" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#FFFFFF" dominant-baseline="text-before-edge">OTP-ZaloCaNhan</text>
+    <circle cx="664" cy="370" r="3.4" fill="#A9B8E7"/>
+    <circle cx="676" cy="370" r="3.4" fill="#A9B8E7"/>
+    <circle cx="688" cy="370" r="3.4" fill="#A9B8E7"/>
+    <rect x="180" y="400" width="540" height="328" rx="16" fill="#FFFFFF" stroke="#DDE5F1"/>
+  </g>
+
+  <g>
+    <rect x="202" y="426" width="496" height="54" rx="14" fill="#FFF5D9" stroke="#F0D26C"/>
+    <circle cx="230" cy="453" r="11" fill="#F4C851"/>
+    <path d="M230 445v10M230 459v2" stroke="#8A6400" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="254" y="438" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#8C6A00" dominant-baseline="text-before-edge">Block này có thể dùng cho Bot...</text>
+
+    <g filter="url(#cardShadow)">
+      <rect x="202" y="498" width="496" height="128" rx="18" fill="#FFFFFF" stroke="#E2E8F2"/>
+    </g>
+    <g transform="translate(222, 516) scale(1.125)">
+      <rect x="0" y="0" width="32" height="32" rx="10" fill="#178BFF"/>
+      <path d="M8 17.3 13.7 12l3.6 3.2L24 10.4l-5.3 9.2-3.8-3.1Z" fill="#fff"/>
+    </g>
+    <text x="266" y="520" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="23" font-weight="700" fill="#15203A" dominant-baseline="text-before-edge">Messenger Text</text>
+    <rect x="580" y="516" width="100" height="30" rx="15" fill="#ECF5FF"/>
+    <text x="630" y="513" text-anchor="middle" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#2775C8" dominant-baseline="text-before-edge">Text</text>
+    <text x="224" y="564" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="19" font-weight="500" fill="#64748B" dominant-baseline="text-before-edge">
+      <tspan x="224" dy="0">Chào</tspan>
+      <tspan x="224" dy="25.65">{{facebook.name}}...</tspan>
+    </text>
+  </g>
+
+  <g filter="url(#blockShadow)">
+    <rect x="932" y="374" width="540" height="72" rx="16" fill="#0F1835"/>
+    <rect x="932" y="426" width="540" height="20" fill="#0F1835"/>
+    <rect x="952" y="396" width="18" height="18" rx="5" fill="#22305E" stroke="#324270"/>
+    <rect x="976" y="396" width="18" height="18" rx="5" fill="#192548" stroke="#2D3A66"/>
+    <circle cx="1012" cy="405" r="9" fill="#263461"/>
+    <path d="M1012 398.8 1014 403 1018.2 405 1014 407 1012 411.2 1010 407 1005.8 405 1010 403Z" fill="#FFD989" opacity="0.9"/>
+    <text x="1030" y="395" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#FFFFFF" dominant-baseline="text-before-edge">OTP-ZaloCaNhan-ThuPhone</text>
+    <circle cx="1416" cy="410" r="3.4" fill="#A9B8E7"/>
+    <circle cx="1428" cy="410" r="3.4" fill="#A9B8E7"/>
+    <circle cx="1440" cy="410" r="3.4" fill="#A9B8E7"/>
+    <rect x="932" y="440" width="540" height="348" rx="16" fill="#FFFFFF" stroke="#DDE5F1"/>
+  </g>
+
+  <g>
+    <g filter="url(#cardShadow)">
+      <rect x="954" y="466" width="496" height="120" rx="18" fill="#FFFFFF" stroke="#E2E8F2"/>
+    </g>
+    <g transform="translate(974, 484) scale(1.125)">
+      <rect x="0" y="0" width="32" height="32" rx="10" fill="#178BFF"/>
+      <path d="M8 17.3 13.7 12l3.6 3.2L24 10.4l-5.3 9.2-3.8-3.1Z" fill="#fff"/>
+    </g>
+    <text x="1018" y="488" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#15203A" dominant-baseline="text-before-edge">Messenger User Input</text>
+    <rect x="1330" y="484" width="102" height="30" rx="15" fill="#EDF4FF"/>
+    <text x="1381" y="481" text-anchor="middle" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#4D73CA" dominant-baseline="text-before-edge">Input</text>
+    <text x="976" y="532" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="18" font-weight="500" fill="#64748B" dominant-baseline="text-before-edge">
+      <tspan x="976" dy="0">Lấy số điện thoại người</tspan>
+      <tspan x="976" dy="24.3">dùng</tspan>
+    </text>
+
+    <g filter="url(#cardShadow)">
+      <rect x="954" y="606" width="496" height="122" rx="18" fill="#FFFFFF" stroke="#E2E8F2"/>
+    </g>
+    <g transform="translate(974, 624) scale(1.125)">
+      <rect x="0" y="0" width="32" height="32" rx="10" fill="#178BFF"/>
+      <path d="M8 17.3 13.7 12l3.6 3.2L24 10.4l-5.3 9.2-3.8-3.1Z" fill="#fff"/>
+    </g>
+    <text x="1018" y="628" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="23" font-weight="700" fill="#15203A" dominant-baseline="text-before-edge">Messenger Text</text>
+    <rect x="1330" y="624" width="102" height="30" rx="15" fill="#ECF5FF"/>
+    <text x="1381" y="621" text-anchor="middle" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#2775C8" dominant-baseline="text-before-edge">Text</text>
+    <text x="976" y="672" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="18" font-weight="500" fill="#64748B" dominant-baseline="text-before-edge">
+      <tspan x="976" dy="0">Mình đã nhận được số điện</tspan>
+      <tspan x="976" dy="24.3">thoại...</tspan>
+    </text>
+  </g>
+
+  <g filter="url(#blockShadow)">
+    <rect x="1662" y="256" width="560" height="72" rx="16" fill="#0F1835"/>
+    <rect x="1662" y="308" width="560" height="20" fill="#0F1835"/>
+    <rect x="1682" y="278" width="18" height="18" rx="5" fill="#22305E" stroke="#324270"/>
+    <rect x="1706" y="278" width="18" height="18" rx="5" fill="#192548" stroke="#2D3A66"/>
+    <circle cx="1742" cy="287" r="9" fill="#263461"/>
+    <path d="M1742 280.8 1744 285 1748.2 287 1744 289 1742 293.2 1740 289 1735.8 287 1740 285Z" fill="#FFD989" opacity="0.9"/>
+    <text x="1760" y="277" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#FFFFFF" dominant-baseline="text-before-edge">OTP-ZaloCaNhan-GuiOTP</text>
+    <circle cx="2166" cy="292" r="3.4" fill="#A9B8E7"/>
+    <circle cx="2178" cy="292" r="3.4" fill="#A9B8E7"/>
+    <circle cx="2190" cy="292" r="3.4" fill="#A9B8E7"/>
+    <rect x="1662" y="322" width="560" height="616" rx="16" fill="#FFFFFF" stroke="#DDE5F1"/>
+  </g>
+
+  <g>
+    <g filter="url(#cardShadow)">
+      <rect x="1684" y="348" width="516" height="110" rx="18" fill="#FFFFFF" stroke="#E2E8F2"/>
+    </g>
+    <g transform="translate(1704, 365) scale(1.125)">
+      <rect x="0" y="0" width="32" height="32" rx="10" fill="#102B63"/>
+      <circle cx="14" cy="14" r="6.5" fill="none" stroke="#6CB6FF" stroke-width="2.6"/>
+      <path d="M19 19 24 24" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+    </g>
+    <text x="1748" y="370" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="23" font-weight="700" fill="#15203A" dominant-baseline="text-before-edge">Find/Add ZaloUser</text>
+    <rect x="2082" y="366" width="100" height="30" rx="15" fill="#EEF5FF"/>
+    <text x="2132" y="363" text-anchor="middle" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#274F99" dominant-baseline="text-before-edge">Lookup</text>
+    <text x="1706" y="414" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="18" font-weight="500" fill="#64748B" dominant-baseline="text-before-edge">Tìm hoặc tạo hồ sơ Zalo user</text>
+
+    <g filter="url(#cardShadow)">
+      <rect x="1684" y="476" width="516" height="98" rx="18" fill="#FFFFFF" stroke="#E2E8F2"/>
+    </g>
+    <g transform="translate(1704, 494) scale(1.125)">
+      <rect x="0" y="0" width="32" height="32" rx="10" fill="#FFF3ED" stroke="#FED1C8"/>
+      <circle cx="10" cy="9" r="2.5" fill="#FA6E5B"/>
+      <circle cx="22" cy="9" r="2.5" fill="#5D8BFF"/>
+      <circle cx="16" cy="23" r="2.5" fill="#0F1835"/>
+      <path d="M10 11v4c0 3 2.5 5 6 5M22 11v4c0 3-2.5 5-6 5" fill="none" stroke="#8A96AB" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <text x="1748" y="494" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="23" font-weight="700" fill="#15203A" dominant-baseline="text-before-edge">If not found</text>
+    <line x1="2012" y1="492" x2="2012" y2="556" stroke="#E7ECF5" stroke-width="2"/>
+    <text x="2036" y="496" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#6E7F99" dominant-baseline="text-before-edge">Split layout</text>
+    <rect x="2036" y="526" width="132" height="30" rx="15" fill="#FFF1ED"/>
+    <text x="2102" y="522" text-anchor="middle" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#D26752" dominant-baseline="text-before-edge">Route condition</text>
+
+    <g filter="url(#cardShadow)">
+      <rect x="1684" y="592" width="516" height="92" rx="18" fill="#FFE29A" stroke="#F1C65A"/>
+    </g>
+    <g transform="translate(1704, 611) scale(1.125)">
+      <rect x="0" y="0" width="32" height="32" rx="10" fill="#FFE8A6" stroke="#F2C557"/>
+      <path d="M16 6l1.8 5.2L23 13l-5.2 1.8L16 20l-1.8-5.2L9 13l5.2-1.8Z" fill="#9C7600"/>
+    </g>
+    <text x="1748" y="610" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#715600" dominant-baseline="text-before-edge">Tạo 1 dãy số ngẫu nhiên 4 ch...</text>
+    <text x="1748" y="646" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="17" font-weight="600" fill="#856B1C" dominant-baseline="text-before-edge">Random OTP generator · 4 digits</text>
+
+    <g filter="url(#cardShadow)">
+      <rect x="1684" y="702" width="516" height="106" rx="18" fill="#FFFFFF" stroke="#E2E8F2"/>
+    </g>
+    <g transform="translate(1704, 720) scale(1.125)">
+      <rect x="0" y="0" width="32" height="32" rx="10" fill="#EEF3FF" stroke="#D4DDFC"/>
+      <circle cx="16" cy="16" r="7" fill="none" stroke="#566FBE" stroke-width="2.4"/>
+      <circle cx="16" cy="16" r="2.7" fill="#566FBE"/>
+      <path d="M16 6v3M16 23v3M6 16h3M23 16h3M9.2 9.2l2.1 2.1M20.7 20.7l2.1 2.1M22.8 9.2l-2.1 2.1M11.3 20.7l-2.1 2.1" stroke="#566FBE" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <text x="1748" y="724" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="23" font-weight="700" fill="#15203A" dominant-baseline="text-before-edge">Set Attributes</text>
+    <rect x="2082" y="720" width="100" height="30" rx="15" fill="#F1F4FF"/>
+    <text x="2132" y="717" text-anchor="middle" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#5368B5" dominant-baseline="text-before-edge">Fields</text>
+    <text x="1706" y="768" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="18" font-weight="500" fill="#64748B" dominant-baseline="text-before-edge">
+      <tspan x="1706" dy="0">otp_code · expires_at ·</tspan>
+      <tspan x="1706" dy="24.3">status</tspan>
+    </text>
+
+    <g filter="url(#cardShadow)">
+      <rect x="1684" y="826" width="516" height="126" rx="18" fill="#FFFFFF" stroke="#E2E8F2"/>
+    </g>
+    <g transform="translate(1704, 844) scale(1.125)">
+      <rect x="0" y="0" width="32" height="32" rx="10" fill="#E9F8F2" stroke="#C4EBD8"/>
+      <path d="M8 10.2c0-2 1.6-3.7 3.7-3.7h8.7c2 0 3.6 1.6 3.6 3.7v5.6c0 2-1.6 3.7-3.6 3.7h-4.7l-4.2 3.2v-3.2h-.8c-2 0-3.7-1.6-3.7-3.7Z" fill="#1E9F73"/>
+      <circle cx="13" cy="13.5" r="1.4" fill="#fff"/>
+      <circle cx="17" cy="13.5" r="1.4" fill="#fff"/>
+      <circle cx="21" cy="13.5" r="1.4" fill="#fff"/>
+    </g>
+    <text x="1748" y="848" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="23" font-weight="700" fill="#15203A" dominant-baseline="text-before-edge">Mess To Zalo User</text>
+    <rect x="2082" y="844" width="100" height="30" rx="15" fill="#EDF9F3"/>
+    <text x="2132" y="841" text-anchor="middle" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#268A68" dominant-baseline="text-before-edge">Send</text>
+    <text x="1706" y="892" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="18" font-weight="500" fill="#64748B" dominant-baseline="text-before-edge">
+      <tspan x="1706" dy="0">Gửi OTP xác thực qua tin nhắn</tspan>
+      <tspan x="1706" dy="24.3">Zalo user</tspan>
+    </text>
+  </g>
+
+  <g opacity="0.6">
+    <rect x="192" y="1122" width="266" height="48" rx="24" fill="#FFFFFF" stroke="#E2E8F2"/>
+    <circle cx="220" cy="1146" r="7" fill="#0F1835"/>
+    <text x="240" y="1130" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="19" font-weight="700" fill="#55657F" dominant-baseline="text-before-edge">Bot canvas · production ready</text>
+  </g>
+</svg>

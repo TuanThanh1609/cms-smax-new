@@ -1,0 +1,267 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1280" viewBox="0 0 2400 1280" fill="none">
+  <defs>
+    <linearGradient id="bgGlow" x1="1200" y1="180" x2="1200" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEF2FB"/>
+      <stop offset="1" stop-color="#F5F6FA" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cardFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FBFCFE"/>
+    </linearGradient>
+    <linearGradient id="textCardFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FBFCFF"/>
+      <stop offset="1" stop-color="#F7F9FD"/>
+    </linearGradient>
+    <filter id="blockShadow" x="-20%" y="-12%" width="140%" height="148%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#0F1835" flood-opacity="0.08"/>
+    </filter>
+    <filter id="cardShadow" x="-16%" y="-22%" width="132%" height="160%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#111827" flood-opacity="0.045"/>
+    </filter>
+    <style>
+      .h { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 700; fill: #F9FBFF; }
+      .title { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 700; fill: #14203F; }
+      .eyebrow { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; fill: #96A1B9; }
+      .body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; font-weight: 400; fill: #7B859C; }
+      .badge { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; font-weight: 600; fill: #6D7894; }
+    </style>
+  </defs>
+
+  <rect width="2400" height="1280" fill="#F5F6FA"/>
+  <rect width="2400" height="1280" fill="url(#bgGlow)"/>
+
+  <g opacity="0.9">
+    <g stroke="#B4C1DE" stroke-opacity="0.18">
+      <path d="M0 0.5H2400"/>
+      <path d="M0 42.5H2400"/>
+      <path d="M0 84.5H2400"/>
+      <path d="M0 126.5H2400"/>
+      <path d="M0 168.5H2400"/>
+      <path d="M0 210.5H2400"/>
+      <path d="M0 252.5H2400"/>
+      <path d="M0 294.5H2400"/>
+      <path d="M0 336.5H2400"/>
+      <path d="M0 378.5H2400"/>
+      <path d="M0 420.5H2400"/>
+      <path d="M0 462.5H2400"/>
+      <path d="M0 504.5H2400"/>
+      <path d="M0 546.5H2400"/>
+      <path d="M0 588.5H2400"/>
+      <path d="M0 630.5H2400"/>
+      <path d="M0 672.5H2400"/>
+      <path d="M0 714.5H2400"/>
+      <path d="M0 756.5H2400"/>
+      <path d="M0 798.5H2400"/>
+      <path d="M0 840.5H2400"/>
+      <path d="M0 882.5H2400"/>
+      <path d="M0 924.5H2400"/>
+      <path d="M0 966.5H2400"/>
+      <path d="M0 1008.5H2400"/>
+      <path d="M0 1050.5H2400"/>
+      <path d="M0 1092.5H2400"/>
+      <path d="M0 1134.5H2400"/>
+      <path d="M0 1176.5H2400"/>
+      <path d="M0 1218.5H2400"/>
+      <path d="M0 1260.5H2400"/>
+    </g>
+    <g stroke="#B4C1DE" stroke-opacity="0.18">
+      <path d="M0.5 0V1280"/>
+      <path d="M42.5 0V1280"/>
+      <path d="M84.5 0V1280"/>
+      <path d="M126.5 0V1280"/>
+      <path d="M168.5 0V1280"/>
+      <path d="M210.5 0V1280"/>
+      <path d="M252.5 0V1280"/>
+      <path d="M294.5 0V1280"/>
+      <path d="M336.5 0V1280"/>
+      <path d="M378.5 0V1280"/>
+      <path d="M420.5 0V1280"/>
+      <path d="M462.5 0V1280"/>
+      <path d="M504.5 0V1280"/>
+      <path d="M546.5 0V1280"/>
+      <path d="M588.5 0V1280"/>
+      <path d="M630.5 0V1280"/>
+      <path d="M672.5 0V1280"/>
+      <path d="M714.5 0V1280"/>
+      <path d="M756.5 0V1280"/>
+      <path d="M798.5 0V1280"/>
+      <path d="M840.5 0V1280"/>
+      <path d="M882.5 0V1280"/>
+      <path d="M924.5 0V1280"/>
+      <path d="M966.5 0V1280"/>
+      <path d="M1008.5 0V1280"/>
+      <path d="M1050.5 0V1280"/>
+      <path d="M1092.5 0V1280"/>
+      <path d="M1134.5 0V1280"/>
+      <path d="M1176.5 0V1280"/>
+      <path d="M1218.5 0V1280"/>
+      <path d="M1260.5 0V1280"/>
+      <path d="M1302.5 0V1280"/>
+      <path d="M1344.5 0V1280"/>
+      <path d="M1386.5 0V1280"/>
+      <path d="M1428.5 0V1280"/>
+      <path d="M1470.5 0V1280"/>
+      <path d="M1512.5 0V1280"/>
+      <path d="M1554.5 0V1280"/>
+      <path d="M1596.5 0V1280"/>
+      <path d="M1638.5 0V1280"/>
+      <path d="M1680.5 0V1280"/>
+      <path d="M1722.5 0V1280"/>
+      <path d="M1764.5 0V1280"/>
+      <path d="M1806.5 0V1280"/>
+      <path d="M1848.5 0V1280"/>
+      <path d="M1890.5 0V1280"/>
+      <path d="M1932.5 0V1280"/>
+      <path d="M1974.5 0V1280"/>
+      <path d="M2016.5 0V1280"/>
+      <path d="M2058.5 0V1280"/>
+      <path d="M2100.5 0V1280"/>
+      <path d="M2142.5 0V1280"/>
+      <path d="M2184.5 0V1280"/>
+      <path d="M2226.5 0V1280"/>
+      <path d="M2268.5 0V1280"/>
+      <path d="M2310.5 0V1280"/>
+      <path d="M2352.5 0V1280"/>
+      <path d="M2394.5 0V1280"/>
+    </g>
+  </g>
+
+  <path d="M610 570H708Q738 570 738 540V500Q738 470 768 470H950" stroke="#FA6E5B" stroke-opacity="0.6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="610" cy="570" r="7" fill="#FA6E5B" fill-opacity="0.82" stroke="white" stroke-width="3"/>
+  <circle cx="950" cy="470" r="7" fill="#FA6E5B" fill-opacity="0.82" stroke="white" stroke-width="3"/>
+
+  <path d="M1380 500H1472Q1502 500 1502 530V580Q1502 610 1532 610H1720" stroke="#FA6E5B" stroke-opacity="0.6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="1380" cy="500" r="7" fill="#FA6E5B" fill-opacity="0.82" stroke="white" stroke-width="3"/>
+  <circle cx="1720" cy="610" r="7" fill="#FA6E5B" fill-opacity="0.82" stroke="white" stroke-width="3"/>
+
+  <g filter="url(#blockShadow)">
+    <rect x="180" y="412" width="430" height="76" rx="18" fill="#0F1835"/>
+    <rect x="180.5" y="488.5" width="429" height="252" rx="0" fill="white" fill-opacity="0.98"/>
+    <path d="M180.5 488.5H609.5V722.5C609.5 732.441 601.441 740.5 591.5 740.5H198.5C188.559 740.5 180.5 732.441 180.5 722.5V488.5Z" fill="white" fill-opacity="0.98" stroke="#E4E8F2"/>
+  </g>
+
+  <text x="208" y="458" class="h" font-size="24">Lead-Form</text>
+  <circle cx="555" cy="450" r="4.5" fill="white" fill-opacity="0.42"/>
+  <circle cx="571" cy="450" r="4.5" fill="white" fill-opacity="0.42"/>
+  <circle cx="587" cy="450" r="4.5" fill="white" fill-opacity="0.42"/>
+
+  <g filter="url(#cardShadow)">
+    <rect x="198" y="512" width="394" height="94" rx="15" fill="url(#cardFill)" stroke="#ECEFF6"/>
+  </g>
+  <rect x="214" y="528" width="42" height="42" rx="12" fill="#F6F8FC" stroke="#EEF2F8"/>
+  <path d="M226 535H244L248 539V563H222V535H226Z" fill="#1FA463"/>
+  <path d="M226 539H244L248 543H230C227.791 543 226 541.209 226 539Z" fill="#2EBD74"/>
+  <path d="M231 548H242" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M231 554H242" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M231 560H242" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+  <text x="274" y="540" class="eyebrow">Trigger</text>
+  <text x="274" y="568" class="title" font-size="22">Google Sheets Form Trigger</text>
+  <text x="274" y="592" class="body">
+    <tspan x="274" dy="0">Tự động lắng nghe mọi lượt submit form</tspan>
+    <tspan x="274" dy="21">và đưa dữ liệu mới vào flow xử lý lead.</tspan>
+  </text>
+
+  <g filter="url(#cardShadow)">
+    <rect x="198" y="620" width="394" height="94" rx="15" fill="url(#textCardFill)" stroke="#ECEFF6"/>
+  </g>
+  <rect x="214" y="636" width="42" height="42" rx="12" fill="#F6F8FC" stroke="#EEF2F8"/>
+  <rect x="223" y="643" width="24" height="20" rx="6" fill="#4E7AF7"/>
+  <path d="M229 663L233 659H244" stroke="#4E7AF7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="231" cy="653" r="1.3" fill="white"/>
+  <circle cx="236.8" cy="653" r="1.3" fill="white"/>
+  <circle cx="242.6" cy="653" r="1.3" fill="white"/>
+  <text x="274" y="648" class="eyebrow">Message</text>
+  <text x="274" y="676" class="title" font-size="22">Nhận thông tin đăng ký</text>
+  <text x="274" y="700" class="body">
+    <tspan x="274" dy="0">Chuẩn hóa dữ liệu đầu vào trước khi</tspan>
+    <tspan x="274" dy="21">đồng bộ sang CRM và hệ thống nội bộ.</tspan>
+  </text>
+
+  <g filter="url(#blockShadow)">
+    <rect x="950" y="332" width="430" height="76" rx="18" fill="#0F1835"/>
+    <rect x="950.5" y="408.5" width="429" height="286" rx="0" fill="white" fill-opacity="0.98"/>
+    <path d="M950.5 408.5H1379.5V676.5C1379.5 686.441 1371.44 694.5 1361.5 694.5H968.5C958.559 694.5 950.5 686.441 950.5 676.5V408.5Z" fill="white" fill-opacity="0.98" stroke="#E4E8F2"/>
+  </g>
+
+  <text x="978" y="378" class="h" font-size="24">HubSpot-CRM</text>
+  <circle cx="1325" cy="370" r="4.5" fill="white" fill-opacity="0.42"/>
+  <circle cx="1341" cy="370" r="4.5" fill="white" fill-opacity="0.42"/>
+  <circle cx="1357" cy="370" r="4.5" fill="white" fill-opacity="0.42"/>
+
+  <g filter="url(#cardShadow)">
+    <rect x="968" y="432" width="394" height="102" rx="15" fill="url(#cardFill)" stroke="#ECEFF6"/>
+  </g>
+  <rect x="984" y="448" width="42" height="42" rx="12" fill="#F6F8FC" stroke="#EEF2F8"/>
+  <circle cx="1005" cy="469" r="4.2" fill="#FF7A1A"/>
+  <circle cx="1018.8" cy="457.5" r="2" fill="#FF7A1A"/>
+  <circle cx="1019.5" cy="481.2" r="2.2" fill="#FF7A1A"/>
+  <circle cx="995.5" cy="481.2" r="1.9" fill="#FF7A1A"/>
+  <path d="M1008 466L1015.5 460M1008 472L1015 478M1002.5 472L998 478" stroke="#FF7A1A" stroke-width="2" stroke-linecap="round"/>
+  <text x="1044" y="460" class="eyebrow">CRM Sync</text>
+  <text x="1044" y="488" class="title" font-size="22">HubSpot Contact Sync</text>
+  <text x="1044" y="512" class="body">
+    <tspan x="1044" dy="0">Tạo hoặc cập nhật contact ngay khi có</tspan>
+    <tspan x="1044" dy="21">lead mới, giữ đầy đủ source và campaign data.</tspan>
+  </text>
+
+  <g filter="url(#cardShadow)">
+    <rect x="968" y="548" width="394" height="126" rx="15" fill="url(#cardFill)" stroke="#ECEFF6"/>
+  </g>
+  <rect x="984" y="564" width="42" height="42" rx="12" fill="#F6F8FC" stroke="#EEF2F8"/>
+  <rect x="993" y="571" width="24" height="20" rx="6" fill="#6C7BFF"/>
+  <rect x="998" y="579" width="16" height="2.4" rx="1.2" fill="white" fill-opacity="0.92"/>
+  <rect x="998" y="585" width="11" height="2.4" rx="1.2" fill="#DDE2FF"/>
+  <circle cx="1014.2" cy="586.2" r="2" fill="white"/>
+  <text x="1044" y="576" class="eyebrow">Pipeline</text>
+  <text x="1044" y="604" class="title" font-size="22">Create Deal Stage</text>
+  <text x="1044" y="628" class="body">
+    <tspan x="1044" dy="0">Đẩy deal vào stage New Lead để đội Sales</tspan>
+    <tspan x="1044" dy="21">nhận lead theo đúng quy trình xử lý.</tspan>
+  </text>
+  <rect x="1044" y="646" width="132" height="28" rx="14" fill="#F7F8FC" stroke="#EDF1F6"/>
+  <circle cx="1060" cy="660" r="4" fill="#FA6E5B" fill-opacity="0.88"/>
+  <text x="1071" y="664" class="badge">Stage: New Lead</text>
+
+  <g filter="url(#blockShadow)">
+    <rect x="1720" y="392" width="430" height="76" rx="18" fill="#0F1835"/>
+    <rect x="1720.5" y="468.5" width="429" height="292" rx="0" fill="white" fill-opacity="0.98"/>
+    <path d="M1720.5 468.5H2149.5V742.5C2149.5 752.441 2141.44 760.5 2131.5 760.5H1738.5C1728.56 760.5 1720.5 752.441 1720.5 742.5V468.5Z" fill="white" fill-opacity="0.98" stroke="#E4E8F2"/>
+  </g>
+
+  <text x="1748" y="438" class="h" font-size="24">Internal-Notification</text>
+  <circle cx="2095" cy="430" r="4.5" fill="white" fill-opacity="0.42"/>
+  <circle cx="2111" cy="430" r="4.5" fill="white" fill-opacity="0.42"/>
+  <circle cx="2127" cy="430" r="4.5" fill="white" fill-opacity="0.42"/>
+
+  <g filter="url(#cardShadow)">
+    <rect x="1738" y="492" width="394" height="102" rx="15" fill="url(#cardFill)" stroke="#ECEFF6"/>
+  </g>
+  <rect x="1754" y="508" width="42" height="42" rx="12" fill="#F6F8FC" stroke="#EEF2F8"/>
+  <path d="M1766 514L1778.5 508L1774.8 521L1789.5 518.5L1773 540.5L1777 526.6L1765.4 528.3Z" fill="#1AB7A8"/>
+  <path d="M1777.8 508.5L1789.6 517.3L1778.6 520.5Z" fill="#47D7D0"/>
+  <text x="1814" y="520" class="eyebrow">Internal Chat</text>
+  <text x="1814" y="548" class="title" font-size="22">Lark Message Sync</text>
+  <text x="1814" y="572" class="body">
+    <tspan x="1814" dy="0">Gửi thông tin lead đã chuẩn hóa vào kênh</tspan>
+    <tspan x="1814" dy="21">vận hành để Sales và CS nắm trạng thái tức thì.</tspan>
+  </text>
+
+  <g filter="url(#cardShadow)">
+    <rect x="1738" y="608" width="394" height="126" rx="15" fill="url(#textCardFill)" stroke="#ECEFF6"/>
+  </g>
+  <rect x="1754" y="624" width="42" height="42" rx="12" fill="#F6F8FC" stroke="#EEF2F8"/>
+  <rect x="1766.5" y="626.8" width="4.2" height="8.1" rx="2.1" fill="#36C5F0"/>
+  <rect x="1765.1" y="628.2" width="8.1" height="4.2" rx="2.1" fill="#36C5F0"/>
+  <rect x="1779.8" y="626.8" width="4.2" height="8.1" rx="2.1" fill="#2EB67D"/>
+  <rect x="1777.3" y="628.2" width="8.1" height="4.2" rx="2.1" fill="#2EB67D"/>
+  <rect x="1779.8" y="637.1" width="4.2" height="8.1" rx="2.1" fill="#ECB22E"/>
+  <rect x="1777.3" y="639.6" width="8.1" height="4.2" rx="2.1" fill="#ECB22E"/>
+  <rect x="1766.5" y="637.1" width="4.2" height="8.1" rx="2.1" fill="#E01E5A"/>
+  <rect x="1765.1" y="639.6" width="8.1" height="4.2" rx="2.1" fill="#E01E5A"/>
+  <text x="1814" y="636" class="eyebrow">Alert</text>
+  <text x="1814" y="664" class="title" font-size="22">Slack Alert</text>
+  <text x="1814" y="688" class="body">
+    <tspan x="1814" dy="0">Thông báo có Lead mới cho đội Sales,</tspan>
+    <tspan x="1814" dy="21">kèm nguồn traffic và thời điểm follow-up.</tspan>
+  </text>
+</svg>

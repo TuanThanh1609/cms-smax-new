@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Smax.ai Ecommerce Retail Flow</title>
+    <style>
+      :root {
+        --bg: #f5f6fa;
+        --grid: rgba(223, 230, 242, 0.82);
+        --stage-border: #e3e9f5;
+        --surface: #ffffff;
+        --surface-soft: rgba(255, 255, 255, 0.56);
+        --navy: #0f1835;
+        --navy-soft: #1a274d;
+        --coral: rgba(250, 110, 91, 0.6);
+        --coral-solid: #fa6e5b;
+        --text: #15203a;
+        --muted: #64748b;
+        --muted-strong: #56657f;
+        --border: #dde5f1;
+        --card-border: #e2e8f2;
+        --pill-bg: #ecf5ff;
+        --pill-text: #2775c8;
+        --shadow-stage: 0 20px 28px rgba(15, 24, 53, 0.08);
+        --shadow-block: 0 14px 20px rgba(15, 24, 53, 0.1);
+        --shadow-card: 0 8px 12px rgba(18, 32, 63, 0.06);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 2400px;
+        height: 1400px;
+        overflow: hidden;
+        font-family: "Segoe UI", Inter, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: geometricPrecision;
+        color: var(--text);
+      }
+
+      body {
+        position: relative;
+        background:
+          radial-gradient(520px 420px at 2050px 240px, rgba(255, 215, 208, 0.55), rgba(255, 215, 208, 0) 75%),
+          radial-gradient(680px 420px at 260px 1220px, rgba(220, 231, 255, 0.65), rgba(220, 231, 255, 0) 75%),
+          linear-gradient(135deg, #f8faff 0%, #f3f6fb 100%);
+      }
+
+      body::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(var(--grid) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+        background-size: 44px 44px;
+        opacity: 0.85;
+      }
+
+      .frame {
+        position: relative;
+        width: 2400px;
+        height: 1400px;
+      }
+
+      .stage {
+        position: absolute;
+        inset: 98px 100px 102px 100px;
+        border-radius: 34px;
+        background: var(--surface-soft);
+        border: 1px solid var(--stage-border);
+        box-shadow: var(--shadow-stage);
+        overflow: hidden;
+      }
+
+      .stage::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(223, 230, 242, 0.8) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(223, 230, 242, 0.8) 1px, transparent 1px);
+        background-size: 44px 44px;
+        opacity: 0.26;
+      }
+
+      .topbar {
+        position: absolute;
+        top: 40px;
+        left: 50px;
+        right: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 3;
+      }
+
+      .pill-row {
+        display: flex;
+        gap: 22px;
+        align-items: center;
+      }
+
+      .pill {
+        height: 46px;
+        padding: 0 28px;
+        border-radius: 23px;
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        border: 1px solid #e1e8f3;
+        background: #ffffff;
+        color: #16213c;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        box-shadow: 0 2px 8px rgba(15, 24, 53, 0.03);
+      }
+
+      .pill.soft {
+        background: #f7faff;
+        color: #62718d;
+        font-size: 19px;
+        font-weight: 600;
+      }
+
+      .pill.ghost {
+        background: #f5f8fe;
+        color: #30506d;
+        font-size: 18px;
+      }
+
+      .pill.percent {
+        width: 100px;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 700;
+        color: #56657f;
+      }
+
+      .coral-dot,
+      .green-dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        flex: 0 0 auto;
+      }
+
+      .coral-dot {
+        background: #fa6e5b;
+      }
+
+      .green-dot {
+        background: #31c48d;
+      }
+
+      .canvas {
+        position: absolute;
+        inset: 0;
+      }
+
+      .connections {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .flow-block {
+        position: absolute;
+        width: 540px;
+        filter: drop-shadow(0 14px 20px rgba(15, 24, 53, 0.1));
+        z-index: 2;
+      }
+
+      .flow-block.left {
+        left: 110px;
+        top: 250px;
+      }
+
+      .flow-block.middle {
+        left: 830px;
+        top: 270px;
+      }
+
+      .flow-block.right {
+        left: 1550px;
+        top: 250px;
+      }
+
+      .header {
+        height: 72px;
+        border-radius: 16px 16px 0 0;
+        background: var(--navy);
+        position: relative;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .header::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -20px;
+        height: 20px;
+        background: var(--navy);
+      }
+
+      .header-decor {
+        width: 18px;
+        height: 18px;
+        border-radius: 5px;
+        border: 1px solid #324270;
+        background: #22305e;
+        flex: 0 0 auto;
+      }
+
+      .header-decor.alt {
+        background: #192548;
+        border-color: #2d3a66;
+      }
+
+      .header-star {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #263461;
+        position: relative;
+        flex: 0 0 auto;
+      }
+
+      .header-star::before {
+        content: "";
+        position: absolute;
+        inset: 2px;
+        background: #ffd989;
+        clip-path: polygon(50% 0%, 63% 34%, 100% 50%, 63% 66%, 50% 100%, 37% 66%, 0% 50%, 37% 34%);
+        opacity: 0.9;
+      }
+
+      .header-title {
+        color: #fff;
+        font-size: 28px;
+        line-height: 1;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .header-menu {
+        margin-left: auto;
+        display: inline-flex;
+        gap: 6px;
+      }
+
+      .header-menu span {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #a9b8e7;
+        display: block;
+      }
+
+      .body-card {
+        border: 1px solid var(--border);
+        border-radius: 0 0 16px 16px;
+        background: var(--surface);
+        padding: 28px 22px 22px;
+      }
+
+      .card {
+        border-radius: 18px;
+        border: 1px solid var(--card-border);
+        background: #fff;
+        box-shadow: var(--shadow-card);
+        padding: 18px 20px;
+      }
+
+      .card + .card,
+      .card + .status-chip {
+        margin-top: 18px;
+      }
+
+      .card-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 14px;
+      }
+
+      .card-title {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-width: 0;
+      }
+
+      .title-text strong {
+        display: block;
+        font-size: 23px;
+        line-height: 1.12;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .title-text span {
+        display: block;
+        margin-top: 4px;
+        font-size: 17px;
+        line-height: 1.35;
+        color: var(--muted);
+        font-weight: 500;
+      }
+
+      .pill-mini {
+        min-width: 96px;
+        height: 30px;
+        padding: 0 12px;
+        border-radius: 15px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--pill-bg);
+        color: var(--pill-text);
+        font-size: 15px;
+        line-height: 1;
+        font-weight: 700;
+        text-transform: none;
+      }
+
+      .card-copy {
+        font-size: 18px;
+        line-height: 1.42;
+        color: var(--muted);
+        font-weight: 500;
+      }
+
+      .muted-card {
+        background: #fbfcfe;
+      }
+
+      .status-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 14px;
+        border: 1px solid #e2eaf6;
+        background: #ffffff;
+        color: #506176;
+        font-size: 17px;
+        font-weight: 600;
+      }
+
+      .status-chip.success {
+        border-color: #dbeee3;
+        background: #f6fff8;
+        color: #2c7e52;
+      }
+
+      .status-chip.coral {
+        border-color: #f8d7d2;
+        background: #fff7f5;
+        color: #c95f52;
+      }
+
+      .status-chip svg {
+        flex: 0 0 auto;
+      }
+
+      .icon-stack {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .icon-stack .badge {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        background: #f6f8fd;
+        border: 1px solid #e3e9f4;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+      }
+
+      .icon-stack .badge + .badge {
+        margin-left: -8px;
+      }
+
+      .icon-stack img,
+      .single-icon img {
+        display: block;
+        width: 24px;
+        height: 24px;
+      }
+
+      .single-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        background: #f6f8fd;
+        border: 1px solid #e3e9f4;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .kv-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #37c77b 0%, #28a966 100%);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+      }
+
+      .inventory-icon,
+      .invoice-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        background: #f6f8fd;
+        border: 1px solid #e3e9f4;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .footnote {
+        position: absolute;
+        right: 68px;
+        bottom: 52px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--muted-strong);
+        font-size: 18px;
+        font-weight: 600;
+        z-index: 3;
+      }
+
+      .footnote::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(250, 110, 91, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <section class="stage">
+        <div class="topbar">
+          <div class="pill-row">
+            <div class="pill">
+              <span class="coral-dot"></span>
+              <span>Smax.ai Workflow Builder</span>
+            </div>
+            <div class="pill soft">Canvas / Order-Webhook</div>
+          </div>
+          <div class="pill-row">
+            <div class="pill ghost">
+              <span class="green-dot"></span>
+              <span>Auto saved</span>
+            </div>
+            <div class="pill percent">100%</div>
+          </div>
+        </div>
+
+        <svg class="connections" viewBox="0 0 2200 1200" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <filter id="lineGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#FA6E5B" flood-opacity="0.22"></feDropShadow>
+            </filter>
+          </defs>
+          <g filter="url(#lineGlow)">
+            <path
+              d="M650 470 C740 470 770 510 830 510"
+              fill="none"
+              stroke="rgba(250,110,91,0.6)"
+              stroke-width="10"
+              stroke-linecap="round"
+            ></path>
+            <path
+              d="M1370 530 C1460 530 1490 470 1550 470"
+              fill="none"
+              stroke="rgba(250,110,91,0.6)"
+              stroke-width="10"
+              stroke-linecap="round"
+            ></path>
+          </g>
+          <g>
+            <circle cx="650" cy="470" r="9" fill="rgba(250,110,91,0.78)"></circle>
+            <circle cx="830" cy="510" r="9" fill="rgba(250,110,91,0.78)"></circle>
+            <circle cx="1370" cy="530" r="9" fill="rgba(250,110,91,0.78)"></circle>
+            <circle cx="1550" cy="470" r="9" fill="rgba(250,110,91,0.78)"></circle>
+            <circle cx="744" cy="489" r="6" fill="#ffd4cc"></circle>
+            <circle cx="1470" cy="498" r="6" fill="#ffd4cc"></circle>
+          </g>
+        </svg>
+
+        <div class="canvas">
+          <article class="flow-block left">
+            <div class="header">
+              <span class="header-decor"></span>
+              <span class="header-decor alt"></span>
+              <span class="header-star"></span>
+              <h2 class="header-title">Order-Webhook</h2>
+              <span class="header-menu" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </span>
+            </div>
+            <div class="body-card">
+              <section class="card">
+                <div class="card-head">
+                  <div class="card-title">
+                    <div class="icon-stack" aria-hidden="true">
+                      <span class="badge"><img src="../asset%20smax/integration-icons/tiktok.svg" alt="" /></span>
+                      <span class="badge"><img src="../asset%20smax/integration-icons/shopee.svg" alt="" /></span>
+                    </div>
+                    <div class="title-text">
+                      <strong>New Order Trigger</strong>
+                      <span>Nhận đơn mới từ TikTok Shop và Shopee</span>
+                    </div>
+                  </div>
+                  <div class="pill-mini">Trigger</div>
+                </div>
+                <div class="card-copy">Kích hoạt luồng ngay khi hệ thống ghi nhận đơn hàng mới từ sàn.</div>
+              </section>
+
+              <section class="card muted-card">
+                <div class="card-head">
+                  <div class="card-title">
+                    <div class="inventory-icon" aria-hidden="true">
+                      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                        <path d="M7 9.5h12M7 14h12M7 18.5h8" stroke="#64748B" stroke-width="2.4" stroke-linecap="round"></path>
+                        <rect x="4.5" y="4.5" width="17" height="17" rx="5.5" stroke="#A7B4C8" stroke-width="2"></rect>
+                      </svg>
+                    </div>
+                    <div class="title-text">
+                      <strong>Đồng bộ dữ liệu khách hàng</strong>
+                      <span>Cập nhật thông tin người mua vào hồ sơ CRM</span>
+                    </div>
+                  </div>
+                  <div class="pill-mini">CRM</div>
+                </div>
+              </section>
+
+              <div class="status-chip coral">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                  <circle cx="9" cy="9" r="8" stroke="#FA6E5B" stroke-width="2"></circle>
+                  <path d="M9 4.8v4.7M9 12.6v.2" stroke="#FA6E5B" stroke-width="2" stroke-linecap="round"></path>
+                </svg>
+                <span>Webhook đã sẵn sàng nhận đơn</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="flow-block middle">
+            <div class="header">
+              <span class="header-decor"></span>
+              <span class="header-decor alt"></span>
+              <span class="header-star"></span>
+              <h2 class="header-title">POS-Sync</h2>
+              <span class="header-menu" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </span>
+            </div>
+            <div class="body-card">
+              <section class="card">
+                <div class="card-head">
+                  <div class="card-title">
+                    <div class="kv-icon" aria-hidden="true">KV</div>
+                    <div class="title-text">
+                      <strong>KiotViet Sync</strong>
+                      <span>Đẩy đơn hàng về POS bán lẻ theo thời gian thực</span>
+                    </div>
+                  </div>
+                  <div class="pill-mini">POS</div>
+                </div>
+                <div class="card-copy">Đồng bộ mã đơn, cửa hàng, SKU và thông tin thanh toán sang KiotViet.</div>
+              </section>
+
+              <section class="card">
+                <div class="card-head">
+                  <div class="card-title">
+                    <div class="inventory-icon" aria-hidden="true">
+                      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                        <ellipse cx="11" cy="7" rx="6.5" ry="3.5" stroke="#5F6F88" stroke-width="2.1"></ellipse>
+                        <path d="M4.5 7v8c0 2 2.9 3.6 6.5 3.6s6.5-1.6 6.5-3.6V7" stroke="#5F6F88" stroke-width="2.1"></path>
+                        <path d="M18.4 17.2l2.5 2.5m-1.8-6.2a4.3 4.3 0 1 1-8.6 0 4.3 4.3 0 0 1 8.6 0Z" stroke="#31C48D" stroke-width="2.1" stroke-linecap="round"></path>
+                      </svg>
+                    </div>
+                    <div class="title-text">
+                      <strong>Check Inventory</strong>
+                      <span>Kiểm tra tồn kho và xác minh số lượng từng SKU</span>
+                    </div>
+                  </div>
+                  <div class="pill-mini">Stock</div>
+                </div>
+                <div class="card-copy">Đối chiếu dữ liệu kho trước khi tạo hóa đơn và gửi xác nhận cho khách.</div>
+              </section>
+
+              <div class="status-chip success">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                  <circle cx="9" cy="9" r="8" stroke="#31C48D" stroke-width="2"></circle>
+                  <path d="m5.4 9.1 2.2 2.3 4.9-5.1" stroke="#31C48D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <span>Đã kiểm tra tồn kho khả dụng</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="flow-block right">
+            <div class="header">
+              <span class="header-decor"></span>
+              <span class="header-decor alt"></span>
+              <span class="header-star"></span>
+              <h2 class="header-title">Notify-Customer</h2>
+              <span class="header-menu" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </span>
+            </div>
+            <div class="body-card">
+              <section class="card">
+                <div class="card-head">
+                  <div class="card-title">
+                    <div class="invoice-icon" aria-hidden="true">
+                      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                        <path d="M8 4.8h7l4 4v12.4H8z" fill="#EFFAF3" stroke="#31C48D" stroke-width="2"></path>
+                        <path d="M15 4.8v4.4h4" stroke="#31C48D" stroke-width="2" stroke-linejoin="round"></path>
+                        <path d="m10 15.3 2 2.1 4.2-4.3" stroke="#24A866" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </div>
+                    <div class="title-text">
+                      <strong>Create Invoice</strong>
+                      <span>Tạo hóa đơn bán lẻ sau khi đồng bộ POS thành công</span>
+                    </div>
+                  </div>
+                  <div class="pill-mini">Invoice</div>
+                </div>
+                <div class="card-copy">Chuẩn hóa mã đơn, tổng tiền, phí vận chuyển và trạng thái thanh toán.</div>
+              </section>
+
+              <section class="card">
+                <div class="card-head">
+                  <div class="card-title">
+                    <div class="single-icon" aria-hidden="true">
+                      <img src="../asset%20smax/integration-icons/zalo.svg" alt="" />
+                    </div>
+                    <div class="title-text">
+                      <strong>Zalo ZNS Notify</strong>
+                      <span>Gửi tin nhắn xác nhận đơn hàng và thông tin giao vận</span>
+                    </div>
+                  </div>
+                  <div class="pill-mini">ZNS</div>
+                </div>
+                <div class="card-copy">Gửi tin nhắn xác nhận đơn hàng... kèm mã đơn, cửa hàng, số tiền và thời gian xử lý dự kiến.</div>
+              </section>
+
+              <div class="status-chip success">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                  <circle cx="9" cy="9" r="8" stroke="#31C48D" stroke-width="2"></circle>
+                  <path d="m5.4 9.1 2.2 2.3 4.9-5.1" stroke="#31C48D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <span>Khách hàng đã được thông báo qua Zalo ZNS</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="footnote">Retail ecommerce orchestration / Smax.ai editor view</div>
+      </section>
+    </div>
+  </body>
+</html>

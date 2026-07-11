@@ -1,0 +1,1329 @@
+<!DOCTYPE html><html lang="vi"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Giải pháp AI-Automation toàn diện cho E-commerce và Bán lẻ giúp tối ưu tỷ lệ chốt đơn, bám đuổi giỏ hàng, đồng bộ SAPO/KiotViet/Haravan và tự động hóa remarketing khách hàng cũ.">
+    <title>Smax.ai Giải pháp E-commerce &amp; Bán lẻ | Tự động hóa bán hàng &amp; CSKH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="icon" href="asset smax/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      /* --- Custom Premium Styles for E-commerce & Bán lẻ --- */
+      body {
+        overflow-x: hidden;
+      }
+      
+      .ecommerce-page-wrapper {
+        font-family: "Be Vietnam Pro", sans-serif;
+        color: var(--primary-navy, #0F1835);
+        background: #FFFFFF;
+      }
+
+      /* Hero Section */
+      .premium-hero {
+        position: relative;
+        padding: 160px 0 80px;
+        background: url('https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/gridBackground.png') no-repeat center center;
+        background-size: cover;
+        text-align: center;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .hero-grid-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: radial-gradient(rgba(15, 24, 53, 0.12) 1px, transparent 1px);
+        background-size: 32px 32px;
+        mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
+        opacity: 0.15;
+        z-index: 1;
+      }
+
+      .announcement-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 16px;
+        border-radius: 99px;
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        box-shadow: 0 2px 8px rgba(15, 24, 53, 0.04);
+        margin-bottom: 32px;
+        font-size: 13.5px;
+        font-weight: 500;
+        color: var(--primary-navy, #0F1835);
+        position: relative;
+        z-index: 2;
+        transition: all 0.3s ease;
+      }
+
+      .announcement-badge:hover {
+        border-color: rgba(66, 119, 255, 0.3);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(66, 119, 255, 0.08);
+      }
+
+      .announcement-tag {
+        background: var(--primary-coral, #FA6E5B);
+        color: #FFFFFF;
+        padding: 2px 8px;
+        border-radius: 99px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .premium-hero h1 {
+        font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+        font-weight: 900;
+        line-height: 1.25;
+        letter-spacing: -0.03em;
+        color: var(--primary-navy, #0F1835);
+        max-width: 960px;
+        margin: 0 auto 24px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .premium-hero h1 span.highlight {
+        background: linear-gradient(95deg, var(--process-blue, #4277FF) 0%, var(--primary-coral, #FA6E5B) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+      }
+
+      .hero-sub {
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        max-width: 60ch;
+        margin: 0 auto 40px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        position: relative;
+        z-index: 2;
+        margin-bottom: 56px;
+      }
+
+      .hero-actions .btn {
+        border-radius: 99px !important;
+        padding: 14px 32px !important;
+        font-size: 15px !important;
+        font-weight: 700 !important;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      }
+
+      .btn-dark {
+        background: var(--primary-navy, #0F1835);
+        color: #FFFFFF;
+        border: 1px solid var(--primary-navy, #0F1835);
+      }
+
+      .btn-dark:hover {
+        background: #1b2952;
+        border-color: #1b2952;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(15, 24, 53, 0.15);
+      }
+
+      .btn-soft {
+        background: transparent;
+        color: var(--primary-navy, #0F1835);
+        border: 1px solid rgba(15, 24, 53, 0.15);
+      }
+
+      .btn-soft:hover {
+        background: rgba(15, 24, 53, 0.02);
+        border-color: rgba(15, 24, 53, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .hero-mockup-wrapper {
+        max-width: 1120px;
+        margin: 0 auto;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        overflow: visible;
+        position: relative;
+        z-index: 5;
+        animation: fadeInUpMockup 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      @keyframes fadeInUpMockup {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .browser-header {
+        display: none;
+      }
+
+      .browser-dots {
+        display: flex;
+        gap: 6px;
+      }
+
+      .browser-dots .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .browser-dots .dot.red { background: #FF5F56; }
+      .browser-dots .dot.yellow { background: #FFBD2E; }
+      .browser-dots .dot.green { background: #27C93F; }
+
+      .browser-address {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(15, 24, 53, 0.03);
+        padding: 4px 24px;
+        border-radius: 6px;
+        font-size: 11.5px;
+        font-weight: 500;
+        color: #667085;
+        font-family: monospace;
+        letter-spacing: 0.02em;
+      }
+
+      .browser-content {
+        position: relative;
+        background: transparent;
+        line-height: 0;
+      }
+
+      .browser-content img {
+        width: 100%;
+        height: auto;
+        display: block;
+        filter: drop-shadow(0 24px 34px rgba(34, 54, 112, 0.12));
+      }
+
+      /* Metrics Section */
+      .metrics-section {
+        padding: 60px 0;
+        background: #F8F9FC;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+      }
+
+      .metric-card {
+        text-align: center;
+        position: relative;
+      }
+
+      .metric-card:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: -16px;
+        top: 20%;
+        height: 60%;
+        width: 1px;
+        background: rgba(15, 24, 53, 0.08);
+      }
+
+      .metric-num {
+        font-size: clamp(2rem, 3.5vw, 2.8rem);
+        font-weight: 900;
+        line-height: 1;
+        background: linear-gradient(135deg, var(--process-blue, #4277FF) 0%, var(--primary-coral, #FA6E5B) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 8px;
+        letter-spacing: -0.03em;
+      }
+
+      .metric-label {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      /* General Section Header */
+      .section-header {
+        text-align: center;
+        max-width: 720px;
+        margin: 0 auto 60px;
+      }
+
+      .section-tag {
+        display: inline-block;
+        padding: 6px 14px;
+        border-radius: 99px;
+        background: rgba(66, 119, 255, 0.06);
+        color: var(--blue, #4277FF);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        margin-bottom: 16px;
+        border: 1px solid rgba(66, 119, 255, 0.12);
+        text-transform: uppercase;
+      }
+
+      .section-title {
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 800;
+        color: var(--primary-navy, #0F1835);
+        line-height: 1.3;
+        letter-spacing: -0.02em;
+        margin-bottom: 16px;
+      }
+
+      .section-desc {
+        font-size: 16px;
+        color: var(--text-secondary, #475467);
+        line-height: 1.6;
+      }
+
+      /* Challenges Section (Bento Grid) */
+      .challenges-section {
+        padding: 120px 0;
+        background: #FFFFFF;
+      }
+
+      .challenges-grid {
+        display: grid;
+        grid-template-columns: 1.25fr 1fr;
+        gap: 24px;
+      }
+
+      .challenge-card {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(15, 24, 53, 0.02);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .challenge-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 45px rgba(15, 24, 53, 0.06);
+        border-color: rgba(66, 119, 255, 0.12);
+      }
+
+      .challenge-top {
+        margin-bottom: 24px;
+      }
+
+      .challenge-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: rgba(250, 110, 91, 0.06);
+        color: var(--primary-coral, #FA6E5B);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .challenge-card:nth-child(even) .challenge-icon {
+        background: rgba(66, 119, 255, 0.06);
+        color: var(--process-blue, #4277FF);
+      }
+
+      .challenge-card h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0 0 12px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .challenge-card p {
+        font-size: 14.5px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        margin: 0;
+      }
+
+      .challenges-row-2 {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      /* Solution Section Layouts */
+      .solution-panel-section {
+        padding: 100px 0;
+        border-top: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .solution-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .solution-info {
+        text-align: left;
+      }
+
+      .solution-info h2 {
+        font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+        font-weight: 800;
+        line-height: 1.3;
+        margin-bottom: 20px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .solution-info .solution-desc-main {
+        font-size: 16px;
+        color: var(--text-secondary, #475467);
+        line-height: 1.6;
+        margin-bottom: 32px;
+      }
+
+      .solution-points {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .sol-point {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .sol-point-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: rgba(66, 119, 255, 0.08);
+        color: var(--blue, #4277FF);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .sol-point-content h4 {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0 0 4px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .sol-point-content p {
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--text-secondary, #475467);
+        margin: 0;
+      }
+
+      .solution-visual {
+        position: relative;
+      }
+
+      .solution-visual img {
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+        box-shadow: none;
+        border: 0;
+        filter: drop-shadow(0 18px 28px rgba(34, 54, 112, 0.1));
+      }
+
+      /* Solution 2 acquisition (Bento grid visual) */
+      .solution-acquisition-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 32px;
+        margin-top: 48px;
+      }
+
+      .acq-card {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: 0 8px 24px rgba(15, 24, 53, 0.02);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .acq-main-card {
+        background: radial-gradient(circle at 5% 5%, rgba(66, 119, 255, 0.04), transparent 45%), #FFFFFF;
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 32px;
+        align-items: center;
+      }
+
+      .acq-card-right-img img {
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        filter: drop-shadow(0 14px 22px rgba(34, 54, 112, 0.1));
+      }
+
+      .acq-sub-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        grid-column: span 2;
+      }
+
+      .acq-sub-card {
+        background: #F8F9FC;
+        border-radius: 16px;
+        padding: 24px;
+        border: 1px solid rgba(15, 24, 53, 0.04);
+      }
+
+      .acq-sub-card h4 {
+        font-size: 15.5px;
+        font-weight: 700;
+        margin: 0 0 8px;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .acq-sub-card p {
+        font-size: 13.5px;
+        line-height: 1.5;
+        color: var(--text-secondary, #475467);
+        margin: 0;
+      }
+
+      /* Solution 4 Loyalty (Centered vertical stack) */
+      .solution-loyalty-section {
+        background: #F8F9FC;
+        text-align: center;
+        padding: 100px 0;
+      }
+
+      .loyalty-visual {
+        max-width: 1080px;
+        margin: -16px auto 44px;
+      }
+
+      .loyalty-visual img {
+        width: 100%;
+        height: auto;
+        display: block;
+        filter: drop-shadow(0 18px 28px rgba(34, 54, 112, 0.1));
+      }
+
+      .loyalty-cards-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .loyalty-card {
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 12px 36px rgba(15, 24, 53, 0.03);
+        text-align: left;
+        transition: transform 0.3s ease;
+      }
+
+      .loyalty-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .loyalty-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(66, 119, 255, 0.08);
+        color: var(--blue, #4277FF);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+      }
+
+      .loyalty-card h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0 0 12px;
+      }
+
+      .loyalty-card p {
+        font-size: 14.5px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        margin: 0;
+      }
+
+      /* Integrations & Logos */
+      .integrations-logos {
+        margin-top: 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .int-logo {
+        background: #F8F9FC;
+        padding: 8px 16px;
+        border-radius: 8px;
+        border: 1px solid rgba(15, 24, 53, 0.05);
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-secondary, #475467);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .int-logo img {
+        height: 18px;
+        width: auto;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 120px 0;
+        background: #FFFFFF;
+        position: relative;
+      }
+
+      .cta-card {
+        background: var(--primary-navy, #0F1835);
+        border-radius: 32px;
+        padding: 80px 48px;
+        text-align: center;
+        color: #FFFFFF;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 32px 80px rgba(15, 24, 53, 0.25);
+      }
+
+      .cta-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: 
+          radial-gradient(circle at 20% 30%, rgba(66, 119, 255, 0.15), transparent 40%),
+          radial-gradient(circle at 80% 70%, rgba(250, 110, 91, 0.12), transparent 40%);
+        pointer-events: none;
+      }
+
+      .cta-card h2 {
+        font-size: clamp(2rem, 3.5vw, 2.6rem);
+        font-weight: 800;
+        line-height: 1.25;
+        margin-bottom: 16px;
+        letter-spacing: -0.02em;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-card p {
+        font-size: 17px;
+        color: rgba(255, 255, 255, 0.7);
+        max-width: 54ch;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-actions .btn-dark {
+        background: #FFFFFF;
+        color: var(--primary-navy, #0F1835);
+        border-color: #FFFFFF;
+      }
+
+      .cta-actions .btn-dark:hover {
+        background: rgba(255, 255, 255, 0.9);
+        border-color: rgba(255, 255, 255, 0.9);
+        transform: translateY(-2px);
+      }
+
+      .cta-actions .btn-soft {
+        color: #FFFFFF;
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .cta-actions .btn-soft:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.6);
+      }
+
+      /* Mobile visual display blocks */
+      .mobile-section-visual {
+        display: none;
+      }
+
+      /* --- Responsive --- */
+      @media (max-width: 1023px) {
+        .premium-hero {
+          padding: 120px 0 60px;
+        }
+
+        .hero-mockup-wrapper {
+          display: block;
+          max-width: 100%;
+          margin-top: 8px;
+        }
+
+        .metrics-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 24px;
+        }
+
+        .metric-card:nth-child(2)::after {
+          display: none;
+        }
+
+        .challenges-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .challenges-row-2 {
+          grid-column: span 1;
+          grid-template-columns: 1fr;
+        }
+
+        .solution-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .solution-visual {
+          display: none; /* Hide desktop visual */
+        }
+
+        .mobile-section-visual {
+          display: block;
+          margin-top: 24px;
+        }
+
+        .mobile-section-visual img {
+          width: 100%;
+          border-radius: 0;
+          border: 0;
+          box-shadow: none;
+          filter: drop-shadow(0 14px 22px rgba(34, 54, 112, 0.1));
+        }
+
+        .solution-acquisition-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .acq-main-card {
+          grid-template-columns: 1fr;
+        }
+
+        .acq-card-right-img {
+          margin-top: 24px;
+        }
+
+        .loyalty-cards-container {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .cta-card {
+          padding: 60px 24px;
+        }
+
+        .cta-actions {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .cta-actions .btn {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          width: min(100% - 32px, var(--container));
+        }
+
+        .premium-hero {
+          padding: 112px 0 52px;
+        }
+
+        .premium-hero h1 {
+          max-width: 320px;
+          font-size: clamp(1.85rem, 8.5vw, 2.2rem);
+          line-height: 1.18;
+          overflow-wrap: anywhere;
+        }
+
+        .premium-hero h1 span.highlight {
+          display: inline;
+          overflow-wrap: anywhere;
+        }
+
+        .hero-sub {
+          font-size: 16px;
+        }
+
+        .announcement-badge {
+          max-width: 320px;
+          flex-wrap: wrap;
+          justify-content: center;
+          white-space: normal;
+          line-height: 1.4;
+        }
+
+        .announcement-badge span:last-child {
+          min-width: 0;
+          overflow-wrap: anywhere;
+        }
+
+        .hero-actions {
+          width: min(100%, 286px);
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 36px;
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .hero-actions .btn {
+          width: 100%;
+        }
+
+        .browser-content img {
+          width: 100%;
+          max-width: 100%;
+          margin-left: 0;
+        }
+
+        .metrics-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        .metric-card::after {
+          display: none !important;
+        }
+
+        .metric-num {
+          font-size: clamp(1.75rem, 9vw, 2.1rem);
+        }
+
+        .metric-label {
+          font-size: 13.5px;
+        }
+
+        .section-title,
+        .solution-info h2,
+        .cta-card h2 {
+          font-size: clamp(1.45rem, 7.2vw, 1.85rem);
+          overflow-wrap: anywhere;
+        }
+
+        .section-header {
+          max-width: 320px;
+        }
+
+        .section-desc {
+          font-size: 15px;
+        }
+
+        .loyalty-visual {
+          margin: 0 auto 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ecommerce-page-wrapper">
+      <!-- Shared Header -->
+      <header class="site-header" data-header=""></header>
+
+      <main id="top">
+        <!-- Hero Section -->
+        <section class="premium-hero">
+          <div class="hero-grid-bg"></div>
+          <div class="container">
+            <div class="announcement-badge">
+              <span class="announcement-tag">GIẢI PHÁP</span>
+              <span data-cms="ecom-hero-badge">Ứng dụng AI cho E-commerce &amp; Bán lẻ</span>
+            </div>
+            <h1 data-cms="ecom-hero-title">Ứng dụng AI-Automation cho E-commerce &amp; Bán lẻ
+            </h1>
+            <p class="hero-sub" data-cms="ecom-hero-sub">Xây dựng kênh bán hàng riêng, sở hữu dữ liệu khách hàng và tăng doanh thu từ mọi cuộc hội thoại. Tự động hóa bán hàng, tăng tỷ lệ mua lại và giảm phụ thuộc vào sàn thương mại điện tử.</p>
+            <div class="hero-actions">
+              <a class="btn btn-dark" href="#cta">
+                Đăng ký Demo
+              </a>
+              <a class="btn btn-soft" href="#cta">
+                Liên hệ tư vấn
+              </a>
+            </div>
+
+            <!-- Browser Mockup -->
+            <div class="hero-mockup-wrapper">
+              <div class="browser-header">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-address">smax.ai/solutions/ecommerce</div>
+              </div>
+              <div class="browser-content">
+                <img data-cms-img="ecom-hero-img" src="asset smax/ecommerce-v2/hero-ecommerce-map.webp" alt="Bản đồ tự động hóa bán lẻ Smax">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 1: Metrics -->
+        <section class="metrics-section">
+          <div class="container">
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="metric-num">+35%</div>
+                <div class="metric-label">Tỷ lệ chốt đơn</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-num">+24.5%</div>
+                <div class="metric-label">Doanh thu từ Chatbot</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-num">&lt;10s</div>
+                <div class="metric-label">Độ trễ phản hồi</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-num">85%</div>
+                <div class="metric-label">Tự động trả lời</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Challenges -->
+        <section class="challenges-section">
+          <div class="container">
+            <div class="section-header">
+              <div class="section-tag">Thách thức</div>
+              <h2 class="section-title" data-cms="ecom-challenges-title">Những thách thức kìm hãm tăng trưởng E-commerce</h2>
+              <p class="section-desc" data-cms="ecom-challenges-desc">Doanh nghiệp E-commerce ngày càng chịu áp lực lớn về chi phí quảng cáo, mất dữ liệu khách hàng vào tay bên thứ ba, và khó giữ chân người mua hàng quay lại.</p>
+            </div>
+
+            <div class="challenges-grid">
+              <!-- Challenge 1 -->
+              <div class="challenge-card">
+                <div class="challenge-top">
+                  <div class="challenge-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+                  </div>
+                  <h3 data-cms="ecommerce-text-1">Phí sàn tăng cao &amp; Giữ tiền lâu</h3>
+                  <p data-cms="ecommerce-text-2">Các sàn thương mại điện tử liên tục tăng phí chiết khấu đơn hàng và giam dòng tiền, làm giảm biên lợi nhuận ròng của doanh nghiệp.</p>
+                </div>
+              </div>
+
+              <!-- Challenge 2 -->
+              <div class="challenge-card">
+                <div class="challenge-top">
+                  <div class="challenge-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  </div>
+                  <h3 data-cms="ecommerce-text-3">Không sở hữu dữ liệu khách hàng</h3>
+                  <p data-cms="ecommerce-text-4">Mọi thông tin liên hệ, hành vi và lịch sử mua sắm của khách hàng đều do sàn nắm giữ. Doanh nghiệp không có cách nào chăm sóc lại trực tiếp.</p>
+                </div>
+              </div>
+
+              <!-- Challenge Row 2 -->
+              <div class="challenges-row-2">
+                <!-- Challenge 3 -->
+                <div class="challenge-card">
+                  <div class="challenge-top">
+                    <div class="challenge-icon">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><path d="m22 6-10 7L2 6"></path></svg>
+                    </div>
+                    <h3 data-cms="ecommerce-text-5">Chi phí quảng cáo (CAC) ngày càng đắt đỏ</h3>
+                    <p data-cms="ecommerce-text-6">Cạnh tranh khốc liệt đẩy giá thầu quảng cáo lên cao. Nếu chỉ bán hàng một lần và không có remarketing, doanh nghiệp chắc chắn sẽ lỗ.</p>
+                  </div>
+                </div>
+
+                <!-- Challenge 4 -->
+                <div class="challenge-card">
+                  <div class="challenge-top">
+                    <div class="challenge-icon">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3 data-cms="ecommerce-text-7">Tỷ lệ bỏ rơi giỏ hàng cao</h3>
+                    <p data-cms="ecommerce-text-8">Khách hàng thêm sản phẩm vào giỏ hàng hoặc nhắn tin hỏi giá nhưng sau đó im lặng. Việc thiếu bám đuổi tự động làm mất đi 70% doanh thu tiềm năng.</p>
+                  </div>
+                </div>
+
+                <!-- Challenge 5 -->
+                <div class="challenge-card">
+                  <div class="challenge-top">
+                    <div class="challenge-icon">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18z"></path><path d="M12 7v5l3 3"></path></svg>
+                    </div>
+                    <h3 data-cms="ecommerce-text-9">Quy trình vận hành thủ công, dễ sai sót</h3>
+                    <p data-cms="ecommerce-text-10">Nhân viên phải copy-paste thông tin đơn hàng, check tồn kho thủ công trên nhiều phần mềm khác nhau, dẫn đến chậm trễ và sai lệch địa chỉ.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Solution 1 (Kênh bán riêng) -->
+        <section class="solution-panel-section">
+          <div class="container">
+            <div class="solution-grid">
+              <div class="solution-info">
+                <div class="section-tag">Giải pháp 01</div>
+                <h2 data-cms="ecommerce-text-11">Xây dựng kênh bán hàng riêng trên Messenger &amp; Zalo</h2>
+                <p class="solution-desc-main" data-cms="ecommerce-text-12">
+                  Thiết lập cửa hàng trực tiếp trong cuộc hội thoại (Social Commerce) để khách hàng mua sắm nhanh chóng mà không cần rời khung chat.
+                </p>
+                <div class="solution-points">
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="ecommerce-text-13">Ecom Selling Page &amp; Smax POS</h4>
+                      <p data-cms="ecommerce-text-14">Thiết kế form chọn size, màu, địa chỉ giao hàng và thanh toán dynamic qua Smax Payment Hub ngay trong khung chat, tăng 40% trải nghiệm mua sắm.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="ecommerce-text-15">Nhân sự trực chat &amp; AI Copilot</h4>
+                      <p data-cms="ecommerce-text-16">Sự kết hợp hoàn hảo giữa supporter xử lý ca khó và AI Agent tự động tư vấn sản phẩm, báo giá, check tồn kho thời gian thực 24/7.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="ecommerce-text-17">Messenger &amp; Zalo OA Click-to-Chat</h4>
+                      <p data-cms="ecommerce-text-18">Dẫn dắt khách hàng trực tiếp từ quảng cáo Click-to-Chat của Meta vào luồng chatbot để tư vấn và chốt đơn ngay lập tức.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="solution-visual">
+                <img src="asset smax/ecommerce-v2/chat-commerce-channel.webp" alt="Luồng tạo kênh bán hàng riêng trên Messenger và Zalo" loading="lazy" decoding="async" data-cms-img="ecommerce-img-1">
+              </div>
+            </div>
+            <!-- Mobile visual -->
+            <div class="mobile-section-visual">
+              <img src="asset smax/ecommerce-v2/chat-commerce-channel.webp" alt="Luồng tạo kênh bán hàng riêng trên Messenger và Zalo" loading="lazy" decoding="async" data-cms-img="ecommerce-img-2">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Solution 2 (Thu hút và chuyển đổi O2O) -->
+        <section class="solution-panel-section" style="background: #F8F9FC;">
+          <div class="container">
+            <div class="section-header">
+              <div class="section-tag">Giải pháp 02</div>
+              <h2 class="section-title" data-cms="ecommerce-text-19">Thu hút khách hàng &amp; Chuyển đổi O2O tự động</h2>
+              <p class="section-desc" data-cms="ecommerce-text-20">
+                Tận dụng sức mạnh của kịch bản Viral và Minigame để lôi kéo khách hàng online/offline về phễu chatbot của doanh nghiệp.
+              </p>
+            </div>
+
+            <div class="solution-acquisition-grid">
+              <!-- Left Big Bento cell (Gamification) -->
+              <div class="acq-card acq-main-card">
+                <div>
+                  <h3 style="font-size: 20px; font-weight: 800; margin: 0 0 12px; color: var(--primary-navy, #0F1835);" data-cms="ecommerce-text-21">Vòng quay may mắn &amp; Mở quà (Gamification)</h3>
+                  <p style="font-size: 14.5px; line-height: 1.6; color: var(--text-secondary, #475467); margin: 0 0 20px;" data-cms="ecommerce-text-22">
+                    Gắn minigame (Lucky Wheel, Gift Opening) vào kịch bản chat. Khi khách hàng mua đơn hàng trên 500k hoặc check-in tại cửa hàng offline (quét mã QR), chatbot sẽ tự động tặng lượt chơi để họ trúng voucher mua hàng tiếp theo.
+                  </p>
+                </div>
+                <div class="acq-card-right-img">
+                  <img src="asset smax/ecommerce-v2/o2o-gamification-flow.webp" alt="Luồng O2O từ QR đến trò chơi và mã ưu đãi" loading="lazy" decoding="async" data-cms-img="ecommerce-img-3">
+                </div>
+              </div>
+
+              <!-- Right Supporting Bento cell -->
+              <div class="acq-card" style="gap: 24px;">
+                <div class="acq-sub-card">
+                  <h4 data-cms="ecommerce-text-23">Instagram &amp; Facebook Ref Link</h4>
+                  <p data-cms="ecommerce-text-24">Tạo link chatbot riêng biệt cho từng KOL/Chi dịch để đo lường chính xác số lượng click và đơn hàng thu về.</p>
+                </div>
+                <div class="acq-sub-card">
+                  <h4 data-cms="ecommerce-text-25">Tự động quét Comment &amp; Inbox</h4>
+                  <p data-cms="ecommerce-text-26">Tự động trả lời bình luận công khai của khách trên fanpage và tự động gửi tin nhắn inbox báo giá chi tiết trong 1 giây.</p>
+                </div>
+              </div>
+
+              <!-- Bottom sub cards row -->
+              <div class="acq-sub-grid">
+                <div class="acq-card">
+                  <h3 style="font-size: 17px; font-weight: 700; margin: 0 0 8px; color: var(--primary-navy, #0F1835);" data-cms="ecommerce-text-27">Chuyển đổi O2O qua QR Code</h3>
+                  <p style="font-size: 14px; line-height: 1.5; color: var(--text-secondary, #475467); margin: 0;" data-cms="ecommerce-text-28">Khách quét mã QR tại quầy để nhận ưu đãi, chatbot tự động lưu số điện thoại và đưa họ vào luồng chăm sóc online.</p>
+                </div>
+                <div class="acq-card">
+                  <h3 style="font-size: 17px; font-weight: 700; margin: 0 0 8px; color: var(--primary-navy, #0F1835);" data-cms="ecommerce-text-29">Đo lường phễu chuyển đổi</h3>
+                  <p style="font-size: 14px; line-height: 1.5; color: var(--text-secondary, #475467); margin: 0;" data-cms="ecommerce-text-30">Ghi nhận chính xác tỷ lệ hoàn thành minigame và tỷ lệ sử dụng mã giảm giá thực tế của người dùng.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5: Solution 3 (Giảm thất thoát giỏ hàng) -->
+        <section class="solution-panel-section">
+          <div class="container">
+            <div class="solution-grid">
+              <div class="solution-visual">
+                <img src="asset smax/ecommerce-v2/abandoned-cart-recovery.webp" alt="Luồng bám đuổi giỏ hàng bị bỏ rơi tự động" loading="lazy" decoding="async" data-cms-img="ecommerce-img-4">
+              </div>
+              <div class="solution-info">
+                <div class="section-tag">Giải pháp 03</div>
+                <h2 data-cms="ecommerce-text-31">Bám đuổi giỏ hàng bị bỏ rơi tự động</h2>
+                <p class="solution-desc-main" data-cms="ecommerce-text-32">
+                  Tự động kích hoạt chuỗi tin nhắn nhắc nhở và tặng voucher ưu đãi khi khách hàng đã thêm sản phẩm nhưng chưa thanh toán.
+                </p>
+                <div class="solution-points">
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="ecommerce-text-33">Kịch bản bám đuổi giỏ hàng (Abandoned Cart)</h4>
+                      <p data-cms="ecommerce-text-34">Hệ thống phát hiện khách chưa mua hàng → Gửi tin nhắn sau 30 phút nhắc nhở → Gửi tin nhắn sau 24 giờ tặng mã giảm giá 5% để kích thích chốt đơn.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="ecommerce-text-35">Theo dõi hành vi thêm giỏ hàng</h4>
+                      <p data-cms="ecommerce-text-36">Đồng bộ trực tiếp giỏ hàng từ Website/Landing Page sang Smax để theo dõi danh sách sản phẩm khách đang quan tâm.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="ecommerce-text-37">Ngừng bám đuổi thông minh</h4>
+                      <p data-cms="ecommerce-text-38">Hệ thống tự động loại bỏ (REMOVE) khách hàng ra khỏi luồng bám đuổi ngay khi đơn hàng được tạo thành công, tránh làm phiền họ.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Mobile visual -->
+            <div class="mobile-section-visual">
+              <img src="asset smax/ecommerce-v2/abandoned-cart-recovery.webp" alt="Luồng bám đuổi giỏ hàng bị bỏ rơi tự động" loading="lazy" decoding="async" data-cms-img="ecommerce-img-5">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 6: Solution 4 (Chăm sóc khách hàng tự động & Loyalty) -->
+        <section class="solution-loyalty-section">
+          <div class="container">
+            <div class="section-header">
+              <div class="section-tag">Giải pháp 04</div>
+              <h2 class="section-title" data-cms="ecommerce-text-39">Chăm sóc tự động sau mua &amp; Phân nhóm RFM</h2>
+              <p class="section-desc" data-cms="ecommerce-text-40">
+                Nuôi dưỡng tệp khách hàng đã mua để kích thích họ mua lại lần 2, lần 3, tối ưu hóa vòng đời khách hàng (LTV).
+              </p>
+            </div>
+
+            <div class="loyalty-visual">
+              <img src="asset smax/ecommerce-v2/after-purchase-care.webp" alt="Luồng chăm sóc sau mua và phân nhóm khách hàng tự động" loading="lazy" decoding="async" data-cms-img="ecommerce-img-6">
+            </div>
+
+            <div class="loyalty-cards-container">
+              <div class="loyalty-card">
+                <div class="loyalty-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 0 0 1.946-.806 3.42 3.42 0 0 1 4.438 0 3.42 3.42 0 0 0 1.946.806 3.42 3.42 0 0 1 3.138 3.138 3.42 3.42 0 0 0 .806 1.946 3.42 3.42 0 0 1 0 4.438 3.42 3.42 0 0 0-.806 1.946 3.42 3.42 0 0 1-3.138 3.138 3.42 3.42 0 0 0-1.946.806 3.42 3.42 0 0 1-4.438 0 3.42 3.42 0 0 0-1.946-.806 3.42 3.42 0 0 1-3.138-3.138 3.42 3.42 0 0 0-.806-1.946 3.42 3.42 0 0 1 0-4.438 3.42 3.42 0 0 0 .806-1.946 3.42 3.42 0 0 1 3.138-3.138z"></path></svg>
+                </div>
+                <h3 data-cms="ecommerce-text-41">Zalo ZBS (ZNS) &amp; Tin nhắn hành trình tự động</h3>
+                <p data-cms="ecommerce-text-42">Tự động gửi tin nhắn Zalo ZBS (ZNS) xác nhận đơn hàng thành công, cập nhật mã vận đơn và thông báo khi đơn hàng đang đi giao trực tiếp tới khách.</p>
+              </div>
+
+              <div class="loyalty-card">
+                <div class="loyalty-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M21 9H3M21 15H3M12 3v18"></path></svg>
+                </div>
+                <h3 data-cms="ecommerce-text-43">Phân nhóm RFM để Remarketing cá nhân hóa</h3>
+                <p data-cms="ecommerce-text-44">Tự động phân nhóm tệp khách hàng dựa trên Tần suất (Frequency) và Giá trị (Monetary) mua sắm. Gửi tin nhắn mẫu FMM chúc mừng sinh nhật, khuyến mãi cá nhân hóa cực kỳ trúng đích.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 7: Solution 5 (Dữ liệu khách hàng tập trung) -->
+        <section class="solution-panel-section">
+          <div class="container">
+            <div class="solution-grid">
+              <div class="solution-info">
+                <div class="section-tag">Giải pháp 05</div>
+                <h2 data-cms="ecommerce-text-45">Hồ sơ khách hàng 360° &amp; Đồng bộ POS/CRM lập tức</h2>
+                <p class="solution-desc-main" data-cms="ecommerce-text-46">
+                  Hợp nhất toàn bộ thông tin hội thoại, lịch sử mua sắm và hành vi khách hàng từ mọi điểm chạm về một nơi duy nhất.
+                </p>
+                <div class="solution-points">
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="ecommerce-text-47">Đồng bộ doanh thu POS/CRM thời gian thực</h4>
+                      <p data-cms="ecommerce-text-48">Liên kết tự động hai chiều với các phần mềm bán hàng phổ biến (SAPO, KiotViet, Haravan). Tự động đẩy đơn hàng, giảm trừ tồn kho và tự động ghi nhận thanh toán chuyển khoản qua Smax Payment Hub lập tức.</p>
+                    </div>
+                  </div>
+                  <div class="sol-point">
+                    <div class="sol-point-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </div>
+                    <div class="sol-point-content">
+                      <h4 data-cms="ecommerce-text-49">Báo cáo doanh số và ROI bán lẻ</h4>
+                      <p data-cms="ecommerce-text-50">Hệ thống tự động thống kê báo cáo doanh thu từ kịch bản chatbot, thời gian phản hồi của supporter và hiệu suất chuyển đổi quảng cáo thời gian thực.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="integrations-logos">
+                  <div class="int-logo"><img src="asset smax/brands/kiotviet.svg" alt="KiotViet" data-cms-img="ecommerce-img-7"> KiotViet</div>
+                  <div class="int-logo"><img src="asset smax/brands/sapo.svg" alt="Sapo" data-cms-img="ecommerce-img-8"> Sapo</div>
+                  <div class="int-logo"><img src="asset smax/brands/haravan.svg" alt="Haravan" data-cms-img="ecommerce-img-9"> Haravan</div>
+                  <div class="int-logo">Zalo OA (ZBS/ZNS)</div>
+                </div>
+              </div>
+              <div class="solution-visual">
+                <img src="asset smax/ecommerce-v2/customer-360-sync.webp" alt="Hồ sơ khách hàng 360 và đồng bộ dữ liệu bán lẻ tức thì" loading="lazy" decoding="async" data-cms-img="ecommerce-img-10">
+              </div>
+            </div>
+            <!-- Mobile visual -->
+            <div class="mobile-section-visual">
+              <img src="asset smax/ecommerce-v2/customer-360-sync.webp" alt="Hồ sơ khách hàng 360 và đồng bộ dữ liệu bán lẻ tức thì" loading="lazy" decoding="async" data-cms-img="ecommerce-img-11">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 8: CTA Section -->
+        <section class="cta-section" id="cta">
+          <div class="container">
+            <div class="cta-card">
+              <h2 data-cms="ecom-cta-title">Bắt đầu tăng tr��ởng doanh thu E-commerce cùng Smax.ai</h2>
+              <p data-cms="ecommerce-text-51">
+                Tham gia cùng hơn hàng chục nghìn shop online, thương hiệu bán lẻ lớn đã số hóa quy trình bán hàng và chăm sóc khách hàng tự động.
+              </p>
+              <div class="cta-actions">
+                <a class="btn btn-dark" href="https://smax.ai/login">Dùng thử miễn phí</a>
+                <a class="btn btn-soft" href="index.html#cta">Đặt lịch hẹn tư vấn</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div>
+            <a class="brand" href="#top">
+              <img src="asset smax/smax-ai-logo.webp" alt="Smax.ai" class="brand-logo-img">
+            </a>
+            <p>Nền tảng AI-Automation giúp doanh nghiệp vận hành bán hàng, tiếp thị và chăm sóc khách hàng đa kênh.</p>
+          </div>
+          <div>
+            <h3>Sản phẩm</h3>
+            <a href="livechat.html">Livechat</a>
+            <a href="chatbot.html">Chatbot</a>
+            <a href="genai.html">Smax GenAI</a>
+            <a href="insight.html">AI Insight</a>
+            <a href="marketing.html">Marketing Tools</a>
+            <a href="gamification.html">Gamification</a>
+            <a href="remarketing.html">Remarketing</a>
+            <a href="crm-sync.html">CRM Connect</a>
+          </div>
+          <div>
+            <h3>Giải pháp</h3>
+            <a href="ecommerce.html">E-commerce &amp; Bán lẻ</a>
+            <a href="education.html">Giáo dục</a>
+            <a href="realestate.html">Bất động sản</a>
+            <a href="service.html">Dịch vụ</a>
+            <a href="fb.html">F&amp;B</a>
+            <a href="agency.html">Agency &amp; Consultant</a>
+          </div>
+          <div>
+            <h3>Tài nguyên</h3>
+            <a>Blog</a>
+            <a>Tài liệu</a>
+            <a>Video hướng dẫn</a>
+            <a>Webinar</a>
+            <a>Bot mẫu</a>
+            <a>Case Study</a>
+          </div>
+          <div>
+            <h3>Doanh nghiệp</h3>
+            <a>Về Smax.ai</a>
+            <a href="partnership.html">Đối tác</a>
+            <a>Bảng giá</a>
+            <a>Liên hệ</a>
+            <a>Chính sách</a>
+          </div>
+        </div>
+        <div class="container footer-bottom">
+          <span>© 2026 Smax.ai</span>
+          <span>Điều khoản · Quyền riêng tư · Liên hệ tư vấn</span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Shared Header and Interactions JS -->
+    <script src="script.js?v=4.0.2"></script>
+  
+
+</body></html>

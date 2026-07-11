@@ -1,0 +1,293 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - navigation "Điều hướng chính" [ref=e4]:
+      - link "Smax.ai trang chủ" [ref=e5] [cursor=pointer]:
+        - /url: index.html#top
+        - img "Smax.ai" [ref=e6]
+      - generic [ref=e7]:
+        - button "Sản phẩm" [ref=e9] [cursor=pointer]: Sản phẩm
+        - button "Giải Pháp" [ref=e12] [cursor=pointer]: Giải Pháp
+        - button "Tích Hợp" [ref=e15] [cursor=pointer]: Tích Hợp
+        - link "Template AI" [ref=e17] [cursor=pointer]:
+          - /url: templates.html
+        - link "Tin Tức" [ref=e18] [cursor=pointer]:
+          - /url: https://smax.ai/blog
+        - link "Đối Tác" [ref=e19] [cursor=pointer]:
+          - /url: https://smax.ai/Partnership
+        - link "Bảng Giá" [ref=e20] [cursor=pointer]:
+          - /url: https://smax.ai/Pricing
+        - link "Liên Hệ" [ref=e21] [cursor=pointer]:
+          - /url: index.html#cta
+      - link "Đăng Nhập" [ref=e23] [cursor=pointer]:
+        - /url: https://smax.ai/login
+  - main [ref=e24]:
+    - generic [ref=e26]:
+      - generic [ref=e27]:
+        - generic [ref=e28]: NEW
+        - generic [ref=e29]: Unified Chat Sales Platform
+        - link "Đọc thêm" [ref=e30] [cursor=pointer]:
+          - /url: https://docs.smax.ai
+          - generic [ref=e31]: Đọc thêm
+          - img [ref=e32]
+      - heading "Quản lý hội thoại đa kênh & tối ưu doanh thu bán hàng với GenAI" [level=1] [ref=e34]
+      - paragraph [ref=e35]: Smax Livechat giúp doanh nghiệp lắng nghe, phân tích và phản hồi khách hàng tức thời trên mọi điểm chạm, tạo dựng sự hài lòng và tăng trưởng doanh thu vượt trội từ hội thoại.
+      - generic [ref=e36]:
+        - link "Đăng ký tư vấn" [ref=e37] [cursor=pointer]:
+          - /url: "#cta"
+        - link "Trải nghiệm miễn phí" [ref=e38] [cursor=pointer]:
+          - /url: https://docs.smax.ai
+      - generic [ref=e39]:
+        - generic [ref=e45]: smax.ai/livechat/workspace
+        - img "Giao diện Smax Livechat hợp nhất hội thoại đa kênh, hồ sơ khách hàng và AI gợi ý trả lời" [ref=e47]
+    - generic [ref=e49]:
+      - generic [ref=e50]: Được tin tưởng bởi các doanh nghiệp dẫn đầu
+      - generic [ref=e52]:
+        - img "Facebook" [ref=e54]
+        - img "Zalo" [ref=e56]
+        - img "TikTok" [ref=e58]
+        - img "Shopee" [ref=e60]
+        - img "Lazada" [ref=e62]
+        - img "HubSpot" [ref=e64]
+        - img "Google Sheets" [ref=e66]
+        - img "Facebook" [ref=e68]
+        - img "Zalo" [ref=e70]
+        - img "TikTok" [ref=e72]
+        - img "Shopee" [ref=e74]
+        - img "Lazada" [ref=e76]
+    - generic [ref=e79]:
+      - generic [ref=e80]:
+        - generic [ref=e81]: "-70%"
+        - generic [ref=e82]: Thời gian phản hồi khách
+        - generic [ref=e83]: Tự động hóa kịch bản trả lời và phân phối cuộc hội thoại ca trực giảm áp lực chờ đợi.
+      - generic [ref=e84]:
+        - generic [ref=e85]: 99%
+        - generic [ref=e86]: Chỉ số hài lòng khách hàng
+        - generic [ref=e87]: Đo lường khảo sát CSAT tự động ngay trong chat giúp nâng tầm trải nghiệm dịch vụ.
+      - generic [ref=e88]:
+        - generic [ref=e89]: +35%
+        - generic [ref=e90]: Doanh thu bán hàng qua chat
+        - generic [ref=e91]: AI Agent tư vấn kết hợp panel lên đơn hàng nhanh tại chỗ đẩy nhanh chuyển đổi phễu.
+    - generic [ref=e93]:
+      - generic [ref=e94]:
+        - heading "Nắm bắt nhu cầu khách hàng theo thời gian thực" [level=2] [ref=e95]
+        - paragraph [ref=e96]: Trải nghiệm CSKH đột phá nhờ kết hợp đo lường hành vi và phân tích cảm xúc GenAI trực tiếp trên hội thoại.
+      - generic [ref=e97]:
+        - generic [ref=e98]:
+          - generic [ref=e99]:
+            - img [ref=e101]
+            - heading "Nắm bắt real-time nhu cầu sản phẩm và cảm xúc khách hàng trên từng hội thoại" [level=3] [ref=e103]
+            - paragraph [ref=e104]: Hệ thống tự động theo dõi, gắn thẻ phân tích thái độ của khách hàng trong từng câu chat. Phân định chính xác khách đang hài lòng, trung lập hay nóng vội cần hỗ trợ gấp.
+          - generic [ref=e107]:
+            - generic [ref=e108]:
+              - text: Mình có thu điện thoại cũ không?
+              - generic [ref=e109]: Neutral Emotion
+            - generic [ref=e110]: Xin chào! Dạ Smax.ai có chương trình thu cũ đổi mới điện thoại, laptop, máy tính bảng với giá thu cực tốt ạ.
+            - generic [ref=e111]: Dạ, thế thẻ tín dụng của VIB có thể tham gia trả góp lãi suất 0% được không bạn?
+            - generic [ref=e112]:
+              - text: Dạ hoàn toàn được ạ. Thẻ VIB hỗ trợ trả góp 0% kỳ hạn đến 12 tháng.
+              - generic [ref=e113]: Positive Emotion
+        - generic [ref=e114]:
+          - generic [ref=e115]:
+            - img [ref=e117]
+            - heading "Tổng hợp & phát hiện sản phẩm được nhiều khách quan tâm" [level=3] [ref=e119]
+            - paragraph [ref=e120]: Tự động bóc tách các từ khóa sản phẩm được lặp lại nhiều nhất trong hội thoại để cung cấp báo cáo xu hướng nhu cầu mua sắm tức thời cho doanh nghiệp.
+          - generic [ref=e121]:
+            - generic [ref=e122]: Chủ đề thảo luận nhiều nhất
+            - generic [ref=e124]:
+              - generic [ref=e125]: Thu Cũ Đổi Mới (Smartphones)
+              - generic [ref=e126]: 82%
+            - generic [ref=e130]:
+              - generic [ref=e131]: Trả góp tín dụng 0%
+              - generic [ref=e132]: 65%
+            - generic [ref=e136]:
+              - generic [ref=e137]: Chương trình bảo hành
+              - generic [ref=e138]: 40%
+        - generic [ref=e141]:
+          - generic [ref=e142]:
+            - img [ref=e144]
+            - heading "Tóm tắt sắc thái cảm xúc khách hàng trên từng chủ đề" [level=3] [ref=e147]
+            - paragraph [ref=e148]: Trí tuệ nhân tạo GenAI quét toàn bộ hội thoại, tự động gom nhóm ý kiến đánh giá để nhà quản lý cải thiện dịch vụ kịp thời mà không cần đọc từng dòng chat.
+          - generic [ref=e149]:
+            - generic [ref=e151]: CSAT
+            - generic [ref=e152]:
+              - generic [ref=e155]: Tích cực (65%)
+              - generic [ref=e158]: Trung lập (20%)
+              - generic [ref=e161]: Cần cải thiện (15%)
+    - generic [ref=e163]:
+      - generic [ref=e164]:
+        - heading "Các tính năng lõi mạnh mẽ của Smax Livechat" [level=2] [ref=e165]
+        - paragraph [ref=e166]: Khám phá bộ công cụ chuyên sâu giúp doanh nghiệp vận hành hội thoại trơn tru, bảo mật và đột phá doanh thu chốt đơn.
+      - generic [ref=e167]:
+        - generic [ref=e168]:
+          - generic [ref=e169]:
+            - generic [ref=e170]: 01 / CUSTOMER PROFILE
+            - heading "Hợp nhất hồ sơ khách hàng 360 độ" [level=2] [ref=e171]
+            - paragraph [ref=e172]: Tự động nhận diện và hợp nhất lịch sử chat, đơn hàng, số điện thoại từ các kênh khác nhau (Facebook page, Zalo OA, Zalo cá nhân) thành một hồ sơ duy nhất của khách hàng. Giúp nhân viên hiểu rõ lịch sử mua sắm để tư vấn đúng nhu cầu.
+            - generic [ref=e173]:
+              - generic [ref=e174]: Gộp kênh tự động
+              - generic [ref=e175]: Lịch sử giao dịch liên kênh
+          - img "Màn hình hợp nhất dữ liệu khách hàng 360 độ" [ref=e177]
+        - generic [ref=e178]:
+          - generic [ref=e179]:
+            - generic [ref=e180]: 02 / SALES ENABLER
+            - heading "Cột phải đa dụng - Trợ thủ lên đơn nhanh" [level=2] [ref=e181]
+            - paragraph [ref=e182]: Thực hiện tra cứu tồn kho, ghi chú giao hàng, gán tag phân nhóm và tạo đơn hàng gửi về hệ thống POS ngay tại giao diện chat. Rút ngắn 80% thời gian thao tác chốt đơn cho nhân sự sales.
+            - generic [ref=e183]:
+              - generic [ref=e184]: Tạo đơn trực tiếp
+              - generic [ref=e185]: Lọc thẻ tag linh hoạt
+          - img "Chi tiết cột phải đa nhiệm chốt đơn hàng" [ref=e187]
+        - generic [ref=e188]:
+          - generic [ref=e189]:
+            - generic [ref=e190]: 03 / SECURITY AUDIT
+            - heading "Nhật ký hoạt động & Giám sát lịch sử sửa đổi" [level=2] [ref=e191]
+            - paragraph [ref=e192]: "Hệ thống lưu trữ lịch sử chi tiết mọi thao tác của supporter: ai đã xem tin nhắn, ai đã trả lời, thu hồi tin nhắn hoặc sửa thông tin khách hàng. Bảo đảm tính bảo mật dữ liệu tuyệt đối cho doanh nghiệp, hạn chế rủi ro mất khách hàng."
+            - generic [ref=e193]:
+              - generic [ref=e194]: Audit Logs thời gian thực
+              - generic [ref=e195]: Phân quyền xem dữ liệu
+          - img "Nhật ký giám sát sửa đổi thông tin của supporter" [ref=e197]
+        - generic [ref=e198]:
+          - generic [ref=e199]:
+            - generic [ref=e200]: 04 / INTEGRATIONS
+            - heading "Kết nối hội thoại đa nền tảng" [level=2] [ref=e201]
+            - paragraph [ref=e202]: Đồng bộ trực tiếp tin nhắn và bình luận từ Facebook, Messenger, Instagram, Zalo OA, Zalo cá nhân, Shopee, Lazada, TikTok Shop, Website, Telegram và SMS về một nơi. Giúp doanh nghiệp không bỏ sót bất kỳ khách hàng nào trên online.
+            - generic [ref=e203]:
+              - generic [ref=e204]: 10+ Kênh kết nối
+              - generic [ref=e205]: Đồng bộ thời gian thực
+          - img "Màn hình kết nối đa nền tảng CSKH" [ref=e207]
+        - generic [ref=e208]:
+          - generic [ref=e209]:
+            - generic [ref=e210]: 05 / AI SUMMARIZE
+            - heading "Dùng AI tóm tắt nhanh hội thoại" [level=2] [ref=e211]
+            - paragraph [ref=e212]: Tự động cô đọng nội dung toàn bộ cuộc hội thoại dài của khách hàng thành 2-3 câu tóm tắt ý chính. Giúp supporter ca trực sau hoặc quản lý nhanh chóng nắm bắt vấn đề cần xử lý mà không cần đọc lại hàng trăm tin nhắn cũ.
+            - generic [ref=e213]:
+              - generic [ref=e214]: Tóm tắt ý chính
+              - generic [ref=e215]: Bàn giao ca thông minh
+          - img "Màn hình dùng AI tóm tắt nhanh nội dung hội thoại" [ref=e217]
+    - generic [ref=e220]:
+      - generic [ref=e221]:
+        - heading "Trợ lý GenAI Agent viết & tinh chỉnh câu trả lời nhanh" [level=2] [ref=e222]
+        - paragraph [ref=e223]: AI tự động đọc hiểu ngữ cảnh hội thoại của khách để đưa ra gợi ý trả lời tức thời. Tích hợp thanh công cụ AI Reply Optimization giúp nhân sự tinh chỉnh độ dài tin nhắn hoặc lựa chọn 5 giọng điệu tương tác phù hợp với tính cách của từng khách hàng.
+        - generic [ref=e224]:
+          - generic [ref=e225]: Nhiệt tình (Enthusiastic)
+          - generic [ref=e226]: Hài hước (Humorous)
+          - generic [ref=e227]: Hỗ trợ (Supportive)
+          - generic [ref=e228]: Vui vẻ (Playful)
+          - generic [ref=e229]: Thân thiện (Friendly)
+      - img "Giao diện AI Agent gợi ý và điều chỉnh giọng điệu trả lời" [ref=e232]
+    - generic [ref=e234]:
+      - generic [ref=e235]:
+        - heading "Đo lường hiệu suất & Giám sát vận hành" [level=2] [ref=e236]
+        - paragraph [ref=e237]: Hệ thống báo cáo chuyên sâu giúp nhà quản trị theo dõi chi tiết hiệu quả làm việc, tỷ lệ chốt đơn và thời gian trực tuyến của nhân viên.
+      - generic [ref=e238]:
+        - button "Báo cáo hiệu suất" [ref=e239] [cursor=pointer]
+        - button "Thời gian hoạt động" [ref=e240] [cursor=pointer]
+        - button "Kết quả chốt đơn" [ref=e241] [cursor=pointer]
+      - img "Báo cáo hiệu suất tương tác chi tiết của suppporter" [ref=e244]
+    - generic [ref=e246]:
+      - generic [ref=e247]:
+        - heading "Khách hàng thành công cùng Smax.ai" [level=2] [ref=e248]
+        - paragraph [ref=e249]: Khám phá cách thức các thương hiệu hàng đầu tối ưu hóa nhân sự và bứt phá doanh số bán hàng online.
+      - generic [ref=e250]:
+        - generic [ref=e251]:
+          - generic [ref=e252]: “
+          - paragraph [ref=e253]: Trước đây, việc chăm sóc khách hàng đối với chúng tôi khá vất vả và tốn kém, từ khâu tiếp nhận thông tin đến xử lý và phản hồi. Nhưng từ khi áp dụng AI Agent và hệ thống Livechat của Smax.ai, mọi thứ trở nên dễ dàng và thuận tiện hơn hẳn. AI có thể xử lý vô số yêu cầu của khách hàng một cách nhanh gọn, chính xác, giúp đội ngũ chúng tôi tiết kiệm đáng kể thời gian, công sức và chi phí vận hành.
+          - generic [ref=e255]:
+            - heading "NGUYỄN KIM ĐỨC" [level=4] [ref=e256]
+            - paragraph [ref=e257]: Quản lý Bán lẻ - Hoàng Hà Mobile
+        - generic [ref=e258]:
+          - generic [ref=e259]:
+            - generic [ref=e260]: 99%
+            - generic [ref=e261]: Chỉ số hài lòng khách hàng (CSAT)
+            - generic [ref=e262]: Đạt mức phản hồi tích cực kỷ lục trên tất cả các điểm chạm chat đa kênh.
+          - generic [ref=e263]:
+            - generic [ref=e264]: "-35%"
+            - generic [ref=e265]: Khối lượng công việc nhân viên
+            - generic [ref=e266]: Giảm tải áp lực trực ca đáng kể nhờ trợ lý AI Agent trả lời tự động hỗ trợ.
+    - generic [ref=e268]:
+      - generic [ref=e269]:
+        - heading "Câu hỏi thường gặp về Smax Livechat" [level=2] [ref=e270]
+        - paragraph [ref=e271]: Mọi giải đáp về tính năng gộp kênh, quản trị vận hành và bảo mật dữ liệu trên Smax Livechat.
+      - generic [ref=e272]:
+        - generic [ref=e273]:
+          - button "Smax Livechat hỗ trợ kết nối những kênh bán hàng trực tuyến nào?" [ref=e274] [cursor=pointer]:
+            - generic [ref=e275]: Smax Livechat hỗ trợ kết nối những kênh bán hàng trực tuyến nào?
+            - img [ref=e277]
+          - generic [ref=e278]: Smax Livechat hỗ trợ kết nối đồng bộ trực tiếp tin nhắn và bình luận từ Facebook Fanpage, Messenger, Instagram, Zalo OA, Zalo cá nhân, Website chat, Shopee, Lazada, TikTok Shop, Telegram và SMS.
+        - generic [ref=e279]:
+          - button "Tôi có thể gộp nhiều trang Fanpage và Zalo OA vào một giao diện để nhân viên trực không?" [ref=e280] [cursor=pointer]:
+            - generic [ref=e281]: Tôi có thể gộp nhiều trang Fanpage và Zalo OA vào một giao diện để nhân viên trực không?
+            - img [ref=e283]
+          - generic [ref=e284]: Có. Smax Livechat cho phép bạn kết nối không giới hạn số lượng trang Fanpage và Zalo OA về một màn hình làm việc duy nhất. Nhân viên của bạn chỉ cần đăng nhập một tài khoản Smax để tương tác với khách hàng từ tất cả các nguồn kênh bán hàng.
+        - generic [ref=e285]:
+          - button "Hệ thống có tự động nhận diện và gộp hồ sơ khách hàng trùng lặp từ nhiều kênh không?" [ref=e286] [cursor=pointer]:
+            - generic [ref=e287]: Hệ thống có tự động nhận diện và gộp hồ sơ khách hàng trùng lặp từ nhiều kênh không?
+            - img [ref=e289]
+          - generic [ref=e290]: "Có. Khi khách hàng để lại thông tin như Số điện thoại hoặc Email trên các kênh chat khác nhau (ví dụ: vừa nhắn trên Messenger vừa nhắn trên Zalo), Smax sẽ tự động nhận diện và hợp nhất lịch sử chat, đơn hàng thành một Hồ sơ khách hàng 360 độ duy nhất."
+        - generic [ref=e291]:
+          - button "Smax Livechat có kết nối trực tiếp với các phần mềm quản lý bán hàng (POS) để lên đơn không?" [ref=e292] [cursor=pointer]:
+            - generic [ref=e293]: Smax Livechat có kết nối trực tiếp với các phần mềm quản lý bán hàng (POS) để lên đơn không?
+            - img [ref=e295]
+          - generic [ref=e296]: Có. Smax tích hợp sẵn cổng kết nối 2 chiều với các phần mềm POS phổ biến như KiotViet, Sapo, Haravan. Nhân viên sales có thể trực tiếp kiểm tra tồn kho kho hàng, áp mã giảm giá và tạo hóa đơn thanh toán gửi về hệ thống POS ngay trong khung chat mà không phải chuyển tab.
+        - generic [ref=e297]:
+          - button "Tôi có thể thiết lập phân chia hội thoại tự động cho nhân viên trực theo ca không?" [ref=e298] [cursor=pointer]:
+            - generic [ref=e299]: Tôi có thể thiết lập phân chia hội thoại tự động cho nhân viên trực theo ca không?
+            - img [ref=e301]
+          - generic [ref=e302]: "Có. Smax Livechat hỗ trợ các cấu hình chia hội thoại thông minh: chia đều theo thứ tự (Round Robin), chia cho nhân sự có số lượng hội thoại đang xử lý ít nhất, hoặc chia theo ca làm việc đã đăng ký. Tránh việc dồn ứ chat hoặc bỏ sót khách hàng."
+        - generic [ref=e303]:
+          - button "Lịch sử thao tác của nhân viên trực chat có được lưu lại để giám sát không?" [ref=e304] [cursor=pointer]:
+            - generic [ref=e305]: Lịch sử thao tác của nhân viên trực chat có được lưu lại để giám sát không?
+            - img [ref=e307]
+          - generic [ref=e308]: "Có. Hệ thống Smax tự động ghi nhận nhật ký chi tiết (Audit Logs) thời gian thực cho mọi hành vi: ai đã đọc tin nhắn, ai đã trả lời, thu hồi tin nhắn hoặc sửa thông tin số điện thoại khách hàng. Giúp nhà quản trị giám sát bảo mật dữ liệu tuyệt đối."
+    - generic [ref=e310]:
+      - heading "Bắt đầu nâng tầm trải nghiệm khách hàng ngay hôm nay" [level=2] [ref=e311]
+      - paragraph [ref=e312]: Hợp nhất dữ liệu hội thoại chat đa kênh, giải phóng năng suất cho đội ngũ tư vấn và gia tăng doanh số bền vững cùng Smax Livechat.
+      - generic [ref=e313]:
+        - link "Dùng thử miễn phí" [ref=e314] [cursor=pointer]:
+          - /url: "#top"
+        - link "Đặt lịch hẹn tư vấn" [ref=e315] [cursor=pointer]:
+          - /url: index.html#cta
+  - contentinfo [ref=e316]:
+    - generic [ref=e317]:
+      - generic [ref=e318]:
+        - link "Smax.ai" [ref=e319] [cursor=pointer]:
+          - /url: "#top"
+          - img "Smax.ai" [ref=e320]
+        - paragraph [ref=e321]: Nền tảng AI-Automation giúp doanh nghiệp vận hành bán hàng, tiếp thị và chăm sóc khách hàng đa kênh.
+      - generic [ref=e322]:
+        - heading "Sản phẩm" [level=3] [ref=e323]
+        - link "Livechat" [ref=e324] [cursor=pointer]:
+          - /url: livechat.html
+        - link "Chatbot" [ref=e325] [cursor=pointer]:
+          - /url: chatbot.html
+        - link "Smax GenAI" [ref=e326] [cursor=pointer]:
+          - /url: genai.html
+        - link "AI Insight" [ref=e327] [cursor=pointer]:
+          - /url: insight.html
+        - generic [ref=e328]: Automation Map
+        - generic [ref=e329]: Remarketing
+      - generic [ref=e330]:
+        - heading "Giải pháp" [level=3] [ref=e331]
+        - generic [ref=e332]: Sales
+        - generic [ref=e333]: Marketing
+        - generic [ref=e334]: Customer Service
+        - generic [ref=e335]: E-commerce
+        - generic [ref=e336]: Omnichannel
+        - generic [ref=e337]: Meta Business AI
+      - generic [ref=e338]:
+        - heading "Tài nguyên" [level=3] [ref=e339]
+        - generic [ref=e340]: Blog
+        - generic [ref=e341]: Tài liệu
+        - generic [ref=e342]: Video hướng dẫn
+        - generic [ref=e343]: Webinar
+        - generic [ref=e344]: Bot mẫu
+        - generic [ref=e345]: Case Study
+      - generic [ref=e346]:
+        - heading "Doanh nghiệp" [level=3] [ref=e347]
+        - generic [ref=e348]: Về Smax.ai
+        - generic [ref=e349]: Đối tác
+        - generic [ref=e350]: Bảng giá
+        - generic [ref=e351]: Liên hệ
+        - generic [ref=e352]: Chính sách
+    - generic [ref=e353]:
+      - generic [ref=e354]: © 2026 Smax.ai
+      - generic [ref=e355]: Điều khoản · Quyền riêng tư · Liên hệ tư vấn

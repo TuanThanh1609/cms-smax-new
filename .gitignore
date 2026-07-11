@@ -1,0 +1,12 @@
+node_modules/
+.vercel/
+.cm/
+temp-git/
+public/
+index_new_tags.json
+new_tags.json
+scripts/new_tags.json
+scripts/index_new_tags.json
+*.log
+.env
+.dev.vars

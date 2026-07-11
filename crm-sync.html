@@ -1,0 +1,1760 @@
+<!DOCTYPE html><html lang="vi"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Smax CRM &amp; Đơn hàng Sync - Kết nối quản lý bán hàng, Trigger Ecom, Partner API và Meta Dataset trong một quy trình dữ liệu thống nhất.">
+    <title>Smax CRM &amp; Đơn hàng Sync | Giải pháp Tích hợp dữ liệu đa kênh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="icon" href="asset smax/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      body {
+        overflow-x: hidden;
+      }
+      
+      .crm-page-wrapper {
+        font-family: "Be Vietnam Pro", sans-serif;
+        color: var(--primary-navy, #0F1835);
+        background: #FFFFFF;
+      }
+
+      /* Hero Section */
+      .premium-hero {
+        position: relative;
+        padding: 120px 0 0;
+        background: radial-gradient(circle at center, #ffffff 0%, #f4f7ff 100%);
+        text-align: center;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      /* Browser Mockup */
+      .hero-mockup-wrapper {
+        max-width: 1100px;
+        margin: 56px auto 0;
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        border-radius: 20px;
+        box-shadow: 0 36px 80px rgba(15, 24, 53, 0.12), 0 1px 3px rgba(15, 24, 53, 0.03);
+        overflow: hidden;
+        position: relative;
+        z-index: 5;
+        opacity: 0;
+        transform: translateY(32px);
+        animation: fadeInUpMockup 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+      }
+
+      @keyframes fadeInUpMockup {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .browser-header {
+        height: 40px;
+        background: #F8F9FC;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.06);
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        position: relative;
+      }
+
+      .browser-dots {
+        display: flex;
+        gap: 6px;
+      }
+
+      .browser-dots .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .browser-dots .dot.red { background: #FF5F56; }
+      .browser-dots .dot.yellow { background: #FFBD2E; }
+      .browser-dots .dot.green { background: #27C93F; }
+
+      .browser-address {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(15, 24, 53, 0.03);
+        padding: 4px 24px;
+        border-radius: 6px;
+        font-size: 11.5px;
+        font-weight: 500;
+        color: #667085;
+        font-family: monospace;
+        letter-spacing: 0.02em;
+      }
+
+      .browser-content {
+        position: relative;
+        background: #FFFFFF;
+        line-height: 0;
+      }
+
+      .browser-content img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .hero-grid-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: 
+          radial-gradient(rgba(15, 24, 53, 0.04) 1.5px, transparent 1.5px),
+          url('https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/gridBackground.png');
+        background-size: 32px 32px, cover;
+        background-position: center;
+        opacity: 0.85;
+        z-index: 1;
+      }
+
+      .announcement-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 16px;
+        border-radius: 99px;
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        box-shadow: 0 2px 8px rgba(15, 24, 53, 0.04);
+        margin-bottom: 32px;
+        font-size: 13.5px;
+        font-weight: 500;
+        color: var(--primary-navy, #0F1835);
+        position: relative;
+        z-index: 2;
+        transition: all 0.3s ease;
+      }
+
+      .announcement-badge:hover {
+        border-color: rgba(66, 119, 255, 0.3);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(66, 119, 255, 0.08);
+      }
+
+      .announcement-tag {
+        background: var(--process-blue, #4277FF);
+        color: #FFFFFF;
+        padding: 2px 8px;
+        border-radius: 99px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .announcement-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        color: var(--process-blue, #4277FF);
+        font-weight: 700;
+        text-decoration: none;
+        margin-left: 4px;
+      }
+
+      .announcement-link svg {
+        transition: transform 0.2s ease;
+      }
+
+      .announcement-link:hover svg {
+        transform: translateX(2px);
+      }
+
+      .hero-actions .btn {
+        border-radius: 99px !important;
+        padding: 14px 32px !important;
+        font-size: 15px !important;
+        font-weight: 700 !important;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      }
+
+      .premium-hero h1 {
+        font-size: clamp(2.5rem, 5vw, 3.8rem);
+        font-weight: 900;
+        line-height: 1.2;
+        letter-spacing: -0.03em;
+        color: var(--primary-navy, #0F1835);
+        max-width: 960px;
+        margin: 0 auto 24px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .premium-hero h1 span.highlight {
+        background: linear-gradient(95deg, var(--process-blue, #4277FF) 0%, var(--primary-coral, #FA6E5B) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .premium-hero .hero-sub {
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+        max-width: 740px;
+        margin: 0 auto 40px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        margin-bottom: 0px;
+        position: relative;
+        z-index: 10;
+      }
+
+      /* Logo Wall Section */
+      .logo-wall-section {
+        padding: 60px 0;
+        background: #FFFFFF;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .logo-wall-title {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--text-secondary, #475467);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 32px;
+      }
+
+      .hero-carousel-wrapper {
+        position: relative;
+        overflow: hidden;
+        padding: 10px 0;
+        width: 100%;
+      }
+
+      .carousel-scroll-row {
+        display: flex;
+        gap: 32px;
+        width: max-content;
+      }
+
+      .carousel-scroll-row.row-1 {
+        animation: scroll-left-kf 45s linear infinite;
+      }
+
+      .carousel-icon-card {
+        height: 64px;
+        width: 64px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: #FFFFFF;
+        box-shadow: 0 4px 16px rgba(15, 24, 53, 0.05);
+        border: 1px solid rgba(15, 24, 53, 0.04);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease;
+      }
+
+      .carousel-icon-card:hover {
+        transform: scale(1.1);
+      }
+
+      .carousel-icon-card img {
+        height: 36px;
+        width: 36px;
+        object-fit: contain;
+      }
+
+      .carousel-fade-left, .carousel-fade-right {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 200px;
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      .carousel-fade-left {
+        left: 0;
+        background: linear-gradient(to right, #FFFFFF 15%, rgba(255, 255, 255, 0) 100%);
+      }
+
+      .carousel-fade-right {
+        right: 0;
+        background: linear-gradient(to left, #FFFFFF 15%, rgba(255, 255, 255, 0) 100%);
+      }
+
+      @keyframes scroll-left-kf {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+
+      /* Key Metrics Section */
+      .metrics-section {
+        padding: 80px 0;
+        background: #F8F9FC;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        text-align: center;
+      }
+
+      .metric-card {
+        padding: 24px;
+      }
+
+      .metric-value {
+        font-size: clamp(3rem, 6vw, 4.5rem);
+        font-weight: 900;
+        color: var(--process-blue, #4277FF);
+        line-height: 1;
+        margin-bottom: 16px;
+        letter-spacing: -0.03em;
+      }
+
+      .metric-value span.coral {
+        color: var(--primary-coral, #FA6E5B);
+      }
+
+      .metric-label {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 12px;
+      }
+
+      .metric-desc {
+        font-size: 14px;
+        color: var(--text-secondary, #475467);
+        line-height: 1.5;
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      /* Bento Grid Section */
+      .smax-bento-section {
+        padding: 120px 0;
+        background: #FFFFFF;
+      }
+
+      .bento-features-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .bento-item {
+        background: #FFFFFF;
+        border-radius: 24px;
+        padding: 40px;
+        border: 1px solid rgba(15, 24, 53, 0.05);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(15, 24, 53, 0.015);
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .bento-item:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(15, 24, 53, 0.08);
+      }
+
+      .bento-item.full-width {
+        grid-column: span 2;
+        flex-direction: row;
+        align-items: center;
+        gap: 60px;
+        background: #F2F6FF;
+        border-color: rgba(66, 119, 255, 0.1);
+      }
+
+      .bento-item.bg-orange {
+        background: #FFF7F5;
+        border-color: rgba(250, 110, 91, 0.1);
+      }
+
+      .bento-item.bg-green {
+        background: #F3FAF6;
+        border-color: rgba(18, 183, 106, 0.1);
+      }
+
+      .bento-info {
+        text-align: left;
+      }
+
+      .bento-info.narrow {
+        max-width: 480px;
+      }
+
+      .bento-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        color: #FFFFFF;
+      }
+
+      .bento-icon.blue { background: var(--process-blue, #4277FF); }
+      .bento-icon.orange { background: var(--primary-coral, #FA6E5B); }
+      .bento-icon.green { background: #12B76A; }
+
+      .bento-item h3 {
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 14px;
+        line-height: 1.35;
+        letter-spacing: -0.01em;
+      }
+
+      .bento-item p.desc {
+        font-size: 15px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+      }
+
+      /* Simulated iPhone Mockup */
+      .iphone-wrapper {
+        flex-shrink: 0;
+        width: 290px;
+        height: 380px;
+        background: #000000;
+        border-radius: 36px 36px 0 0;
+        border: 8px solid #000000;
+        border-bottom: none;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 20px 40px rgba(15, 24, 53, 0.15);
+      }
+
+      .iphone-island {
+        width: 90px;
+        height: 22px;
+        background: #000;
+        border-radius: 99px;
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+      }
+
+      .iphone-screen {
+        width: 100%;
+        height: 100%;
+        background: #F4F6FA;
+        padding: 38px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        overflow: hidden;
+      }
+
+      .chat-msg {
+        max-width: 80%;
+        padding: 10px 14px;
+        border-radius: 16px;
+        font-size: 11.5px;
+        line-height: 1.4;
+      }
+
+      .chat-msg.customer {
+        background: #FFFFFF;
+        color: #0F1835;
+        align-self: flex-start;
+        border-bottom-left-radius: 4px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      }
+
+      .chat-msg.supporter {
+        background: var(--process-blue, #4277FF);
+        color: #FFFFFF;
+        align-self: flex-end;
+        border-bottom-right-radius: 4px;
+        box-shadow: 0 4px 10px rgba(66, 119, 255, 0.15);
+      }
+
+      .chat-tag {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 9.5px;
+        font-weight: 700;
+        margin-top: 4px;
+      }
+
+      .chat-tag.positive { background: rgba(18, 183, 106, 0.15); color: #12B76A; }
+      .chat-tag.neutral { background: rgba(66, 119, 255, 0.15); color: #4277FF; }
+
+      /* Bar Chart */
+      .bento-chart-container {
+        width: 100%;
+        background: #FFFFFF;
+        border-radius: 16px;
+        padding: 20px;
+        border: 1px solid rgba(15, 24, 53, 0.04);
+        margin-top: 24px;
+      }
+
+      .chart-row-label {
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: var(--text-secondary, #475467);
+        margin-bottom: 12px;
+        text-align: left;
+      }
+
+      .bar-item {
+        margin-bottom: 14px;
+      }
+
+      .bar-track {
+        height: 8px;
+        background: #F2F4F7;
+        border-radius: 99px;
+        overflow: hidden;
+      }
+
+      .bar-fill {
+        height: 100%;
+        border-radius: 99px;
+        background: var(--primary-coral, #FA6E5B);
+        transition: width 1s ease;
+      }
+
+      .bar-label-group {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11.5px;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+
+      /* Donut Chart */
+      .bento-donut-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-top: 24px;
+        background: #FFFFFF;
+        border-radius: 16px;
+        padding: 20px;
+        border: 1px solid rgba(15, 24, 53, 0.04);
+      }
+
+      .donut-graphic {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: conic-gradient(#4277FF 0% 45%, #FA6E5B 45% 75%, #12B76A 75% 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .donut-graphic::before {
+        content: "";
+        width: 54px;
+        height: 54px;
+        background: #FFFFFF;
+        border-radius: 50%;
+        position: absolute;
+      }
+
+      .donut-text {
+        position: relative;
+        z-index: 2;
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--primary-navy, #0F1835);
+      }
+
+      .donut-legend {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        text-align: left;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11.5px;
+        font-weight: 600;
+      }
+
+      .legend-color {
+        width: 10px;
+        height: 10px;
+        border-radius: 3px;
+      }
+
+      .legend-color.blue { background: #4277FF; }
+      .legend-color.orange { background: #FA6E5B; }
+      .legend-color.green { background: #12B76A; }
+
+      .bento-item-media {
+        position: relative;
+        border-radius: 16px;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        box-shadow: 0 10px 30px rgba(15, 24, 53, 0.03);
+        background: #FFFFFF;
+        overflow: hidden;
+        width: 100%;
+        height: 240px;
+        margin-top: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .bento-item-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+      }
+      .bento-item.full-width .bento-item-media {
+        height: 280px;
+        width: 480px;
+        margin-top: 0;
+        flex-shrink: 0;
+      }
+
+      /* Stacked Content Cards */
+      .stacked-cards-section {
+        padding: 120px 0;
+        background: #F8F9FC;
+      }
+
+      .stacked-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 120px;
+      }
+
+      .stacked-card {
+        position: -webkit-sticky;
+        position: sticky;
+        border-radius: 32px;
+        padding: 48px 64px;
+        display: grid;
+        grid-template-columns: 1.25fr 1fr;
+        gap: 48px;
+        align-items: center;
+        height: 440px;
+        box-shadow: 0 -15px 40px rgba(15, 24, 53, 0.05);
+        transition: transform 0.3s ease;
+        overflow: hidden;
+      }
+
+      .stacked-card:nth-child(1) { z-index: 1; background: var(--process-blue, #4277FF); color: #FFFFFF; top: 110px; }
+      .stacked-card:nth-child(2) { z-index: 2; background: var(--primary-coral, #FA6E5B); color: #FFFFFF; top: 140px; }
+      .stacked-card:nth-child(3) { z-index: 3; background: var(--primary-navy, #0F1835); color: #FFFFFF; top: 170px; }
+      .stacked-card:nth-child(4) { z-index: 4; background: #1e293b; color: #FFFFFF; top: 200px; }
+
+      .stacked-card-copy {
+        text-align: left;
+      }
+
+      .stacked-card-meta {
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        opacity: 0.85;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .stacked-card-copy h2 {
+        font-size: clamp(2rem, 3.5vw, 2.6rem);
+        font-weight: 900;
+        color: #FFFFFF;
+        line-height: 1.25;
+        margin-bottom: 24px;
+        letter-spacing: -0.02em;
+      }
+
+      .stacked-card-copy p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: 32px;
+      }
+
+      .stacked-card-media {
+        position: relative;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 28px 56px -16px rgba(15, 24, 53, 0.16), 0 12px 24px -12px rgba(15, 24, 53, 0.12), 0 1px 2px rgba(15, 24, 53, 0.02);
+        background: #FFFFFF;
+        overflow: hidden;
+        height: 320px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .stacked-card-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top left;
+        display: block;
+        border-radius: 8px;
+      }
+
+      /* AI Assistant Highlights */
+      .ai-showcase-section {
+        padding: 120px 0;
+        background: #0F1835;
+        color: #FFFFFF;
+        overflow: hidden;
+      }
+
+      .ai-showcase-grid {
+        display: grid;
+        grid-template-columns: 5fr 7fr;
+        gap: 64px;
+        align-items: center;
+      }
+
+      .ai-showcase-copy {
+        text-align: left;
+      }
+
+      .ai-showcase-copy h2 {
+        font-size: clamp(2rem, 3.5vw, 2.6rem);
+        font-weight: 900;
+        color: #FFFFFF;
+        line-height: 1.25;
+        margin-bottom: 24px;
+      }
+
+      .ai-showcase-copy h2 span {
+        color: var(--primary-coral, #FA6E5B);
+      }
+
+      .ai-showcase-copy p {
+        font-size: 16.5px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 40px;
+      }
+
+      .ai-feature-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .ai-chip {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px 14px;
+        border-radius: 99px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.15);
+        color: #FFFFFF;
+        line-height: 1;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+      }
+
+      .ai-chip.active, .ai-chip:hover {
+        background: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.35);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
+      }
+
+      .ai-showcase-media .mockup-wrapper {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        background: #17234E;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+
+      .ai-showcase-media .mockup-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Section Header */
+      .section-header {
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto 56px;
+      }
+
+      .section-header h2 {
+        font-size: clamp(2rem, 3.5vw, 2.5rem);
+        font-weight: 900;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 16px;
+        letter-spacing: -0.02em;
+      }
+
+      .section-header p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--text-secondary, #475467);
+      }
+
+      /* Reports Hub */
+      .reports-hub-section {
+        padding: 120px 0;
+        background: #F8F9FC;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .reports-tab-container {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 48px;
+        flex-wrap: wrap;
+      }
+
+      .report-tab-btn {
+        padding: 12px 24px;
+        border-radius: 99px;
+        background: #FFFFFF;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        color: var(--text-secondary, #475467);
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .report-tab-btn.active, .report-tab-btn:hover {
+        background: var(--primary-navy, #0F1835);
+        color: #FFFFFF;
+        border-color: var(--primary-navy, #0F1835);
+        box-shadow: 0 4px 12px rgba(15, 24, 53, 0.1);
+      }
+
+      .report-panel {
+        display: none;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .report-panel.active {
+        display: block;
+        animation: fadeIn 0.4s ease-out;
+      }
+
+      .mockup-wrapper {
+        position: relative;
+        border-radius: 16px;
+        border: 1px solid rgba(15, 24, 53, 0.08);
+        background: #FFFFFF;
+        box-shadow: 0 20px 50px rgba(15, 24, 53, 0.08);
+        overflow: hidden;
+        margin-top: 24px;
+        line-height: 0;
+      }
+
+      .mockup-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Case Study */
+      .casestudy-section {
+        padding: 120px 0;
+        background: #FFFFFF;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .casestudy-card {
+        background: #F8F9FC;
+        border: 1px solid rgba(15, 24, 53, 0.06);
+        border-radius: 32px;
+        padding: 64px;
+        display: grid;
+        grid-template-columns: 6fr 5fr;
+        gap: 64px;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .casestudy-quote {
+        text-align: left;
+      }
+
+      .casestudy-quote-mark {
+        font-size: 80px;
+        font-family: serif;
+        line-height: 1;
+        color: var(--process-blue, #4277FF);
+        margin-bottom: -20px;
+        opacity: 0.3;
+      }
+
+      .casestudy-quote p {
+        font-size: 17.5px;
+        line-height: 1.7;
+        color: var(--primary-navy, #0F1835);
+        font-weight: 500;
+        margin-bottom: 32px;
+      }
+
+      .casestudy-author {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .author-info h4 {
+        font-size: 16px;
+        font-weight: 800;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 4px;
+      }
+
+      .author-info p {
+        font-size: 13.5px;
+        color: var(--text-secondary, #475467);
+        margin-bottom: 0;
+      }
+
+      .casestudy-metrics {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        border-left: 2px solid rgba(15, 24, 53, 0.06);
+        padding-left: 48px;
+        text-align: left;
+      }
+
+      .cs-metric-num {
+        font-size: 40px;
+        font-weight: 900;
+        color: var(--primary-coral, #FA6E5B);
+        line-height: 1.1;
+        margin-bottom: 8px;
+      }
+
+      .cs-metric-label {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--primary-navy, #0F1835);
+        margin-bottom: 4px;
+      }
+
+      .cs-metric-desc {
+        font-size: 13px;
+        color: var(--text-secondary, #475467);
+        line-height: 1.4;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Responsive Rules */
+      @media (max-width: 1024px) {
+        .premium-hero { padding-top: 140px; }
+        .hero-actions { margin-bottom: 48px; }
+        .bento-features-grid { grid-template-columns: 1fr; }
+        .bento-item.full-width { grid-column: span 1; flex-direction: column; gap: 30px; }
+        .iphone-wrapper { width: 100%; max-width: 290px; height: 300px; }
+        .stacked-card { grid-template-columns: 1fr; padding: 40px; gap: 40px; height: auto; }
+        .metrics-grid { grid-template-columns: 1fr; gap: 24px; }
+        .ai-showcase-grid { grid-template-columns: 1fr; gap: 40px; }
+        .casestudy-card { grid-template-columns: 1fr; padding: 40px; gap: 40px; }
+        .casestudy-metrics { border-left: none; border-top: 2px solid rgba(15, 24, 53, 0.06); padding-left: 0; padding-top: 32px; flex-direction: row; flex-wrap: wrap; gap: 24px; }
+      }
+    
+      
+      
+      /* --- Quickstart 3 Steps Section (Card Grid) --- */
+      .quickstart-steps-section {
+        padding: 100px 0;
+        background: #FFFFFF;
+        border-bottom: 1px solid rgba(15, 24, 53, 0.05);
+      }
+
+      .steps-header {
+        text-align: left;
+        margin-bottom: 56px;
+        max-width: 800px;
+      }
+
+      .steps-eyebrow {
+        display: block;
+        font-size: 13px;
+        color: #8C8C8C;
+        margin-bottom: 12px;
+        font-weight: 500;
+      }
+
+      .steps-title {
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 800;
+        color: #0F1835;
+        line-height: 1.3;
+        margin: 0;
+        letter-spacing: -0.02em;
+      }
+
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .step-card {
+        background: #F8F9FC;
+        border-radius: 20px;
+        padding: 40px 32px 32px 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        border: 1px solid rgba(15, 24, 53, 0.03);
+      }
+
+      .step-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 36px rgba(15, 24, 53, 0.05);
+        border-color: rgba(66, 119, 255, 0.1);
+      }
+
+      .step-card-eyebrow {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--primary-coral, #FA6E5B);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      .step-card-title {
+        font-size: 17px;
+        font-weight: 800;
+        color: #0F1835;
+        margin: 0 0 16px 0;
+        line-height: 1.4;
+        max-width: 24ch;
+      }
+
+      .step-card-desc {
+        font-size: 13.5px;
+        line-height: 1.55;
+        color: #595959;
+        margin: 0 0 28px 0;
+        text-align: left;
+      }
+
+      .step-card-visual {
+        width: 100%;
+        background: #FFFFFF;
+        border-radius: 12px;
+        padding: 10px;
+        box-shadow: 0 12px 32px rgba(15, 24, 53, 0.05);
+        border: 1px solid rgba(15, 24, 53, 0.02);
+        margin-top: auto; /* Push mockup to the bottom of the card */
+      }
+
+      .step-card-visual img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        display: block;
+      }
+
+      @media (max-width: 1023px) {
+        .steps-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .quickstart-steps-section {
+          padding: 60px 0;
+        }
+        .steps-header {
+          margin-bottom: 40px;
+        }
+      }
+</style>
+  </head>
+  <body>
+    <div class="crm-page-wrapper">
+      <!-- Shared Header dynamically loaded via script.js -->
+      <header class="site-header" data-header=""></header>
+
+      <main id="top">
+        <!-- Hero Section -->
+        <section class="premium-hero">
+          <div class="hero-grid-bg"></div>
+          <div class="container">
+            <div class="announcement-badge">
+              <span class="announcement-tag">INTEGRATIONS</span>
+              <span>CRM, Orders &amp; Ecom Automation</span>
+              <a href="https://docs.smax.ai" target="_blank" class="announcement-link">
+                <span>Đọc thêm</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+            <h1 data-cms="crm-hero-title">Đồng bộ dữ liệu CRM &amp; Đơn hàng toàn diện, tự động
+            </h1>
+            <p class="hero-sub" data-cms="crm-hero-sub">Kết nối Smax với CRM/POS để tự động hóa quy trình lên đơn, cập nhật trạng thái giao vận và kích hoạt kịch bản chăm sóc khách hàng đa kênh lập tức.</p>
+            <div class="hero-actions">
+              <a class="btn btn-dark" href="#cta" style="background: var(--primary-navy, #0F1835); border-color: var(--primary-navy, #0F1835);">
+                Đăng ký tư vấn
+              </a>
+              <a class="btn btn-soft" href="https://docs.smax.ai" target="_blank" style="border: 1px solid rgba(15, 24, 53, 0.15); background: transparent; color: var(--primary-navy, #0F1835);">
+                Trải nghiệm miễn phí
+              </a>
+            </div>
+
+            <!-- Browser Mockup -->
+            <div class="hero-mockup-wrapper">
+              <div class="browser-header">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-address">smax.ai/integrations/crm-sync</div>
+              </div>
+              <div class="browser-content">
+                <img data-cms-img="crm-hero-img" src="asset smax/hero-crm-sync-v2.webp" alt="Giao diện Smax CRM đồng bộ đơn hàng, khách hàng và tồn kho với CRM, POS và sàn thương mại điện tử" width="1600" height="720" loading="eager" fetchpriority="high" decoding="async">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Social Proof Section -->
+        <section class="logo-wall-section" style="padding-top: 80px;">
+          <div class="container">
+            <div class="logo-wall-title">Nền tảng tích hợp và hỗ trợ đa kết nối</div>
+            <div class="hero-carousel-wrapper">
+              <div class="carousel-fade-left"></div>
+              <div class="carousel-fade-right"></div>
+              <div class="carousel-scroll-row row-1">
+                <div class="carousel-icon-card"><img src="asset smax/brands/kiotviet.svg" alt="KiotViet" data-cms-img="crm-sync-img-1"></div>
+                <div class="carousel-icon-card"><img src="asset smax/brands/sapo.svg" alt="Sapo" data-cms-img="crm-sync-img-2"></div>
+                <div class="carousel-icon-card"><img src="asset smax/brands/woocommerce.svg" alt="WooCommerce" data-cms-img="crm-sync-img-3"></div>
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/google-sheets.svg" alt="Google Sheets" data-cms-img="crm-sync-img-4"></div>
+                <div class="carousel-icon-card"><img src="asset smax/brands/lark.svg" alt="Lark" data-cms-img="crm-sync-img-5"></div>
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/shopee.svg" alt="Shopee" data-cms-img="crm-sync-img-6"></div>
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/lazada.webp" alt="Lazada" data-cms-img="crm-sync-img-7"></div>
+                <!-- Loop -->
+                <div class="carousel-icon-card"><img src="asset smax/brands/kiotviet.svg" alt="KiotViet" data-cms-img="crm-sync-img-8"></div>
+                <div class="carousel-icon-card"><img src="asset smax/brands/sapo.svg" alt="Sapo" data-cms-img="crm-sync-img-9"></div>
+                <div class="carousel-icon-card"><img src="asset smax/brands/woocommerce.svg" alt="WooCommerce" data-cms-img="crm-sync-img-10"></div>
+                <div class="carousel-icon-card"><img src="asset smax/integration-icons/google-sheets.svg" alt="Google Sheets" data-cms-img="crm-sync-img-11"></div>
+                <div class="carousel-icon-card"><img src="asset smax/brands/lark.svg" alt="Lark" data-cms-img="crm-sync-img-12"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Key Metrics Section -->
+        <section class="metrics-section">
+          <div class="container">
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="metric-value">100%</div>
+                <div class="metric-label">Đồng bộ real-time</div>
+                <div class="metric-desc">Dữ liệu khách hàng, sản phẩm và đơn hàng được cập nhật tức thời.</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value"><span class="coral">0%</span></div>
+                <div class="metric-label">Sai lệch dữ liệu</div>
+                <div class="metric-desc">Thông tin được đồng bộ hai chiều, hạn chế nhập liệu thủ công.</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">-90%</div>
+                <div class="metric-label">Thời gian lên đơn</div>
+                <div class="metric-desc">Nhân viên tạo đơn ngay trong hội thoại và tự động cập nhật tồn kho.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Bento Grid Section -->
+        <section class="smax-bento-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="crm-sync-text-1">Quản lý dữ liệu tập trung, vận hành tinh gọn</h2>
+              <p data-cms="crm-sync-text-2">Hệ thống kết nối mạnh mẽ giúp đồng bộ thông tin khách hàng toàn diện từ mọi kênh bán hàng.</p>
+            </div>
+
+            <div class="bento-features-grid">
+              <!-- Card 1: Lên đơn từ cột phải (Full Width) -->
+              <div class="bento-item full-width">
+                <div class="bento-info narrow">
+                  <div class="bento-icon blue">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-8m0 0V4m0 8h8m-8 0H4"></path></svg>
+                  </div>
+                  <h3 data-cms="crm-sync-text-3">Lên đơn trực tiếp từ cột phải của Smax</h3>
+                  <p class="desc" data-cms="crm-sync-text-4">
+                    Nhân viên tư vấn có thể tra cứu sản phẩm và tạo đơn ngay trong khung chat khi doanh nghiệp đã kết nối nền tảng quản lý bán hàng tương ứng.
+                  </p>
+                </div>
+                <div class="bento-item-media">
+                  <img src="docs/ui-tich-hop/tich-hop-quan-ly-ban-hang_img_f52eff7d.webp" alt="Giao diện lên đơn hàng trực tiếp cột bên phải của Smax" data-cms-img="crm-sync-img-13">
+                </div>
+              </div>
+
+              <!-- Card 2: Đồng bộ POS 2 chiều (Half Width) -->
+              <div class="bento-item bg-orange">
+                <div class="bento-info">
+                  <div class="bento-icon orange">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2.5"></rect><line x1="9" y1="21" x2="9" y2="9"></line><line x1="3" y1="9" x2="21" y2="9"></line></svg>
+                  </div>
+                  <h3 data-cms="crm-sync-text-5">Kết nối dữ liệu đơn hàng giữa POS và Smax</h3>
+                  <p class="desc" data-cms="crm-sync-text-6">
+                    Tài liệu có hướng dẫn kết nối KiotViet, Sapo, Nhanh.vn, Shopify và các nền tảng bán hàng khác. Phạm vi dữ liệu và tần suất đồng bộ phụ thuộc từng integration.
+                  </p>
+                </div>
+                <div class="bento-item-media">
+                  <img src="docs/ui-tich-hop/ket-noi-shopify-vao-smaxai_1.webp" alt="Đồng bộ dữ liệu hai chiều Smax với hệ thống POS bán lẻ" data-cms-img="crm-sync-img-14">
+                </div>
+              </div>
+
+              <!-- Card 3: Selling Miniweb (Half Width) -->
+              <div class="bento-item bg-green">
+                <div class="bento-info">
+                  <div class="bento-icon green">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6M9 9h6v6"></path></svg>
+                  </div>
+                  <h3 data-cms="crm-sync-text-7">Tạo Selling Miniweb chốt đơn nhanh</h3>
+                  <p class="desc" data-cms="crm-sync-text-8">
+                    Cho phép bạn tạo các trang web mua hàng mini (Miniweb) sành điệu tích hợp ngay trong ô chat. Khách hàng có thể tự do xem catalogue, chọn sản phẩm, áp mã coupon giảm giá và thanh toán nhanh chóng.
+                  </p>
+                </div>
+                <div class="bento-item-media">
+                  <img src="docs/ui-tich-hop/webcake_img_051fe095.webp" alt="Selling Miniweb mua hàng tiện dụng trong chatbot" data-cms-img="crm-sync-img-15">
+                </div>
+              </div>
+
+              <!-- Card 4: Gửi Dataset tối ưu Meta CAPI (Half Width) -->
+              <div class="bento-item bg-green">
+                <div class="bento-info">
+                  <div class="bento-icon green" style="background: #1877f2;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                  </div>
+                  <h3 data-cms="crm-sync-text-9">Tự động gửi Dataset tối ưu Facebook Ads</h3>
+                  <p class="desc" data-cms="crm-sync-text-10">
+                    Tự động ghi nhận và đẩy các sự kiện chuyển đổi mua sắm thực tế từ chat lên tập dữ liệu Meta Dataset (Facebook Conversions API) để giúp thuật toán học máy tối ưu tệp đối tượng chạy Ads hiệu quả nhất.
+                  </p>
+                </div>
+                <div class="bento-item-media">
+                  <img src="docs/ui-tich-hop/meta-capi-dataset_img_cca9d574.webp" alt="Tự động gửi Dataset tối ưu Facebook Ads Conversions API" data-cms-img="crm-sync-img-16">
+                </div>
+              </div>
+
+              <!-- Card 5: Đồng bộ chỉ số lên FB Ads (Half Width) -->
+              <div class="bento-item bg-orange">
+                <div class="bento-info">
+                  <div class="bento-icon orange" style="background: #f43f5e;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                  </div>
+                  <h3 data-cms="crm-sync-text-11">Đồng bộ chỉ số bán hàng lên Facebook Ads</h3>
+                  <p class="desc" data-cms="crm-sync-text-12">
+                    Gửi ngược toàn bộ giá trị hóa đơn chốt đơn thực tế từ CRM về trình quản lý quảng cáo Facebook Ads Manager, cung cấp chỉ số hoàn vốn quảng cáo ROI thực tế chính xác tới từng chiến dịch.
+                  </p>
+                </div>
+                <div class="bento-item-media">
+                  <img src="docs/ui-tich-hop/meta-capi-dataset_img_81a4407a.webp" alt="Đo lường chỉ số ROI doanh thu bán lẻ trên Facebook Ads Manager" data-cms-img="crm-sync-img-17">
+                </div>
+              </div>
+
+              <!-- Card 6: Cảnh báo sự cố Lark & Zalo (Full Width) -->
+              <div class="bento-item full-width bg-orange">
+                <div class="bento-info narrow">
+                  <div class="bento-icon orange" style="background: #00d2c4;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                  </div>
+                  <h3 data-cms="crm-sync-text-13">Partner API cho CRM và hệ thống ngoài</h3>
+                  <p class="desc" data-cms="crm-sync-text-14">
+                    Partner API hỗ trợ quản lý khách hàng, sản phẩm, đơn hàng và gửi tin đa kênh từ CRM, ERP, website, n8n, Make hoặc Zapier theo luồng do doanh nghiệp xây dựng.
+                  </p>
+                </div>
+                <div class="bento-item-media">
+                  <img src="docs/ui-tich-hop/huong-dan-tich-hop-lark-smaxai_img_991dddaf.webp" alt="Báo cáo lỗi đơn hàng tự động vào nhóm chat Lark và nhóm Zalo" data-cms-img="crm-sync-img-18">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Stacked Sticky Cards Section -->
+        <section class="stacked-cards-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="crm-sync-text-15">Chuỗi kịch bản chăm sóc khách hàng tự động sau mua</h2>
+              <p data-cms="crm-sync-text-16">Kích hoạt chăm sóc dựa trên sự kiện đơn hàng và chọn đúng kênh gửi cho từng loại thông báo.</p>
+            </div>
+
+            <div class="stacked-container">
+              <!-- Card 1: Thông báo trạng thái đơn hàng (FUM & ZBS) -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">01 / ORDER STATUS ALERTS</span>
+                  <h2 data-cms="crm-sync-text-17">Thông báo hành trình đơn hàng qua Messenger &amp; Zalo</h2>
+                  <p data-cms="crm-sync-text-18">
+                    Tự động gửi tin nhắn xác nhận đơn, cập nhật mã vận đơn và hành trình giao vận (Đang giao, Đã giao thành công) qua Messenger API FUM (Utility Message) hoặc Zalo ZBS (ZNS) tới số điện thoại khách hàng ngay khi CRM đổi trạng thái.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Messenger API FUM</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Zalo ZBS (ZNS) Automation</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="docs/ui-tich-hop/messenger-api-fum_img_d13c9eda.webp" alt="Tự động thông báo hành trình đơn hàng qua Messenger FUM và Zalo ZBS (ZNS)" data-cms-img="crm-sync-img-19">
+                </div>
+              </div>
+
+              <!-- Card 2: Tự động kết bạn & Mời nhóm Zalo VIP -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">02 / NEW ORDER TRIGGER</span>
+                  <h2 data-cms="crm-sync-text-19">Trigger New Order</h2>
+                  <p data-cms="crm-sync-text-20">
+                    Khi hệ thống nhận đơn mới từ nguồn đã kết nối, Trigger New Order có thể gửi Block xác nhận và lưu thông tin đơn vào thuộc tính khách hàng.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">New Order</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Block xác nhận</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="docs/ui-tich-hop/huong-dan-tich-hop-lark-smaxai_img_11c93bb5.webp" alt="Tự động kết bạn Zalo cá nhân và kéo khách vào nhóm Zalo VIP" data-cms-img="crm-sync-img-20">
+                </div>
+              </div>
+
+              <!-- Card 3: Tặng mã giảm giá & Tích điểm thành viên -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">03 / ORDER STATUS TRIGGER</span>
+                  <h2 data-cms="crm-sync-text-21">Trigger Order Update</h2>
+                  <p data-cms="crm-sync-text-22">
+                    Khi trạng thái đơn thay đổi, hệ thống có thể kích hoạt Block thông báo để khách biết đơn đã xác nhận, đang giao, giao thành công hoặc cần xử lý thêm.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Update Status</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Thông báo hành trình</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="docs/ui-tich-hop/ladipage_img_fb492a4b.webp" alt="Tích điểm thành viên và tự động tặng coupon tri ân khách hàng cũ" data-cms-img="crm-sync-img-21">
+                </div>
+              </div>
+
+              <!-- Card 4: Quy trình chăm sóc sau mua & Remarketing ngoài 24h -->
+              <div class="stacked-card">
+                <div class="stacked-card-copy">
+                  <span class="stacked-card-meta">04 / MULTICHANNEL REMARKETING</span>
+                  <h2 data-cms="crm-sync-text-23">Quy trình chăm sóc sau mua &amp; Remarketing ngoài 24h</h2>
+                  <p data-cms="crm-sync-text-24">
+                    Thêm khách vào Sequence chăm sóc sau mua và dùng Broadcast khi phù hợp. Với nội dung ngoài 24h, phải chọn đúng FMM, Message Tag hoặc kênh tương ứng và tuân thủ chính sách nền tảng.
+                  </p>
+                  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">Chuỗi Sequence chăm sóc</span>
+                    <span class="ai-chip" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25);">FMM &amp; Zalo cá nhân ngoài 24h</span>
+                  </div>
+                </div>
+                <div class="stacked-card-media">
+                  <img src="docs/ui-tich-hop/tich-hop-vao-chatbot_img_b76f9d90.webp" alt="Quy trình chăm sóc sau mua và remarketing hàng loạt ngoài 24h" data-cms-img="crm-sync-img-22">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- AI Assistant Highlights -->
+        <section class="ai-showcase-section">
+          <div class="container">
+            <div class="ai-showcase-grid">
+              <div class="ai-showcase-copy">
+                <h2 data-cms="crm-sync-text-25">Bản đồ hóa dữ liệu thông minh <span>không cần viết code</span></h2>
+                <p data-cms="crm-sync-text-26">
+                  Dễ dàng map các trường dữ liệu thu thập được từ hội thoại (Ví dụ: Họ tên, Số điện thoại, Tên sản phẩm) vào các cột tương ứng trên Google Sheets hoặc hệ thống CRM POS của bạn chỉ bằng vài thao tác kéo thả trực quan.
+                </p>
+                <div class="ai-feature-chips">
+                  <span class="ai-chip active">Map trường Google Sheet</span>
+                  <span class="ai-chip">Map trường KiotViet</span>
+                  <span class="ai-chip">Map trường LadiPage</span>
+                  <span class="ai-chip">Map Custom JSON Field</span>
+                </div>
+              </div>
+              <div class="ai-showcase-media">
+                <div class="mockup-wrapper">
+                  <img src="docs/ui-tich-hop/ket-noi-shopify-vao-smaxai_3.webp" alt="Màn hình ánh xạ map dữ liệu Smax" data-cms-img="crm-sync-img-23">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Reports & Conversion Funnels Section -->
+        <section class="reports-hub-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="crm-sync-text-27">Theo dõi hiệu quả phễu đồng bộ đơn hàng</h2>
+              <p data-cms="crm-sync-text-28">Thống kê số lượng đơn hàng đồng bộ thành công, doanh thu chốt đơn toàn kênh thực tế.</p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="reports-tab-container">
+              <button class="report-tab-btn active" data-report-tab="performance">Báo cáo đơn đồng bộ</button>
+              <button class="report-tab-btn" data-report-tab="activity">Hiệu suất vận chuyển</button>
+              <button class="report-tab-btn" data-report-tab="conversion">Doanh thu chốt đơn</button>
+            </div>
+
+            <!-- Tab Panel 1 -->
+            <div class="report-panel active" id="panel-performance">
+              <div class="mockup-wrapper">
+                <img src="docs/ui-remarketing/bao-cao-thoi-gian-hoat-dong.webp" alt="Báo cáo đơn hàng đồng bộ thành công" data-cms-img="crm-sync-img-24">
+              </div>
+            </div>
+
+            <!-- Tab Panel 2 -->
+            <div class="report-panel" id="panel-activity">
+              <div class="mockup-wrapper">
+                <img src="docs/ui-remarketing/bao-cao-hieu-suat-nhan-vien.webp" alt="Báo cáo hiệu suất giao vận" data-cms-img="crm-sync-img-25">
+              </div>
+            </div>
+
+            <!-- Tab Panel 3 -->
+            <div class="report-panel" id="panel-conversion">
+              <div class="mockup-wrapper">
+                <img src="docs/ui-remarketing/bao-cao-ket-qua-chot-don.webp" alt="Báo cáo doanh số bán lẻ chốt đơn" data-cms-img="crm-sync-img-26">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Case Study Section -->
+        
+        
+        
+        <!-- Quickstart 3 Steps Section -->
+        <section class="quickstart-steps-section">
+          <div class="container">
+            <div class="steps-header">
+              <span class="steps-eyebrow">Kết nối nhanh chóng</span>
+              <h2 class="steps-title" data-cms="crm-sync-text-29">Đồng bộ dữ liệu CRM chỉ trong 3 bước*</h2>
+            </div>
+            <div class="steps-grid">
+
+              <!-- Step BƯỚC 01 -->
+              <div class="step-card">
+                <span class="step-card-eyebrow">BƯỚC 01</span>
+                <h3 class="step-card-title" data-cms="crm-sync-text-30">Liên kết hệ thống bán hàng</h3>
+                <p class="step-card-desc" data-cms="crm-sync-text-31">Vào Tích hợp, kết nối Smax với các nền tảng ERP/CRM/E-commerce (KiotViet, Sapo, Nhanh.vn, Lark Base, Shopify, WooCommerce).</p>
+                <div class="step-card-visual">
+                  <img src="asset smax/module-feature-images/crm-connect/api-webhook.webp" alt="Liên kết hệ thống bán hàng" data-cms-img="crm-sync-img-27">
+                </div>
+              </div>
+              <!-- Step BƯỚC 02 -->
+              <div class="step-card">
+                <span class="step-card-eyebrow">BƯỚC 02</span>
+                <h3 class="step-card-title" data-cms="crm-sync-text-32">Ánh xạ thuộc tính (Mapping)</h3>
+                <p class="step-card-desc" data-cms="crm-sync-text-33">Khai báo đồng bộ dữ liệu bằng cách nối các biến Landing Page/Chatbot sang thuộc tính Smax (ví dụ: phone thành attrs.sodienthoai).</p>
+                <div class="step-card-visual">
+                  <img src="asset smax/module-feature-images/crm-connect/customer-360.webp" alt="Ánh xạ thuộc tính (Mapping)" data-cms-img="crm-sync-img-28">
+                </div>
+              </div>
+              <!-- Step BƯỚC 03 -->
+              <div class="step-card">
+                <span class="step-card-eyebrow">BƯỚC 03</span>
+                <h3 class="step-card-title" data-cms="crm-sync-text-34">Tự động lên đơn &amp; Đồng bộ</h3>
+                <p class="step-card-desc" data-cms="crm-sync-text-35">Hệ thống tự động đẩy lead về CRM, tạo đơn hàng trực tiếp ngay trong khung chat Livechat và tự động trừ tồn kho thời gian thực.</p>
+                <div class="step-card-visual">
+                  <img src="asset smax/module-feature-images/crm-connect/order-sync.webp" alt="Tự động lên đơn &amp; Đồng bộ" data-cms-img="crm-sync-img-29">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="casestudy-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="crm-sync-text-36">Khách hàng thành công cùng Smax.ai</h2>
+              <p data-cms="crm-sync-text-37">Kết nối dữ liệu bán hàng giúp doanh nghiệp vận hành nhanh và chính xác hơn.</p>
+            </div>
+
+            <div class="casestudy-card">
+              <div class="casestudy-quote">
+                <div class="casestudy-quote-mark">“</div>
+                <p data-cms="crm-sync-text-38">
+                  Smax giúp YODY đồng bộ đơn hàng chỉ trong 5 giây, loại bỏ sai lệch dữ liệu và tăng tốc xử lý gấp 3 lần so với quy trình trước đây.
+                </p>
+                <div class="casestudy-author">
+                  <div class="author-info">
+                    <h4 data-cms="crm-sync-text-39">PHẠM THẾ VINH</h4>
+                    <p data-cms="crm-sync-text-40">Đại diện YODY</p>
+                  </div>
+                </div>
+              </div>
+              <div class="casestudy-metrics">
+                <div>
+                  <div class="cs-metric-num">5s</div>
+                  <div class="cs-metric-label">Tốc độ đồng bộ</div>
+                  <div class="cs-metric-desc">Dữ liệu đơn hàng được cập nhật gần như tức thì.</div>
+                </div>
+                <div>
+                  <div class="cs-metric-num">0%</div>
+                  <div class="cs-metric-label">Sai lệch dữ liệu</div>
+                  <div class="cs-metric-desc">Giảm lỗi nhập liệu và đối soát giữa các hệ thống.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 data-cms="crm-sync-text-41">Câu hỏi thường gặp về Smax CRM &amp; Đơn hàng Sync</h2>
+              <p data-cms="crm-sync-text-42">Mọi giải đáp về thời gian cập nhật dữ liệu, giới hạn số dòng Google Sheet và độ bảo mật tích hợp.</p>
+            </div>
+
+            <div class="faq-container">
+              <!-- Item 1 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Dữ liệu tồn kho từ KiotViet/Sapo đồng bộ về Smax có độ trễ bao lâu?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Tài liệu không cam kết một độ trễ cố định cho mọi nền tảng. Tốc độ cập nhật phụ thuộc API/Webhook, cấu hình đồng bộ và trạng thái dịch vụ của KiotViet, Sapo hoặc integration đang dùng; cần kiểm thử thực tế sau khi kết nối.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Google Sheets có giới hạn số dòng ghi nhận dữ liệu từ chatbot không?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Có giới hạn theo Google Sheets và hạn mức API của tài khoản, vì vậy không nên mô tả là không giới hạn. Với dữ liệu lớn, nên chia sheet theo giai đoạn và theo dõi quota của Google.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="faq-item">
+                <button class="faq-trigger" type="button">
+                  <span>Tôi cần bảo vệ token API như thế nào?</span>
+                  <div class="faq-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-content">
+                  <div class="faq-content-inner">
+                    Không chia sẻ token qua kênh không an toàn, không commit vào source code/GitHub và chỉ cấp quyền cần thiết. Khi nghi ngờ token bị lộ, hãy thu hồi và tạo token mới từ hệ thống nguồn.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Pure Typography Accent Section (Light-mode) -->
+        <section class="pure-typo-section">
+          <div class="typo-bg-grid"></div>
+          <div class="typo-bg-glows"></div>
+          <div class="pure-typo-container">
+            <h2 data-cms="crm-sync-text-43">
+              Smax.ai kết nối <span class="gradient-text-1">dữ liệu đơn hàng</span>, sự kiện quảng cáo &amp; <span class="gradient-text-2">chăm sóc khách hàng</span> trong một quy trình tự động
+            </h2>
+            <a href="#cta" class="pure-typo-cta-btn">Bắt đầu đồng bộ dữ liệu ngay bây giờ</a>
+          </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="final-cta" id="cta">
+          <div class="container cta-inner">
+            <h2 data-cms="crm-sync-text-44">Bắt đầu đồng bộ hóa dữ liệu toàn kênh bán hàng ngay hôm nay</h2>
+            <p data-cms="crm-sync-text-45">
+              Kết nối dữ liệu khách hàng, đơn hàng, Trigger Ecom và Meta Dataset cùng Smax CRM &amp; Đơn hàng Sync.
+            </p>
+            <div class="cta-actions">
+              <a class="btn btn-dark" href="#top">Dùng thử miễn phí</a>
+              <a class="btn btn-soft" href="index.html#cta">Đặt lịch hẹn tư vấn</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div>
+            <a class="brand" href="#top">
+              <img src="asset smax/smax-ai-logo.webp" alt="Smax.ai" class="brand-logo-img">
+            </a>
+            <p>Nền tảng AI-Automation giúp doanh nghiệp vận hành bán hàng, tiếp thị và chăm sóc khách hàng đa kênh.</p>
+          </div>
+          <div>
+            <h3>Sản phẩm</h3>
+            <a href="livechat.html">Livechat</a>
+            <a href="chatbot.html">Chatbot</a>
+            <a href="genai.html">Smax GenAI</a>
+            <a href="insight.html">AI Insight</a>
+            <a>Automation Map</a>
+            <a>Remarketing</a>
+          </div>
+          <div>
+            <h3>Giải pháp</h3>
+            <a>Sales</a>
+            <a>Marketing</a>
+            <a>Customer Service</a>
+            <a>E-commerce</a>
+            <a>Omnichannel</a>
+            <a>Meta Business AI</a>
+          </div>
+          <div>
+            <h3>Tài nguyên</h3>
+            <a>Blog</a>
+            <a>Tài liệu</a>
+            <a>Video hướng dẫn</a>
+            <a>Webinar</a>
+            <a>Bot mẫu</a>
+            <a>Case Study</a>
+          </div>
+          <div>
+            <h3>Doanh nghiệp</h3>
+            <a>Về Smax.ai</a>
+            <a>Đối tác</a>
+            <a>Bảng giá</a>
+            <a>Liên hệ</a>
+            <a>Chính sách</a>
+          </div>
+        </div>
+        <div class="container footer-bottom">
+          <span>© 2026 Smax.ai</span>
+          <span>Điều khoản · Quyền riêng tư · Liên hệ tư vấn</span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Shared Header and Interactions JS -->
+    <script src="script.js?v=4.0.2"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Tab buttons switcher
+        const tabButtons = document.querySelectorAll(".report-tab-btn");
+        const panels = document.querySelectorAll(".report-panel");
+
+        tabButtons.forEach(btn => {
+          btn.addEventListener("click", () => {
+            const targetTab = btn.getAttribute("data-report-tab");
+            tabButtons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            panels.forEach(panel => {
+              panel.classList.toggle("active", panel.id === `panel-${targetTab}`);
+            });
+          });
+        });
+
+        // Mousemove parallax effect for pure-typo-section background grid & glows
+        const typoSection = document.querySelector(".pure-typo-section");
+        const typoGrid = document.querySelector(".typo-bg-grid");
+        const typoGlows = document.querySelector(".typo-bg-glows");
+
+        if (typoSection && typoGrid) {
+          typoSection.addEventListener("mousemove", (e) => {
+            const rect = typoSection.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            // Translate values (max 15px for grid, 25px for glows)
+            const moveX = (x / rect.width) * 15;
+            const moveY = (y / rect.height) * 15;
+
+            typoGrid.style.transform = `scale(1.05) translate(${moveX}px, ${moveY}px)`;
+            if (typoGlows) {
+              typoGlows.style.transform = `scale(1.05) translate(${moveX * 1.5}px, ${moveY * 1.5}px)`;
+            }
+          });
+
+          typoSection.addEventListener("mouseleave", () => {
+            typoGrid.style.transform = "scale(1.05) translate(0px, 0px)";
+            if (typoGlows) {
+              typoGlows.style.transform = "scale(1.05) translate(0px, 0px)";
+            }
+          });
+        }
+      
+        
+
+      });
+    </script>
+  
+
+</body></html>
