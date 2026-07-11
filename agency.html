@@ -152,11 +152,6 @@
       .hero-mockup-wrapper {
         max-width: 1100px;
         margin: 0 auto;
-        background: #FFFFFF;
-        border: 1px solid rgba(15, 24, 53, 0.08);
-        border-radius: 20px;
-        box-shadow: 0 36px 80px rgba(15, 24, 53, 0.12), 0 1px 3px rgba(15, 24, 53, 0.03);
-        overflow: hidden;
         position: relative;
         z-index: 5;
         animation: fadeInUpMockup 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -173,54 +168,7 @@
         }
       }
 
-      .browser-header {
-        height: 40px;
-        background: #F8F9FC;
-        border-bottom: 1px solid rgba(15, 24, 53, 0.06);
-        display: flex;
-        align-items: center;
-        padding: 0 16px;
-        position: relative;
-      }
-
-      .browser-dots {
-        display: flex;
-        gap: 6px;
-      }
-
-      .browser-dots .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        display: inline-block;
-      }
-
-      .browser-dots .dot.red { background: #FF5F56; }
-      .browser-dots .dot.yellow { background: #FFBD2E; }
-      .browser-dots .dot.green { background: #27C93F; }
-
-      .browser-address {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(15, 24, 53, 0.03);
-        padding: 4px 24px;
-        border-radius: 6px;
-        font-size: 11.5px;
-        font-weight: 500;
-        color: #667085;
-        font-family: monospace;
-        letter-spacing: 0.02em;
-      }
-
-      .browser-content {
-        position: relative;
-        background: #FFFFFF;
-        line-height: 0;
-      }
-
-      .browser-content img {
+      .hero-mockup-wrapper img {
         width: 100%;
         height: auto;
         display: block;
@@ -795,19 +743,9 @@
               </a>
             </div>
 
-            <!-- Browser Mockup -->
+            <!-- Hero Image (Transparent) -->
             <div class="hero-mockup-wrapper">
-              <div class="browser-header">
-                <div class="browser-dots">
-                  <span class="dot red"></span>
-                  <span class="dot yellow"></span>
-                  <span class="dot green"></span>
-                </div>
-                <div class="browser-address">smax.ai/solutions/agency</div>
-              </div>
-              <div class="browser-content">
-                <img data-cms-img="agency-hero-img" src="asset smax/agency/hero-dashboard.png" alt="Smax Agency AI Dashboard Mockup">
-              </div>
+              <img data-cms-img="agency-hero-img" src="asset smax/agency/hero-dashboard.png" alt="Smax Agency AI Dashboard Mockup">
             </div>
           </div>
         </section>
