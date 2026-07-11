@@ -65,11 +65,135 @@ function fetchContentAndCompile() {
             fetchBatch();
           } else {
             console.log(`✅ [Smax CMS] Loaded ${allData.length} content rows from database.`);
+            
+            // Auto repair database corruption if any
             const contentMap = {};
-            allData.forEach(row => {
-              contentMap[row.content_key] = row.content_value;
+            const repairs = [];
+            const cheerio = require('cheerio');
+            const rootDir = path.resolve(__dirname, '..');
+            const pages = ['ecommerce', 'education', 'realestate', 'service', 'fb', 'agency'];
+            const localDefaults = {};
+
+            pages.forEach(page => {
+              const filePath = path.join(rootDir, `${page}.html`);
+              if (fs.existsSync(filePath)) {
+                const content = fs.readFileSync(filePath, 'utf8');
+                const $ = cheerio.load(content);
+                
+                $('[data-cms]').each((i, el) => {
+                  const key = $(el).attr('data-cms');
+                  const val = $(el).text().trim();
+                  if (key && val) localDefaults[key] = val;
+                });
+                
+                $('[data-cms-img]').each((i, el) => {
+                  const key = $(el).attr('data-cms-img');
+                  const val = $(el).attr('src') || '';
+                  if (key && val) localDefaults[key] = val;
+                });
+              }
             });
-            finalizeBuild(contentMap);
+
+            allData.forEach(row => {
+              let val = row.content_value || '';
+              let key = row.content_key;
+              let page = row.page_name;
+              let isRepaired = false;
+              
+              // 1. Specific fix for estate-hero-img user custom transparent image
+              if (key === 'estate-hero-img') {
+                const targetImg = 'https://byxzjcypifhhgzyrzbfv.supabase.co/storage/v1/object/public/site_assets/cms-assets/1783761946732-thtb69nb7vf.webp';
+                if (val !== targetImg) {
+                  console.log(`🔧 [Smax CMS Repair] Restoring estate-hero-img to user transparent WebP image: ${targetImg}`);
+                  val = targetImg;
+                  isRepaired = true;
+                }
+              }
+              
+              // 2. Fix corrupted text blocks showing image paths
+              if (key.includes('text') || key.includes('title') || key.includes('desc') || key.includes('badge')) {
+                if (val.startsWith('asset smax/') || val.startsWith('http')) {
+                  const defaultVal = localDefaults[key];
+                  if (defaultVal) {
+                    console.log(`🔧 [Smax CMS Repair] Repairing corrupted text key ${key}: "${val}" -> "${defaultVal}"`);
+                    val = defaultVal;
+                    isRepaired = true;
+                  }
+                }
+              }
+              
+              // 3. Fix corrupted image blocks showing Vietnamese text descriptions
+              if (key.includes('img') || key.includes('logo') || key.includes('avatar')) {
+                if (val && !val.startsWith('asset smax/') && !val.startsWith('http')) {
+                  const defaultVal = localDefaults[key];
+                  if (defaultVal) {
+                    console.log(`🔧 [Smax CMS Repair] Repairing corrupted image key ${key}: "${val}" -> "${defaultVal}"`);
+                    val = defaultVal;
+                    isRepaired = true;
+                  }
+                }
+              }
+              
+              contentMap[key] = val;
+              
+              if (isRepaired) {
+                repairs.push({
+                  content_key: key,
+                  content_value: val,
+                  page_name: page
+                });
+              }
+            });
+
+            if (repairs.length > 0) {
+              console.log(`🚀 [Smax CMS Repair] Sending ${repairs.length} repaired records back to Supabase...`);
+              
+              const targetUrl = `${supabaseUrl.replace(/\/$/, '')}/rest/v1/site_content?on_conflict=content_key`;
+              const parsedUrl = url.parse(targetUrl);
+              const bodyData = JSON.stringify(repairs);
+
+              const headers = {
+                'apikey': supabaseAnonKey,
+                'Authorization': `Bearer ${supabaseAnonKey}`,
+                'Content-Type': 'application/json',
+                'Prefer': 'resolution=merge-duplicates',
+                'Content-Length': Buffer.byteLength(bodyData)
+              };
+
+              const reqOptions = {
+                hostname: parsedUrl.hostname,
+                port: parsedUrl.port,
+                path: parsedUrl.path,
+                method: 'POST',
+                headers: headers
+              };
+
+              const req = https.request(reqOptions, (res) => {
+                let body = '';
+                res.on('data', (chunk) => {
+                  body += chunk.toString('utf8');
+                });
+                res.on('end', () => {
+                  if (res.statusCode >= 200 && res.statusCode < 300) {
+                    console.log(`🎉 [Smax CMS Repair] Successfully synced ${repairs.length} repaired records to Supabase.`);
+                  } else {
+                    console.error(`❌ [Smax CMS Repair] Failed to sync repairs: HTTP ${res.statusCode}`);
+                    console.error('Response:', body);
+                  }
+                  finalizeBuild(contentMap);
+                });
+              });
+
+              req.on('error', (e) => {
+                console.error('❌ [Smax CMS Repair] Connection error during repair sync:', e.message);
+                finalizeBuild(contentMap);
+              });
+
+              req.write(bodyData);
+              req.end();
+            } else {
+              finalizeBuild(contentMap);
+            }
           }
         } catch (e) {
           console.error('❌ [Smax CMS] Failed to parse database response:', e.message);
