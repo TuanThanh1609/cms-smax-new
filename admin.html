@@ -323,6 +323,12 @@
       </div>
       
       <div class="flex items-center gap-3">
+        <!-- Repair Database Button -->
+        <button id="repair-db-btn" onclick="repairDatabase()" class="bg-amber-600 hover:bg-amber-500 active:scale-[0.98] text-white px-4 py-2 text-sm font-semibold rounded-xl transition-all flex items-center gap-2 shadow-lg shadow-amber-600/15" title="Khôi phục ảnh/văn bản bị lệch hoặc lỗi hiển thị về mặc định">
+          <i data-lucide="wrench" class="w-4 h-4"></i>
+          Sửa lỗi ảnh vỡ
+        </button>
+
         <!-- Rebuild Trigger Webhook -->
         <button id="vercel-deploy-btn" onclick="triggerVercelDeploy()" class="bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] text-white px-4 py-2 text-sm font-semibold rounded-xl transition-all flex items-center gap-2 shadow-lg shadow-emerald-600/15">
           <i data-lucide="send" class="w-4 h-4"></i>
@@ -1009,6 +1015,86 @@
       } else {
         showToast('Lưu nội dung thành công!');
         loadPageContent(currentSelectedPage);
+      }
+    }
+
+    // Repair Database for realestate and agency pages
+    async function repairDatabase() {
+      if (!confirm("Hệ thống sẽ tiến hành tự động khôi phục các thuộc tính ảnh/văn bản bị lệch hoặc lỗi hiển thị trên trang Bất động sản và Agency về trạng thái gốc. Bạn có muốn tiếp tục?")) {
+        return;
+      }
+      
+      const btn = document.getElementById('repair-db-btn');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = `<i data-lucide="loader" class="w-4 h-4 animate-spin"></i> Đang khôi phục...`;
+      btn.disabled = true;
+      lucide.createIcons();
+
+      try {
+        const pages = ['realestate', 'agency'];
+        const updates = [];
+        
+        for (const page of pages) {
+          const res = await fetch(`/${page}.html`);
+          if (!res.ok) throw new Error(`Không thể tải file ${page}.html để trích xuất dữ liệu gốc.`);
+          const html = await res.text();
+          
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          
+          // Get all data-cms elements
+          doc.querySelectorAll('[data-cms]').forEach(el => {
+            const key = el.getAttribute('data-cms');
+            const val = el.textContent.trim();
+            if (key && val) {
+              updates.push({
+                page_name: page,
+                content_key: key,
+                content_value: val,
+                updated_at: new Date().toISOString()
+              });
+            }
+          });
+          
+          // Get all data-cms-img elements
+          doc.querySelectorAll('[data-cms-img]').forEach(el => {
+            const key = el.getAttribute('data-cms-img');
+            const val = el.getAttribute('src') || '';
+            if (key && val) {
+              updates.push({
+                page_name: page,
+                content_key: key,
+                content_value: val,
+                updated_at: new Date().toISOString()
+              });
+            }
+          });
+        }
+        
+        if (updates.length === 0) {
+          alert("Không tìm thấy thuộc tính nào cần sửa.");
+          return;
+        }
+
+        console.log(`Upserting ${updates.length} rows to repair DB...`);
+        const { error } = await supabaseClient
+          .from('site_content')
+          .upsert(updates, { onConflict: 'content_key' });
+          
+        if (error) throw error;
+        
+        alert(`🎉 Thành công! Đã khôi phục ${updates.length} thuộc tính gốc về database. Hãy bấm 'Xuất bản lên Vercel' để cập nhật giao diện live!`);
+        
+        if (currentSelectedPage === 'realestate' || currentSelectedPage === 'agency') {
+          loadPageContent(currentSelectedPage);
+        }
+      } catch (err) {
+        alert(`❌ Lỗi khi sửa database: ${err.message}`);
+        console.error(err);
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+        lucide.createIcons();
       }
     }
 
