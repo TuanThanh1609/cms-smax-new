@@ -8,7 +8,7 @@ new_tags.json
 scripts/new_tags.json
 scripts/index_new_tags.json
 *.log
-.env
+.env*
 .dev.vars
 
 .env*.local
