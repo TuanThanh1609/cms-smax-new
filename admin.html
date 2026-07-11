@@ -110,7 +110,7 @@
   </div>
 
   <!-- ================= MAIN DASHBOARD ================= -->
-  <div id="dashboard" class="hidden flex-1 flex flex-col">
+  <div id="dashboard" class="hidden flex-1 flex flex-col overflow-hidden">
     <!-- Header -->
     <header class="glass sticky top-0 z-30 px-6 py-4 flex items-center justify-between">
       <div class="flex items-center gap-3">
@@ -519,7 +519,7 @@
       // Group fields by sections/folders
       let sectionsList = [];
       if (doc) {
-        const sectionEls = doc.querySelectorAll('section, main, [class*="-section"], .hero');
+        const sectionEls = doc.querySelectorAll('header, section, footer');
         const processedKeys = new Set();
         
         sectionEls.forEach((secEl, secIdx) => {
@@ -539,19 +539,30 @@
           
           // Determine section title
           let secTitle = "";
-          const heading = secEl.querySelector('h1, h2, h3, h4');
-          if (heading) {
-            secTitle = heading.textContent.trim().substring(0, 30);
-            if (heading.textContent.trim().length > 30) secTitle += "...";
+          const tagName = secEl.tagName.toLowerCase();
+          if (tagName === 'header') {
+            secTitle = "Cấu trúc Đầu trang (Header)";
+          } else if (tagName === 'footer') {
+            secTitle = "Cấu trúc Cuối trang (Footer)";
+          } else {
+            const heading = secEl.querySelector('h1, h2, h3, h4');
+            if (heading) {
+              secTitle = heading.textContent.trim().substring(0, 45);
+              if (heading.textContent.trim().length > 45) secTitle += "...";
+            }
           }
           
           if (!secTitle) {
             const classAttr = secEl.getAttribute('class') || '';
             const idAttr = secEl.getAttribute('id') || '';
             if (idAttr) {
-              secTitle = `Mục: #${idAttr}`;
+              secTitle = `Khối: #${idAttr}`;
             } else if (classAttr) {
-              secTitle = `Mục: .${classAttr.split(' ')[0]}`;
+              const firstClass = classAttr.split(' ')[0];
+              secTitle = firstClass
+                .split('-')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
             } else {
               secTitle = `Phần nội dung số ${secIdx + 1}`;
             }
