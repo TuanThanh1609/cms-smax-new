@@ -10,3 +10,5 @@ scripts/index_new_tags.json
 *.log
 .env
 .dev.vars
+
+.env*.local

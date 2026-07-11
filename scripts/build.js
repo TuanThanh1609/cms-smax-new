@@ -21,7 +21,7 @@ if (hasKeys) {
 }
 
 function fetchContentAndCompile() {
-  const targetUrl = `${supabaseUrl.replace(/\/$/, '')}/rest/v1/site_content?select=*`;
+  const targetUrl = `${supabaseUrl.replace(/\/$/, '')}/rest/v1/site_content?select=*&limit=10000`;
   const parsedUrl = url.parse(targetUrl);
 
   const headers = {
