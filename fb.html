@@ -720,6 +720,42 @@
           width: 100%;
         }
       }
+
+      /* Generated F&B Automation Map visuals */
+      img[src*="asset smax/fb/visuals/"] {
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        filter: drop-shadow(0 22px 30px rgba(15, 24, 53, 0.10));
+      }
+
+      .solution-visual img[src*="asset smax/fb/visuals/"],
+      .mobile-section-visual img[src*="asset smax/fb/visuals/"] {
+        width: 112%;
+        max-width: none;
+        margin-left: -6%;
+      }
+
+      .acq-card-right-img img[src*="asset smax/fb/visuals/"] {
+        width: 124%;
+        max-width: none;
+        margin-left: -12%;
+      }
+
+      @media (max-width: 1023px) {
+        .hero-mockup-wrapper {
+          display: block;
+          margin-top: 42px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .solution-visual img[src*="asset smax/fb/visuals/"],
+        .mobile-section-visual img[src*="asset smax/fb/visuals/"],
+        .acq-card-right-img img[src*="asset smax/fb/visuals/"] {
+          width: 100%;
+          margin-left: 0;
+        }
+      }
     </style>
   </head>
   <body>
@@ -740,17 +776,17 @@
             </h1>
             <p class="hero-sub" data-cms="fb-hero-sub">Tự động hóa phễu đặt bàn trước, gọi món tại bàn qua FnB Selling Page (E-menu) kết nối trực tiếp nhà bếp và xây dựng hệ thống tích điểm Loyalty giữ chân khách hàng.</p>
             <div class="hero-actions">
-              <a class="btn btn-dark" href="#cta">
+              <a class="btn btn-dark" href="#cta" data-cms="fb-btn-1">
                 Đăng ký Demo
               </a>
-              <a class="btn btn-soft" href="#cta">
+              <a class="btn btn-soft" href="#cta" data-cms="fb-btn-2">
                 Liên hệ tư vấn
               </a>
             </div>
 
             <!-- Hero Image (Transparent) -->
             <div class="hero-mockup-wrapper">
-              <img data-cms-img="fb-hero-img" src="asset smax/fb/hero-dashboard.png" alt="Smax F&amp;B AI Dashboard Mockup">
+              <img data-cms-img="fb-v2-hero-img" src="asset smax/fb/visuals/hero-automation-fnb.png" alt="Bản đồ tự động hóa Smax cho nhà hàng từ đặt bàn, gọi món, gửi bếp đến tích điểm">
             </div>
           </div>
         </section>
@@ -783,7 +819,7 @@
         <section class="challenges-section">
           <div class="container">
             <div class="section-header">
-              <div class="section-tag">Thách thức</div>
+              <div class="section-tag" data-cms="fb-tag-1">Thách thức</div>
               <h2 class="section-title" data-cms="fb-text-1">Những thách thức của ngành hàng F&amp;B</h2>
               <p class="section-desc" data-cms="fb-text-2">
                 Quá trình gọi món thủ công, đặt lịch hẹn và remarketing cho tệp khách cũ tốn chi phí và dễ xảy ra sai sót khi quán đông khách.
@@ -857,7 +893,7 @@
           <div class="container">
             <div class="solution-grid">
               <div class="solution-info">
-                <div class="section-tag">Giải pháp 01</div>
+                <div class="section-tag" data-cms="fb-tag-2">Giải pháp 01</div>
                 <h2 data-cms="fb-text-13">E-Menu Gọi món tại bàn &amp; Tự động hóa order</h2>
                 <p class="solution-desc-main" data-cms="fb-text-14">
                   Tận dụng mã QR Code đặt tại bàn ăn để khách quét mở FnB Selling Page (E-menu), chọn món, thanh toán qua Payment Hub và gửi thẳng về máy in bếp.
@@ -884,12 +920,12 @@
                 </div>
               </div>
               <div class="solution-visual">
-                <img src="asset smax/module-feature-images/livechat/staff-assignment.webp" alt="E-menu gọi món tại bàn nhà hàng" data-cms-img="fb-img-1">
+                <img src="asset smax/fb/visuals/e-menu-order-automation.png" alt="Khách quét QR mở E-Menu, gọi món và tự động gửi order về POS cùng máy in bếp" data-cms-img="fb-v2-img-1">
               </div>
             </div>
             <!-- Mobile visual -->
             <div class="mobile-section-visual">
-              <img src="asset smax/module-feature-images/livechat/staff-assignment.webp" alt="E-menu gọi món tại bàn nhà hàng" data-cms-img="fb-img-2">
+              <img src="asset smax/fb/visuals/e-menu-order-automation.png" alt="Khách quét QR mở E-Menu, gọi món và tự động gửi order về POS cùng máy in bếp" data-cms-img="fb-v2-img-2">
             </div>
           </div>
         </section>
@@ -898,7 +934,7 @@
         <section class="solution-panel-section" style="background: #F8F9FC;">
           <div class="container">
             <div class="section-header">
-              <div class="section-tag">Giải pháp 02</div>
+              <div class="section-tag" data-cms="fb-tag-3">Giải pháp 02</div>
               <h2 class="section-title" data-cms="fb-text-19">Hệ thống Đặt bàn trước &amp; Xác nhận lịch tự động</h2>
               <p class="section-desc" data-cms="fb-text-20">
                 Hợp lý hóa quy trình đặt bàn trước giúp nâng cao chất lượng chuẩn bị của nhà hàng.
@@ -915,7 +951,7 @@
                   </p>
                 </div>
                 <div class="acq-card-right-img">
-                  <img src="asset smax/module-feature-images/livechat/saved-replies.webp" alt="Đặt bàn trước tự động nhà hàng" data-cms-img="fb-img-3">
+                  <img src="asset smax/fb/visuals/dat-ban-ai.png" alt="Hội thoại AI đặt bàn và nhân viên nhà hàng xác nhận lịch tự động" data-cms-img="fb-v2-img-3">
                 </div>
               </div>
 
@@ -951,10 +987,10 @@
           <div class="container">
             <div class="solution-grid">
               <div class="solution-visual">
-                <img src="asset smax/chatbot/kich-ban-cham-soc.webp" alt="Minigame lật hình và vòng quay may mắn" data-cms-img="fb-img-4">
+                <img src="asset smax/fb/visuals/loyalty-game.png" alt="Vòng quay may mắn, tích điểm thành viên và voucher cho lần dùng bữa sau" data-cms-img="fb-v2-img-4">
               </div>
               <div class="solution-info">
-                <div class="section-tag">Giải pháp 03</div>
+                <div class="section-tag" data-cms="fb-tag-4">Giải pháp 03</div>
                 <h2 data-cms="fb-text-31">Xây dựng tệp khách hàng trung thành (Loyalty) bằng Game</h2>
                 <p class="solution-desc-main" data-cms="fb-text-32">
                   Tăng tương tác và kích cầu quay lại của khách hàng bằng kịch bản Minigame trúng thưởng thú vị.
@@ -983,7 +1019,7 @@
             </div>
             <!-- Mobile visual -->
             <div class="mobile-section-visual">
-              <img src="asset smax/chatbot/kich-ban-cham-soc.webp" alt="Minigame lật hình và vòng quay may mắn" data-cms-img="fb-img-5">
+              <img src="asset smax/fb/visuals/loyalty-game.png" alt="Vòng quay may mắn, tích điểm thành viên và voucher cho lần dùng bữa sau" data-cms-img="fb-v2-img-5">
             </div>
           </div>
         </section>
@@ -993,7 +1029,7 @@
           <div class="container">
             <div class="solution-grid">
               <div class="solution-info">
-                <div class="section-tag">Giải pháp 04</div>
+                <div class="section-tag" data-cms="fb-tag-5">Giải pháp 04</div>
                 <h2 data-cms="fb-text-37">Khảo sát đánh giá CSAT món ăn &amp; Phản hồi dịch vụ</h2>
                 <p class="solution-desc-main" data-cms="fb-text-38">
                   Tự động ghi nhận ý kiến phản hồi về chất lượng món ăn và thái độ phục vụ của nhân viên để kịp thời nâng cấp cơ sở.
@@ -1020,12 +1056,12 @@
                 </div>
               </div>
               <div class="solution-visual">
-                <img src="asset smax/module-feature-images/crm-connect/customer-360.webp" alt="Khảo sát CSAT nhà hàng F&amp;B" data-cms-img="fb-img-6">
+                <img src="asset smax/fb/visuals/csat-ai.png" alt="AI hội thoại khảo sát CSAT, phân tích phản hồi món ăn và tự động gửi voucher" data-cms-img="fb-v2-img-6">
               </div>
             </div>
             <!-- Mobile visual -->
             <div class="mobile-section-visual">
-              <img src="asset smax/module-feature-images/crm-connect/customer-360.webp" alt="Khảo sát CSAT nhà hàng F&amp;B" data-cms-img="fb-img-7">
+              <img src="asset smax/fb/visuals/csat-ai.png" alt="AI hội thoại khảo sát CSAT, phân tích phản hồi món ăn và tự động gửi voucher" data-cms-img="fb-v2-img-7">
             </div>
           </div>
         </section>
@@ -1035,10 +1071,10 @@
           <div class="container">
             <div class="solution-grid">
               <div class="solution-visual">
-                <img src="asset smax/remarketing-features-v2/personalized-sequence.webp" alt="Chăm sóc sinh nhật khách hàng" data-cms-img="fb-img-8">
+                <img src="asset smax/fb/visuals/sinh-nhat-sequence.png" alt="Sequence sinh nhật tự động, tặng ưu đãi và xác nhận đặt bàn nhóm" data-cms-img="fb-v2-img-8">
               </div>
               <div class="solution-info">
-                <div class="section-tag">Giải pháp 05</div>
+                <div class="section-tag" data-cms="fb-tag-6">Giải pháp 05</div>
                 <h2 data-cms="fb-text-43">Kịch bản Sinh nhật tự động &amp; Kích thích đặt bàn nhóm</h2>
                 <p class="solution-desc-main" data-cms="fb-text-44">
                   Tận dụng kịch bản sinh nhật cá nhân hóa để thuyết phục khách hàng lựa chọn nhà hàng làm địa điểm tổ chức tiệc.
@@ -1067,7 +1103,7 @@
             </div>
             <!-- Mobile visual -->
             <div class="mobile-section-visual">
-              <img src="asset smax/remarketing-features-v2/personalized-sequence.webp" alt="Chăm sóc sinh nhật khách hàng" data-cms-img="fb-img-9">
+              <img src="asset smax/fb/visuals/sinh-nhat-sequence.png" alt="Sequence sinh nhật tự động, tặng ưu đãi và xác nhận đặt bàn nhóm" data-cms-img="fb-v2-img-9">
             </div>
           </div>
         </section>
@@ -1077,7 +1113,7 @@
           <div class="container">
             <div class="solution-grid">
               <div class="solution-info">
-                <div class="section-tag">Giải pháp 06</div>
+                <div class="section-tag" data-cms="fb-tag-7">Giải pháp 06</div>
                 <h2 data-cms="fb-text-49">Báo cáo hiệu quả &amp; Đồng bộ POS nhà hàng</h2>
                 <p class="solution-desc-main" data-cms="fb-text-50">
                   Kết nối trực tiếp dữ liệu đơn hàng F&amp;B về hệ thống quản lý POS tập trung.
@@ -1111,12 +1147,12 @@
                 </div>
               </div>
               <div class="solution-visual">
-                <img src="asset smax/module-feature-images/crm-connect/customer-360.webp" alt="Hồ sơ khách hàng 360 nhà hàng F&amp;B" data-cms-img="fb-img-13">
+                <img src="asset smax/fb/visuals/pos-report-sync.png" alt="Smax đồng bộ order tại bàn với POS, máy in bếp, hồ sơ khách hàng và báo cáo doanh thu" data-cms-img="fb-v2-img-13">
               </div>
             </div>
             <!-- Mobile visual -->
             <div class="mobile-section-visual">
-              <img src="asset smax/module-feature-images/crm-connect/customer-360.webp" alt="Hồ sơ khách hàng 360 nhà hàng F&amp;B" data-cms-img="fb-img-14">
+              <img src="asset smax/fb/visuals/pos-report-sync.png" alt="Smax đồng bộ order tại bàn với POS, máy in bếp, hồ sơ khách hàng và báo cáo doanh thu" data-cms-img="fb-v2-img-14">
             </div>
           </div>
         </section>
@@ -1130,8 +1166,8 @@
                 Bứt phá tốc độ phục vụ bàn ăn, tối ưu hóa nguyên liệu, nâng cao giá trị đơn hàng trung bình và gia tăng lượng khách quay lại quán.
               </p>
               <div class="cta-actions">
-                <a class="btn btn-dark" href="https://smax.ai/login">Dùng thử miễn phí</a>
-                <a class="btn btn-soft" href="index.html#cta">Đặt lịch hẹn tư vấn</a>
+                <a class="btn btn-dark" href="https://smax.ai/login" data-cms="fb-btn-3">Dùng thử miễn phí</a>
+                <a class="btn btn-soft" href="index.html#cta" data-cms="fb-btn-4">Đặt lịch hẹn tư vấn</a>
               </div>
             </div>
           </div>
@@ -1195,5 +1231,6 @@
     <!-- Shared Header and Interactions JS -->
     <script src="script.js?v=4.0.2"></script>
   
+
 
 </body></html>
