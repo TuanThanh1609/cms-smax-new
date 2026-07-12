@@ -1409,13 +1409,16 @@
       const updates = currentPageFields.map((field, index) => {
         const inputEl = document.getElementById(`input-val-${index}`);
         const value = inputEl ? inputEl.value : field.content_value;
-        return {
-          id: field.id,
+        const u = {
           page_name: field.page_name,
           content_key: field.content_key,
           content_value: value,
           updated_at: new Date().toISOString()
         };
+        if (field.id) {
+          u.id = field.id;
+        }
+        return u;
       });
       
       const { error } = await supabaseClient
