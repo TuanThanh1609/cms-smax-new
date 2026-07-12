@@ -2310,7 +2310,8 @@
         el.addEventListener('paste', (e) => {
           e.preventDefault();
           const text = (e.originalEvent || e).clipboardData.getData('text/plain');
-          document.execCommand('insertText', false, text);
+          const targetDoc = e.target.ownerDocument || doc;
+          targetDoc.execCommand('insertText', false, text);
         });
       });
 
