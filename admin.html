@@ -2305,6 +2305,13 @@
           const value = el.innerHTML;
           syncVisualTextToForm(key, value);
         });
+
+        // Strip formatting on paste to maintain original text styles
+        el.addEventListener('paste', (e) => {
+          e.preventDefault();
+          const text = (e.originalEvent || e).clipboardData.getData('text/plain');
+          document.execCommand('insertText', false, text);
+        });
       });
 
       // 4. Setup click selection & resizing for static images (Ver 4 Enhancement)
