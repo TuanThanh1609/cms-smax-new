@@ -1030,6 +1030,72 @@
       }
     }
 
+    let dbIdType = null; // cached globally
+
+    function generateUUID() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
+
+    async function getDbIdType() {
+      if (dbIdType) return dbIdType;
+      try {
+        const { data, error } = await supabaseClient
+          .from('site_content')
+          .select('id')
+          .limit(1);
+        if (!error && data && data.length > 0) {
+          const sampleId = data[0].id;
+          if (typeof sampleId === 'number' || (typeof sampleId === 'string' && !isNaN(sampleId))) {
+            dbIdType = 'integer';
+          } else {
+            dbIdType = 'uuid';
+          }
+        }
+      } catch (e) {
+        console.error("Error determining db id type:", e);
+      }
+      if (!dbIdType) dbIdType = 'uuid'; // fallback
+      return dbIdType;
+    }
+
+    async function getNextIntegerId() {
+      try {
+        const { data, error } = await supabaseClient
+          .from('site_content')
+          .select('id')
+          .order('id', { ascending: false })
+          .limit(1);
+        if (!error && data && data.length > 0) {
+          const maxId = parseInt(data[0].id, 10);
+          if (!isNaN(maxId)) return maxId + 1;
+        }
+      } catch (e) {
+        console.error("Error fetching max id:", e);
+      }
+      return Math.floor(Date.now() / 1000) + Math.floor(Math.random() * 1000); // fallback unique integer
+    }
+
+    async function assignNewIds(fields) {
+      const type = await getDbIdType();
+      if (type === 'integer') {
+        let nextId = await getNextIntegerId();
+        fields.forEach(f => {
+          if (!f.id) {
+            f.id = nextId++;
+          }
+        });
+      } else {
+        fields.forEach(f => {
+          if (!f.id) {
+            f.id = generateUUID();
+          }
+        });
+      }
+    }
+
     // Load page content from Supabase
     async function loadPageContent(pageKey) {
       const formContainer = document.getElementById('editor-fields');
@@ -1098,6 +1164,7 @@
             });
             
             if (newFields.length > 0) {
+              await assignNewIds(newFields);
               const { error: seedErr } = await supabaseClient
                 .from('site_content')
                 .insert(newFields);
@@ -1406,6 +1473,7 @@
 
     // Save Changes
     async function savePageChanges() {
+      const newFieldsToId = [];
       const updates = currentPageFields.map((field, index) => {
         const inputEl = document.getElementById(`input-val-${index}`);
         const value = inputEl ? inputEl.value : field.content_value;
@@ -1417,9 +1485,22 @@
         };
         if (field.id) {
           u.id = field.id;
+        } else {
+          newFieldsToId.push(u);
         }
         return u;
       });
+      
+      if (newFieldsToId.length > 0) {
+        await assignNewIds(newFieldsToId);
+        newFieldsToId.forEach(newF => {
+          const match = updates.find(u => u.content_key === newF.content_key);
+          if (match) match.id = newF.id;
+          
+          const origMatch = currentPageFields.find(f => f.content_key === newF.content_key);
+          if (origMatch) origMatch.id = newF.id;
+        });
+      }
       
       const { error } = await supabaseClient
         .from('site_content')
@@ -1489,6 +1570,27 @@
         if (updates.length === 0) {
           alert("Không tìm thấy thuộc tính nào cần sửa.");
           return;
+        }
+
+        // Map existing IDs
+        const { data: existingRows } = await supabaseClient
+          .from('site_content')
+          .select('id, content_key');
+        const idMap = {};
+        if (existingRows) {
+          existingRows.forEach(r => idMap[r.content_key] = r.id);
+        }
+        
+        updates.forEach(u => {
+          if (idMap[u.content_key]) {
+            u.id = idMap[u.content_key];
+          }
+        });
+        
+        // Assign new IDs for those that don't exist
+        const brandNew = updates.filter(u => !u.id);
+        if (brandNew.length > 0) {
+          await assignNewIds(brandNew);
         }
 
         console.log(`Upserting ${updates.length} rows to repair DB...`);
