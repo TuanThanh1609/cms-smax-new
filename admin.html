@@ -1123,6 +1123,29 @@
       } catch (e) {
         console.warn("Không thể tải cấu trúc HTML để sắp xếp:", e);
       }
+      // Sanitize/clean any corrupted HTML blocks (e.g. unclosed divs inside phrasing containers)
+      sortedData = sortedData.map(row => {
+        if (row.content_value && row.content_value.includes('cms-custom-block') && !row.content_value.trim().endsWith('</div>')) {
+          console.log(`🔧 [Smax CMS Auto Repair] Cleaning corrupted HTML value for key: ${row.content_key}`);
+          
+          let clean = row.content_value.replace(/<\/p>\s*$/gi, '');
+          
+          const openDivs = (clean.match(/<div/gi) || []).length;
+          const closeDivs = (clean.match(/<\/div>/gi) || []).length;
+          
+          if (openDivs > closeDivs) {
+            const diff = openDivs - closeDivs;
+            clean += '</div>'.repeat(diff);
+          }
+          
+          clean = clean.replace(/<img([^>]*)(?<!\/)>/gi, '<img$1 />');
+          row.content_value = clean;
+          
+          // Trigger the Save actions banner to save the healed content back
+          document.getElementById('editor-actions').classList.remove('hidden');
+        }
+        return row;
+      });
       
       currentPageFields = sortedData;
       
