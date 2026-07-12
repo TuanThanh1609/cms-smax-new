@@ -229,20 +229,39 @@ function finalizeBuild(contentMap) {
     const srcPath = path.join(rootDir, file);
     const destPath = path.join(publicDir, file);
     
-    // Ignore build output and source control directories
-    if (
-      file === 'public' ||
-      file === 'node_modules' ||
-      file === '.git' ||
-      file === '.vercel' ||
-      file === 'scripts' ||
-      file === '.agents' ||
-      file === '.codex' ||
-      file === '.playwright-mcp' ||
-      file === 'package.json' ||
-      file === 'package-lock.json' ||
-      file === 'skills-lock.json'
-    ) {
+    // Ignore build output and source control directories, as well as raw design/temp folders
+    const ignoredItems = [
+      'public',
+      'node_modules',
+      '.git',
+      '.vercel',
+      'scripts',
+      '.agents',
+      '.codex',
+      '.playwright-mcp',
+      'package.json',
+      'package-lock.json',
+      'skills-lock.json',
+      'tmp',
+      'UI chính thức của Smax',
+      'PNG TACH N?N-20260623T120700Z-3-001',
+      'PNG TÁCH NỀN-20260623T120700Z-3-001',
+      'tham khao 1.png',
+      'tham khao 2.png',
+      'education-mobile-final.png',
+      'image-1.png',
+      'image-2.png',
+      '.gitignore',
+      'CONTINUITY.md',
+      'AGENTS.md',
+      'pasted-text-1.txt',
+      'run_upload.js',
+      'create_gamification_page.js',
+      'generate_flow_images.js',
+      'generate_flow_images.py'
+    ];
+
+    if (ignoredItems.includes(file) || file.startsWith('.env')) {
       return;
     }
 

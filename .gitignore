@@ -12,3 +12,13 @@ scripts/index_new_tags.json
 .dev.vars
 
 .env*.local
+
+# Temporary and design assets
+tmp/
+UI chính thức của Smax/
+PNG TACH N?N-*/
+PNG TÁCH NỀN-*/
+tham khao *.png
+education-mobile-final.png
+image-*.png
+pasted-text-*.txt
