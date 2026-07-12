@@ -1384,7 +1384,8 @@
     // Save Changes
     async function savePageChanges() {
       const updates = currentPageFields.map((field, index) => {
-        const value = document.getElementById(`input-val-${index}`).value;
+        const inputEl = document.getElementById(`input-val-${index}`);
+        const value = inputEl ? inputEl.value : field.content_value;
         return {
           id: field.id,
           page_name: field.page_name,
@@ -1396,7 +1397,7 @@
       
       const { error } = await supabaseClient
         .from('site_content')
-        .upsert(updates);
+        .upsert(updates, { onConflict: 'content_key' });
         
       if (error) {
         alert(`Lỗi khi lưu dữ liệu: ${error.message}`);
@@ -2059,7 +2060,7 @@
     // CMS Layout V3 & V4 Visual Inline Editing Functions
     let activeVisualElement = null;     // Selected parent container element
     let activeVisualKey = null;         // Selected parent container data-cms key
-    let activeVisualBlock = null;       // Selected .cms-custom-block element
+    let activeVisualBlock = null;       // Selected .cms-custom-block or data-cms-img element
 
 
     function setupVisualEditing(doc) {
@@ -2085,6 +2086,7 @@
         }
         
         [data-cms-img] {
+          position: relative !important;
           cursor: pointer !important;
           outline: 1px dashed rgba(6, 182, 212, 0.3) !important;
           outline-offset: 2px !important;
@@ -2177,18 +2179,52 @@
         });
       });
 
-      // 4. Setup click selection for images
+      // 4. Setup click selection & resizing for static images (Ver 4 Enhancement)
       doc.querySelectorAll('[data-cms-img]').forEach(el => {
         el.addEventListener('click', (e) => {
           e.preventDefault();
           e.stopPropagation();
           
-          // Clear other selections
           doc.querySelectorAll('[data-cms]').forEach(n => n.classList.remove('visual-container-selected'));
+          doc.querySelectorAll('[data-cms-img]').forEach(n => n.classList.remove('visual-img-selected'));
           doc.querySelectorAll('.cms-custom-block').forEach(n => n.classList.remove('visual-block-selected'));
           
           const key = el.getAttribute('data-cms-img');
           selectVisualImage(key, el, doc);
+          
+          // Treat the image itself as resizable active visual block!
+          activeVisualBlock = el;
+          activeVisualElement = null;
+          
+          document.getElementById('toolbar-block-type').textContent = "Hình ảnh";
+          document.getElementById('visual-block-toolbar').classList.remove('hidden');
+          
+          // Read current size mode from element styling
+          let sizeMode = 'free';
+          const w = el.style.width || '';
+          if (w.endsWith('%')) {
+            sizeMode = '%';
+          } else if (w.endsWith('px')) {
+            sizeMode = 'px';
+          }
+          el.setAttribute('data-size-mode', sizeMode);
+          setBlockSizeModeUI(sizeMode);
+          
+          if (sizeMode === 'px') {
+            document.getElementById('block-w-px').value = parseInt(w) || '';
+            document.getElementById('block-h-px').value = parseInt(el.style.height) || '';
+          } else if (sizeMode === '%') {
+            document.getElementById('block-w-pct').value = parseInt(w) || '';
+          }
+          
+          document.getElementById('toolbar-content-settings').classList.remove('hidden');
+          document.getElementById('block-url-input').value = el.getAttribute('src') || '';
+          
+          lucide.createIcons();
+        });
+        
+        el.addEventListener('mouseup', () => {
+          syncVisualBlockStyle(el);
         });
       });
 
@@ -2342,38 +2378,87 @@
     }
 
     // CMS Layout V4 Blocks Builder Controls
+    function syncVisualBlockStyle(block) {
+      if (!block) return;
+      
+      const imgKey = block.getAttribute('data-cms-img');
+      if (imgKey) {
+        const styleVal = block.getAttribute('style') || '';
+        const styleKey = imgKey + '-style';
+        
+        const idx = currentPageFields.findIndex(f => f.content_key === styleKey);
+        if (idx !== -1) {
+          currentPageFields[idx].content_value = styleVal;
+        } else {
+          currentPageFields.push({
+            page_name: currentSelectedPage,
+            content_key: styleKey,
+            content_value: styleVal
+          });
+        }
+        document.getElementById('editor-actions').classList.remove('hidden');
+      } else {
+        const parentCms = block.closest('[data-cms]');
+        if (parentCms) {
+          syncVisualTextToForm(parentCms.getAttribute('data-cms'), parentCms.innerHTML);
+        }
+      }
+    }
+
     function setBlockSizeMode(mode) {
       if (!activeVisualBlock) return;
       
       activeVisualBlock.setAttribute('data-size-mode', mode);
       setBlockSizeModeUI(mode);
       
-      const wrapper = activeVisualBlock.querySelector('.resize-wrapper');
-      if (wrapper) {
+      const isImg = activeVisualBlock.hasAttribute('data-cms-img');
+      if (isImg) {
         if (mode === 'free') {
-          wrapper.style.resize = 'both';
-          wrapper.style.overflow = 'auto';
-          wrapper.style.width = '100%';
-          wrapper.style.height = 'auto';
+          activeVisualBlock.style.resize = 'both';
+          activeVisualBlock.style.overflow = 'hidden';
+          activeVisualBlock.style.display = 'block';
+          activeVisualBlock.style.width = '100%';
+          activeVisualBlock.style.height = 'auto';
         } else if (mode === 'px') {
-          wrapper.style.resize = 'none';
-          wrapper.style.overflow = 'visible';
-          wrapper.style.width = '300px';
-          wrapper.style.height = '200px';
+          activeVisualBlock.style.resize = 'none';
+          activeVisualBlock.style.overflow = 'visible';
+          activeVisualBlock.style.display = 'block';
+          activeVisualBlock.style.width = '300px';
+          activeVisualBlock.style.height = '200px';
           document.getElementById('block-w-px').value = 300;
           document.getElementById('block-h-px').value = 200;
         } else if (mode === '%') {
-          wrapper.style.resize = 'none';
-          wrapper.style.overflow = 'visible';
-          wrapper.style.width = '50%';
-          wrapper.style.height = 'auto';
+          activeVisualBlock.style.resize = 'none';
+          activeVisualBlock.style.overflow = 'visible';
+          activeVisualBlock.style.display = 'block';
+          activeVisualBlock.style.width = '50%';
+          activeVisualBlock.style.height = 'auto';
           document.getElementById('block-w-pct').value = 50;
         }
-        
-        // Trigger sync
-        const parentCms = activeVisualBlock.closest('[data-cms]');
-        if (parentCms) {
-          syncVisualTextToForm(parentCms.getAttribute('data-cms'), parentCms.innerHTML);
+        syncVisualBlockStyle(activeVisualBlock);
+      } else {
+        const wrapper = activeVisualBlock.querySelector('.resize-wrapper');
+        if (wrapper) {
+          if (mode === 'free') {
+            wrapper.style.resize = 'both';
+            wrapper.style.overflow = 'auto';
+            wrapper.style.width = '100%';
+            wrapper.style.height = 'auto';
+          } else if (mode === 'px') {
+            wrapper.style.resize = 'none';
+            wrapper.style.overflow = 'visible';
+            wrapper.style.width = '300px';
+            wrapper.style.height = '200px';
+            document.getElementById('block-w-px').value = 300;
+            document.getElementById('block-h-px').value = 200;
+          } else if (mode === '%') {
+            wrapper.style.resize = 'none';
+            wrapper.style.overflow = 'visible';
+            wrapper.style.width = '50%';
+            wrapper.style.height = 'auto';
+            document.getElementById('block-w-pct').value = 50;
+          }
+          syncVisualBlockStyle(activeVisualBlock);
         }
       }
     }
@@ -2408,14 +2493,17 @@
       const w = document.getElementById('block-w-px').value || 300;
       const h = document.getElementById('block-h-px').value || 200;
       
-      const wrapper = activeVisualBlock.querySelector('.resize-wrapper');
-      if (wrapper) {
-        wrapper.style.width = w + 'px';
-        wrapper.style.height = h + 'px';
-        
-        const parentCms = activeVisualBlock.closest('[data-cms]');
-        if (parentCms) {
-          syncVisualTextToForm(parentCms.getAttribute('data-cms'), parentCms.innerHTML);
+      const isImg = activeVisualBlock.hasAttribute('data-cms-img');
+      if (isImg) {
+        activeVisualBlock.style.width = w + 'px';
+        activeVisualBlock.style.height = h + 'px';
+        syncVisualBlockStyle(activeVisualBlock);
+      } else {
+        const wrapper = activeVisualBlock.querySelector('.resize-wrapper');
+        if (wrapper) {
+          wrapper.style.width = w + 'px';
+          wrapper.style.height = h + 'px';
+          syncVisualBlockStyle(activeVisualBlock);
         }
       }
     }
@@ -2424,14 +2512,17 @@
       if (!activeVisualBlock) return;
       const w = document.getElementById('block-w-pct').value || 50;
       
-      const wrapper = activeVisualBlock.querySelector('.resize-wrapper');
-      if (wrapper) {
-        wrapper.style.width = w + '%';
-        wrapper.style.height = 'auto';
-        
-        const parentCms = activeVisualBlock.closest('[data-cms]');
-        if (parentCms) {
-          syncVisualTextToForm(parentCms.getAttribute('data-cms'), parentCms.innerHTML);
+      const isImg = activeVisualBlock.hasAttribute('data-cms-img');
+      if (isImg) {
+        activeVisualBlock.style.width = w + '%';
+        activeVisualBlock.style.height = 'auto';
+        syncVisualBlockStyle(activeVisualBlock);
+      } else {
+        const wrapper = activeVisualBlock.querySelector('.resize-wrapper');
+        if (wrapper) {
+          wrapper.style.width = w + '%';
+          wrapper.style.height = 'auto';
+          syncVisualBlockStyle(activeVisualBlock);
         }
       }
     }
@@ -2441,19 +2532,37 @@
       const url = document.getElementById('block-url-input').value.trim();
       if (!url) return;
       
-      const media = activeVisualBlock.querySelector('.block-content');
-      if (media) {
-        media.setAttribute('src', url);
+      const isImg = activeVisualBlock.hasAttribute('data-cms-img');
+      if (isImg) {
+        activeVisualBlock.setAttribute('src', url);
         
-        const parentCms = activeVisualBlock.closest('[data-cms]');
-        if (parentCms) {
-          syncVisualTextToForm(parentCms.getAttribute('data-cms'), parentCms.innerHTML);
+        const idx = currentPageFields.findIndex(f => f.content_key === activeVisualBlock.getAttribute('data-cms-img'));
+        if (idx !== -1) {
+          currentPageFields[idx].content_value = url;
+          const inputEl = document.getElementById(`input-val-${idx}`);
+          if (inputEl) inputEl.value = url;
+        }
+        document.getElementById('editor-actions').classList.remove('hidden');
+      } else {
+        const media = activeVisualBlock.querySelector('.block-content');
+        if (media) {
+          media.setAttribute('src', url);
+          const parentCms = activeVisualBlock.closest('[data-cms]');
+          if (parentCms) {
+            syncVisualTextToForm(parentCms.getAttribute('data-cms'), parentCms.innerHTML);
+          }
         }
       }
     }
 
     function deleteActiveBlock() {
       if (!activeVisualBlock) return;
+      const isImg = activeVisualBlock.hasAttribute('data-cms-img');
+      if (isImg) {
+        alert("Không thể xóa ảnh mặc định của trang!");
+        return;
+      }
+      
       if (!confirm('Bạn có chắc muốn xóa Block này?')) return;
       
       const parentCms = activeVisualBlock.closest('[data-cms]');
@@ -2475,6 +2584,7 @@
       const doc = iframe.contentDocument || iframe.contentWindow.document;
       if (doc) {
         doc.querySelectorAll('.cms-custom-block').forEach(n => n.classList.remove('visual-block-selected'));
+        doc.querySelectorAll('[data-cms-img]').forEach(n => n.classList.remove('visual-img-selected'));
       }
       activeVisualBlock = null;
     }

@@ -263,21 +263,39 @@ function finalizeBuild(contentMap) {
           return match;
         });
 
-        // Compile Image Src
+        // Compile Image Src & Styles
         const imgRegex = /(\sdata-cms-img=["']([^"']+)["'][^>]*src=["'])([^"']*)(["'])/g;
         htmlContent = htmlContent.replace(imgRegex, (match, prefix, key, oldSrc, suffix) => {
+          let replacement = match;
           if (contentMap[key] !== undefined) {
-            return `${prefix}${contentMap[key]}${suffix}`;
+            replacement = `${prefix}${contentMap[key]}${suffix}`;
           }
-          return match;
+          const styleKey = key + '-style';
+          if (contentMap[styleKey] !== undefined && contentMap[styleKey]) {
+            if (/style=["']/i.test(replacement)) {
+              replacement = replacement.replace(/style=["']([^"']*)["']/i, `style="${contentMap[styleKey]}"`);
+            } else {
+              replacement = replacement.replace(/>$/, ` style="${contentMap[styleKey]}">`);
+            }
+          }
+          return replacement;
         });
         
         const imgRegexAlt = /(\ssrc=["'])([^"']*)(["'][^>]*data-cms-img=["']([^"']+)["'])/g;
         htmlContent = htmlContent.replace(imgRegexAlt, (match, prefix, oldSrc, middle, key) => {
+          let replacement = match;
           if (contentMap[key] !== undefined) {
-            return `${prefix}${contentMap[key]}${middle}`;
+            replacement = `${prefix}${contentMap[key]}${middle}`;
           }
-          return match;
+          const styleKey = key + '-style';
+          if (contentMap[styleKey] !== undefined && contentMap[styleKey]) {
+            if (/style=["']/i.test(replacement)) {
+              replacement = replacement.replace(/style=["']([^"']*)["']/i, `style="${contentMap[styleKey]}"`);
+            } else {
+              replacement = replacement.replace(/>$/, ` style="${contentMap[styleKey]}">`);
+            }
+          }
+          return replacement;
         });
 
         fs.writeFileSync(destPath, htmlContent, 'utf8');
