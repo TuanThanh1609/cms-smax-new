@@ -298,6 +298,20 @@ function finalizeBuild(contentMap) {
           return replacement;
         });
 
+        // Clean up visual editing resizers, resize modes, and dashed borders for end-users on the live site
+        htmlContent = htmlContent.replace(/style=["']([^"']*)["']/gi, (match, styles) => {
+          if (styles.includes('resize') || styles.includes('dashed') || styles.includes('border:')) {
+            let cleanStyles = styles
+              .replace(/resize\s*:\s*[^;]+/gi, 'resize: none')
+              .replace(/border\s*:\s*[^;]*dashed[^;]+/gi, '')
+              .replace(/border\s*:\s*1px[^;]+/gi, '')
+              .replace(/overflow\s*:\s*auto/gi, 'overflow: hidden')
+              .replace(/overflow\s*:\s*scroll/gi, 'overflow: hidden');
+            return `style="${cleanStyles.trim()}"`;
+          }
+          return match;
+        });
+
         fs.writeFileSync(destPath, htmlContent, 'utf8');
       } else {
         // Just copy other files directly
