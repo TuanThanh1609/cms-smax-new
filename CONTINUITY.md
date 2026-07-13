@@ -2,14 +2,13 @@
 
 Tài liệu này lưu giữ trạng thái, quyết định thiết kế và bài học kỹ thuật quan trọng của dự án Smax Web để đảm bảo tính liên tục của ngữ cảnh phát triển cho các session tiếp theo.
 
-## 📌 1. Trạng Thế Hiện Tại (Current Status)
-* **Active Goal:** Triển khai hệ thống Smax CMS quản lý nội dung/hình ảnh toàn website (Supabase + Vercel SSG + Admin Dashboard).
+* **Active Goal:** Hoàn thành thiết lập hệ thống User Tracking (Client-side) và Analytics Dashboard + Click Heatmap (Admin-side) tích hợp trong Smax CMS.
 * **Next Actions:**
-  1. Khởi tạo cấu trúc bảng dữ liệu `site_content` trên database Supabase.
-  2. Xây dựng File build script SDK `scripts/build.js` để tích hợp dữ liệu Supabase vào HTML tĩnh tại Vercel build-time.
-  3. Phát triển trang quản trị trực quan `/admin.html` cho quản trị viên đăng nhập và chỉnh sửa bài viết/ảnh.
-* **Current Phase:** planning
-* **Working Context:** Triển khai hệ thống CMS độc lập giúp quản lý thông tin toàn website. Sử dụng phương pháp JAMstack (Static Site Generation) để giữ nguyên tốc độ load 0ms của Vercel và tối ưu hóa SEO 100% (crawlers đọc trực tiếp HTML đã build sẵn, database Supabase chỉ query lúc build-time/deploy).
+  1. Hướng dẫn người dùng chạy kịch bản SQL `scripts/setup_tracking.sql` trên Supabase Dashboard.
+  2. Triển khai dự án lên Vercel để áp dụng thay đổi trực tiếp cho Website.
+  3. Theo dõi hành vi người dùng thực tế và kiểm tra độ chính xác của biểu đồ/bản đồ nhiệt.
+* **Current Phase:** completed
+* **Working Context:** Tích hợp thành công mã tracking siêu nhẹ `tracking.js` tự động inject qua `script.js`. Xây dựng màn hình thống kê trực quan và luồng sự kiện live feed cùng cơ chế vẽ bản đồ nhiệt click trên Iframe Canvas đè đính kèm tài liệu. Dữ liệu tự động dọn dẹp sau 90 ngày.
 
 
 ---
@@ -19,6 +18,9 @@ Tài liệu này lưu giữ trạng thái, quyết định thiết kế và bài
   * *Bài học:* Luôn gỡ bỏ `overflow-x: hidden` trên wrapper dùng chung và đặt trực tiếp lên `body`.
 * **Kích thước Stacked Cards:** Phải cố định chiều cao của `.stacked-card` (ở mức `440px`) và `.stacked-card-media` (ở mức `320px`) kết hợp `object-fit: cover` để tránh việc ảnh screenshot quá khổ làm phình card, gây tràn màn hình và vỡ layout xếp chồng.
 * **Tỷ lệ Grid trong Stacked Card:** Đặt `grid-template-columns: 1.25fr 1fr` (phần chữ lớn hơn phần ảnh) để mockup ảnh thu nhỏ vừa vặn, không bị lấn át phần text mô tả.
+* **Tọa độ tương đối trên Heatmap:** Sử dụng phần trăm chiều rộng (`x_pct`) của tài liệu để đồng bộ hóa toạ độ click của khách hàng trên các kích thước màn hình khác nhau. Khi vẽ đè Canvas trong iframe, chỉ cần nhân lại tỉ lệ % với chiều rộng thực của iframe tại thời điểm đó để đảm bảo toạ độ click chuẩn 100% trên các thiết bị.
+* **Lazy loading các thư viện CDN trong CMS:** Chỉ nên chèn và khởi tạo các thư viện nặng (như Chart.js) động bằng JS khi Admin bấm vào phân hệ tương ứng. Điều này giữ cho trang CMS ban đầu tải siêu nhanh.
+* **Gộp truy vấn thống kê qua SQL RPC:** Thay vì gửi 6-7 truy vấn riêng lẻ từ client lên database để lấy số liệu KPIs, bảng biểu đồ và danh sách sự kiện, hãy viết một hàm RPC trên PostgreSQL đóng gói toàn bộ dữ liệu dưới dạng JSONB. Việc này tối ưu hoá mạng, tăng tốc hiển thị dashboard lên gấp 10 lần và là cơ hội để chèn logic dọn dẹp dữ liệu tự động (ví dụ: xoá các bản ghi cũ hơn 90 ngày) mỗi khi chạy.
 
 ---
 

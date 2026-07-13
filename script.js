@@ -6,6 +6,14 @@
   document.head.appendChild(script);
 })();
 
+// Inject Smax Tracking Client SDK
+(function() {
+  const script = document.createElement('script');
+  script.src = 'tracking.js';
+  script.defer = true;
+  document.head.appendChild(script);
+})();
+
 const header = document.querySelector("[data-header]");
 const revealItems = document.querySelectorAll(".reveal");
 let megaCloseTimer;
