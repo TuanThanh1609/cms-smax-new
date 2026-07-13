@@ -406,9 +406,10 @@
       .solution-visual img {
         width: 100%;
         height: auto;
-        border-radius: 20px;
-        box-shadow: 0 20px 50px rgba(15, 24, 53, 0.08);
-        border: 1px solid rgba(15, 24, 53, 0.05);
+        display: block;
+        border-radius: 0;
+        box-shadow: none;
+        border: 0;
       }
 
       /* Solution 2 acquisition (Bento grid visual) */
@@ -433,15 +434,18 @@
       .acq-main-card {
         background: radial-gradient(circle at 5% 5%, rgba(66, 119, 255, 0.04), transparent 45%), #FFFFFF;
         display: grid;
-        grid-template-columns: 1fr 1.1fr;
-        gap: 32px;
+        grid-template-columns: 1fr;
+        gap: 24px;
         align-items: center;
+        align-content: center;
       }
 
       .acq-card-right-img img {
         width: 100%;
-        border-radius: 12px;
-        box-shadow: 0 10px 24px rgba(15, 24, 53, 0.05);
+        display: block;
+        border-radius: 0;
+        box-shadow: none;
+        border: 0;
       }
 
       .acq-sub-grid {
@@ -470,6 +474,24 @@
         line-height: 1.5;
         color: var(--text-secondary, #475467);
         margin: 0;
+      }
+
+      .acq-bento-visual {
+        width: 100%;
+        height: 220px;
+        object-fit: contain;
+        object-position: center;
+        display: block;
+        margin-top: 16px;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background: transparent;
+      }
+
+      .acq-sub-grid .acq-bento-visual {
+        height: auto;
+        aspect-ratio: 16 / 9;
       }
 
       /* Solution 4 Loyalty (Centered vertical stack) */
@@ -680,9 +702,10 @@
 
         .mobile-section-visual img {
           width: 100%;
-          border-radius: 16px;
-          border: 1px solid rgba(15, 24, 53, 0.06);
-          box-shadow: 0 10px 30px rgba(15, 24, 53, 0.04);
+          display: block;
+          border-radius: 0;
+          border: 0;
+          box-shadow: none;
         }
 
         .solution-acquisition-grid {
@@ -884,12 +907,12 @@
                 </div>
               </div>
               <div class="solution-visual">
-                <img src="asset smax/module-feature-images/livechat/staff-assignment.webp" alt="Sàng lọc lead bất động sản tự động" data-cms-img="realestate-img-1">
+                <img src="asset smax/realestate/visuals-v3/lead-qualification-navy.png" alt="Smax AI sàng lọc lead bất động sản tự động qua Messenger" data-cms-img="realestate-v3-img-1">
               </div>
             </div>
             <!-- Mobile visual -->
             <div class="mobile-section-visual">
-              <img src="asset smax/module-feature-images/livechat/staff-assignment.webp" alt="Sàng lọc lead bất động sản tự động" data-cms-img="realestate-img-2">
+              <img src="asset smax/realestate/visuals-v3/lead-qualification-navy.png" alt="Smax AI sàng lọc lead bất động sản tự động qua Messenger" data-cms-img="realestate-v3-img-2">
             </div>
           </div>
         </section>
@@ -915,7 +938,7 @@
                   </p>
                 </div>
                 <div class="acq-card-right-img">
-                  <img src="asset smax/module-feature-images/livechat/saved-replies.webp" alt="Xếp lịch hẹn site visit căn hộ mẫu" data-cms-img="realestate-img-3">
+                  <img src="asset smax/realestate/visuals-v3/site-visit-flow-navy.png" alt="Flow 2D đặt lịch tham quan căn hộ mẫu và nhắc hẹn tự động" data-cms-img="realestate-v3-img-3">
                 </div>
               </div>
 
@@ -924,10 +947,12 @@
                 <div class="acq-sub-card">
                   <h4 data-cms="realestate-text-23">Định tuyến lead thông minh (Round Robin)</h4>
                   <p data-cms="realestate-text-24">Tự động phân bổ lead nóng xoay vòng cho các nhân viên tư vấn theo ca trực, công bằng và tức thì.</p>
+                  <img class="acq-bento-visual" src="asset smax/realestate/visuals-v3/bento-round-robin.png" alt="Smax AI phân bổ lead nóng theo cơ chế Round Robin" loading="lazy" data-cms-img="realestate-v3-bento-1">
                 </div>
                 <div class="acq-sub-card">
                   <h4 data-cms="realestate-text-25">Nhắc lịch hẹn qua Zalo ZBS (ZNS)</h4>
                   <p data-cms="realestate-text-26">Tự động gửi tin nhắn mẫu Zalo ZBS (ZNS) để nhắc lịch hẹn, tăng tỷ lệ xuất hiện của khách hàng.</p>
+                  <img class="acq-bento-visual" src="asset smax/realestate/visuals-v3/bento-zns-reminder.png" alt="Tin nhắn ZNS tự động nhắc lịch tham quan căn hộ mẫu" loading="lazy" data-cms-img="realestate-v3-bento-2">
                 </div>
               </div>
 
@@ -936,10 +961,12 @@
                 <div class="acq-card">
                   <h3 style="font-size: 17px; font-weight: 700; margin: 0 0 8px; color: var(--primary-navy, #0F1835);" data-cms="realestate-text-27">Theo dõi tiến độ chăm sóc</h3>
                   <p style="font-size: 14px; line-height: 1.5; color: var(--text-secondary, #475467); margin: 0;" data-cms="realestate-text-28">Lưu trữ vết trạng thái chăm sóc của sales (Đã liên hệ, Đã đặt lịch, Đã đi xem nhà, Đóng cọc).</p>
+                  <img class="acq-bento-visual" src="asset smax/realestate/visuals-v3/bento-care-progress.png" alt="Smax AI tự động cập nhật tiến độ chăm sóc lead bất động sản" loading="lazy" data-cms-img="realestate-v3-bento-3">
                 </div>
                 <div class="acq-card">
                   <h3 style="font-size: 17px; font-weight: 700; margin: 0 0 8px; color: var(--primary-navy, #0F1835);" data-cms="realestate-text-29">Tự động phân nhóm đối tượng</h3>
                   <p style="font-size: 14px; line-height: 1.5; color: var(--text-secondary, #475467); margin: 0;" data-cms="realestate-text-30">Phân loại tệp khách theo dự án quan tâm (Vinhomes, Masterise, Novaland) để chạy chiến dịch FMM.</p>
+                  <img class="acq-bento-visual" src="asset smax/realestate/visuals-v3/bento-project-segmentation.png" alt="Smax AI phân nhóm lead theo dự án bất động sản quan tâm" loading="lazy" data-cms-img="realestate-v3-bento-4">
                 </div>
               </div>
             </div>
@@ -951,7 +978,7 @@
           <div class="container">
             <div class="solution-grid">
               <div class="solution-visual">
-                <img src="asset smax/chatbot/kich-ban-cham-soc.webp" alt="Tự động gửi brochure tài liệu dự án" data-cms-img="realestate-img-4">
+                <img src="asset smax/realestate/visuals-v2/brochure-ai-chat.png" alt="Cô gái Việt Nam nhận brochure và mặt bằng dự án tự động từ Smax AI" data-cms-img="realestate-v2-img-4">
               </div>
               <div class="solution-info">
                 <div class="section-tag" data-cms="realestate-tag-4">Giải pháp 03</div>
@@ -983,7 +1010,7 @@
             </div>
             <!-- Mobile visual -->
             <div class="mobile-section-visual">
-              <img src="asset smax/chatbot/kich-ban-cham-soc.webp" alt="Tự động gửi brochure tài liệu dự án" data-cms-img="realestate-img-5">
+              <img src="asset smax/realestate/visuals-v2/brochure-ai-chat.png" alt="Cô gái Việt Nam nhận brochure và mặt bằng dự án tự động từ Smax AI" data-cms-img="realestate-v2-img-5">
             </div>
           </div>
         </section>
@@ -1020,12 +1047,12 @@
                 </div>
               </div>
               <div class="solution-visual">
-                <img src="asset smax/remarketing-features-v2/personalized-sequence.webp" alt="Nuôi dưỡng lead bất động sản bằng sequence" data-cms-img="realestate-img-6">
+                <img src="asset smax/realestate/visuals-v3/lead-nurture-sequence-navy.png" alt="Smax AI nuôi dưỡng lead bất động sản theo chuỗi cập nhật dự án" data-cms-img="realestate-v3-img-6">
               </div>
             </div>
             <!-- Mobile visual -->
             <div class="mobile-section-visual">
-              <img src="asset smax/remarketing-features-v2/personalized-sequence.webp" alt="Nuôi dưỡng lead bất động sản bằng sequence" data-cms-img="realestate-img-7">
+              <img src="asset smax/realestate/visuals-v3/lead-nurture-sequence-navy.png" alt="Smax AI nuôi dưỡng lead bất động sản theo chuỗi cập nhật dự án" data-cms-img="realestate-v3-img-7">
             </div>
           </div>
         </section>
@@ -1035,7 +1062,7 @@
           <div class="container">
             <div class="solution-grid">
               <div class="solution-visual">
-                <img src="asset smax/module-feature-images/livechat/staff-assignment.webp" alt="Bàn giao lead nóng cho Sales" data-cms-img="realestate-img-8">
+                <img src="asset smax/realestate/visuals-v2/hot-lead-handoff.png" alt="Cô gái Việt Nam nhận thông báo lead nóng từ Smax AI" data-cms-img="realestate-v2-img-8">
               </div>
               <div class="solution-info">
                 <div class="section-tag" data-cms="realestate-tag-6">Giải pháp 05</div>
@@ -1067,7 +1094,7 @@
             </div>
             <!-- Mobile visual -->
             <div class="mobile-section-visual">
-              <img src="asset smax/module-feature-images/livechat/staff-assignment.webp" alt="Bàn giao lead nóng cho Sales" data-cms-img="realestate-img-9">
+              <img src="asset smax/realestate/visuals-v2/hot-lead-handoff.png" alt="Cô gái Việt Nam nhận thông báo lead nóng từ Smax AI" data-cms-img="realestate-v2-img-9">
             </div>
           </div>
         </section>
@@ -1111,12 +1138,12 @@
                 </div>
               </div>
               <div class="solution-visual">
-                <img src="asset smax/module-feature-images/crm-connect/customer-360.webp" alt="Hồ sơ khách hàng 360 bất động sản" data-cms-img="realestate-img-13">
+                <img src="asset smax/realestate/visuals-v3/crm-lead-360-navy.png" alt="Smax AI đồng bộ hồ sơ lead bất động sản 360 và báo cáo ROI" data-cms-img="realestate-v3-img-10">
               </div>
             </div>
             <!-- Mobile visual -->
             <div class="mobile-section-visual">
-              <img src="asset smax/module-feature-images/crm-connect/customer-360.webp" alt="Hồ sơ khách hàng 360 bất động sản" data-cms-img="realestate-img-14">
+              <img src="asset smax/realestate/visuals-v3/crm-lead-360-navy.png" alt="Smax AI đồng bộ hồ sơ lead bất động sản 360 và báo cáo ROI" data-cms-img="realestate-v3-img-11">
             </div>
           </div>
         </section>

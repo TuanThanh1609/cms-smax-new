@@ -5,9 +5,18 @@
  * Sends events directly to Supabase REST API using native fetch with keepalive.
  */
 (function() {
+  // Prevent tracking on Smax CMS admin panel itself
+  if (window.location.pathname.toLowerCase().includes('admin.html')) {
+    return;
+  }
+
   let config = null;
   let visitorId = null;
   let sessionId = null;
+  let utmSource = null;
+  let utmMedium = null;
+  let utmCampaign = null;
+  let lastTrackedPath = null;
   const scrollMilestones = { 25: false, 50: false, 75: false, 100: false };
 
   // 1. Initialize identifiers
@@ -30,6 +39,21 @@
       sessionId = generateUUID();
       sessionStorage.setItem('smax_session_id', sessionId);
     }
+
+    // Parse and persist UTM Campaign Parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    utmSource = urlParams.get('utm_source');
+    utmMedium = urlParams.get('utm_medium');
+    utmCampaign = urlParams.get('utm_campaign');
+
+    if (utmSource) sessionStorage.setItem('smax_utm_source', utmSource);
+    else utmSource = sessionStorage.getItem('smax_utm_source');
+
+    if (utmMedium) sessionStorage.setItem('smax_utm_medium', utmMedium);
+    else utmMedium = sessionStorage.getItem('smax_utm_medium');
+
+    if (utmCampaign) sessionStorage.setItem('smax_utm_campaign', utmCampaign);
+    else utmCampaign = sessionStorage.getItem('smax_utm_campaign');
   }
 
   async function initTracking() {
@@ -62,8 +86,8 @@
   }
 
   function startListeners() {
-    // A. Page View Event
-    sendEvent('page_view');
+    // A. Page View Event (SPA & Hash aware)
+    sendPageview();
 
     // B. Click Event & Heatmap Coordinates (using event delegation)
     document.addEventListener('click', function(event) {
@@ -107,7 +131,34 @@
       };
 
       if (interactiveElement && interactiveElement.tagName === 'A') {
-        eventData.href = interactiveElement.getAttribute('href') || '';
+        const href = interactiveElement.getAttribute('href') || '';
+        eventData.href = href;
+
+        // Plausible Outbound Link & File Download detection
+        try {
+          if (href && href.startsWith('http')) {
+            const targetUrl = new URL(href, window.location.href);
+            const isExternal = targetUrl.hostname !== window.location.hostname;
+            const urlText = eventData.element_text || 'Link ngoài';
+            
+            // Outbound click
+            if (isExternal) {
+              sendEvent('outbound_click', {
+                destination_url: href,
+                link_text: urlText
+              });
+            }
+            
+            // File download
+            const fileExtensions = /\.(pdf|zip|rar|csv|docx|xlsx|pptx|mp3|mp4)$/i;
+            if (fileExtensions.test(targetUrl.pathname)) {
+              sendEvent('file_download', {
+                file_url: href,
+                file_name: urlText
+              });
+            }
+          }
+        } catch (err) {}
       }
 
       sendEvent('click', eventData);
@@ -131,6 +182,73 @@
 
     // D. Heartbeats (Time on Page)
     scheduleHeartbeat();
+
+    // E. Capture JS Errors
+    window.addEventListener('error', function(event) {
+      sendEvent('js_error', {
+        message: event.message || 'Unknown Javascript Error',
+        filename: event.filename || '',
+        lineno: event.lineno || 0,
+        colno: event.colno || 0,
+        stack: event.error ? event.error.stack : ''
+      });
+    });
+
+    // F. Capture Web Vitals (FCP, LCP, CLS)
+    let clsValue = 0;
+    try {
+      new PerformanceObserver((entryList) => {
+        for (const entry of entryList.getEntries()) {
+          if (!entry.hadRecentInput) {
+            clsValue += entry.value;
+          }
+        }
+      }).observe({ type: 'layout-shift', buffered: true });
+    } catch (e) {}
+
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        try {
+          const lcpEntry = performance.getEntriesByType('paint').find(e => e.name === 'largest-contentful-paint');
+          const fcpEntry = performance.getEntriesByType('paint').find(e => e.name === 'first-contentful-paint');
+          
+          sendEvent('web_vitals', {
+            fcp_ms: fcpEntry ? Math.round(fcpEntry.startTime) : 0,
+            lcp_ms: lcpEntry ? Math.round(lcpEntry.startTime) : 0,
+            cls: parseFloat(clsValue.toFixed(4))
+          });
+        } catch (err) {}
+      }, 4000);
+    });
+
+    // G. SPA / Hash Change listeners
+    window.addEventListener('hashchange', () => {
+      sendPageview();
+    });
+
+    const originalPushState = history.pushState;
+    history.pushState = function() {
+      originalPushState.apply(this, arguments);
+      sendPageview();
+    };
+
+    const originalReplaceState = history.replaceState;
+    history.replaceState = function() {
+      originalReplaceState.apply(this, arguments);
+      sendPageview();
+    };
+  }
+
+  function sendPageview() {
+    const currentPath = window.location.pathname + window.location.hash + window.location.search;
+    if (currentPath === lastTrackedPath) return;
+    lastTrackedPath = currentPath;
+
+    // Plausible 404 detector
+    const title = (document.title || '').toLowerCase();
+    const is404 = title.includes('404') || title.includes('page not found') || title.includes('không tìm thấy trang');
+
+    sendEvent('page_view', { is_404: is404 });
   }
 
   async function sendEvent(eventName, eventData = {}) {
@@ -150,10 +268,15 @@
       page_path: pagePath,
       page_title: pageTitle,
       referrer: referrer,
-      event_data: eventData,
+      event_data: (eventName === 'js_error' || eventName === 'web_vitals') ? {} : eventData,
+      error_details: eventName === 'js_error' ? eventData : null,
+      performance_metrics: eventName === 'web_vitals' ? eventData : null,
       user_agent: userAgent,
       screen_width: screenWidth,
-      screen_height: screenHeight
+      screen_height: screenHeight,
+      utm_source: utmSource || null,
+      utm_medium: utmMedium || null,
+      utm_campaign: utmCampaign || null
     };
 
     try {
