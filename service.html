@@ -407,9 +407,20 @@
       .solution-visual img {
         width: 100%;
         height: auto;
-        border-radius: 20px;
-        box-shadow: 0 20px 50px rgba(15, 24, 53, 0.08);
-        border: 1px solid rgba(15, 24, 53, 0.05);
+        display: block;
+        border-radius: 0;
+        box-shadow: none;
+        border: 0;
+      }
+
+      .solution-visual.visual-square {
+        aspect-ratio: 1 / 1;
+      }
+
+      .solution-visual.visual-square img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
 
       /* Solution 2 acquisition (Bento grid visual) */
@@ -434,15 +445,22 @@
       .acq-main-card {
         background: radial-gradient(circle at 5% 5%, rgba(66, 119, 255, 0.04), transparent 45%), #FFFFFF;
         display: grid;
-        grid-template-columns: 1fr 1.1fr;
-        gap: 32px;
+        grid-template-columns: 1fr;
+        gap: 20px;
         align-items: center;
       }
 
       .acq-card-right-img img {
-        width: 100%;
-        border-radius: 12px;
-        box-shadow: 0 10px 24px rgba(15, 24, 53, 0.05);
+        display: block;
+        width: auto;
+        max-width: 100%;
+        max-height: 620px;
+        aspect-ratio: 9 / 16;
+        object-fit: contain;
+        margin: 0 auto;
+        border-radius: 0;
+        box-shadow: none;
+        border: 0;
       }
 
       .acq-sub-grid {
@@ -483,11 +501,16 @@
         height: 220px;
         object-fit: contain;
         object-position: center;
-        border-radius: 10px;
         margin-top: 16px;
-        border: 1px solid rgba(15, 24, 53, 0.05);
-        box-shadow: 0 4px 16px rgba(15, 24, 53, 0.03);
-        background: #FFFFFF;
+        border-radius: 0;
+        border: 0;
+        box-shadow: none;
+        background: transparent;
+      }
+
+      .acq-sub-grid .acq-bento-visual {
+        height: auto;
+        aspect-ratio: 16 / 9;
       }
 
       /* Solution 4 Loyalty (Centered vertical stack) */
@@ -698,9 +721,20 @@
 
         .mobile-section-visual img {
           width: 100%;
-          border-radius: 16px;
-          border: 1px solid rgba(15, 24, 53, 0.06);
-          box-shadow: 0 10px 30px rgba(15, 24, 53, 0.04);
+          display: block;
+          border-radius: 0;
+          border: 0;
+          box-shadow: none;
+        }
+
+        .mobile-section-visual.visual-square {
+          aspect-ratio: 1 / 1;
+        }
+
+        .mobile-section-visual.visual-square img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
         }
 
         .solution-acquisition-grid {
@@ -933,7 +967,7 @@
                   </div>
                 </div>
                 <div class="acq-card-right-img">
-                  <img src="asset smax/service/visuals-v2/retreatment-sequence.png" alt="Sequence Smax AI tự động nhắc lịch chăm sóc da định kỳ vào ngày 25" data-cms-img="service-v2-img-3">
+                  <img src="asset smax/service/visuals-v3/sequence-portrait-9x16.png" alt="Sequence Smax AI tự động nhắc lịch chăm sóc da định kỳ vào ngày 25" data-cms-img="service-v3-img-3">
                 </div>
               </div>
 
@@ -962,14 +996,14 @@
                     <h3 style="font-size: 17px; font-weight: 700; margin: 0 0 8px; color: var(--primary-navy, #0F1835);" data-cms="service-text-27">Nuôi dưỡng lead dịch vụ nguội</h3>
                     <div style="font-size: 14px; line-height: 1.5; color: var(--text-secondary, #475467); margin: 0;" data-cms="service-text-28">Gửi chuỗi kiến thức chăm sóc da, mẹo phòng ngừa tự động sau khi khách cung cấp SĐT nhưng chưa đặt hẹn.</div>
                   </div>
-                  <img class="acq-bento-visual" src="asset smax/service/visuals-v2/bento-lead-nurture.png" alt="Smax AI nuôi dưỡng lead bằng chuỗi kiến thức chăm sóc da và hội thoại tư vấn" loading="lazy" data-cms-img="service-v2-img-6">
+                  <img class="acq-bento-visual" src="asset smax/service/visuals-v3/lead-nurture-landscape-16x9.png" alt="Smax AI nuôi dưỡng lead bằng chuỗi kiến thức chăm sóc da và hội thoại tư vấn" loading="lazy" data-cms-img="service-v3-img-6">
                 </div>
                 <div class="acq-card">
                   <div>
                     <h3 style="font-size: 17px; font-weight: 700; margin: 0 0 8px; color: var(--primary-navy, #0F1835);" data-cms="service-text-29">Remarketing hàng loạt an toàn</h3>
                     <div style="font-size: 14px; line-height: 1.5; color: var(--text-secondary, #475467); margin: 0;" data-cms="service-text-30">Gửi tin nhắn mẫu FMM thông báo Flash Sale ngày lễ/tết hoặc khuyến mãi đặc biệt mà không sợ bị khóa page.</div>
                   </div>
-                  <img class="acq-bento-visual" src="asset smax/service/visuals-v2/bento-safe-remarketing.png" alt="Cô gái Việt Nam vận hành chiến dịch remarketing ưu đãi chăm sóc da an toàn" loading="lazy" data-cms-img="service-v2-img-7">
+                  <img class="acq-bento-visual" src="asset smax/service/visuals-v3/remarketing-landscape-16x9.png" alt="Cô gái Việt Nam vận hành chiến dịch remarketing ưu đãi chăm sóc da an toàn" loading="lazy" data-cms-img="service-v3-img-7">
                 </div>
               </div>
             </div>
@@ -1049,13 +1083,13 @@
                   </div>
                 </div>
               </div>
-              <div class="solution-visual">
-                <img src="asset smax/service/visuals-v2/csat-quality-alert.png" alt="Smax AI khảo sát CSAT và cảnh báo quản lý khi có đánh giá dưới ba sao" data-cms-img="service-v2-img-10">
+              <div class="solution-visual visual-square">
+                <img src="asset smax/service/visuals-v3/csat-square-1x1.png" alt="Smax AI khảo sát CSAT và cảnh báo quản lý khi có đánh giá dưới ba sao" data-cms-img="service-v3-img-10">
               </div>
             </div>
             <!-- Mobile visual -->
-            <div class="mobile-section-visual">
-              <img src="asset smax/service/visuals-v2/csat-quality-alert.png" alt="Smax AI khảo sát CSAT và cảnh báo quản lý khi có đánh giá dưới ba sao" data-cms-img="service-v2-img-11">
+            <div class="mobile-section-visual visual-square">
+              <img src="asset smax/service/visuals-v3/csat-square-1x1.png" alt="Smax AI khảo sát CSAT và cảnh báo quản lý khi có đánh giá dưới ba sao" data-cms-img="service-v3-img-11">
             </div>
           </div>
         </section>
@@ -1064,8 +1098,8 @@
         <section class="solution-panel-section">
           <div class="container">
             <div class="solution-grid">
-              <div class="solution-visual">
-                <img src="asset smax/service/visuals-v2/birthday-automation.png" alt="Cô gái Việt Nam nhận lời chúc sinh nhật và voucher tự động từ Smax AI" data-cms-img="service-v2-img-12">
+              <div class="solution-visual visual-square">
+                <img src="asset smax/service/visuals-v3/birthday-square-1x1.png" alt="Cô gái Việt Nam nhận lời chúc sinh nhật và voucher tự động từ Smax AI" data-cms-img="service-v3-img-12">
               </div>
               <div class="solution-info">
                 <div class="section-tag" data-cms="service-tag-6">Giải pháp 05</div>
@@ -1096,8 +1130,8 @@
               </div>
             </div>
             <!-- Mobile visual -->
-            <div class="mobile-section-visual">
-              <img src="asset smax/service/visuals-v2/birthday-automation.png" alt="Cô gái Việt Nam nhận lời chúc sinh nhật và voucher tự động từ Smax AI" data-cms-img="service-v2-img-13">
+            <div class="mobile-section-visual visual-square">
+              <img src="asset smax/service/visuals-v3/birthday-square-1x1.png" alt="Cô gái Việt Nam nhận lời chúc sinh nhật và voucher tự động từ Smax AI" data-cms-img="service-v3-img-13">
             </div>
           </div>
         </section>
@@ -1140,13 +1174,13 @@
                   <div class="int-logo">Zalo OA (ZBS/ZNS)</div>
                 </div>
               </div>
-              <div class="solution-visual">
-                <img src="asset smax/service/visuals-v2/crm-360-sync.png" alt="Smax đồng bộ lịch hẹn, hồ sơ khách hàng 360 và báo cáo sang CRM thời gian thực" data-cms-img="service-v2-img-14">
+              <div class="solution-visual visual-square">
+                <img src="asset smax/service/visuals-v3/crm-square-1x1.png" alt="Smax đồng bộ lịch hẹn, hồ sơ khách hàng 360 và báo cáo sang CRM thời gian thực" data-cms-img="service-v3-img-14">
               </div>
             </div>
             <!-- Mobile visual -->
-            <div class="mobile-section-visual">
-              <img src="asset smax/service/visuals-v2/crm-360-sync.png" alt="Smax đồng bộ lịch hẹn, hồ sơ khách hàng 360 và báo cáo sang CRM thời gian thực" data-cms-img="service-v2-img-15">
+            <div class="mobile-section-visual visual-square">
+              <img src="asset smax/service/visuals-v3/crm-square-1x1.png" alt="Smax đồng bộ lịch hẹn, hồ sơ khách hàng 360 và báo cáo sang CRM thời gian thực" data-cms-img="service-v3-img-15">
             </div>
           </div>
         </section>

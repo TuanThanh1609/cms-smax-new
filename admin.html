@@ -2670,12 +2670,19 @@
           resizeHandle.style.display = 'none';
           return;
         }
-        const rect = imgEl.getBoundingClientRect();
-        const scrollTop = doc.documentElement.scrollTop || doc.body.scrollTop;
-        const scrollLeft = doc.documentElement.scrollLeft || doc.body.scrollLeft;
         
-        resizeHandle.style.top = `${rect.bottom + scrollTop - 7}px`;
-        resizeHandle.style.left = `${rect.right + scrollLeft - 7}px`;
+        // Cumulative offset calculation up to body
+        let top = 0;
+        let left = 0;
+        let curr = imgEl;
+        while (curr && curr !== doc.body) {
+          top += curr.offsetTop || 0;
+          left += curr.offsetLeft || 0;
+          curr = curr.offsetParent;
+        }
+        
+        resizeHandle.style.top = `${top + imgEl.offsetHeight - 7}px`;
+        resizeHandle.style.left = `${left + imgEl.offsetWidth - 7}px`;
         resizeHandle.style.display = 'block';
       }
 
@@ -3015,11 +3022,16 @@
             if (mode !== 'free') {
               handle.style.display = 'none';
             } else {
-              const rect = activeVisualBlock.getBoundingClientRect();
-              const scrollTop = doc.documentElement.scrollTop || doc.body.scrollTop;
-              const scrollLeft = doc.documentElement.scrollLeft || doc.body.scrollLeft;
-              handle.style.top = `${rect.bottom + scrollTop - 7}px`;
-              handle.style.left = `${rect.right + scrollLeft - 7}px`;
+              let top = 0;
+              let left = 0;
+              let curr = activeVisualBlock;
+              while (curr && curr !== doc.body) {
+                top += curr.offsetTop || 0;
+                left += curr.offsetLeft || 0;
+                curr = curr.offsetParent;
+              }
+              handle.style.top = `${top + activeVisualBlock.offsetHeight - 7}px`;
+              handle.style.left = `${left + activeVisualBlock.offsetWidth - 7}px`;
               handle.style.display = 'block';
             }
           }
