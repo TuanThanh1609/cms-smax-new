@@ -839,7 +839,24 @@
       }, 3000);
     }
 
-    function initCMS() {
+    async function initCMS() {
+      // 1. Try to fetch configuration from build server dynamically
+      try {
+        const res = await fetch('/supabase-config.json?t=' + Date.now());
+        if (res.ok) {
+          const config = await res.json();
+          if (config.supabase_url && config.supabase_anon_key) {
+            localStorage.setItem('supabase_url', config.supabase_url);
+            localStorage.setItem('supabase_anon_key', config.supabase_anon_key);
+            if (config.vercel_deploy_webhook) {
+              localStorage.setItem('vercel_deploy_webhook', config.vercel_deploy_webhook);
+            }
+          }
+        }
+      } catch (err) {
+        console.log("Could not fetch supabase-config.json:", err);
+      }
+
       const url = localStorage.getItem('supabase_url');
       const key = localStorage.getItem('supabase_anon_key');
       

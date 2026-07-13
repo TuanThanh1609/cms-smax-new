@@ -342,6 +342,21 @@ function finalizeBuild(contentMap) {
   // Write build timestamp to public folder
   fs.writeFileSync(path.join(publicDir, 'build-time.txt'), Date.now().toString(), 'utf8');
 
+  // Write Supabase config for Admin CMS login if env variables exist
+  const configDest = path.join(publicDir, 'supabase-config.json');
+  if (supabaseUrl && supabaseAnonKey) {
+    const configContent = {
+      supabase_url: supabaseUrl,
+      supabase_anon_key: supabaseAnonKey,
+      vercel_deploy_webhook: process.env.VERCEL_DEPLOY_WEBHOOK_URL || ''
+    };
+    fs.writeFileSync(configDest, JSON.stringify(configContent, null, 2), 'utf8');
+  } else {
+    if (fs.existsSync(configDest)) {
+      fs.unlinkSync(configDest);
+    }
+  }
+
   console.log('🎉 [Smax CMS] Build completed successfully. Public folder is ready for Vercel deployment.');
 }
 
