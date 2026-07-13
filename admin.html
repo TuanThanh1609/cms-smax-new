@@ -4580,23 +4580,31 @@
         // A. Render First-Touch (User Acquisition)
         const tblUserAcq = document.getElementById('tbl-user-acquisition');
         if (tblUserAcq) {
-          tblUserAcq.innerHTML = data.user_acquisition.map(a => `
-            <tr class="border-b border-zinc-900/40 hover:bg-white/5 transition-colors">
-              <td class="py-2.5 text-zinc-300 font-semibold cursor-pointer hover:text-indigo-400" onclick="applyFilter('campaign', '${a.channel_name}')">${a.channel_name}</td>
-              <td class="py-2.5 font-semibold text-white text-right">${a.visitors.toLocaleString()}</td>
-            </tr>
-          `).join('') || `<tr><td colspan="2" class="text-center py-4 text-zinc-650">Chưa có dữ liệu.</td></tr>`;
+          tblUserAcq.innerHTML = data.user_acquisition.map(a => {
+            const label = a.campaign !== 'None' ? `${a.source} / ${a.medium} (${a.campaign})` : `${a.source} / ${a.medium}`;
+            const filterVal = a.campaign !== 'None' ? a.campaign : a.source;
+            return `
+              <tr class="border-b border-zinc-900/40 hover:bg-white/5 transition-colors">
+                <td class="py-2.5 text-zinc-300 font-semibold cursor-pointer hover:text-indigo-400" onclick="applyFilter('campaign', '${filterVal}')">${label}</td>
+                <td class="py-2.5 font-semibold text-white text-right">${a.count.toLocaleString()}</td>
+              </tr>
+            `;
+          }).join('') || `<tr><td colspan="2" class="text-center py-4 text-zinc-650">Chưa có dữ liệu.</td></tr>`;
         }
 
         // B. Render Last-Touch (Traffic Acquisition)
         const tblTrafficAcq = document.getElementById('tbl-traffic-acquisition');
         if (tblTrafficAcq) {
-          tblTrafficAcq.innerHTML = data.traffic_acquisition.map(a => `
-            <tr class="border-b border-zinc-900/40 hover:bg-white/5 transition-colors">
-              <td class="py-2.5 text-zinc-300 font-semibold cursor-pointer hover:text-indigo-400" onclick="applyFilter('campaign', '${a.channel_name}')">${a.channel_name}</td>
-              <td class="py-2.5 font-semibold text-white text-right">${a.sessions.toLocaleString()}</td>
-            </tr>
-          `).join('') || `<tr><td colspan="2" class="text-center py-4 text-zinc-650">Chưa có dữ liệu.</td></tr>`;
+          tblTrafficAcq.innerHTML = data.traffic_acquisition.map(a => {
+            const label = a.campaign !== 'None' ? `${a.source} / ${a.medium} (${a.campaign})` : `${a.source} / ${a.medium}`;
+            const filterVal = a.campaign !== 'None' ? a.campaign : a.source;
+            return `
+              <tr class="border-b border-zinc-900/40 hover:bg-white/5 transition-colors">
+                <td class="py-2.5 text-zinc-300 font-semibold cursor-pointer hover:text-indigo-400" onclick="applyFilter('campaign', '${filterVal}')">${label}</td>
+                <td class="py-2.5 font-semibold text-white text-right">${a.count.toLocaleString()}</td>
+              </tr>
+            `;
+          }).join('') || `<tr><td colspan="2" class="text-center py-4 text-zinc-650">Chưa có dữ liệu.</td></tr>`;
         }
 
         // C. Render Event Explorer & Drilldown
@@ -4607,7 +4615,7 @@
         const tblOutbound = document.getElementById('tbl-outbound-clicks');
         if (tblOutbound) {
           tblOutbound.innerHTML = data.outbound_clicks.map(c => `
-            <tr class="border-b border-zinc-900/40 hover:bg-white/5 transition-colors">
+            <tr class="border-b border-zinc-900/40 hover:bg-white/5 transition-colors font-sans">
               <td class="py-2.5 text-zinc-300 font-mono text-[10px] truncate max-w-[200px]" title="${c.destination_url}">${c.destination_url}</td>
               <td class="py-2.5 text-zinc-500 truncate max-w-[120px]" title="${c.link_text}">${c.link_text}</td>
               <td class="py-2.5 font-semibold text-indigo-400 text-right">${c.count.toLocaleString()}</td>
@@ -4619,7 +4627,7 @@
         const tblBroken = document.getElementById('tbl-broken-links');
         if (tblBroken) {
           tblBroken.innerHTML = data.broken_links.map(l => `
-            <tr class="border-b border-zinc-900/40 hover:bg-white/5 transition-colors">
+            <tr class="border-b border-zinc-900/40 hover:bg-white/5 transition-colors font-sans">
               <td class="py-2.5 text-rose-350 font-mono text-[10px] truncate max-w-[240px] cursor-pointer hover:text-indigo-400" onclick="applyFilter('path', '${l.page_path}')">${l.page_path}</td>
               <td class="py-2.5 font-semibold text-white text-right">${l.count.toLocaleString()}</td>
               <td class="py-2.5 text-zinc-500 text-right">${l.visitors.toLocaleString()}</td>
@@ -4631,7 +4639,13 @@
         const cohortBody = document.getElementById('cohort-heatmap-body');
         if (cohortBody) {
           cohortBody.innerHTML = data.cohort_retention.map(cohort => {
-            const weeks = cohort.retention_weeks || [100, 0, 0, 0, 0];
+            const weeks = [
+              cohort.week_0 || 0,
+              cohort.week_1 || 0,
+              cohort.week_2 || 0,
+              cohort.week_3 || 0,
+              cohort.week_4 || 0
+            ];
             const cellsHtml = weeks.map((pct, idx) => {
               let bgStyle = 'background-color: transparent;';
               let textClass = 'text-zinc-650';
