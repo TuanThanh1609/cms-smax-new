@@ -2283,6 +2283,19 @@
           border-color: #06b6d4 !important;
           box-shadow: 0 0 15px rgba(6, 182, 212, 0.25) !important;
         }
+
+        .img-resize-handle {
+          position: absolute !important;
+          width: 14px !important;
+          height: 14px !important;
+          background: #06b6d4 !important;
+          border: 2px solid #ffffff !important;
+          border-radius: 50% !important;
+          cursor: se-resize !important;
+          z-index: 10000 !important;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.3) !important;
+          display: none;
+        }
       `;
       doc.head.appendChild(styleEl);
 
@@ -2321,9 +2334,11 @@
           
           el.classList.add('visual-container-selected');
           
-          // Hide block toolbar and image badge
+          // Hide block toolbar, image badge and custom resize handle
           document.getElementById('visual-block-toolbar').classList.add('hidden');
           document.getElementById('visual-image-badge').classList.add('hidden');
+          const handle = doc.querySelector('.img-resize-handle');
+          if (handle) handle.style.display = 'none';
           
           showToast(`Đã chọn vùng: [${activeVisualKey}]. Nhấp chọn các Block bên phải để chèn thêm nội dung!`);
         });
@@ -2351,6 +2366,94 @@
       });
 
       // 4. Setup click selection & resizing for static images (Ver 4 Enhancement)
+      let resizeHandle = doc.querySelector('.img-resize-handle');
+      if (!resizeHandle) {
+        resizeHandle = doc.createElement('div');
+        resizeHandle.className = 'img-resize-handle';
+        doc.body.appendChild(resizeHandle);
+      }
+
+      function updateHandlePosition(imgEl) {
+        if (!imgEl) return;
+        const sizeMode = imgEl.getAttribute('data-size-mode') || 'free';
+        if (sizeMode !== 'free') {
+          resizeHandle.style.display = 'none';
+          return;
+        }
+        const rect = imgEl.getBoundingClientRect();
+        const scrollTop = doc.documentElement.scrollTop || doc.body.scrollTop;
+        const scrollLeft = doc.documentElement.scrollLeft || doc.body.scrollLeft;
+        
+        resizeHandle.style.top = `${rect.bottom + scrollTop - 7}px`;
+        resizeHandle.style.left = `${rect.right + scrollLeft - 7}px`;
+        resizeHandle.style.display = 'block';
+      }
+
+      let isDragging = false;
+      let startX, startY, startWidth, startHeight;
+      let targetImg = null;
+
+      resizeHandle.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (!activeVisualBlock) return;
+        targetImg = activeVisualBlock;
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        
+        const rect = targetImg.getBoundingClientRect();
+        startWidth = rect.width;
+        startHeight = rect.height;
+        
+        doc.addEventListener('mousemove', handleMouseMove);
+        doc.addEventListener('mouseup', handleMouseUp);
+      });
+
+      function handleMouseMove(e) {
+        if (!isDragging || !targetImg) return;
+        
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        
+        let newWidth = startWidth + dx;
+        let newHeight = startHeight + dy;
+        
+        if (newWidth < 30) newWidth = 30;
+        if (newHeight < 30) newHeight = 30;
+        
+        targetImg.style.width = `${newWidth}px`;
+        targetImg.style.height = `${newHeight}px`;
+        targetImg.style.maxWidth = 'none';
+        targetImg.style.maxHeight = 'none';
+        
+        const wInput = document.getElementById('block-w-px');
+        const hInput = document.getElementById('block-h-px');
+        if (wInput) wInput.value = Math.round(newWidth);
+        if (hInput) hInput.value = Math.round(newHeight);
+        
+        updateHandlePosition(targetImg);
+      }
+
+      function handleMouseUp() {
+        if (isDragging) {
+          isDragging = false;
+          doc.removeEventListener('mousemove', handleMouseMove);
+          doc.removeEventListener('mouseup', handleMouseUp);
+          
+          if (targetImg) {
+            syncVisualBlockStyle(targetImg);
+          }
+        }
+      }
+
+      doc.addEventListener('scroll', () => {
+        if (activeVisualBlock && activeVisualBlock.hasAttribute('data-cms-img')) {
+          updateHandlePosition(activeVisualBlock);
+        }
+      });
+
       doc.querySelectorAll('[data-cms-img]').forEach(el => {
         el.addEventListener('click', (e) => {
           e.preventDefault();
@@ -2391,6 +2494,7 @@
           document.getElementById('toolbar-content-settings').classList.remove('hidden');
           document.getElementById('block-url-input').value = el.getAttribute('src') || '';
           
+          updateHandlePosition(el);
           lucide.createIcons();
         });
         
@@ -2437,6 +2541,9 @@
         document.getElementById('toolbar-block-type').textContent = type;
         document.getElementById('visual-block-toolbar').classList.remove('hidden');
         document.getElementById('visual-image-badge').classList.add('hidden');
+        
+        const handle = doc.querySelector('.img-resize-handle');
+        if (handle) handle.style.display = 'none';
         
         // Set sizing mode buttons active class
         const sizeMode = block.getAttribute('data-size-mode') || 'free';
@@ -2545,6 +2652,8 @@
         doc.querySelectorAll('[data-cms-img]').forEach(el => {
           el.classList.remove('visual-img-selected');
         });
+        const handle = doc.querySelector('.img-resize-handle');
+        if (handle) handle.style.display = 'none';
       }
     }
 
@@ -2606,6 +2715,26 @@
           activeVisualBlock.style.height = 'auto';
           document.getElementById('block-w-pct').value = 50;
         }
+        
+        // Dynamically update or hide the float resize handle
+        const iframe = document.getElementById('preview-iframe');
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        if (doc) {
+          const handle = doc.querySelector('.img-resize-handle');
+          if (handle) {
+            if (mode !== 'free') {
+              handle.style.display = 'none';
+            } else {
+              const rect = activeVisualBlock.getBoundingClientRect();
+              const scrollTop = doc.documentElement.scrollTop || doc.body.scrollTop;
+              const scrollLeft = doc.documentElement.scrollLeft || doc.body.scrollLeft;
+              handle.style.top = `${rect.bottom + scrollTop - 7}px`;
+              handle.style.left = `${rect.right + scrollLeft - 7}px`;
+              handle.style.display = 'block';
+            }
+          }
+        }
+        
         syncVisualBlockStyle(activeVisualBlock);
       } else {
         const wrapper = activeVisualBlock.querySelector('.resize-wrapper');
