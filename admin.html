@@ -4661,42 +4661,7 @@
               </tr>
             `;
           }).join('') || `<tr><td colspan="7" class="text-center py-6 text-zinc-650">Chưa đủ dữ liệu giữ chân (Cần chạy tối thiểu 1 tuần).</td></tr>`;
-        }g-emerald-500/15 text-emerald-450 border border-emerald-500/20';
-          clsStatus.innerText = 'Tốt (Good)';
-        } else if (clsVal <= 0.25) {
-          clsStatus.className = 'text-[9px] px-1.5 py-0.5 rounded-full mt-2 font-medium bg-amber-500/15 text-amber-450 border border-amber-500/20';
-          clsStatus.innerText = 'Cải thiện (Fair)';
-        } else {
-          clsStatus.className = 'text-[9px] px-1.5 py-0.5 rounded-full mt-2 font-medium bg-rose-500/15 text-rose-450 border border-rose-500/20';
-          clsStatus.innerText = 'Kém (Poor)';
         }
-
-        // 5.7. Render UTM Campaigns
-        const tblUtm = document.getElementById('tbl-utm-campaigns');
-        tblUtm.innerHTML = data.utm_campaigns.map(c => {
-          const ctr = c.views > 0 ? ((c.clicks / c.views) * 100).toFixed(1) : '0.0';
-          return `
-            <tr class="border-b border-zinc-900/40 hover:bg-white/5 transition-colors">
-              <td class="py-2.5 text-zinc-300">
-                <div class="font-semibold">${c.source} / ${c.medium}</div>
-                <div class="text-[10px] text-zinc-500 font-mono">${c.campaign}</div>
-              </td>
-              <td class="py-2.5 font-semibold text-white">${c.views.toLocaleString()}</td>
-              <td class="py-2.5 font-semibold text-zinc-400">${c.clicks.toLocaleString()}</td>
-              <td class="py-2.5 font-semibold text-indigo-400">${ctr}%</td>
-            </tr>
-          `;
-        }).join('') || `<tr><td colspan="4" class="text-center py-4 text-zinc-650">Chưa có lưu lượng từ UTM Campaigns.</td></tr>`;
-
-        // 5.8. Render JS Errors
-        const tblErr = document.getElementById('tbl-js-errors');
-        tblErr.innerHTML = data.js_errors.map(e => `
-          <tr class="border-b border-zinc-900/40 hover:bg-white/5 transition-colors">
-            <td class="py-2.5 text-zinc-300 max-w-[220px] truncate font-mono text-[10px] text-rose-350" title="${e.message}">${e.message}</td>
-            <td class="py-2.5 text-zinc-500 font-mono text-[10px] truncate max-w-[120px]">${e.page_path}</td>
-            <td class="py-2.5 font-semibold text-rose-500">${e.count.toLocaleString()}</td>
-          </tr>
-        `).join('') || `<tr><td colspan="3" class="text-center py-4 text-zinc-650">Không có lỗi Javascript ghi nhận. 🎉</td></tr>`;
 
         // 6. Draw Chart (Lazy load Chart.js)
         if (!isChartjsLoaded) {
