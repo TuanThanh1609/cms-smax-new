@@ -4377,19 +4377,39 @@
         });
         
         if (error) throw error;
-        if (!data) return;
         
-        cachedAnalyticsData = data;
+        const sanitized = data || {};
+        cachedAnalyticsData = {
+          summary: sanitized.summary || { total_pageviews: 0, total_visitors: 0, total_sessions: 0, total_clicks: 0, avg_duration_sec: 0, bounce_rate_pct: 0 },
+          popular_pages: sanitized.popular_pages || [],
+          clicks: sanitized.clicks || [],
+          referrers: sanitized.referrers || [],
+          devices: sanitized.devices || [],
+          funnel: sanitized.funnel || { step1_views: 0, step2_clicks: 0, step3_scroll50: 0, step4_scroll100: 0 },
+          web_vitals: sanitized.web_vitals || { avg_fcp: 0, avg_lcp: 0, avg_cls: 0 },
+          utm_campaigns: sanitized.utm_campaigns || [],
+          js_errors: sanitized.js_errors || [],
+          user_acquisition: sanitized.user_acquisition || [],
+          traffic_acquisition: sanitized.traffic_acquisition || [],
+          outbound_clicks: sanitized.outbound_clicks || [],
+          broken_links: sanitized.broken_links || [],
+          cohort_retention: sanitized.cohort_retention || [],
+          views_over_time: sanitized.views_over_time || [],
+          event_counts: sanitized.event_counts || [],
+          file_downloads: sanitized.file_downloads || []
+        };
+        
+        const activeData = cachedAnalyticsData;
         if (warningBox) warningBox.classList.add('hidden');
         
         // 1. Update KPIs
-        document.getElementById('kpi-total-views').innerText = (data.summary.total_pageviews || 0).toLocaleString();
-        document.getElementById('kpi-total-visitors').innerText = (data.summary.total_visitors || 0).toLocaleString();
-        document.getElementById('kpi-total-sessions').innerText = (data.summary.total_sessions || 0).toLocaleString();
-        document.getElementById('kpi-total-clicks').innerText = (data.summary.total_clicks || 0).toLocaleString();
+        document.getElementById('kpi-total-views').innerText = (activeData.summary.total_pageviews || 0).toLocaleString();
+        document.getElementById('kpi-total-visitors').innerText = (activeData.summary.total_visitors || 0).toLocaleString();
+        document.getElementById('kpi-total-sessions').innerText = (activeData.summary.total_sessions || 0).toLocaleString();
+        document.getElementById('kpi-total-clicks').innerText = (activeData.summary.total_clicks || 0).toLocaleString();
         
         // Format Average Duration: e.g. "1m 15s" or "45s"
-        const avgSec = data.summary.avg_duration_sec || 0;
+        const avgSec = activeData.summary.avg_duration_sec || 0;
         let durationText = '';
         if (avgSec >= 60) {
           const m = Math.floor(avgSec / 60);
@@ -4399,11 +4419,11 @@
           durationText = `${avgSec}s`;
         }
         document.getElementById('kpi-avg-duration').innerText = durationText;
-        document.getElementById('kpi-bounce-rate').innerText = `${data.summary.bounce_rate_pct || 0}%`;
+        document.getElementById('kpi-bounce-rate').innerText = `${activeData.summary.bounce_rate_pct || 0}%`;
         
         // 2. Render Popular Pages
         const tblPages = document.getElementById('tbl-popular-pages');
-        tblPages.innerHTML = data.popular_pages.map(page => `
+        tblPages.innerHTML = activeData.popular_pages.map(page => `
           <tr class="border-b border-zinc-900/40 hover:bg-white/5 transition-colors">
             <td class="py-2.5 font-mono text-[11px] text-zinc-300 truncate max-w-[240px] cursor-pointer hover:text-indigo-400" onclick="applyFilter('path', '${page.page_path}')" title="${page.page_title}">${page.page_path}</td>
             <td class="py-2.5 font-semibold text-white">${page.count.toLocaleString()}</td>
@@ -4413,7 +4433,7 @@
         
         // 3. Render Top Clicks
         const tblClicks = document.getElementById('tbl-top-clicks');
-        tblClicks.innerHTML = data.clicks.map(click => `
+        tblClicks.innerHTML = activeData.clicks.map(click => `
           <tr class="border-b border-zinc-900/40 hover:bg-white/5 transition-colors">
             <td class="py-2.5 text-zinc-300 flex items-center gap-1.5">
               <span class="px-1.5 py-0.5 rounded bg-zinc-900 border border-zinc-800 text-[9px] uppercase text-zinc-500 font-mono">${click.tag}</span>
@@ -4426,8 +4446,8 @@
         
         // 4. Render Referrers list
         const refList = document.getElementById('referrers-list');
-        const maxRef = Math.max(...data.referrers.map(r => r.count), 1);
-        refList.innerHTML = data.referrers.map(ref => {
+        const maxRef = Math.max(...activeData.referrers.map(r => r.count), 1);
+        refList.innerHTML = activeData.referrers.map(ref => {
           const pct = Math.round((ref.count / maxRef) * 100);
           return `
             <div class="flex flex-col gap-1 text-[11px] cursor-pointer" onclick="applyFilter('referrer', '${ref.referrer}')">
@@ -4444,9 +4464,9 @@
         
         // 5. Render Devices list
         const devList = document.getElementById('devices-list');
-        const totalDevices = data.devices.reduce((acc, curr) => acc + curr.count, 0) || 1;
-        const mobileData = data.devices.find(d => d.device === 'Mobile') || { count: 0 };
-        const desktopData = data.devices.find(d => d.device === 'Desktop') || { count: 0 };
+        const totalDevices = activeData.devices.reduce((acc, curr) => acc + curr.count, 0) || 1;
+        const mobileData = activeData.devices.find(d => d.device === 'Mobile') || { count: 0 };
+        const desktopData = activeData.devices.find(d => d.device === 'Desktop') || { count: 0 };
         const mobilePct = Math.round((mobileData.count / totalDevices) * 100);
         const desktopPct = Math.round((desktopData.count / totalDevices) * 100);
         
@@ -4472,7 +4492,7 @@
         `;
  
         // 5.5. Render Funnel
-        const f = data.funnel || { step1_views: 0, step2_clicks: 0, step3_scroll50: 0, step4_scroll100: 0 };
+        const f = activeData.funnel;
         const v1 = f.step1_views || 0;
         const v2 = f.step2_clicks || 0;
         const v3 = f.step3_scroll50 || 0;
@@ -4494,7 +4514,7 @@
         document.getElementById('funnel-p-scroll100').style.width = `${pct4}%`;
  
         // 5.6. Render Web Vitals
-        const wv = data.web_vitals || { avg_fcp: 0, avg_lcp: 0, avg_cls: 0 };
+        const wv = activeData.web_vitals;
         const lcpVal = wv.avg_lcp || 0;
         const fcpVal = wv.avg_fcp || 0;
         const clsVal = wv.avg_cls || 0;
@@ -4550,7 +4570,7 @@
  
         // 5.7. Render UTM Campaigns
         const tblUtm = document.getElementById('tbl-utm-campaigns');
-        tblUtm.innerHTML = data.utm_campaigns.map(c => {
+        tblUtm.innerHTML = activeData.utm_campaigns.map(c => {
           const ctr = c.views > 0 ? ((c.clicks / c.views) * 100).toFixed(1) : '0.0';
           return `
             <tr class="border-b border-zinc-900/40 hover:bg-white/5 transition-colors">
@@ -4567,20 +4587,20 @@
  
         // 5.8. Render JS Errors
         const tblErr = document.getElementById('tbl-js-errors');
-        tblErr.innerHTML = data.js_errors.map(e => `
+        tblErr.innerHTML = activeData.js_errors.map(e => `
           <tr class="border-b border-zinc-900/40 hover:bg-white/5 transition-colors">
             <td class="py-2.5 text-zinc-300 max-w-[220px] truncate font-mono text-[10px] text-rose-350" title="${e.message}">${e.message}</td>
             <td class="py-2.5 text-zinc-500 font-mono text-[10px] truncate max-w-[120px] cursor-pointer hover:text-indigo-400" onclick="applyFilter('path', '${e.page_path}')">${e.page_path}</td>
             <td class="py-2.5 font-semibold text-rose-500">${e.count.toLocaleString()}</td>
           </tr>
         `).join('') || `<tr><td colspan="3" class="text-center py-4 text-zinc-650">Không có lỗi Javascript ghi nhận. 🎉</td></tr>`;
-
+ 
         // ================= NEW RENDER TARGETS (Plausible & GA4 Deep Analysis) =================
-
+ 
         // A. Render First-Touch (User Acquisition)
         const tblUserAcq = document.getElementById('tbl-user-acquisition');
         if (tblUserAcq) {
-          tblUserAcq.innerHTML = data.user_acquisition.map(a => {
+          tblUserAcq.innerHTML = activeData.user_acquisition.map(a => {
             const label = a.campaign !== 'None' ? `${a.source} / ${a.medium} (${a.campaign})` : `${a.source} / ${a.medium}`;
             const filterVal = a.campaign !== 'None' ? a.campaign : a.source;
             return `
@@ -4591,11 +4611,11 @@
             `;
           }).join('') || `<tr><td colspan="2" class="text-center py-4 text-zinc-650">Chưa có dữ liệu.</td></tr>`;
         }
-
+ 
         // B. Render Last-Touch (Traffic Acquisition)
         const tblTrafficAcq = document.getElementById('tbl-traffic-acquisition');
         if (tblTrafficAcq) {
-          tblTrafficAcq.innerHTML = data.traffic_acquisition.map(a => {
+          tblTrafficAcq.innerHTML = activeData.traffic_acquisition.map(a => {
             const label = a.campaign !== 'None' ? `${a.source} / ${a.medium} (${a.campaign})` : `${a.source} / ${a.medium}`;
             const filterVal = a.campaign !== 'None' ? a.campaign : a.source;
             return `
@@ -4606,15 +4626,15 @@
             `;
           }).join('') || `<tr><td colspan="2" class="text-center py-4 text-zinc-650">Chưa có dữ liệu.</td></tr>`;
         }
-
+ 
         // C. Render Event Explorer & Drilldown
         renderEventExplorerTable();
         renderEventDrilldownTable();
-
+ 
         // D. Render Outbound clicks
         const tblOutbound = document.getElementById('tbl-outbound-clicks');
         if (tblOutbound) {
-          tblOutbound.innerHTML = data.outbound_clicks.map(c => `
+          tblOutbound.innerHTML = activeData.outbound_clicks.map(c => `
             <tr class="border-b border-zinc-900/40 hover:bg-white/5 transition-colors font-sans">
               <td class="py-2.5 text-zinc-300 font-mono text-[10px] truncate max-w-[200px]" title="${c.destination_url}">${c.destination_url}</td>
               <td class="py-2.5 text-zinc-500 truncate max-w-[120px]" title="${c.link_text}">${c.link_text}</td>
@@ -4622,11 +4642,11 @@
             </tr>
           `).join('') || `<tr><td colspan="3" class="text-center py-4 text-zinc-650">Chưa có link ngoài nào được click.</td></tr>`;
         }
-
+ 
         // E. Render Broken Links (404)
         const tblBroken = document.getElementById('tbl-broken-links');
         if (tblBroken) {
-          tblBroken.innerHTML = data.broken_links.map(l => `
+          tblBroken.innerHTML = activeData.broken_links.map(l => `
             <tr class="border-b border-zinc-900/40 hover:bg-white/5 transition-colors font-sans">
               <td class="py-2.5 text-rose-350 font-mono text-[10px] truncate max-w-[240px] cursor-pointer hover:text-indigo-400" onclick="applyFilter('path', '${l.page_path}')">${l.page_path}</td>
               <td class="py-2.5 font-semibold text-white text-right">${l.count.toLocaleString()}</td>
@@ -4634,11 +4654,11 @@
             </tr>
           `).join('') || `<tr><td colspan="3" class="text-center py-4 text-zinc-650 text-xs">Không ghi nhận link hỏng. 🎉</td></tr>`;
         }
-
+ 
         // F. Render Cohort Retention Weekly Heatmap
         const cohortBody = document.getElementById('cohort-heatmap-body');
         if (cohortBody) {
-          cohortBody.innerHTML = data.cohort_retention.map(cohort => {
+          cohortBody.innerHTML = activeData.cohort_retention.map(cohort => {
             const weeks = [
               cohort.week_0 || 0,
               cohort.week_1 || 0,
@@ -4670,13 +4690,13 @@
             return `
               <tr class="border-b border-zinc-900/40 hover:bg-white/5 transition-colors">
                 <td class="py-3 text-left font-semibold text-zinc-300">Tuần ${weekLabel}</td>
-                <td class="py-3 text-left font-bold text-indigo-400">${cohort.cohort_size.toLocaleString()} khách</td>
+                <td class="py-3 text-left font-bold text-indigo-400">${(cohort.cohort_size || 0).toLocaleString()} khách</td>
                 ${cellsHtml}
               </tr>
             `;
           }).join('') || `<tr><td colspan="7" class="text-center py-6 text-zinc-650">Chưa đủ dữ liệu giữ chân (Cần chạy tối thiểu 1 tuần).</td></tr>`;
         }
-
+ 
         // 6. Draw Chart (Lazy load Chart.js)
         if (!isChartjsLoaded) {
           const loader = document.getElementById('chart-loading-state');
@@ -4685,21 +4705,21 @@
           script.src = 'https://cdn.jsdelivr.net/npm/chart.js';
           script.onload = () => {
             isChartjsLoaded = true;
-            renderLineChart(data.views_over_time);
+            renderLineChart(activeData.views_over_time);
           };
           document.head.appendChild(script);
         } else {
-          renderLineChart(data.views_over_time);
+          renderLineChart(activeData.views_over_time);
         }
         
       } catch (err) {
         console.error('Analytics load error:', err.message);
         if (warningBox) warningBox.classList.remove('hidden');
         showToast('Không thể tải dữ liệu thống kê! Vui lòng chạy kịch bản SQL trong scripts/setup_tracking.sql.', 'error');
-      } finally {
-        if (icon) icon.classList.remove('animate-spin');
-        lucide.createIcons();
       }
+      
+      if (icon) icon.classList.remove('animate-spin');
+      lucide.createIcons();
     }
 
     function renderLineChart(chartData) {
