@@ -161,6 +161,35 @@
         } catch (err) {}
       }
 
+      // Button Click detection (Goals/Conversions)
+      if (interactiveElement) {
+        const isButtonTag = interactiveElement.tagName === 'BUTTON' || 
+                            (interactiveElement.tagName === 'INPUT' && ['button', 'submit'].includes(interactiveElement.getAttribute('type')));
+        const isLinkBtn = interactiveElement.tagName === 'A' && (
+          interactiveElement.classList.contains('btn') || 
+          interactiveElement.classList.contains('cta') || 
+          [...interactiveElement.classList].some(c => c.includes('btn') || c.includes('cta') || c.includes('button'))
+        );
+        const btnText = eventData.element_text.toLowerCase();
+        const isBtnKeywords = btnText.includes('đăng ký') || 
+                              btnText.includes('đăng nhập') || 
+                              btnText.includes('tư vấn') || 
+                              btnText.includes('nhận') || 
+                              btnText.includes('liên hệ') || 
+                              btnText.includes('dùng thử') || 
+                              btnText.includes('login') || 
+                              btnText.includes('register') || 
+                              btnText.includes('sign up');
+
+        if (isButtonTag || isLinkBtn || isBtnKeywords) {
+          sendEvent('button_click', {
+            element_text: eventData.element_text,
+            element_tag: eventData.element_tag,
+            element_id: eventData.element_id
+          });
+        }
+      }
+
       sendEvent('click', eventData);
     });
 

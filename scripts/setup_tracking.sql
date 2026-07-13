@@ -130,7 +130,7 @@ BEGIN
                 LIMIT 10
             ) item
         ),
-        'clicks', (
+         'clicks', (
             SELECT COALESCE(jsonb_agg(item), '[]'::jsonb) FROM (
                 SELECT 
                     COALESCE(event_data->>'element_text', 'Không có text') as text, 
@@ -139,6 +139,20 @@ BEGIN
                     count(*) as count
                 FROM filtered_events
                 WHERE event_name = 'click'
+                GROUP BY text, tag, page_path
+                ORDER BY count DESC
+                LIMIT 10
+            ) item
+        ),
+        'button_clicks', (
+            SELECT COALESCE(jsonb_agg(item), '[]'::jsonb) FROM (
+                SELECT 
+                    COALESCE(event_data->>'element_text', 'Không có text') as text, 
+                    COALESCE(event_data->>'element_tag', 'ELEMENT') as tag,
+                    page_path, 
+                    count(*) as count
+                FROM filtered_events
+                WHERE event_name = 'button_click'
                 GROUP BY text, tag, page_path
                 ORDER BY count DESC
                 LIMIT 10

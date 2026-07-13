@@ -472,6 +472,64 @@
         margin: 0;
       }
 
+      .acq-bento-visual {
+        grid-column: 2;
+        grid-row: 1 / 3;
+        width: 100%;
+        height: 150px;
+        object-fit: contain;
+        object-position: center;
+        display: block;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: transparent;
+        filter: drop-shadow(0 14px 22px rgba(15, 24, 53, 0.09));
+      }
+
+      .acq-sub-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 160px;
+        grid-template-rows: auto 1fr;
+        column-gap: 16px;
+        align-items: center;
+      }
+
+      .acq-sub-grid .acq-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 220px;
+        grid-template-rows: auto 1fr;
+        column-gap: 20px;
+        align-items: center;
+        min-height: 252px;
+      }
+
+      .acq-sub-grid .acq-card .acq-bento-visual {
+        height: 205px;
+      }
+
+      /* Generated Agency visuals, aligned with the F&B visual system */
+      img[src*="asset smax/agency/visuals-v2/"] {
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        filter: drop-shadow(0 22px 30px rgba(15, 24, 53, 0.10));
+      }
+
+      .solution-visual img[src*="asset smax/agency/visuals-v2/"],
+      .mobile-section-visual img[src*="asset smax/agency/visuals-v2/"] {
+        width: 112%;
+        max-width: none;
+        margin-left: -6%;
+      }
+
+      .acq-card-right-img img[src*="asset smax/agency/visuals-v2/"] {
+        width: 124%;
+        max-width: none;
+        margin-left: -12%;
+      }
+
       /* Solution 4 Loyalty (Centered vertical stack) */
       .solution-loyalty-section {
         background: #F8F9FC;
@@ -694,12 +752,34 @@
           grid-column: span 1;
         }
 
+        .acq-sub-card,
+        .acq-sub-grid .acq-card {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto auto;
+        }
+
+        .acq-sub-card .acq-bento-visual,
+        .acq-sub-grid .acq-card .acq-bento-visual {
+          grid-column: 1;
+          grid-row: auto;
+          width: 100%;
+          height: 240px;
+          margin-top: 18px;
+        }
+
         .acq-main-card {
           grid-template-columns: 1fr;
         }
 
         .acq-card-right-img {
           margin-top: 24px;
+        }
+
+        .solution-visual img[src*="asset smax/agency/visuals-v2/"],
+        .mobile-section-visual img[src*="asset smax/agency/visuals-v2/"],
+        .acq-card-right-img img[src*="asset smax/agency/visuals-v2/"] {
+          width: 100%;
+          margin-left: 0;
         }
 
         .loyalty-cards-container {
@@ -884,12 +964,12 @@
                 </div>
               </div>
               <div class="solution-visual">
-                <img src="asset smax/module-feature-images/livechat/staff-assignment.webp" alt="Sàng lọc lead B2B tự động cho agency" data-cms-img="agency-img-1">
+                <img src="asset smax/agency/visuals-v2/lead-ads-qualification.png" alt="Cô gái Việt Nam cùng Smax AI tiếp nhận, sàng lọc và phân bổ lead quảng cáo" data-cms-img="agency-v2-img-1">
               </div>
             </div>
             <!-- Mobile visual -->
             <div class="mobile-section-visual">
-              <img src="asset smax/module-feature-images/livechat/staff-assignment.webp" alt="Sàng lọc lead B2B tự động cho agency" data-cms-img="agency-img-2">
+              <img src="asset smax/agency/visuals-v2/lead-ads-qualification.png" alt="Cô gái Việt Nam cùng Smax AI tiếp nhận, sàng lọc và phân bổ lead quảng cáo" data-cms-img="agency-v2-img-2">
             </div>
           </div>
         </section>
@@ -915,7 +995,7 @@
                   </p>
                 </div>
                 <div class="acq-card-right-img">
-                  <img src="asset smax/module-feature-images/livechat/saved-replies.webp" alt="Nuôi dưỡng lead B2B tự động" data-cms-img="agency-img-3">
+                  <img src="asset smax/agency/visuals-v2/lead-nurture-sequence.png" alt="Hội thoại Smax AI và chuỗi nuôi dưỡng lead B2B theo ngày" data-cms-img="agency-v2-img-3">
                 </div>
               </div>
 
@@ -924,10 +1004,12 @@
                 <div class="acq-sub-card">
                   <h4 data-cms="agency-text-23">Thông báo đẩy tức thì cho Sales</h4>
                   <p data-cms="agency-text-24">Tự động gửi tin nhắn đẩy kèm thông tin lead qua Zalo ZBS (ZNS) / Lark để sales chủ động liên hệ tức thời trong 15s.</p>
+                  <img class="acq-bento-visual" src="asset smax/agency/visuals-v2/bento-sales-alert.png" alt="Cô gái Việt Nam nhận thông báo lead nóng mới trong 15 giây" loading="lazy" data-cms-img="agency-v2-bento-1">
                 </div>
                 <div class="acq-sub-card">
                   <h4 data-cms="agency-text-25">Phân tích hiệu quả phễu quảng cáo</h4>
                   <p data-cms="agency-text-26">Báo cáo ROI, đo lường chi phí trên mỗi lead thực tế và tỷ lệ chuyển đổi đơn hàng chính xác thời gian thực.</p>
+                  <img class="acq-bento-visual" src="asset smax/agency/visuals-v2/bento-funnel-performance.png" alt="Bảng phân tích phễu quảng cáo, chi phí mỗi lead và tỷ lệ chuyển đổi" loading="lazy" data-cms-img="agency-v2-bento-2">
                 </div>
               </div>
 
@@ -936,10 +1018,12 @@
                 <div class="acq-card">
                   <h3 style="font-size: 17px; font-weight: 700; margin: 0 0 8px; color: var(--primary-navy, #0F1835);" data-cms="agency-text-27">Đồng bộ CRM / Lark Base tự động</h3>
                   <p style="font-size: 14px; line-height: 1.5; color: var(--text-secondary, #475467); margin: 0;" data-cms="agency-text-28">Mọi dữ liệu lead đăng ký tự động cập nhật về Google Sheets, Lark Base, HubSpot CRM mà không cần nhập liệu thủ công.</p>
+                  <img class="acq-bento-visual" src="asset smax/agency/visuals-v2/bento-crm-sync.png" alt="Smax AI đồng bộ dữ liệu lead sang Google Sheets, Lark Base và HubSpot CRM" loading="lazy" data-cms-img="agency-v2-bento-3">
                 </div>
                 <div class="acq-card">
                   <h3 style="font-size: 17px; font-weight: 700; margin: 0 0 8px; color: var(--primary-navy, #0F1835);" data-cms="agency-text-29">Chiến dịch FMM quảng bá an toàn</h3>
                   <p style="font-size: 14px; line-height: 1.5; color: var(--text-secondary, #475467); margin: 0;" data-cms="agency-text-30">Gửi thông điệp quảng bá, webinar mới đến tệp khách cũ hàng loạt qua Meta FMM an toàn, không lo spam khóa page.</p>
+                  <img class="acq-bento-visual" src="asset smax/agency/visuals-v2/bento-fmm-campaign.png" alt="Cô gái Việt Nam vận hành chiến dịch quảng bá an toàn cùng Smax" loading="lazy" data-cms-img="agency-v2-bento-4">
                 </div>
               </div>
             </div>
@@ -951,7 +1035,7 @@
           <div class="container">
             <div class="solution-grid">
               <div class="solution-visual">
-                <img src="asset smax/chatbot/kich-ban-cham-soc.webp" alt="Báo cáo hiệu quả chiến dịch quảng cáo" data-cms-img="agency-img-4">
+                <img src="asset smax/agency/visuals-v2/campaign-performance-report.png" alt="Bảng báo cáo phễu chuyển đổi và hiệu quả chiến dịch quảng cáo" data-cms-img="agency-v2-img-4">
               </div>
               <div class="solution-info">
                 <div class="section-tag" data-cms="agency-tag-4">Giải pháp 03</div>
@@ -983,7 +1067,7 @@
             </div>
             <!-- Mobile visual -->
             <div class="mobile-section-visual">
-              <img src="asset smax/chatbot/kich-ban-cham-soc.webp" alt="Báo cáo hiệu quả chiến dịch quảng cáo" data-cms-img="agency-img-5">
+              <img src="asset smax/agency/visuals-v2/campaign-performance-report.png" alt="Bảng báo cáo phễu chuyển đổi và hiệu quả chiến dịch quảng cáo" data-cms-img="agency-v2-img-5">
             </div>
           </div>
         </section>
@@ -1020,12 +1104,12 @@
                 </div>
               </div>
               <div class="solution-visual">
-                <img src="asset smax/module-feature-images/crm-connect/customer-360.webp" alt="CSAT chất lượng sales tư vấn" data-cms-img="agency-img-6">
+                <img src="asset smax/agency/visuals-v2/sales-csat-chat.png" alt="Hội thoại Smax AI khảo sát chất lượng tư vấn và bảng xếp hạng chuyên viên" data-cms-img="agency-v2-img-6">
               </div>
             </div>
             <!-- Mobile visual -->
             <div class="mobile-section-visual">
-              <img src="asset smax/module-feature-images/crm-connect/customer-360.webp" alt="CSAT chất lượng sales tư vấn" data-cms-img="agency-img-7">
+              <img src="asset smax/agency/visuals-v2/sales-csat-chat.png" alt="Hội thoại Smax AI khảo sát chất lượng tư vấn và bảng xếp hạng chuyên viên" data-cms-img="agency-v2-img-7">
             </div>
           </div>
         </section>
@@ -1035,7 +1119,7 @@
           <div class="container">
             <div class="solution-grid">
               <div class="solution-visual">
-                <img src="asset smax/remarketing-features-v2/personalized-sequence.webp" alt="Kịch bản tri ân đối tác sinh nhật" data-cms-img="agency-img-8">
+                <img src="asset smax/agency/visuals-v2/partner-appreciation.png" alt="Cô gái Việt Nam cùng Smax AI gửi lời chúc và ưu đãi tri ân đối tác" data-cms-img="agency-v2-img-8">
               </div>
               <div class="solution-info">
                 <div class="section-tag" data-cms="agency-tag-6">Giải pháp 05</div>
@@ -1067,7 +1151,7 @@
             </div>
             <!-- Mobile visual -->
             <div class="mobile-section-visual">
-              <img src="asset smax/remarketing-features-v2/personalized-sequence.webp" alt="Kịch bản tri ân đối tác sinh nhật" data-cms-img="agency-img-9">
+              <img src="asset smax/agency/visuals-v2/partner-appreciation.png" alt="Cô gái Việt Nam cùng Smax AI gửi lời chúc và ưu đãi tri ân đối tác" data-cms-img="agency-v2-img-9">
             </div>
           </div>
         </section>
@@ -1111,12 +1195,12 @@
                 </div>
               </div>
               <div class="solution-visual">
-                <img src="asset smax/module-feature-images/crm-connect/customer-360.webp" alt="Hồ sơ khách hàng 360 cho agency" data-cms-img="agency-img-13">
+                <img src="asset smax/agency/visuals-v2/crm-tool-integration.png" alt="Smax AI đồng bộ hồ sơ khách hàng 360 với các công cụ CRM" data-cms-img="agency-v2-img-13">
               </div>
             </div>
             <!-- Mobile visual -->
             <div class="mobile-section-visual">
-              <img src="asset smax/module-feature-images/crm-connect/customer-360.webp" alt="Hồ sơ khách hàng 360 cho agency" data-cms-img="agency-img-14">
+              <img src="asset smax/agency/visuals-v2/crm-tool-integration.png" alt="Smax AI đồng bộ hồ sơ khách hàng 360 với các công cụ CRM" data-cms-img="agency-v2-img-14">
             </div>
           </div>
         </section>

@@ -3994,7 +3994,7 @@
       if (!tblEventExp) return;
 
       tblEventExp.innerHTML = cachedAnalyticsData.event_counts.map(e => {
-        const isConversion = ['click', 'outbound_click', 'file_download'].includes(e.event_name);
+        const isConversion = ['click', 'outbound_click', 'file_download', 'button_click'].includes(e.event_name);
         const isSelected = selectedDrilldownEvent === e.event_name;
         return `
           <tr class="border-b border-zinc-900/40 hover:bg-white/5 transition-colors cursor-pointer ${isSelected ? 'bg-indigo-500/10' : ''}" onclick="setEventDrilldown('${e.event_name}')">
@@ -4025,19 +4025,21 @@
       
       let html = '';
       
-      if (selectedDrilldownEvent === 'click') {
+      if (selectedDrilldownEvent === 'click' || selectedDrilldownEvent === 'button_click') {
+        const dataList = selectedDrilldownEvent === 'click' ? cachedAnalyticsData.clicks : cachedAnalyticsData.button_clicks;
+        const columnHeader = selectedDrilldownEvent === 'click' ? 'Nút click (Text)' : 'Nút đăng ký/tư vấn/đăng nhập (Text)';
         html = `
           <table class="w-full text-left text-xs">
             <thead>
               <tr class="border-b border-zinc-900/60 text-zinc-500 font-semibold">
-                <th class="pb-2 font-medium">Nút click (Text)</th>
+                <th class="pb-2 font-medium">${columnHeader}</th>
                 <th class="pb-2 font-medium">Thẻ</th>
                 <th class="pb-2 font-medium">Trang click</th>
                 <th class="pb-2 font-medium text-right">Lượt click</th>
               </tr>
             </thead>
             <tbody class="text-zinc-400">
-              ${cachedAnalyticsData.clicks.map(c => `
+              ${dataList.map(c => `
                 <tr class="border-b border-zinc-900/40 hover:bg-white/5 transition-colors font-sans">
                   <td class="py-2 font-semibold text-zinc-300 max-w-[150px] truncate" title="${c.text}">${c.text}</td>
                   <td class="py-2 font-mono text-[10px] text-zinc-500">${c.tag}</td>
@@ -4048,6 +4050,8 @@
             </tbody>
           </table>
         `;
+      }
+
       } else if (selectedDrilldownEvent === 'outbound_click') {
         html = `
           <table class="w-full text-left text-xs">
@@ -4396,7 +4400,8 @@
           cohort_retention: sanitized.cohort_retention || [],
           views_over_time: sanitized.views_over_time || [],
           event_counts: sanitized.event_counts || [],
-          file_downloads: sanitized.file_downloads || []
+          file_downloads: sanitized.file_downloads || [],
+          button_clicks: sanitized.button_clicks || []
         };
         
         const activeData = cachedAnalyticsData;
