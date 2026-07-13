@@ -328,6 +328,10 @@
     .theme-light #media-list div p {
       color: #475569 !important;
     }
+    .theme-light #media-list div span.font-mono {
+      background-color: #f1f5f9 !important;
+      color: #64748b !important;
+    }
     
     /* Light Mode Visual Custom Block Toolbar */
     .theme-light #visual-block-toolbar {
@@ -1485,8 +1489,8 @@
           </div>
 
           <!-- Media items grid list -->
-          <div id="media-list" class="grid grid-cols-2 gap-2.5 max-h-[50vh] overflow-y-auto custom-scroll pr-1">
-            <div class="text-zinc-600 text-xs py-8 text-center col-span-2">Đang tải thư viện ảnh...</div>
+          <div id="media-list" class="grid grid-cols-1 gap-3.5 max-h-[60vh] overflow-y-auto custom-scroll pr-1">
+            <div class="text-zinc-600 text-xs py-8 text-center col-span-1">Đang tải thư viện ảnh...</div>
           </div>
         </div>
 
@@ -2950,7 +2954,7 @@
       const filtered = mediaFilesList.filter(file => file.name.toLowerCase().includes(searchVal));
       
       if (filtered.length === 0) {
-        mediaListContainer.innerHTML = `<div class="text-zinc-600 text-xs py-4 text-center col-span-2">Thư viện trống</div>`;
+        mediaListContainer.innerHTML = `<div class="text-zinc-600 text-xs py-4 text-center col-span-1">Thư viện trống</div>`;
         return;
       }
       
@@ -2962,15 +2966,16 @@
           
         return `
           <div class="group relative bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden hover:border-zinc-700 transition-all p-1 flex flex-col gap-1.5 cursor-pointer" onclick="copyMediaUrl('${publicUrl}')" title="Nhấp để copy URL ảnh">
-            <div class="w-full bg-zinc-950 rounded-lg overflow-hidden flex items-center justify-center relative flex-shrink-0" style="height: 96px !important; min-height: 96px !important;">
+            <div class="w-full bg-zinc-950 rounded-lg overflow-hidden flex items-center justify-center relative flex-shrink-0" style="height: 130px !important; min-height: 130px !important;">
               <img src="${publicUrl}" class="max-w-full max-h-full object-contain" alt="${file.name}">
               <div class="absolute inset-0 bg-zinc-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-[10px] text-white gap-1 font-semibold">
                 <i data-lucide="copy" class="w-3.5 h-3.5"></i>
                 Copy URL
               </div>
             </div>
-            <div class="px-1 py-0.5">
-              <p class="text-[9px] text-zinc-500 truncate" title="${file.name}">${file.name}</p>
+            <div class="px-1.5 py-1 flex items-center justify-between gap-2">
+              <p class="text-[10px] text-zinc-400 truncate flex-1" title="${file.name}">${file.name}</p>
+              <span class="text-[9px] bg-zinc-800 text-zinc-400 px-1.5 py-0.5 rounded flex-shrink-0 font-mono">Copy URL</span>
             </div>
           </div>
         `;
