@@ -965,6 +965,13 @@
         loadSidebarPages();
         loadMediaLibrary();
         initDragDropListeners();
+
+        // Populate sidebar webhook URL if exists
+        const webhookUrl = localStorage.getItem('vercel_deploy_webhook') || '';
+        const webhookInput = document.getElementById('sidebar-webhook-url');
+        if (webhookInput) {
+          webhookInput.value = webhookUrl;
+        }
       }
     }
 
@@ -996,6 +1003,17 @@
         localStorage.removeItem('vercel_deploy_webhook');
         supabaseClient = null;
         initCMS();
+      }
+    }
+
+    function saveSidebarWebhook() {
+      const url = document.getElementById('sidebar-webhook-url').value.trim();
+      if (url) {
+        localStorage.setItem('vercel_deploy_webhook', url);
+        showToast('Lưu webhook deploy thành công!', 'success');
+      } else {
+        localStorage.removeItem('vercel_deploy_webhook');
+        showToast('Đã xóa webhook deploy.', 'success');
       }
     }
 
@@ -1740,7 +1758,7 @@
       
       const webhookUrl = localStorage.getItem('vercel_deploy_webhook');
       if (!webhookUrl) {
-        alert('Cảnh báo: Bạn chưa cấu hình "Vercel Deploy Webhook URL".\n\nVui lòng nhấn "Thay đổi Supabase Config" ở góc dưới bên trái để điền link Deploy Webhook của dự án Vercel của bạn, giúp website tự động biên dịch lại nội dung mới khi xuất bản!');
+        alert('Cảnh báo: Bạn chưa cấu hình "Vercel Deploy Webhook URL".\n\nVui lòng điền link Deploy Webhook của dự án Vercel trong mục "SITES" ở menu bên trái của Dashboard, hoặc thiết lập biến môi trường VERCEL_DEPLOY_WEBHOOK_URL trên Vercel để website có thể tự động biên dịch và cập nhật nội dung!');
         return;
       }
       
