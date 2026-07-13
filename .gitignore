@@ -22,3 +22,5 @@ tham khao *.png
 education-mobile-final.png
 image-*.png
 pasted-text-*.txt
+.playwright-mcp/
+
