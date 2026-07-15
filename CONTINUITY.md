@@ -2,13 +2,13 @@
 
 Tài liệu này lưu giữ trạng thái, quyết định thiết kế và bài học kỹ thuật quan trọng của dự án Smax Web để đảm bảo tính liên tục của ngữ cảnh phát triển cho các session tiếp theo.
 
-* **Active Goal:** Hoàn thành thiết lập hệ thống User Tracking (Client-side) và Analytics Dashboard + Click Heatmap (Admin-side) tích hợp trong Smax CMS.
+* **Active Goal:** Tích hợp nút "Thêm Block / Section" trực tiếp vào giao diện Preview của Smax CMS.
 * **Next Actions:**
-  1. Hướng dẫn người dùng chạy kịch bản SQL `scripts/setup_tracking.sql` trên Supabase Dashboard.
-  2. Triển khai dự án lên Vercel để áp dụng thay đổi trực tiếp cho Website.
-  3. Theo dõi hành vi người dùng thực tế và kiểm tra độ chính xác của biểu đồ/bản đồ nhiệt.
-* **Current Phase:** completed
-* **Working Context:** Tích hợp thành công mã tracking siêu nhẹ `tracking.js` tự động inject qua `script.js`. Xây dựng màn hình thống kê trực quan và luồng sự kiện live feed cùng cơ chế vẽ bản đồ nhiệt click trên Iframe Canvas đè đính kèm tài liệu. Dữ liệu tự động dọn dẹp sau 90 ngày.
+  1. Kiểm thử thủ công việc chèn nút helper nội tuyến ở cuối mỗi container [data-cms].
+  2. Kiểm tra tương tác click nút tự động chuyển sang tab Blocks và highlight.
+  3. Kiểm tra cơ chế cleanEditorHtml loại bỏ helper trước khi lưu trữ database.
+* **Current Phase:** planning
+* **Working Context:** Bổ sung các nút helper nội tuyến (+ Thêm Block / Section) có thuộc tính contenteditable="false". Viết cleanEditorHtml lọc bỏ helper trước khi lưu để giữ database sạch sẽ.
 
 
 ---
