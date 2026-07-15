@@ -193,10 +193,28 @@ const loadHeader = async () => {
   }
 };
 
+const loadFooter = async () => {
+  const footerEl = document.querySelector("[data-footer]");
+  if (footerEl) {
+    try {
+      console.log("Fetching shared footer.tpl...");
+      const response = await fetch("footer.tpl?v=" + new Date().getTime(), { cache: "no-store" });
+      const html = await response.text();
+      footerEl.innerHTML = html;
+    } catch (err) {
+      console.error("Error loading shared footer:", err);
+    }
+  }
+};
+
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", loadHeader);
+  document.addEventListener("DOMContentLoaded", () => {
+    loadHeader();
+    loadFooter();
+  });
 } else {
   loadHeader();
+  loadFooter();
 }
 
 // Event delegation for dynamically loaded links

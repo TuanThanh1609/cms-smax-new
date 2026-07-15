@@ -325,11 +325,12 @@ function finalizeBuild(contentMap) {
     if (stat.isDirectory()) {
       copyFolderRecursiveSync(srcPath, destPath);
     } else {
-      // If it's an HTML file, compile it first, then write to public
-      if (file.endsWith('.html') && file !== 'admin.html') {
+      // If it's an HTML or TPL file, compile it first, then write to public
+      if ((file.endsWith('.html') && file !== 'admin.html') || file.endsWith('.tpl')) {
         const html = fs.readFileSync(srcPath, 'utf8');
         const cheerio = require('cheerio');
-        const $ = cheerio.load(html, { decodeEntities: false });
+        const isTpl = file.endsWith('.tpl');
+        const $ = cheerio.load(html, { decodeEntities: false }, !isTpl);
         
         // 1. Compile structural containers (non-text fields) first
         $('[data-cms]').each((i, el) => {
