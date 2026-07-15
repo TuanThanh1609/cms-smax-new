@@ -238,6 +238,16 @@ function finalizeBuild(contentMap) {
   const rootDir = path.resolve(__dirname, '..');
   const publicDir = path.join(rootDir, 'public');
 
+  function hasBalancedStructuralHtml(html) {
+    if (!html) return false;
+    const criticalTags = ['div', 'section', 'article', 'nav', 'header', 'footer'];
+    return criticalTags.every(tag => {
+      const opens = (html.match(new RegExp(`<${tag}(?:\\s|>)`, 'gi')) || []).length;
+      const closes = (html.match(new RegExp(`<\\/${tag}\\s*>`, 'gi')) || []).length;
+      return opens === closes;
+    });
+  }
+
   function sanitizeStructuralCmsHtml(html, cheerio) {
     if (!html) return '';
     const fragment = cheerio.load(`<div id="cms-structural-root">${html}</div>`, { decodeEntities: false }, false);
@@ -342,9 +352,16 @@ function finalizeBuild(contentMap) {
                                $(el).hasClass('metric-num') ||
                                $(el).hasClass('metric-label');
           if (!isTextField && contentMap[key] !== undefined) {
-            const value = key && key.endsWith('-sections')
-              ? sanitizeStructuralCmsHtml(contentMap[key], cheerio)
-              : contentMap[key];
+            let value = contentMap[key];
+            if (key && key.endsWith('-sections')) {
+              const sanitized = sanitizeStructuralCmsHtml(value, cheerio);
+              if (hasBalancedStructuralHtml(sanitized)) {
+                value = sanitized;
+              } else {
+                console.warn(`[Smax CMS] Ignoring malformed structural content for ${key}; using the clean local page structure.`);
+                value = $(el).html();
+              }
+            }
             $(el).html(value);
           }
         });

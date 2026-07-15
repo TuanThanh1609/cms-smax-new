@@ -2660,11 +2660,15 @@
     // Save Changes
     async function savePageChanges() {
       const newFieldsToId = [];
+      let invalidStructuralKey = null;
       const updates = currentPageFields.map((field, index) => {
         const inputEl = document.getElementById(`input-val-${index}`);
         let value = inputEl ? inputEl.value : field.content_value;
         if (field.content_key && field.content_key.endsWith('-sections')) {
           value = cleanEditorHtml(value);
+          if (!hasBalancedStructuralHtml(value)) {
+            invalidStructuralKey = field.content_key;
+          }
         }
         const u = {
           page_name: field.page_name,
@@ -2679,6 +2683,11 @@
         }
         return u;
       });
+
+      if (invalidStructuralKey) {
+        alert(`Không thể lưu ${invalidStructuralKey} vì cấu trúc HTML đang thiếu thẻ đóng. Vui lòng tải lại trang CMS rồi thử lại để tránh làm vỡ bố cục website.`);
+        return;
+      }
       
       if (newFieldsToId.length > 0) {
         await assignNewIds(newFieldsToId);
@@ -3936,6 +3945,16 @@
         
         updateBlockAddHandlePosition(block, doc);
         lucide.createIcons();
+      });
+    }
+
+    function hasBalancedStructuralHtml(htmlStr) {
+      if (!htmlStr) return false;
+      const criticalTags = ['div', 'section', 'article', 'nav', 'header', 'footer'];
+      return criticalTags.every(tag => {
+        const opens = (htmlStr.match(new RegExp(`<${tag}(?:\\s|>)`, 'gi')) || []).length;
+        const closes = (htmlStr.match(new RegExp(`<\\/${tag}\\s*>`, 'gi')) || []).length;
+        return opens === closes;
       });
     }
 
