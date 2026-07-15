@@ -4,13 +4,19 @@ const cheerio = require('cheerio');
 
 const pagesToTag = [
   'ecommerce', 'education', 'realestate', 'service', 'fb', 'agency', 
+  'travel', 'health',
   'tich-hop', 'crm-sync', 'partnership', 'livechat', 'chatbot', 'genai', 
   'insight', 'marketing', 'gamification', 'blog', 'blog-detail', 'remarketing'
 ];
 
+const requestedPages = process.argv.slice(2);
+const selectedPages = requestedPages.length
+  ? pagesToTag.filter(page => requestedPages.includes(page))
+  : pagesToTag;
+
 let allNewRecords = [];
 
-for (const page of pagesToTag) {
+for (const page of selectedPages) {
   const filePath = path.join(__dirname, '..', `${page}.html`);
   if (!fs.existsSync(filePath)) continue;
 

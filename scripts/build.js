@@ -4,6 +4,27 @@ const https = require('https');
 const url = require('url');
 
 // Load environment variables
+function loadEnv() {
+  const files = ['.env.local', '.env'];
+  for (const file of files) {
+    const envPath = path.join(__dirname, '..', file);
+    if (fs.existsSync(envPath)) {
+      const content = fs.readFileSync(envPath, 'utf8');
+      const lines = content.split('\n');
+      lines.forEach(line => {
+        const parts = line.split('=');
+        if (parts.length >= 2) {
+          const key = parts[0].trim();
+          const value = parts.slice(1).join('=').trim().replace(/^['"]|['"]$/g, '');
+          if (value) process.env[key] = value;
+        }
+      });
+      break;
+    }
+  }
+}
+loadEnv();
+
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseAnonKey = process.env.SUPABASE_ANON_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY;
 
@@ -71,7 +92,7 @@ function fetchContentAndCompile() {
             const repairs = [];
             const cheerio = require('cheerio');
             const rootDir = path.resolve(__dirname, '..');
-            const pages = ['ecommerce', 'education', 'realestate', 'service', 'fb', 'agency'];
+            const pages = ['ecommerce', 'education', 'realestate', 'service', 'fb', 'agency', 'travel', 'health'];
             const localDefaults = {};
 
             pages.forEach(page => {
@@ -271,51 +292,51 @@ function finalizeBuild(contentMap) {
     } else {
       // If it's an HTML file, compile it first, then write to public
       if (file.endsWith('.html') && file !== 'admin.html') {
-        let htmlContent = fs.readFileSync(srcPath, 'utf8');
+        const html = fs.readFileSync(srcPath, 'utf8');
+        const cheerio = require('cheerio');
+        const $ = cheerio.load(html, { decodeEntities: false });
         
-        // Compile Text Content
-        const textRegex = /(\sdata-cms=["']([^"']+)["'][^>]*>)([\s\S]*?)(<\/)/g;
-        htmlContent = htmlContent.replace(textRegex, (match, prefix, key, oldVal, suffix) => {
-          if (contentMap[key] !== undefined) {
-            return `${prefix}${contentMap[key]}${suffix}`;
+        // 1. Compile structural containers (non-text fields) first
+        $('[data-cms]').each((i, el) => {
+          const key = $(el).attr('data-cms');
+          const tagName = el.tagName.toUpperCase();
+          const isTextField = ['H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'P', 'SPAN', 'A', 'BUTTON', 'LI', 'LABEL', 'B', 'I', 'STRONG', 'EM'].includes(tagName) || 
+                               $(el).hasClass('section-tag') || 
+                               $(el).hasClass('eyebrow') || 
+                               $(el).hasClass('metric-num') ||
+                               $(el).hasClass('metric-label');
+          if (!isTextField && contentMap[key] !== undefined) {
+            $(el).html(contentMap[key]);
           }
-          return match;
         });
 
-        // Compile Image Src & Styles
-        const imgRegex = /(\sdata-cms-img=["']([^"']+)["'][^>]*src=["'])([^"']*)(["'])/g;
-        htmlContent = htmlContent.replace(imgRegex, (match, prefix, key, oldSrc, suffix) => {
-          let replacement = match;
+        // 2. Then compile individual text fields (including any newly injected ones)
+        $('[data-cms]').each((i, el) => {
+          const key = $(el).attr('data-cms');
+          const tagName = el.tagName.toUpperCase();
+          const isTextField = ['H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'P', 'SPAN', 'A', 'BUTTON', 'LI', 'LABEL', 'B', 'I', 'STRONG', 'EM'].includes(tagName) || 
+                               $(el).hasClass('section-tag') || 
+                               $(el).hasClass('eyebrow') || 
+                               $(el).hasClass('metric-num') ||
+                               $(el).hasClass('metric-label');
+          if (isTextField && contentMap[key] !== undefined) {
+            $(el).html(contentMap[key]);
+          }
+        });
+
+        // 3. Compile Image Src & Styles (data-cms-img)
+        $('[data-cms-img]').each((i, el) => {
+          const key = $(el).attr('data-cms-img');
           if (contentMap[key] !== undefined) {
-            replacement = `${prefix}${contentMap[key]}${suffix}`;
+            $(el).attr('src', contentMap[key]);
           }
           const styleKey = key + '-style';
           if (contentMap[styleKey] !== undefined && contentMap[styleKey]) {
-            if (/style=["']/i.test(replacement)) {
-              replacement = replacement.replace(/style=["']([^"']*)["']/i, `style="${contentMap[styleKey]}"`);
-            } else {
-              replacement = replacement.replace(/>$/, ` style="${contentMap[styleKey]}">`);
-            }
+            $(el).attr('style', contentMap[styleKey]);
           }
-          return replacement;
         });
-        
-        const imgRegexAlt = /(\ssrc=["'])([^"']*)(["'][^>]*data-cms-img=["']([^"']+)["'])/g;
-        htmlContent = htmlContent.replace(imgRegexAlt, (match, prefix, oldSrc, middle, key) => {
-          let replacement = match;
-          if (contentMap[key] !== undefined) {
-            replacement = `${prefix}${contentMap[key]}${middle}`;
-          }
-          const styleKey = key + '-style';
-          if (contentMap[styleKey] !== undefined && contentMap[styleKey]) {
-            if (/style=["']/i.test(replacement)) {
-              replacement = replacement.replace(/style=["']([^"']*)["']/i, `style="${contentMap[styleKey]}"`);
-            } else {
-              replacement = replacement.replace(/>$/, ` style="${contentMap[styleKey]}">`);
-            }
-          }
-          return replacement;
-        });
+
+        let htmlContent = $.html();
 
         // Clean up visual editing resizers, resize modes, and dashed borders for end-users on the live site
         htmlContent = htmlContent.replace(/style=["']([^"']*)["']/gi, (match, styles) => {

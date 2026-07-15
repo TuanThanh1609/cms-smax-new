@@ -561,6 +561,75 @@
       color: #334155 !important;
     }
 
+    /* Blocks & Style Sidebar Tabs Light Mode Contrast Overrides */
+    .theme-light #blocks-tab-content h5,
+    .theme-light #style-tab-content h5 {
+      color: #334155 !important;
+      border-bottom-color: #cbd5e1 !important;
+    }
+    .theme-light #blocks-tab-content button,
+    .theme-light #style-tab-content button {
+      background-color: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      color: #0f172a !important;
+    }
+    .theme-light #blocks-tab-content button:hover,
+    .theme-light #style-tab-content button:hover {
+      background-color: #f1f5f9 !important;
+      border-color: #94a3b8 !important;
+    }
+    .theme-light #blocks-tab-content button h4 {
+      color: #0f172a !important;
+    }
+    .theme-light #blocks-tab-content button p {
+      color: #475569 !important;
+    }
+    .theme-light #style-tab-content label {
+      color: #334155 !important;
+    }
+    .theme-light #style-tab-content input[type="text"],
+    .theme-light #style-tab-content select {
+      background-color: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      color: #0f172a !important;
+    }
+    .theme-light #style-tab-content input[type="text"]:focus,
+    .theme-light #style-tab-content select:focus {
+      border-color: #4f46e5 !important;
+    }
+    .theme-light #style-tab-content .bg-zinc-900\/50 {
+      background-color: #ffffff !important;
+      border-color: #e2e8f0 !important;
+    }
+    .theme-light #style-tab-content .bg-zinc-950 {
+      background-color: #f8fafc !important;
+      border-color: #cbd5e1 !important;
+    }
+    .theme-light #style-tab-content #btn-align-left,
+    .theme-light #style-tab-content #btn-align-center,
+    .theme-light #style-tab-content #btn-align-right,
+    .theme-light #style-tab-content #btn-align-justify {
+      background-color: transparent !important;
+      color: #475569 !important;
+    }
+    .theme-light #style-tab-content #btn-align-left:hover,
+    .theme-light #style-tab-content #btn-align-center:hover,
+    .theme-light #style-tab-content #btn-align-right:hover,
+    .theme-light #style-tab-content #btn-align-justify:hover {
+      background-color: #e2e8f0 !important;
+      color: #0f172a !important;
+    }
+    .theme-light #style-tab-content #btn-align-left.bg-indigo-600,
+    .theme-light #style-tab-content #btn-align-center.bg-indigo-600,
+    .theme-light #style-tab-content #btn-align-right.bg-indigo-600,
+    .theme-light #style-tab-content #btn-align-justify.bg-indigo-600 {
+      background-color: #4f46e5 !important;
+      color: #ffffff !important;
+    }
+    .theme-light #style-tab-content .text-zinc-400 {
+      color: #475569 !important;
+    }
+
     /* Sub-navigation items */
     .analytics-nav-btn {
       color: #a1a1aa;
@@ -774,6 +843,8 @@
               <option value="realestate">Ngành Real Estate (realestate.html)</option>
               <option value="service">Ngành Service (service.html)</option>
               <option value="agency">Ngành Agency (agency.html)</option>
+              <option value="travel">Ngành Du lịch (travel.html)</option>
+              <option value="health">Ngành Sức khỏe &amp; TPCN (health.html)</option>
               <option value="chatbot">Tính năng Chatbot (chatbot.html)</option>
               <option value="genai">Tính năng GenAI (genai.html)</option>
               <option value="insight">Tính năng Insight (insight.html)</option>
@@ -1473,6 +1544,7 @@
           <div class="flex gap-4">
             <button onclick="switchRightTab('media')" id="tab-right-media" class="text-xs font-bold border-b-2 border-indigo-500 pb-2 px-1 text-white uppercase tracking-wider transition-all">Media</button>
             <button onclick="switchRightTab('blocks')" id="tab-right-blocks" class="text-xs font-bold border-b-2 border-transparent pb-2 px-1 text-zinc-500 hover:text-zinc-300 uppercase tracking-wider transition-all">Blocks</button>
+            <button onclick="switchRightTab('style')" id="tab-right-style" class="hidden text-xs font-bold border-b-2 border-transparent pb-2 px-1 text-zinc-500 hover:text-zinc-300 uppercase tracking-wider transition-all">Style</button>
           </div>
         </div>
 
@@ -1500,44 +1572,254 @@
         </div>
 
         <!-- Blocks Tab Content -->
-        <div id="blocks-tab-content" class="hidden flex-col gap-3">
+        <div id="blocks-tab-content" class="hidden flex-col gap-4 max-h-[62vh] overflow-y-auto pr-1 custom-scroll">
           <div class="text-zinc-400 text-[11px] font-medium mb-1 px-1">
-            Chọn một vùng nội dung trong Iframe trước, sau đó nhấp vào Block dưới đây để thêm:
+            Chọn một vùng nội dung trong Iframe trước, sau đó nhấp vào thành phần dưới đây để thêm:
           </div>
           
-          <div class="grid grid-cols-1 gap-2.5">
-            <!-- Text Block Card -->
-            <button onclick="addCustomBlock('text')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-indigo-500/50 hover:bg-indigo-600/5 rounded-xl p-3.5 flex items-center gap-3 transition-all text-left">
-              <div class="w-9 h-9 rounded-lg bg-indigo-600/10 flex items-center justify-center text-indigo-400 group-hover:scale-105 transition-transform flex-shrink-0">
-                <i data-lucide="align-left" class="w-4 h-4"></i>
+          <!-- Basic Elements Section -->
+          <div>
+            <h5 class="text-[10px] font-bold text-zinc-500 uppercase tracking-wider mb-2 px-1">Khối cơ bản</h5>
+            <div class="grid grid-cols-1 gap-2">
+              <!-- Text Block Card -->
+              <button onclick="addCustomBlock('text')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-indigo-500/50 hover:bg-indigo-600/5 rounded-xl p-3.5 flex items-center gap-3 transition-all text-left">
+                <div class="w-9 h-9 rounded-lg bg-indigo-600/10 flex items-center justify-center text-indigo-400 group-hover:scale-105 transition-transform flex-shrink-0">
+                  <i data-lucide="align-left" class="w-4 h-4"></i>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-xs font-semibold text-zinc-200">Văn bản (Text Block)</h4>
+                  <p class="text-[10px] text-zinc-500 mt-0.5">Thêm đoạn văn bản, tiêu đề tùy chỉnh</p>
+                </div>
+              </button>
+              
+              <!-- Image Block Card -->
+              <button onclick="addCustomBlock('image')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-cyan-500/50 hover:bg-cyan-600/5 rounded-xl p-3.5 flex items-center gap-3 transition-all text-left">
+                <div class="w-9 h-9 rounded-lg bg-cyan-600/10 flex items-center justify-center text-cyan-400 group-hover:scale-105 transition-transform flex-shrink-0">
+                  <i data-lucide="image" class="w-4 h-4"></i>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-xs font-semibold text-zinc-200">Hình ảnh (Image Block)</h4>
+                  <p class="text-[10px] text-zinc-500 mt-0.5">Thêm ảnh mới từ máy tính hoặc URL</p>
+                </div>
+              </button>
+              
+              <!-- Video Block Card -->
+              <button onclick="addCustomBlock('video')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-red-500/50 hover:bg-red-600/5 rounded-xl p-3.5 flex items-center gap-3 transition-all text-left">
+                <div class="w-9 h-9 rounded-lg bg-red-600/10 flex items-center justify-center text-red-400 group-hover:scale-105 transition-transform flex-shrink-0">
+                  <i data-lucide="video" class="w-4 h-4"></i>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-xs font-semibold text-zinc-200">Video (Youtube Block)</h4>
+                  <p class="text-[10px] text-zinc-500 mt-0.5">Nhúng video Youtube trực quan</p>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Section Templates Section -->
+          <div class="mt-2.5">
+            <h5 class="text-[10px] font-bold text-zinc-500 uppercase tracking-wider mb-2 px-1">Mẫu Section (Elementor)</h5>
+            <div class="grid grid-cols-1 gap-2 pb-4">
+              <!-- Hero Section Template -->
+              <button onclick="addCustomBlock('hero')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-indigo-500/50 hover:bg-indigo-600/5 rounded-xl p-3.5 flex items-center gap-3 transition-all text-left">
+                <div class="w-9 h-9 rounded-lg bg-indigo-600/10 flex items-center justify-center text-indigo-400 group-hover:scale-105 transition-transform flex-shrink-0">
+                  <i data-lucide="layout" class="w-4 h-4"></i>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-xs font-semibold text-zinc-200">Hero Section (Banner)</h4>
+                  <p class="text-[10px] text-zinc-500 mt-0.5">Banner chính có tiêu đề, mô tả và nút CTA</p>
+                </div>
+              </button>
+
+              <!-- Bento Grid Template -->
+              <button onclick="addCustomBlock('bento')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-cyan-500/50 hover:bg-cyan-600/5 rounded-xl p-3.5 flex items-center gap-3 transition-all text-left">
+                <div class="w-9 h-9 rounded-lg bg-cyan-600/10 flex items-center justify-center text-cyan-400 group-hover:scale-105 transition-transform flex-shrink-0">
+                  <i data-lucide="grid" class="w-4 h-4"></i>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-xs font-semibold text-zinc-200">Lưới Bento Grid</h4>
+                  <p class="text-[10px] text-zinc-500 mt-0.5">Lưới chia tính năng 3 cột trực quan</p>
+                </div>
+              </button>
+
+              <!-- FAQ Template -->
+              <button onclick="addCustomBlock('faq')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-emerald-500/50 hover:bg-emerald-600/5 rounded-xl p-3.5 flex items-center gap-3 transition-all text-left">
+                <div class="w-9 h-9 rounded-lg bg-emerald-600/10 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform flex-shrink-0">
+                  <i data-lucide="help-circle" class="w-4 h-4"></i>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-xs font-semibold text-zinc-200">Hỏi đáp (FAQ Accordion)</h4>
+                  <p class="text-[10px] text-zinc-500 mt-0.5">Hộp accordion đóng mở câu hỏi thường gặp</p>
+                </div>
+              </button>
+
+              <!-- CTA Banner Template -->
+              <button onclick="addCustomBlock('cta')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-purple-500/50 hover:bg-purple-600/5 rounded-xl p-3.5 flex items-center gap-3 transition-all text-left">
+                <div class="w-9 h-9 rounded-lg bg-purple-600/10 flex items-center justify-center text-purple-400 group-hover:scale-105 transition-transform flex-shrink-0">
+                  <i data-lucide="sparkles" class="w-4 h-4"></i>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-xs font-semibold text-zinc-200">Kêu gọi hành động (CTA)</h4>
+                  <p class="text-[10px] text-zinc-500 mt-0.5">Banner gradient kêu gọi đăng ký</p>
+                </div>
+              </button>
+
+              <!-- Metrics Stats Template -->
+              <button onclick="addCustomBlock('metrics')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-amber-500/50 hover:bg-amber-600/5 rounded-xl p-3.5 flex items-center gap-3 transition-all text-left">
+                <div class="w-9 h-9 rounded-lg bg-amber-600/10 flex items-center justify-center text-amber-400 group-hover:scale-105 transition-transform flex-shrink-0">
+                  <i data-lucide="bar-chart-2" class="w-4 h-4"></i>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-xs font-semibold text-zinc-200">Số liệu thống kê (Metrics)</h4>
+                  <p class="text-[10px] text-zinc-500 mt-0.5">Khối số liệu thống kê thành tựu doanh nghiệp</p>
+                </div>
+              </button>
+
+              <!-- Challenges Pain Points Template -->
+              <button onclick="addCustomBlock('challenges')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-rose-500/50 hover:bg-rose-600/5 rounded-xl p-3.5 flex items-center gap-3 transition-all text-left">
+                <div class="w-9 h-9 rounded-lg bg-rose-600/10 flex items-center justify-center text-rose-400 group-hover:scale-105 transition-transform flex-shrink-0">
+                  <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-xs font-semibold text-zinc-200">Khó khăn (Pain Points)</h4>
+                  <p class="text-[10px] text-zinc-500 mt-0.5">Khối mô tả thách thức của khách hàng</p>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Style Tab Content -->
+        <div id="style-tab-content" class="hidden flex-col gap-4 max-h-[62vh] overflow-y-auto pr-1 custom-scroll">
+          <div class="text-zinc-400 text-[11px] font-medium px-1 mb-1">
+            Hiệu chỉnh Style trực tiếp cho khối nội dung đang chọn:
+          </div>
+
+          <!-- Section 1: Spacing -->
+          <div class="bg-zinc-900/50 border border-zinc-800/80 rounded-xl p-3.5 flex flex-col gap-3">
+            <h5 class="text-[10px] font-bold text-zinc-400 uppercase tracking-wider flex items-center gap-1.5 border-b border-zinc-800 pb-1.5">
+              <i data-lucide="move" class="w-3.5 h-3.5 text-indigo-400"></i>
+              Khoảng cách (Spacing)
+            </h5>
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="text-[10px] text-zinc-500 block mb-1">Padding dọc (Vertical)</label>
+                <input type="text" id="style-padding-y" placeholder="Ví dụ: 40px hoặc 2.5rem" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500" oninput="applyActiveElementStyle('padding')">
               </div>
-              <div class="flex-1">
-                <h4 class="text-xs font-semibold text-zinc-200">Văn bản (Text Block)</h4>
-                <p class="text-[10px] text-zinc-500 mt-0.5">Thêm đoạn văn bản, tiêu đề tùy chỉnh</p>
+              <div>
+                <label class="text-[10px] text-zinc-500 block mb-1">Padding ngang (Horizontal)</label>
+                <input type="text" id="style-padding-x" placeholder="Ví dụ: 20px hoặc 1rem" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500" oninput="applyActiveElementStyle('padding')">
               </div>
-            </button>
-            
-            <!-- Image Block Card -->
-            <button onclick="addCustomBlock('image')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-cyan-500/50 hover:bg-cyan-600/5 rounded-xl p-3.5 flex items-center gap-3 transition-all text-left">
-              <div class="w-9 h-9 rounded-lg bg-cyan-600/10 flex items-center justify-center text-cyan-400 group-hover:scale-105 transition-transform flex-shrink-0">
-                <i data-lucide="image" class="w-4 h-4"></i>
+              <div>
+                <label class="text-[10px] text-zinc-500 block mb-1">Margin dọc (Vertical)</label>
+                <input type="text" id="style-margin-y" placeholder="Ví dụ: 12px hoặc 1rem" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500" oninput="applyActiveElementStyle('margin')">
               </div>
-              <div class="flex-1">
-                <h4 class="text-xs font-semibold text-zinc-200">Hình ảnh (Image Block)</h4>
-                <p class="text-[10px] text-zinc-500 mt-0.5">Thêm ảnh mới từ máy tính hoặc URL</p>
+              <div>
+                <label class="text-[10px] text-zinc-500 block mb-1">Margin ngang (Horizontal)</label>
+                <input type="text" id="style-margin-x" placeholder="Ví dụ: auto hoặc 0" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500" oninput="applyActiveElementStyle('margin')">
               </div>
-            </button>
-            
-            <!-- Video Block Card -->
-            <button onclick="addCustomBlock('video')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-red-500/50 hover:bg-red-600/5 rounded-xl p-3.5 flex items-center gap-3 transition-all text-left">
-              <div class="w-9 h-9 rounded-lg bg-red-600/10 flex items-center justify-center text-red-400 group-hover:scale-105 transition-transform flex-shrink-0">
-                <i data-lucide="video" class="w-4 h-4"></i>
+            </div>
+          </div>
+
+          <!-- Section 2: Background -->
+          <div class="bg-zinc-900/50 border border-zinc-800/80 rounded-xl p-3.5 flex flex-col gap-3">
+            <h5 class="text-[10px] font-bold text-zinc-400 uppercase tracking-wider flex items-center gap-1.5 border-b border-zinc-800 pb-1.5">
+              <i data-lucide="palette" class="w-3.5 h-3.5 text-cyan-400"></i>
+              Nền (Background)
+            </h5>
+            <div class="flex flex-col gap-2.5">
+              <div>
+                <label class="text-[10px] text-zinc-500 block mb-1">Màu nền (Background Color)</label>
+                <div class="flex gap-2">
+                  <input type="color" id="style-bg-color-picker" class="w-9 h-7 bg-transparent border-0 cursor-pointer p-0" oninput="document.getElementById('style-bg-color').value = this.value; applyActiveElementStyle('bg')">
+                  <input type="text" id="style-bg-color" placeholder="Mã màu (Hex, rgb, gradient)" class="flex-1 bg-zinc-950 border border-zinc-800 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500" oninput="applyActiveElementStyle('bg')">
+                </div>
               </div>
-              <div class="flex-1">
-                <h4 class="text-xs font-semibold text-zinc-200">Video (Youtube Block)</h4>
-                <p class="text-[10px] text-zinc-500 mt-0.5">Nhúng video Youtube trực quan</p>
+              <div>
+                <label class="text-[10px] text-zinc-500 block mb-1">Ảnh nền (Bg Image URL)</label>
+                <input type="text" id="style-bg-image" placeholder="URL hình ảnh làm nền..." class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500" oninput="applyActiveElementStyle('bg')">
               </div>
-            </button>
+            </div>
+          </div>
+
+          <!-- Section 3: Typography -->
+          <div class="bg-zinc-900/50 border border-zinc-800/80 rounded-xl p-3.5 flex flex-col gap-3">
+            <h5 class="text-[10px] font-bold text-zinc-400 uppercase tracking-wider flex items-center gap-1.5 border-b border-zinc-800 pb-1.5">
+              <i data-lucide="type" class="w-3.5 h-3.5 text-emerald-400"></i>
+              Chữ (Typography)
+            </h5>
+            <div class="grid grid-cols-2 gap-2">
+              <div class="col-span-2">
+                <label class="text-[10px] text-zinc-500 block mb-1">Màu chữ (Text Color)</label>
+                <div class="flex gap-2">
+                  <input type="color" id="style-text-color-picker" class="w-9 h-7 bg-transparent border-0 cursor-pointer p-0" oninput="document.getElementById('style-text-color').value = this.value; applyActiveElementStyle('text')">
+                  <input type="text" id="style-text-color" placeholder="Ví dụ: #ffffff" class="flex-1 bg-zinc-950 border border-zinc-800 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500" oninput="applyActiveElementStyle('text')">
+                </div>
+              </div>
+              <div>
+                <label class="text-[10px] text-zinc-500 block mb-1">Cỡ chữ (Font Size)</label>
+                <input type="text" id="style-font-size" placeholder="Ví dụ: 16px hoặc 1.2rem" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500" oninput="applyActiveElementStyle('text')">
+              </div>
+              <div>
+                <label class="text-[10px] text-zinc-500 block mb-1">Độ đậm (Weight)</label>
+                <select id="style-font-weight" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-2 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500 cursor-pointer" onchange="applyActiveElementStyle('text')">
+                  <option value="">Mặc định</option>
+                  <option value="300">Light (300)</option>
+                  <option value="400">Normal (400)</option>
+                  <option value="500">Medium (500)</option>
+                  <option value="600">Semibold (600)</option>
+                  <option value="700">Bold (700)</option>
+                  <option value="800">Extra Bold (800)</option>
+                </select>
+              </div>
+              <div class="col-span-2">
+                <label class="text-[10px] text-zinc-500 block mb-1">Căn lề (Align)</label>
+                <div class="flex bg-zinc-950 border border-zinc-800 rounded-lg p-0.5">
+                  <button onclick="selectTextAlign('left')" id="btn-align-left" class="flex-1 py-1 text-center rounded text-zinc-500 hover:text-white transition-colors text-[10px]">Trái</button>
+                  <button onclick="selectTextAlign('center')" id="btn-align-center" class="flex-1 py-1 text-center rounded text-zinc-500 hover:text-white transition-colors text-[10px]">Giữa</button>
+                  <button onclick="selectTextAlign('right')" id="btn-align-right" class="flex-1 py-1 text-center rounded text-zinc-500 hover:text-white transition-colors text-[10px]">Phải</button>
+                  <button onclick="selectTextAlign('justify')" id="btn-align-justify" class="flex-1 py-1 text-center rounded text-zinc-500 hover:text-white transition-colors text-[10px]">Đều</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 4: Border -->
+          <div class="bg-zinc-900/50 border border-zinc-800/80 rounded-xl p-3.5 flex flex-col gap-3">
+            <h5 class="text-[10px] font-bold text-zinc-400 uppercase tracking-wider flex items-center gap-1.5 border-b border-zinc-800 pb-1.5">
+              <i data-lucide="square" class="w-3.5 h-3.5 text-purple-400"></i>
+              Viền (Border & Radius)
+            </h5>
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="text-[10px] text-zinc-500 block mb-1">Bo góc (Radius)</label>
+                <input type="text" id="style-border-radius" placeholder="Ví dụ: 12px hoặc 50%" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500" oninput="applyActiveElementStyle('border')">
+              </div>
+              <div>
+                <label class="text-[10px] text-zinc-500 block mb-1">Độ dày viền (Width)</label>
+                <input type="text" id="style-border-width" placeholder="Ví dụ: 1px" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500" oninput="applyActiveElementStyle('border')">
+              </div>
+              <div class="col-span-2">
+                <label class="text-[10px] text-zinc-500 block mb-1">Màu viền (Border Color)</label>
+                <div class="flex gap-2">
+                  <input type="color" id="style-border-color-picker" class="w-9 h-7 bg-transparent border-0 cursor-pointer p-0" oninput="document.getElementById('style-border-color').value = this.value; applyActiveElementStyle('border')">
+                  <input type="text" id="style-border-color" placeholder="Ví dụ: #e2e8f0" class="flex-1 bg-zinc-950 border border-zinc-800 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500" oninput="applyActiveElementStyle('border')">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 5: Custom CSS / Classes -->
+          <div class="bg-zinc-900/50 border border-zinc-800/80 rounded-xl p-3.5 flex flex-col gap-3">
+            <h5 class="text-[10px] font-bold text-zinc-400 uppercase tracking-wider flex items-center gap-1.5 border-b border-zinc-800 pb-1.5">
+              <i data-lucide="code" class="w-3.5 h-3.5 text-rose-400"></i>
+              Class tùy biến (Tailwind CSS)
+            </h5>
+            <div>
+              <label class="text-[10px] text-zinc-500 block mb-1">Danh sách Class</label>
+              <input type="text" id="style-custom-classes" placeholder="Ví dụ: shadow-2xl hover:scale-105 transition-all" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500" oninput="applyActiveElementStyle('class')">
+              <p class="text-[9px] text-zinc-600 mt-1">Các class Tailwind cách nhau bởi khoảng trắng.</p>
+            </div>
           </div>
         </div>
       </aside>
@@ -1627,6 +1909,8 @@
       { key: 'service', name: 'Spa & Phòng khám (service.html)' },
       { key: 'fb', name: 'F&B Nhà hàng (fb.html)' },
       { key: 'agency', name: 'Agency & Tư vấn (agency.html)' },
+      { key: 'travel', name: 'Du lịch (travel.html)' },
+      { key: 'health', name: 'Sức khỏe & TPCN (health.html)' },
       { key: 'partnership', name: 'Đối tác (partnership.html)' },
       { key: 'tich-hop', name: 'Tích hợp (tich-hop.html)' },
       { key: 'crm-sync', name: 'CRM & Đơn hàng (crm-sync.html)' },
@@ -1755,7 +2039,7 @@
           id: 'industries',
           name: 'Ngành nghề (Industries)',
           icon: 'folder',
-          pages: sitePages.filter(p => ['ecommerce', 'education', 'realestate', 'service', 'fb', 'agency'].includes(p.key))
+          pages: sitePages.filter(p => ['ecommerce', 'education', 'realestate', 'service', 'fb', 'agency', 'travel', 'health'].includes(p.key))
         },
         {
           id: 'features',
@@ -2920,13 +3204,29 @@
       document.getElementById('tab-right-blocks').className = tab === 'blocks'
         ? "text-xs font-bold border-b-2 border-indigo-500 pb-2 px-1 text-white uppercase tracking-wider transition-all"
         : "text-xs font-bold border-b-2 border-transparent pb-2 px-1 text-zinc-500 hover:text-zinc-300 uppercase tracking-wider transition-all";
+      
+      const tabStyleBtn = document.getElementById('tab-right-style');
+      if (tabStyleBtn) {
+        tabStyleBtn.className = tab === 'style'
+          ? "text-xs font-bold border-b-2 border-indigo-500 pb-2 px-1 text-white uppercase tracking-wider transition-all"
+          : "text-xs font-bold border-b-2 border-transparent pb-2 px-1 text-zinc-500 hover:text-zinc-300 uppercase tracking-wider transition-all";
+      }
         
       if (tab === 'media') {
         document.getElementById('media-tab-content').classList.remove('hidden');
         document.getElementById('blocks-tab-content').classList.add('hidden');
-      } else {
+        const styleContent = document.getElementById('style-tab-content');
+        if (styleContent) styleContent.classList.add('hidden');
+      } else if (tab === 'blocks') {
         document.getElementById('media-tab-content').classList.add('hidden');
         document.getElementById('blocks-tab-content').classList.remove('hidden');
+        const styleContent = document.getElementById('style-tab-content');
+        if (styleContent) styleContent.classList.add('hidden');
+      } else if (tab === 'style') {
+        document.getElementById('media-tab-content').classList.add('hidden');
+        document.getElementById('blocks-tab-content').classList.add('hidden');
+        const styleContent = document.getElementById('style-tab-content');
+        if (styleContent) styleContent.classList.remove('hidden');
       }
     }
 
@@ -3218,15 +3518,35 @@
 
       // 3. Enable selection and inline editing for data-cms elements
       doc.querySelectorAll('[data-cms]').forEach(el => {
-        // Only set contenteditable directly if it does NOT contain custom blocks
-        if (!el.querySelector('.cms-custom-block')) {
+        const tagName = el.tagName;
+        const isTextField = ['H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'P', 'SPAN', 'A', 'BUTTON', 'LI', 'LABEL', 'B', 'I', 'STRONG', 'EM'].includes(tagName) || 
+                             el.classList.contains('section-tag') || 
+                             el.classList.contains('eyebrow') || 
+                             el.classList.contains('metric-num') ||
+                             el.classList.contains('metric-label') ||
+                             (!el.querySelector('.cms-custom-block') && !el.querySelector('section') && el.innerHTML.trim().length > 0 && el.children.length === 0);
+
+        if (isTextField) {
           el.setAttribute('contenteditable', 'true');
+        } else {
+          el.removeAttribute('contenteditable');
+          
+          // For layout containers, automatically make their children custom blocks (so they can be selected, moved, styled, deleted)
+          Array.from(el.children).forEach(child => {
+            if (!child.classList.contains('cms-editor-inline-helper') && !child.classList.contains('img-resize-handle')) {
+              child.classList.add('cms-custom-block');
+              if (!child.style.position) {
+                child.style.position = 'relative';
+              }
+            }
+          });
         }
         
         // Clicks select container
         el.addEventListener('click', (e) => {
-          // If clicked a custom block inside, let the block handler process it
-          if (e.target.closest('.cms-custom-block')) return;
+          // If clicked a nested custom block inside this container, let the block handler process it
+          const closestBlock = e.target.closest('.cms-custom-block');
+          if (closestBlock && el.contains(closestBlock) && closestBlock !== el) return;
           
           e.preventDefault();
           e.stopPropagation();
@@ -3249,7 +3569,11 @@
           const handle = doc.querySelector('.img-resize-handle');
           if (handle) handle.style.display = 'none';
           
+          // Show block add handle for the selected container
+          updateBlockAddHandlePosition(el, doc);
+          
           showToast(`Đã chọn vùng: [${activeVisualKey}]. Nhấp chọn các Block bên phải để chèn thêm nội dung!`);
+          selectVisualElementForStyling(el);
         });
 
         // Listen for input changes
@@ -3429,8 +3753,124 @@
           if (parentCms) {
             syncVisualTextToForm(parentCms.getAttribute('data-cms'), parentCms.innerHTML);
           }
+          if (activeVisualBlock) {
+            updateBlockAddHandlePosition(activeVisualBlock, doc);
+          }
         });
       });
+
+      // 6. Setup floating block add handle
+      let blockAddHandle = doc.querySelector('.block-add-handle');
+      if (!blockAddHandle) {
+        blockAddHandle = doc.createElement('div');
+        blockAddHandle.className = 'block-add-handle cms-editor-inline-helper';
+        blockAddHandle.style.cssText = `
+          position: absolute !important;
+          width: 22px !important;
+          height: 22px !important;
+          background: #06b6d4 !important;
+          color: #ffffff !important;
+          border-radius: 50% !important;
+          border: 2px solid #ffffff !important;
+          display: none;
+          align-items: center !important;
+          justify-content: center !important;
+          cursor: pointer !important;
+          z-index: 10000 !important;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.3) !important;
+          transition: transform 0.15s ease !important;
+          user-select: none !important;
+          font-family: sans-serif !important;
+          font-size: 14px !important;
+          font-weight: bold !important;
+          line-height: 1 !important;
+        `;
+        blockAddHandle.innerHTML = '+';
+        
+        blockAddHandle.addEventListener('mouseenter', () => {
+          blockAddHandle.style.transform = 'scale(1.2)';
+          blockAddHandle.style.backgroundColor = '#0891b2';
+        });
+        blockAddHandle.addEventListener('mouseleave', () => {
+          blockAddHandle.style.transform = 'scale(1)';
+          blockAddHandle.style.backgroundColor = '#06b6d4';
+        });
+        
+        blockAddHandle.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const targetEl = activeVisualBlock || activeVisualElement;
+          if (!targetEl) return;
+          
+          let container = null;
+          let targetChild = null;
+          
+          if (activeVisualBlock) {
+            container = activeVisualBlock.closest('[data-cms]');
+            targetChild = activeVisualBlock;
+          } else if (activeVisualElement) {
+            const parentBlock = activeVisualElement.closest('.cms-custom-block');
+            if (parentBlock) {
+              container = parentBlock.closest('[data-cms]');
+              targetChild = parentBlock;
+            } else {
+              container = activeVisualElement;
+              targetChild = null;
+            }
+          }
+          
+          if (container) {
+            container.click();
+            
+            if (targetChild) {
+              const cleanChildren = Array.from(container.children).filter(child => !child.classList.contains('cms-editor-inline-helper') && !child.classList.contains('img-resize-handle'));
+              const blockIndex = cleanChildren.indexOf(targetChild);
+              activeInsertIndex = blockIndex !== -1 ? blockIndex + 1 : null;
+            } else {
+              activeInsertIndex = null;
+            }
+            
+            switchRightTab('blocks');
+            
+            const blocksTab = document.getElementById('blocks-tab-content');
+            if (blocksTab) {
+              blocksTab.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              blocksTab.classList.add('ring-2', 'ring-indigo-500', 'ring-offset-2', 'ring-offset-zinc-950', 'transition-all');
+              setTimeout(() => {
+                blocksTab.classList.remove('ring-2', 'ring-indigo-500', 'ring-offset-2', 'ring-offset-zinc-950');
+              }, 1200);
+            }
+          }
+        });
+        
+        doc.body.appendChild(blockAddHandle);
+      }
+
+      // 7. Draw/Update the inline add block helpers inside data-cms containers
+      updateInlineHelpers(doc);
+    }
+
+    function updateBlockAddHandlePosition(blockEl, doc) {
+      if (!doc || !blockEl) return;
+      const blockAddHandle = doc.querySelector('.block-add-handle');
+      if (!blockAddHandle) return;
+
+      let top = 0;
+      let left = 0;
+      let curr = blockEl;
+      while (curr && curr !== doc.body) {
+        top += curr.offsetTop || 0;
+        left += curr.offsetLeft || 0;
+        curr = curr.offsetParent;
+      }
+
+      const height = blockEl.offsetHeight || 0;
+      const width = blockEl.offsetWidth || 0;
+
+      blockAddHandle.style.top = (top + height - 11) + 'px';
+      blockAddHandle.style.left = (left + (width / 2) - 11) + 'px';
+      blockAddHandle.style.display = 'flex';
     }
 
     function bindBlockClick(block, doc) {
@@ -3448,6 +3888,7 @@
         activeVisualImageKey = null;
         
         block.classList.add('visual-block-selected');
+        selectVisualElementForStyling(block);
         
         // Determine Block Type
         let type = 'Văn bản';
@@ -3490,7 +3931,223 @@
           document.getElementById('toolbar-content-settings').classList.add('hidden');
         }
         
+        updateBlockAddHandlePosition(block, doc);
         lucide.createIcons();
+      });
+    }
+
+    function cleanEditorHtml(htmlStr) {
+      if (!htmlStr) return '';
+      const temp = document.createElement('div');
+      temp.innerHTML = htmlStr;
+      temp.querySelectorAll('.cms-editor-inline-helper').forEach(el => el.remove());
+      return temp.innerHTML;
+    }
+
+    let activeInsertIndex = null;
+
+    function updateInlineHelpers(doc) {
+      if (!doc) return;
+      // 1. Clean existing helpers to avoid duplicates
+      doc.querySelectorAll('.cms-editor-inline-helper').forEach(h => h.remove());
+
+      // Helper function to show visual feedback for the Blocks tab
+      function highlightBlocksTab() {
+        const blocksTab = document.getElementById('blocks-tab-content');
+        if (blocksTab) {
+          blocksTab.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          blocksTab.classList.add('ring-2', 'ring-indigo-500', 'ring-offset-2', 'ring-offset-zinc-950', 'transition-all');
+          setTimeout(() => {
+            blocksTab.classList.remove('ring-2', 'ring-indigo-500', 'ring-offset-2', 'ring-offset-zinc-950');
+          }, 1200);
+        }
+      }
+
+      // 2. Loop through all data-cms containers
+      doc.querySelectorAll('[data-cms]').forEach(el => {
+        // Skip helpers for text fields
+        const tagName = el.tagName;
+        const isTextField = ['H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'P', 'SPAN', 'A', 'BUTTON', 'LI', 'LABEL', 'B', 'I', 'STRONG', 'EM'].includes(tagName) || 
+                             el.classList.contains('section-tag') || 
+                             el.classList.contains('eyebrow') || 
+                             el.classList.contains('metric-num') ||
+                             el.classList.contains('metric-label') ||
+                             (!el.querySelector('.cms-custom-block') && !el.querySelector('section') && el.innerHTML.trim().length > 0 && el.children.length === 0);
+                             
+        if (isTextField) return;
+
+        // Get only clean children (exclude editor helpers)
+        const cleanChildren = Array.from(el.children).filter(child => !child.classList.contains('cms-editor-inline-helper'));
+
+        if (cleanChildren.length === 0) {
+          // Empty container: render the standard centered placeholder box
+          const helper = doc.createElement('div');
+          helper.className = 'cms-editor-inline-helper cms-add-section-container';
+          helper.setAttribute('contenteditable', 'false');
+          helper.style.cssText = `
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            padding: 24px !important;
+            margin: 12px auto !important;
+            border: 2px dashed rgba(99, 102, 241, 0.4) !important;
+            border-radius: 8px !important;
+            background: rgba(99, 102, 241, 0.02) !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease-in-out !important;
+            max-width: 90% !important;
+            box-sizing: border-box !important;
+            clear: both !important;
+            user-select: none !important;
+          `;
+
+          helper.addEventListener('mouseenter', () => {
+            helper.style.borderColor = '#4f46e5';
+            helper.style.backgroundColor = 'rgba(99, 102, 241, 0.06)';
+          });
+          helper.addEventListener('mouseleave', () => {
+            helper.style.borderColor = 'rgba(99, 102, 241, 0.4)';
+            helper.style.backgroundColor = 'rgba(99, 102, 241, 0.02)';
+          });
+
+          const btn = doc.createElement('button');
+          btn.style.cssText = `
+            background: #4f46e5 !important;
+            color: #ffffff !important;
+            border: none !important;
+            padding: 8px 18px !important;
+            border-radius: 6px !important;
+            font-size: 12px !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 6px !important;
+            transition: all 0.15s !important;
+            outline: none !important;
+            font-family: system-ui, -apple-system, sans-serif !important;
+            line-height: 1.2 !important;
+          `;
+          btn.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align: middle;"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            Thêm Block / Section
+          `;
+
+          helper.appendChild(btn);
+          el.appendChild(helper);
+
+          helper.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            el.click();
+            activeInsertIndex = null;
+            switchRightTab('blocks');
+            highlightBlocksTab();
+          });
+        } else {
+          // Container has elements: render separators before the first, between, and after the last
+          const createSeparator = (index, targetSibling) => {
+            const sep = doc.createElement('div');
+            sep.className = 'cms-editor-inline-helper cms-section-separator';
+            sep.setAttribute('contenteditable', 'false');
+            sep.setAttribute('data-insert-before-index', index);
+            sep.style.cssText = `
+              position: relative !important;
+              display: flex !important;
+              align-items: center !important;
+              justify-content: center !important;
+              height: 16px !important;
+              margin: -8px 0 !important;
+              opacity: 0 !important;
+              transition: opacity 0.2s ease-in-out, margin 0.2s !important;
+              z-index: 100 !important;
+              cursor: pointer !important;
+              width: 100% !important;
+              clear: both !important;
+              user-select: none !important;
+            `;
+
+            sep.addEventListener('mouseenter', () => {
+              sep.style.opacity = '1';
+              sep.style.height = '24px';
+              sep.style.margin = '4px 0';
+            });
+            sep.addEventListener('mouseleave', () => {
+              sep.style.opacity = '0';
+              sep.style.height = '16px';
+              sep.style.margin = '-8px 0';
+            });
+
+            const line = doc.createElement('div');
+            line.style.cssText = `
+              position: absolute !important;
+              left: 0 !important;
+              right: 0 !important;
+              height: 2px !important;
+              background-image: linear-gradient(to right, #6366f1 50%, rgba(255,255,255,0) 0%) !important;
+              background-position: bottom !important;
+              background-size: 8px 2px !important;
+              background-repeat: repeat-x !important;
+              pointer-events: none !important;
+            `;
+            sep.appendChild(line);
+
+            const btn = doc.createElement('button');
+            btn.style.cssText = `
+              position: relative !important;
+              width: 20px !important;
+              height: 20px !important;
+              border-radius: 50% !important;
+              background: #4f46e5 !important;
+              color: #ffffff !important;
+              border: none !important;
+              display: flex !important;
+              align-items: center !important;
+              justify-content: center !important;
+              box-shadow: 0 2px 6px rgba(79, 70, 229, 0.4) !important;
+              cursor: pointer !important;
+              transition: transform 0.15s ease-in-out !important;
+              outline: none !important;
+              padding: 0 !important;
+            `;
+            btn.innerHTML = `
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            `;
+            btn.addEventListener('mouseenter', () => {
+              btn.style.transform = 'scale(1.2)';
+            });
+            btn.addEventListener('mouseleave', () => {
+              btn.style.transform = 'scale(1)';
+            });
+
+            sep.appendChild(btn);
+
+            sep.addEventListener('click', (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              el.click();
+              activeInsertIndex = index;
+              switchRightTab('blocks');
+              highlightBlocksTab();
+            });
+
+            if (targetSibling) {
+              el.insertBefore(sep, targetSibling);
+            } else {
+              el.appendChild(sep);
+            }
+          };
+
+          // 1. Insert before first child
+          createSeparator(0, cleanChildren[0]);
+
+          // 2. Insert after each child
+          for (let i = 0; i < cleanChildren.length; i++) {
+            const targetIndex = i + 1;
+            const targetSibling = cleanChildren[targetIndex] || null;
+            createSeparator(targetIndex, targetSibling);
+          }
+        }
       });
     }
 
@@ -3499,10 +4156,11 @@
       if (idx !== -1) {
         const inputEl = document.getElementById(`input-val-${idx}`);
         if (inputEl) {
-          let cleanedVal = value;
+          const cleanedHtml = cleanEditorHtml(value);
+          let cleanedVal = cleanedHtml;
           if (inputEl.tagName === 'TEXTAREA') {
             // Replace <br> or <br/> with \n, and strip div/p wrappers from rich textarea
-            cleanedVal = value
+            cleanedVal = cleanedHtml
               .replace(/<br\s*\/?>/gi, '\n')
               .replace(/<div>/gi, '\n')
               .replace(/<\/div>/gi, '')
@@ -3511,7 +4169,7 @@
           } else {
             // Strip HTML for simple text inputs
             const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = value;
+            tempDiv.innerHTML = cleanedHtml;
             cleanedVal = tempDiv.innerText || tempDiv.textContent;
           }
           
@@ -3533,6 +4191,7 @@
       // Select new image
       activeVisualImageKey = key;
       imgEl.classList.add('visual-img-selected');
+      selectVisualElementForStyling(imgEl);
       
       // Update floating badge in parent page
       document.getElementById('visual-image-key').textContent = key;
@@ -3571,6 +4230,7 @@
         const handle = doc.querySelector('.img-resize-handle');
         if (handle) handle.style.display = 'none';
       }
+      selectVisualElementForStyling(null);
     }
 
     // CMS Layout V4 Blocks Builder Controls
@@ -3793,12 +4453,15 @@
       activeVisualBlock = null;
       
       if (parentCms) {
+        const iframe = document.getElementById('preview-iframe');
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        if (doc) updateInlineHelpers(doc);
         syncVisualTextToForm(parentCms.getAttribute('data-cms'), parentCms.innerHTML);
       }
       showToast('Đã xóa Block!');
     }
 
-    function clearBlockSelection() {
+     function clearBlockSelection() {
       document.getElementById('visual-block-toolbar').classList.add('hidden');
       
       const iframe = document.getElementById('preview-iframe');
@@ -3806,8 +4469,11 @@
       if (doc) {
         doc.querySelectorAll('.cms-custom-block').forEach(n => n.classList.remove('visual-block-selected'));
         doc.querySelectorAll('[data-cms-img]').forEach(n => n.classList.remove('visual-img-selected'));
+        const addHandle = doc.querySelector('.block-add-handle');
+        if (addHandle) addHandle.style.display = 'none';
       }
       activeVisualBlock = null;
+      selectVisualElementForStyling(null);
     }
 
     function addCustomBlock(type) {
@@ -3846,6 +4512,121 @@
             </div>
           </div>
         `;
+      } else if (type === 'hero') {
+        blockHtml = `
+          <div class="cms-custom-block elementor-section hero-section" style="width: 100%; height: auto; margin: 24px 0; display: block; background: #09090b; padding: 60px 20px; border-radius: 16px; border: 1px solid #1f1f23; color: #ffffff;" data-size-mode="free">
+            <div class="resize-wrapper" style="width: 100%; min-height: 180px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; border: 1px dashed rgba(99, 102, 241, 0.2); padding: 12px;">
+              <h1 class="block-content font-bold" contenteditable="true" style="outline: none; font-size: 32px; line-height: 1.2; color: #ffffff; max-width: 600px; margin: 0;">Đột phá doanh số cùng Smax</h1>
+              <p class="block-content" contenteditable="true" style="outline: none; font-size: 14px; color: #a1a1aa; max-width: 500px; line-height: 1.6; margin: 0;">Giải pháp tự động hóa tiếp thị, chăm sóc khách hàng và bán hàng đa kênh hàng đầu Việt Nam.</p>
+              <div style="display: flex; gap: 12px; justify-content: center; margin-top: 8px;">
+                <a class="block-content font-semibold" contenteditable="true" href="#" style="outline: none; background: #4f46e5; color: #ffffff; padding: 10px 24px; border-radius: 9999px; font-size: 13px; text-decoration: none; display: inline-block;">Dùng thử miễn phí</a>
+                <a class="block-content font-semibold" contenteditable="true" href="#" style="outline: none; background: #1f1f23; color: #ffffff; border: 1px solid #2f2f35; padding: 10px 24px; border-radius: 9999px; font-size: 13px; text-decoration: none; display: inline-block;">Tìm hiểu thêm</a>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (type === 'bento') {
+        blockHtml = `
+          <div class="cms-custom-block elementor-section bento-section" style="width: 100%; height: auto; margin: 24px 0; display: block; background: #09090b; padding: 48px 20px; border-radius: 16px; border: 1px solid #1f1f23; color: #ffffff;" data-size-mode="free">
+            <div class="resize-wrapper" style="width: 100%; min-height: 250px; display: flex; flex-direction: column; gap: 24px; border: 1px dashed rgba(99, 102, 241, 0.2); padding: 12px;">
+              <div style="text-align: center;">
+                <h2 class="block-content font-bold" contenteditable="true" style="outline: none; font-size: 24px; margin: 0; color: #ffffff;">Giải pháp của chúng tôi</h2>
+                <p class="block-content" contenteditable="true" style="outline: none; font-size: 13px; color: #a1a1aa; margin-top: 8px;">Mọi công cụ bạn cần để chuyển đổi khách hàng tiềm năng thành doanh thu thực tế</p>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; width: 100%;">
+                <div style="background: #141416; border: 1px solid #232326; padding: 20px; border-radius: 12px; display: flex; flex-direction: column; gap: 8px;">
+                  <span style="font-size: 24px; display: block;">⚡</span>
+                  <h3 class="block-content font-semibold" contenteditable="true" style="outline: none; font-size: 15px; margin: 0; color: #ffffff;">Automation</h3>
+                  <p class="block-content" contenteditable="true" style="outline: none; font-size: 12px; color: #71717a; margin: 0; line-height: 1.5;">Gửi tin nhắn hàng loạt và trả lời tự động 24/7.</p>
+                </div>
+                <div style="background: #141416; border: 1px solid #232326; padding: 20px; border-radius: 12px; display: flex; flex-direction: column; gap: 8px;">
+                  <span style="font-size: 24px; display: block;">📈</span>
+                  <h3 class="block-content font-semibold" contenteditable="true" style="outline: none; font-size: 15px; margin: 0; color: #ffffff;">Analytics</h3>
+                  <p class="block-content" contenteditable="true" style="outline: none; font-size: 12px; color: #71717a; margin: 0; line-height: 1.5;">Đo lường chi tiết hành vi và tỷ lệ chuyển đổi đơn hàng.</p>
+                </div>
+                <div style="background: #141416; border: 1px solid #232326; padding: 20px; border-radius: 12px; display: flex; flex-direction: column; gap: 8px;">
+                  <span style="font-size: 24px; display: block;">🤝</span>
+                  <h3 class="block-content font-semibold" contenteditable="true" style="outline: none; font-size: 15px; margin: 0; color: #ffffff;">CRM Sync</h3>
+                  <p class="block-content" contenteditable="true" style="outline: none; font-size: 12px; color: #71717a; margin: 0; line-height: 1.5;">Đồng bộ dữ liệu khách hàng đa nền tảng tức thì.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (type === 'faq') {
+        blockHtml = `
+          <div class="cms-custom-block elementor-section faq-section" style="width: 100%; height: auto; margin: 24px 0; display: block; background: #09090b; padding: 48px 20px; border-radius: 16px; border: 1px solid #1f1f23; color: #ffffff;" data-size-mode="free">
+            <div class="resize-wrapper" style="width: 100%; min-height: 200px; display: flex; flex-direction: column; gap: 20px; max-width: 650px; margin: 0 auto; border: 1px dashed rgba(99, 102, 241, 0.2); padding: 12px;">
+              <h2 class="block-content font-bold" contenteditable="true" style="outline: none; font-size: 24px; text-align: center; margin: 0; color: #ffffff;">Giải đáp thắc mắc</h2>
+              <div style="display: flex; flex-direction: column; gap: 12px; width: 100%;">
+                <details style="background: #141416; border: 1px solid #232326; padding: 16px; border-radius: 12px; cursor: pointer; outline: none; list-style: none;">
+                  <summary class="block-content font-semibold" contenteditable="true" style="outline: none; font-size: 14px; color: #ffffff;">Smax có miễn phí dùng thử không?</summary>
+                  <p class="block-content" contenteditable="true" style="outline: none; font-size: 12.5px; color: #a1a1aa; margin-top: 10px; line-height: 1.6; cursor: default;">Chúng tôi cung cấp gói dùng thử đầy đủ tính năng trong 7 ngày để bạn kiểm nghiệm thực tế hiệu quả.</p>
+                </details>
+                <details style="background: #141416; border: 1px solid #232326; padding: 16px; border-radius: 12px; cursor: pointer; outline: none; list-style: none;">
+                  <summary class="block-content font-semibold" contenteditable="true" style="outline: none; font-size: 14px; color: #ffffff;">Tôi có cần biết lập trình không?</summary>
+                  <p class="block-content" contenteditable="true" style="outline: none; font-size: 12.5px; color: #a1a1aa; margin-top: 10px; line-height: 1.6; cursor: default;">Hoàn toàn không. Mọi cài đặt, cấu hình đều sử dụng giao diện kéo thả trực quan không cần viết mã.</p>
+                </details>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (type === 'cta') {
+        blockHtml = `
+          <div class="cms-custom-block elementor-section cta-section" style="width: 100%; height: auto; margin: 24px 0; display: block; background: linear-gradient(135deg, #4f46e5, #06b6d4); padding: 48px 24px; border-radius: 16px; color: #ffffff; text-align: center;" data-size-mode="free">
+            <div class="resize-wrapper" style="width: 100%; min-height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; border: 1px dashed rgba(255, 255, 255, 0.3); padding: 12px;">
+              <h2 class="block-content font-bold" contenteditable="true" style="outline: none; font-size: 26px; margin: 0; color: #ffffff;">Đăng ký trải nghiệm ngay hôm nay!</h2>
+              <p class="block-content" contenteditable="true" style="outline: none; font-size: 13.5px; color: rgba(255,255,255,0.85); max-width: 480px; line-height: 1.5; margin: 0;">Sẵn sàng đưa doanh nghiệp của bạn bứt phá doanh số với các kịch bản tối ưu chuyển đổi từ Smax.</p>
+              <a class="block-content font-semibold" contenteditable="true" href="#" style="outline: none; background: #ffffff; color: #4f46e5; padding: 12px 28px; border-radius: 9999px; font-size: 14px; text-decoration: none; display: inline-block; margin-top: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.15);">Bắt đầu miễn phí</a>
+            </div>
+          </div>
+        `;
+      } else if (type === 'metrics') {
+        blockHtml = `
+          <div class="cms-custom-block elementor-section metrics-section" style="width: 100%; height: auto; margin: 24px 0; display: block; background: #09090b; padding: 40px 20px; border-radius: 16px; border: 1px solid #1f1f23; color: #ffffff;" data-size-mode="free">
+            <div class="resize-wrapper" style="width: 100%; min-height: 140px; display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 20px; text-align: center; border: 1px dashed rgba(99, 102, 241, 0.2); padding: 12px;">
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <span class="block-content font-bold" contenteditable="true" style="outline: none; font-size: 32px; color: #4f46e5; display: block; margin: 0;">10,000+</span>
+                <span class="block-content" contenteditable="true" style="outline: none; font-size: 12px; color: #71717a; text-transform: uppercase; font-weight: 500;">Khách hàng</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <span class="block-content font-bold" contenteditable="true" style="outline: none; font-size: 32px; color: #06b6d4; display: block; margin: 0;">99.9%</span>
+                <span class="block-content" contenteditable="true" style="outline: none; font-size: 12px; color: #71717a; text-transform: uppercase; font-weight: 500;">Thời gian Uptime</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <span class="block-content font-bold" contenteditable="true" style="outline: none; font-size: 32px; color: #10b981; display: block; margin: 0;">250M+</span>
+                <span class="block-content" contenteditable="true" style="outline: none; font-size: 12px; color: #71717a; text-transform: uppercase; font-weight: 500;">Tin nhắn/Tháng</span>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (type === 'challenges') {
+        blockHtml = `
+          <div class="cms-custom-block elementor-section challenges-section" style="width: 100%; height: auto; margin: 24px 0; display: block; background: #09090b; padding: 48px 20px; border-radius: 16px; border: 1px solid #1f1f23; color: #ffffff;" data-size-mode="free">
+            <div class="resize-wrapper" style="width: 100%; min-height: 220px; display: flex; flex-direction: column; gap: 24px; border: 1px dashed rgba(99, 102, 241, 0.2); padding: 12px;">
+              <div style="text-align: center;">
+                <h2 class="block-content font-bold" contenteditable="true" style="outline: none; font-size: 24px; margin: 0; color: #ffffff;">Khó khăn thường gặp</h2>
+                <p class="block-content" contenteditable="true" style="outline: none; font-size: 13px; color: #a1a1aa; margin-top: 8px;">Những thách thức lớn mà doanh nghiệp của bạn đang phải đối mặt hàng ngày</p>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; width: 100%;">
+                <div style="background: #141416; border: 1px solid #232326; padding: 20px; border-radius: 12px; display: flex; gap: 14px; align-items: flex-start;">
+                  <span style="font-size: 20px; flex-shrink: 0;">❌</span>
+                  <div style="display: flex; flex-direction: column; gap: 4px;">
+                    <h3 class="block-content font-semibold" contenteditable="true" style="outline: none; font-size: 14px; margin: 0; color: #ffffff;">Quá tải tin nhắn</h3>
+                    <p class="block-content" contenteditable="true" style="outline: none; font-size: 11.5px; color: #71717a; margin: 0; line-height: 1.5;">Khách hàng rời đi vì phản hồi chậm trễ, không có người trực page.</p>
+                  </div>
+                </div>
+                <div style="background: #141416; border: 1px solid #232326; padding: 20px; border-radius: 12px; display: flex; gap: 14px; align-items: flex-start;">
+                  <span style="font-size: 20px; flex-shrink: 0;">❌</span>
+                  <div style="display: flex; flex-direction: column; gap: 4px;">
+                    <h3 class="block-content font-semibold" contenteditable="true" style="outline: none; font-size: 14px; margin: 0; color: #ffffff;">Bỏ sót khách hàng</h3>
+                    <p class="block-content" contenteditable="true" style="outline: none; font-size: 11.5px; color: #71717a; margin: 0; line-height: 1.5;">Không theo dõi và lưu trữ đúng hành trình leads, dẫn đến thất thoát cơ hội.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
       }
       
       const temp = doc.createElement('div');
@@ -3853,31 +4634,255 @@
       const newBlock = temp.firstChild;
       
       activeVisualElement.removeAttribute('contenteditable');
-      activeVisualElement.appendChild(newBlock);
+      
+      if (activeInsertIndex !== null && activeInsertIndex !== undefined) {
+        const cleanChildren = Array.from(activeVisualElement.children).filter(child => !child.classList.contains('cms-editor-inline-helper'));
+        const targetSibling = cleanChildren[activeInsertIndex];
+        if (targetSibling) {
+          activeVisualElement.insertBefore(newBlock, targetSibling);
+        } else {
+          activeVisualElement.appendChild(newBlock);
+        }
+      } else {
+        activeVisualElement.appendChild(newBlock);
+      }
+      activeInsertIndex = null; // Reset the insertion index
       
       bindBlockClick(newBlock, doc);
       const wrapper = newBlock.querySelector('.resize-wrapper');
       if (wrapper) {
         wrapper.addEventListener('mouseup', () => {
           syncVisualTextToForm(activeVisualKey, activeVisualElement.innerHTML);
+          if (activeVisualBlock) {
+            updateBlockAddHandlePosition(activeVisualBlock, doc);
+          }
         });
       }
       
-      const content = newBlock.querySelector('.block-content[contenteditable="true"]');
-      if (content) {
+      newBlock.querySelectorAll('.block-content[contenteditable="true"]').forEach(content => {
         ['input', 'blur'].forEach(evName => {
           content.addEventListener(evName, () => {
             syncVisualTextToForm(activeVisualKey, activeVisualElement.innerHTML);
           });
         });
-      }
+      });
       
       syncVisualTextToForm(activeVisualKey, activeVisualElement.innerHTML);
       showToast(`Đã thêm Block mới vào vùng [${activeVisualKey}]!`);
       
+      // Update inline helpers after adding a block
+      updateInlineHelpers(doc);
+      
       setTimeout(() => {
         newBlock.click();
       }, 100);
+    }
+
+    // ================= STYLE EDITOR CONTROLLER =================
+    let activeStyleElement = null;
+
+    function selectVisualElementForStyling(el) {
+      activeStyleElement = el;
+      if (!el) {
+        document.getElementById('tab-right-style')?.classList.add('hidden');
+        // If style tab is active, fallback to blocks tab
+        const styleBtn = document.getElementById('tab-right-style');
+        if (styleBtn && styleBtn.classList.contains('border-indigo-500')) {
+          switchRightTab('blocks');
+        }
+        return;
+      }
+      
+      // Make tab visible
+      document.getElementById('tab-right-style')?.classList.remove('hidden');
+      
+      // 1. Spacing
+      document.getElementById('style-padding-y').value = el.style.paddingTop || '';
+      document.getElementById('style-padding-x').value = el.style.paddingLeft || '';
+      document.getElementById('style-margin-y').value = el.style.marginTop || '';
+      document.getElementById('style-margin-x').value = el.style.marginLeft || '';
+      
+      // 2. Background
+      let bgColor = el.style.backgroundColor || '';
+      document.getElementById('style-bg-color').value = bgColor;
+      if (bgColor.startsWith('#')) {
+        document.getElementById('style-bg-color-picker').value = bgColor;
+      } else {
+        document.getElementById('style-bg-color-picker').value = '#000000';
+      }
+      
+      let bgImg = el.style.backgroundImage || '';
+      if (bgImg.startsWith('url(')) {
+        bgImg = bgImg.replace(/^url\(['"]?/, '').replace(/['"]?\)$/, '');
+      }
+      document.getElementById('style-bg-image').value = bgImg;
+      
+      // 3. Typography
+      let textColor = el.style.color || '';
+      document.getElementById('style-text-color').value = textColor;
+      if (textColor.startsWith('#')) {
+        document.getElementById('style-text-color-picker').value = textColor;
+      } else {
+        document.getElementById('style-text-color-picker').value = '#ffffff';
+      }
+      
+      document.getElementById('style-font-size').value = el.style.fontSize || '';
+      document.getElementById('style-font-weight').value = el.style.fontWeight || '';
+      
+      // Alignment
+      const align = el.style.textAlign || '';
+      updateAlignButtonsUI(align);
+      
+      // 4. Border
+      document.getElementById('style-border-radius').value = el.style.borderRadius || '';
+      document.getElementById('style-border-width').value = el.style.borderWidth || '';
+      
+      let borderColor = el.style.borderColor || '';
+      document.getElementById('style-border-color').value = borderColor;
+      if (borderColor.startsWith('#')) {
+        document.getElementById('style-border-color-picker').value = borderColor;
+      } else {
+        document.getElementById('style-border-color-picker').value = '#000000';
+      }
+      
+      // 5. Classes (Tailwind)
+      let classList = Array.from(el.classList)
+        .filter(c => c !== 'visual-container-selected' && c !== 'visual-block-selected' && c !== 'visual-img-selected')
+        .join(' ');
+      document.getElementById('style-custom-classes').value = classList;
+    }
+    
+    let activeTextAlign = '';
+    function updateAlignButtonsUI(align) {
+      activeTextAlign = align;
+      ['left', 'center', 'right', 'justify'].forEach(pos => {
+        const btn = document.getElementById(`btn-align-${pos}`);
+        if (btn) {
+          if (pos === align) {
+            btn.className = "flex-1 py-1 text-center rounded bg-indigo-600 text-white font-semibold transition-colors text-[10px]";
+          } else {
+            btn.className = "flex-1 py-1 text-center rounded text-zinc-500 hover:text-white transition-colors text-[10px]";
+          }
+        }
+      });
+    }
+    
+    function selectTextAlign(align) {
+      if (!activeStyleElement) return;
+      activeStyleElement.style.textAlign = align;
+      updateAlignButtonsUI(align);
+      applyActiveElementStyle('text');
+    }
+
+    function applyActiveElementStyle(type) {
+      if (!activeStyleElement) return;
+      
+      if (type === 'padding') {
+        const py = document.getElementById('style-padding-y').value;
+        const px = document.getElementById('style-padding-x').value;
+        if (py !== '') {
+          activeStyleElement.style.paddingTop = py;
+          activeStyleElement.style.paddingBottom = py;
+        } else {
+          activeStyleElement.style.paddingTop = '';
+          activeStyleElement.style.paddingBottom = '';
+        }
+        if (px !== '') {
+          activeStyleElement.style.paddingLeft = px;
+          activeStyleElement.style.paddingRight = px;
+        } else {
+          activeStyleElement.style.paddingLeft = '';
+          activeStyleElement.style.paddingRight = '';
+        }
+      }
+      
+      else if (type === 'margin') {
+        const my = document.getElementById('style-margin-y').value;
+        const mx = document.getElementById('style-margin-x').value;
+        if (my !== '') {
+          activeStyleElement.style.marginTop = my;
+          activeStyleElement.style.marginBottom = my;
+        } else {
+          activeStyleElement.style.marginTop = '';
+          activeStyleElement.style.marginBottom = '';
+        }
+        if (mx !== '') {
+          activeStyleElement.style.marginLeft = mx;
+          activeStyleElement.style.marginRight = mx;
+        } else {
+          activeStyleElement.style.marginLeft = '';
+          activeStyleElement.style.marginRight = '';
+        }
+      }
+      
+      else if (type === 'bg') {
+        const color = document.getElementById('style-bg-color').value;
+        const img = document.getElementById('style-bg-image').value;
+        
+        activeStyleElement.style.backgroundColor = color;
+        if (img) {
+          activeStyleElement.style.backgroundImage = `url('${img}')`;
+          activeStyleElement.style.backgroundSize = 'cover';
+          activeStyleElement.style.backgroundPosition = 'center';
+        } else {
+          activeStyleElement.style.backgroundImage = '';
+        }
+      }
+      
+      else if (type === 'text') {
+        const color = document.getElementById('style-text-color').value;
+        const size = document.getElementById('style-font-size').value;
+        const weight = document.getElementById('style-font-weight').value;
+        
+        activeStyleElement.style.color = color;
+        activeStyleElement.style.fontSize = size;
+        activeStyleElement.style.fontWeight = weight;
+      }
+      
+      else if (type === 'border') {
+        const radius = document.getElementById('style-border-radius').value;
+        const width = document.getElementById('style-border-width').value;
+        const color = document.getElementById('style-border-color').value;
+        
+        activeStyleElement.style.borderRadius = radius;
+        activeStyleElement.style.borderWidth = width;
+        activeStyleElement.style.borderColor = color;
+        if (width || color) {
+          activeStyleElement.style.borderStyle = 'solid';
+        } else {
+          activeStyleElement.style.borderStyle = '';
+        }
+      }
+      
+      else if (type === 'class') {
+        const classesStr = document.getElementById('style-custom-classes').value.trim();
+        const systemClasses = [];
+        if (activeStyleElement.classList.contains('visual-container-selected')) systemClasses.push('visual-container-selected');
+        if (activeStyleElement.classList.contains('visual-block-selected')) systemClasses.push('visual-block-selected');
+        if (activeStyleElement.classList.contains('visual-img-selected')) systemClasses.push('visual-img-selected');
+        
+        activeStyleElement.className = '';
+        systemClasses.forEach(c => activeStyleElement.classList.add(c));
+        
+        if (classesStr) {
+          classesStr.split(/\s+/).forEach(c => {
+            if (c) activeStyleElement.classList.add(c);
+          });
+        }
+      }
+      
+      // Save changes immediately
+      const isImg = activeStyleElement.hasAttribute('data-cms-img');
+      if (isImg) {
+        syncVisualBlockStyle(activeStyleElement);
+      } else {
+        const parentCms = activeStyleElement.closest('[data-cms]');
+        if (parentCms) {
+          syncVisualTextToForm(parentCms.getAttribute('data-cms'), parentCms.innerHTML);
+        } else if (activeStyleElement.hasAttribute('data-cms')) {
+          syncVisualTextToForm(activeStyleElement.getAttribute('data-cms'), activeStyleElement.innerHTML);
+        }
+      }
     }
 
     // ================= ANALYTICS & HEATMAP CONTROLLER =================

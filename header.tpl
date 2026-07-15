@@ -144,6 +144,20 @@
                       <span><strong>F&amp;B</strong><small>Quản lý đơn, ưu đãi và khách hàng quay lại.</small></span>
                       <span class="mega-item-arrow" aria-hidden="true">→</span>
                     </a>
+                    <a class="mega-item mega-industry-item" href="travel.html" data-industry-target="travel">
+                      <div class="mega-item-icon">
+                        <svg class="mega-lucide-icon" viewBox="0 0 24 24" fill="none" stroke="#fb6e5c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 9.5 14.5"/><path d="m22 2-7 20-4-9-9-4Z"/></svg>
+                      </div>
+                      <span><strong>Du lịch</strong><small>Tư vấn tour, nhắc hồ sơ và chăm sóc hành trình.</small></span>
+                      <span class="mega-item-arrow" aria-hidden="true">→</span>
+                    </a>
+                    <a class="mega-item mega-industry-item" href="health.html" data-industry-target="health">
+                      <div class="mega-item-icon">
+                        <svg class="mega-lucide-icon" viewBox="0 0 24 24" fill="none" stroke="#fb6e5c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10Z"/><path d="M9 13h2l1-3 1 6 1-3h2"/></svg>
+                      </div>
+                      <span><strong>Sức khỏe &amp; TPCN</strong><small>Tư vấn sản phẩm và chăm sóc sau mua.</small></span>
+                      <span class="mega-item-arrow" aria-hidden="true">→</span>
+                    </a>
                     <a class="mega-item mega-industry-item" href="agency.html" data-industry-target="agency">
                       <div class="mega-item-icon">
                         <svg class="mega-lucide-icon" viewBox="0 0 24 24" fill="#fb6e5c"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2Zm-6 0h-4V4h4v2Z"/></svg>
@@ -159,7 +173,7 @@
                   <p>Smax.ai kết hợp quy trình ngành, dữ liệu và kịch bản automation phù hợp với đội ngũ của bạn.</p>
                   <a class="mega-primary-link" href="index.html#capabilities">Khám phá ứng dụng ngành <span aria-hidden="true">→</span></a>
                   <div class="mega-aside-metrics" aria-label="Điểm nổi bật">
-                    <span><strong>6</strong> lĩnh vực</span>
+                    <span><strong>8</strong> lĩnh vực</span>
                     <span><strong>1</strong> hệ thống</span>
                   </div>
                 </aside>
@@ -324,6 +338,8 @@
             <a href="realestate.html" data-industry-target="realestate">Bất động sản</a>
             <a href="service.html" data-industry-target="service">Dịch vụ</a>
             <a href="fb.html" data-industry-target="fb">F&amp;B</a>
+            <a href="travel.html" data-industry-target="travel">Du lịch</a>
+            <a href="health.html" data-industry-target="health">Sức khỏe &amp; TPCN</a>
             <a href="agency.html" data-industry-target="agency">Agency & Consultant</a>
           </div>
         </details>
