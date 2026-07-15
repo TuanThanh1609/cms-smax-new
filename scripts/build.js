@@ -237,6 +237,41 @@ function fetchContentAndCompile() {
 function finalizeBuild(contentMap) {
   const rootDir = path.resolve(__dirname, '..');
   const publicDir = path.join(rootDir, 'public');
+
+  function sanitizeStructuralCmsHtml(html, cheerio) {
+    if (!html) return '';
+    const fragment = cheerio.load(`<div id="cms-structural-root">${html}</div>`, { decodeEntities: false }, false);
+    const root = fragment('#cms-structural-root');
+
+    root.find('.cms-editor-inline-helper, .img-resize-handle, .block-add-handle').remove();
+    root.find('[contenteditable]').removeAttr('contenteditable');
+    root.find('.visual-container-selected, .visual-block-selected, .visual-img-selected')
+      .removeClass('visual-container-selected visual-block-selected visual-img-selected');
+
+    root.find('.cms-custom-block').each((i, el) => {
+      const node = fragment(el);
+      const isBuilderBlock = node.is('.text-block, .img-block, .video-block, .elementor-section');
+      if (!isBuilderBlock) node.removeClass('cms-custom-block');
+    });
+
+    root.find('[style]').each((i, el) => {
+      const node = fragment(el);
+      const normalized = (node.attr('style') || '').replace(/\s+/g, ' ').trim().toLowerCase();
+      if (normalized === 'position: relative;' || normalized === 'position: relative') {
+        node.removeAttr('style');
+      }
+    });
+
+    root.find('[data-size-mode]').each((i, el) => {
+      const node = fragment(el);
+      if (!node.closest('.text-block, .img-block, .video-block, .elementor-section').length) {
+        node.removeAttr('data-size-mode');
+      }
+    });
+
+    root.find('[class=""]').removeAttr('class');
+    return root.html() || '';
+  }
   
   // Re-create public folder clean
   if (fs.existsSync(publicDir)) {
@@ -306,7 +341,10 @@ function finalizeBuild(contentMap) {
                                $(el).hasClass('metric-num') ||
                                $(el).hasClass('metric-label');
           if (!isTextField && contentMap[key] !== undefined) {
-            $(el).html(contentMap[key]);
+            const value = key && key.endsWith('-sections')
+              ? sanitizeStructuralCmsHtml(contentMap[key], cheerio)
+              : contentMap[key];
+            $(el).html(value);
           }
         });
 

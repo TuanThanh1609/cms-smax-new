@@ -2662,7 +2662,10 @@
       const newFieldsToId = [];
       const updates = currentPageFields.map((field, index) => {
         const inputEl = document.getElementById(`input-val-${index}`);
-        const value = inputEl ? inputEl.value : field.content_value;
+        let value = inputEl ? inputEl.value : field.content_value;
+        if (field.content_key && field.content_key.endsWith('-sections')) {
+          value = cleanEditorHtml(value);
+        }
         const u = {
           page_name: field.page_name,
           content_key: field.content_key,
@@ -3940,7 +3943,35 @@
       if (!htmlStr) return '';
       const temp = document.createElement('div');
       temp.innerHTML = htmlStr;
-      temp.querySelectorAll('.cms-editor-inline-helper').forEach(el => el.remove());
+
+      temp.querySelectorAll('.cms-editor-inline-helper, .img-resize-handle, .block-add-handle').forEach(el => el.remove());
+      temp.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
+      temp.querySelectorAll('.visual-container-selected, .visual-block-selected, .visual-img-selected').forEach(el => {
+        el.classList.remove('visual-container-selected', 'visual-block-selected', 'visual-img-selected');
+      });
+
+      // Existing page sections are temporarily marked as Builder blocks in the iframe.
+      // Only persist the class for blocks that were actually inserted from Builder Canvas.
+      temp.querySelectorAll('.cms-custom-block').forEach(el => {
+        const isBuilderBlock = el.matches('.text-block, .img-block, .video-block, .elementor-section');
+        if (!isBuilderBlock) el.classList.remove('cms-custom-block');
+      });
+
+      // Remove the temporary positioning added while selecting native page sections.
+      temp.querySelectorAll('[style]').forEach(el => {
+        const normalized = (el.getAttribute('style') || '').replace(/\s+/g, ' ').trim().toLowerCase();
+        if (normalized === 'position: relative;' || normalized === 'position: relative') {
+          el.removeAttribute('style');
+        }
+      });
+
+      temp.querySelectorAll('[data-size-mode]').forEach(el => {
+        if (!el.closest('.text-block, .img-block, .video-block, .elementor-section')) {
+          el.removeAttribute('data-size-mode');
+        }
+      });
+
+      temp.querySelectorAll('[class=""]').forEach(el => el.removeAttribute('class'));
       return temp.innerHTML;
     }
 
@@ -4158,7 +4189,11 @@
         if (inputEl) {
           const cleanedHtml = cleanEditorHtml(value);
           let cleanedVal = cleanedHtml;
-          if (inputEl.tagName === 'TEXTAREA') {
+          const isStructuralField = key && key.endsWith('-sections');
+          if (isStructuralField) {
+            // Structural fields must retain their complete, balanced HTML.
+            cleanedVal = cleanedHtml;
+          } else if (inputEl.tagName === 'TEXTAREA') {
             // Replace <br> or <br/> with \n, and strip div/p wrappers from rich textarea
             cleanedVal = cleanedHtml
               .replace(/<br\s*\/?>/gi, '\n')
