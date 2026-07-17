@@ -6526,6 +6526,12 @@ blockquote {
   transition: transform 0.2s ease, filter 0.2s ease;
 }
 
+.mega-library-icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
 .mega-item:hover .mega-lucide-icon {
   transform: scale(1.1);
   filter: brightness(0.9);
@@ -7924,6 +7930,4 @@ blockquote {
     stroke-dashoffset: -20;
   }
 }
-
-
 

@@ -153,14 +153,14 @@
                     </a>
                     <a class="mega-item mega-industry-item" href="health.html" data-industry-target="health">
                       <div class="mega-item-icon">
-                        <svg class="mega-lucide-icon" viewBox="0 0 24 24" fill="none" stroke="#fb6e5c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10Z"></path><path d="M9 13h2l1-3 1 6 1-3h2"></path></svg>
+                        <img class="mega-lucide-icon mega-library-icon" src="asset smax/mega-icons/heart-pulse.svg" alt="" aria-hidden="true">
                       </div>
                       <span><strong data-cms="header-sol-name-7">Sức khỏe &amp; TPCN</strong><small data-cms="header-sol-desc-7">Tư vấn sản phẩm và chăm sóc sau mua.</small></span>
                       <span class="mega-item-arrow" aria-hidden="true">→</span>
                     </a>
                     <a class="mega-item mega-industry-item" href="beauty.html" data-industry-target="beauty">
                       <div class="mega-item-icon">
-                        <svg class="mega-lucide-icon" viewBox="0 0 24 24" fill="none" stroke="#fb6e5c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1.2 2.5 2.8 3.7 5.5 4.2-1.8 2-2.3 3.9-1.5 6.6-2.6-.3-4.4.5-6 2.7-1.3-2.3-3-3.3-5.7-3.3 1-2.5.7-4.5-.9-6.7 2.7-.2 4.4-1.2 5.7-3.5.7 1.1 1.7 2 2.9 2.6Z"></path><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"></path></svg>
+                        <img class="mega-lucide-icon mega-library-icon" src="asset smax/mega-icons/sparkles.svg" alt="" aria-hidden="true">
                       </div>
                       <span><strong data-cms="header-sol-name-9">Thẩm mỹ &amp; Làm đẹp</strong><small data-cms="header-sol-desc-9">Thu lead, nhắc lịch và chăm khách quay lại.</small></span>
                       <span class="mega-item-arrow" aria-hidden="true">→</span>
