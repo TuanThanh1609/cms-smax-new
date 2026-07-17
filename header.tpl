@@ -71,6 +71,13 @@
                       <span><strong data-cms="header-prod-name-8">CRM Connect</strong><small data-cms="header-prod-desc-8">Đồng bộ lead, đơn hàng và dữ liệu.</small></span>
                       <span class="mega-item-arrow" aria-hidden="true">→</span>
                     </a>
+                    <a class="mega-item" href="custom_service.html">
+                      <div class="mega-item-icon">
+                        <svg class="mega-lucide-icon" viewBox="0 0 24 24" fill="#fb6e5c"><path d="M9 3h6a2 2 0 0 1 2 2v1h2a2 2 0 0 1 2 2v10a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V8a2 2 0 0 1 2-2h2V5a2 2 0 0 1 2-2Zm0 3h6V5H9v1Zm3 4a1.5 1.5 0 0 0-1.5 1.5v1H9a1.5 1.5 0 0 0 0 3h1.5v1a1.5 1.5 0 0 0 3 0v-1H15a1.5 1.5 0 0 0 0-3h-1.5v-1A1.5 1.5 0 0 0 12 10Z"></path></svg>
+                      </div>
+                      <span><strong data-cms="header-prod-name-9">Dịch vụ triển khai</strong><small data-cms="header-prod-desc-9">Thiết kế AI Agent theo quy trình riêng.</small></span>
+                      <span class="mega-item-arrow" aria-hidden="true">→</span>
+                    </a>
                   </div>
                 </section>
                 <aside class="mega-aside">
@@ -335,6 +342,7 @@
             <a href="gamification.html">Gamification</a>
             <a href="index.html#modules" data-module-target="remarketing">Remarketing</a>
             <a href="index.html#modules" data-module-target="crm-connect">CRM Connect</a>
+            <a href="custom_service.html">Dịch vụ triển khai</a>
           </div>
         </details>
         <details class="mobile-nav-group">
