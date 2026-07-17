@@ -146,21 +146,21 @@
                     </a>
                     <a class="mega-item mega-industry-item" href="travel.html" data-industry-target="travel">
                       <div class="mega-item-icon">
-                        <svg class="mega-lucide-icon" viewBox="0 0 24 24" fill="none" stroke="#fb6e5c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 9.5 14.5"></path><path d="m22 2-7 20-4-9-9-4Z"></path></svg>
+                        <svg class="mega-lucide-icon" viewBox="0 0 640 512" fill="#fb6e5c" aria-hidden="true"><!-- Font Awesome Free 6.7.2: plane-departure (solid) --><path d="M381 114.9L186.1 41.8c-16.7-6.2-35.2-5.3-51.1 2.7L89.1 67.4C78 73 77.2 88.5 87.6 95.2l146.9 94.5L136 240 77.8 214.1c-8.7-3.9-18.8-3.7-27.3.6L18.3 230.8c-9.3 4.7-11.8 16.8-5 24.7l73.1 85.3c6.1 7.1 15 11.2 24.3 11.2h137.7c5 0 9.9-1.2 14.3-3.4l272.9-136.4c46.5-23.3 82.5-63.3 100.8-112C645.9 75 627.2 48 600.2 48h-57.4c-20.2 0-40.2 4.8-58.2 14L381 114.9zM0 480c0 17.7 14.3 32 32 32h576c17.7 0 32-14.3 32-32s-14.3-32-32-32H32c-17.7 0-32 14.3-32 32z"></path></svg>
                       </div>
                       <span><strong data-cms="header-sol-name-6">Du lịch</strong><small data-cms="header-sol-desc-6">Tư vấn tour, nhắc hồ sơ và chăm sóc hành trình.</small></span>
                       <span class="mega-item-arrow" aria-hidden="true">→</span>
                     </a>
                     <a class="mega-item mega-industry-item" href="health.html" data-industry-target="health">
                       <div class="mega-item-icon">
-                        <img class="mega-lucide-icon mega-library-icon" src="asset smax/mega-icons/heart-pulse.svg" alt="" aria-hidden="true">
+                        <svg class="mega-lucide-icon" viewBox="0 0 512 512" fill="#fb6e5c" aria-hidden="true"><!-- Font Awesome Free 6.7.2: heart-pulse (solid) --><path d="M228.3 469.1 47.6 300.4c-4.2-3.9-8.2-8.1-11.9-12.4h87c22.6 0 43-13.6 51.7-34.5l10.5-25.2 49.3 109.5c3.8 8.5 12.1 14 21.4 14.1s17.8-5 22-13.3l42.4-84.9 1.7 3.4c9.5 19 28.9 31 50.1 31h104.5c-3.7 4.3-7.7 8.5-11.9 12.4L283.7 469.1c-7.5 7-17.4 10.9-27.7 10.9s-20.2-3.9-27.7-10.9zM503.7 240h-132c-3 0-5.8-1.7-7.2-4.4l-23.2-46.3c-4.1-8.1-12.4-13.3-21.5-13.3s-17.4 5.1-21.5 13.3l-41.4 82.8-51-113.9c-3.9-8.7-12.7-14.3-22.2-14.1s-18.1 5.9-21.8 14.8l-31.8 76.3c-1.2 3-4.2 4.9-7.4 4.9H16c-2.6 0-5 .4-7.3 1.1C3 225.2 0 208.2 0 190.9v-5.8c0-69.9 50.5-129.5 119.4-141C165 36.5 211.4 51.4 244 84l12 12 12-12c32.6-32.6 79-47.5 124.6-39.9C461.5 55.6 512 115.2 512 185.1v5.8c0 16.9-2.8 33.5-8.3 49.1z"></path></svg>
                       </div>
                       <span><strong data-cms="header-sol-name-7">Sức khỏe &amp; TPCN</strong><small data-cms="header-sol-desc-7">Tư vấn sản phẩm và chăm sóc sau mua.</small></span>
                       <span class="mega-item-arrow" aria-hidden="true">→</span>
                     </a>
                     <a class="mega-item mega-industry-item" href="beauty.html" data-industry-target="beauty">
                       <div class="mega-item-icon">
-                        <img class="mega-lucide-icon mega-library-icon" src="asset smax/mega-icons/sparkles.svg" alt="" aria-hidden="true">
+                        <svg class="mega-lucide-icon" viewBox="0 0 576 512" fill="#fb6e5c" aria-hidden="true"><!-- Font Awesome Free 6.7.2: spa (solid) --><path d="M183.1 235.3c33.7 20.7 62.9 48.1 85.8 80.5 7 9.9 13.4 20.3 19.1 31 5.7-10.8 12.1-21.1 19.1-31 22.9-32.4 52.1-59.8 85.8-80.5C437.6 207.8 490.1 192 546 192h9.9c11.1 0 20.1 9 20.1 20.1C576 360.1 456.1 480 308.1 480H267.9C119.9 480 0 360.1 0 212.1 0 201 9 192 20.1 192H30c55.9 0 108.4 15.8 153.1 43.3zM301.5 37.6c15.7 16.9 61.1 71.8 84.4 164.6-38 21.6-71.4 50.8-97.9 85.6-26.5-34.8-59.9-63.9-97.9-85.6 23.2-92.8 68.6-147.7 84.4-164.6C278 33.9 282.9 32 288 32s10 1.9 13.5 5.6z"></path></svg>
                       </div>
                       <span><strong data-cms="header-sol-name-9">Thẩm mỹ &amp; Làm đẹp</strong><small data-cms="header-sol-desc-9">Thu lead, nhắc lịch và chăm khách quay lại.</small></span>
                       <span class="mega-item-arrow" aria-hidden="true">→</span>
