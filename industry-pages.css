@@ -200,6 +200,47 @@ body.industry-page {
   margin-left: 0;
 }
 
+.beauty-page .industry-hero-grid {
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.beauty-page .industry-hero-copy {
+  max-width: 960px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.beauty-page .industry-hero h1 {
+  max-width: 940px;
+  margin-inline: auto;
+}
+
+.beauty-page .industry-lead {
+  margin-inline: auto;
+}
+
+.beauty-page .industry-actions,
+.beauty-page .industry-kicker {
+  justify-content: center;
+}
+
+.beauty-page .industry-hero-art-stage {
+  width: min(100%, 1180px);
+  min-height: 590px;
+  margin-inline: auto;
+}
+
+.beauty-page .industry-hero-art {
+  width: 112%;
+  margin-left: -6%;
+}
+
+.beauty-page .industry-hero-favicon {
+  top: 39%;
+  left: 57.2%;
+}
+
 .industry-person {
   position: absolute;
   right: -2%;
@@ -725,6 +766,16 @@ body.industry-page {
     left: 55%;
   }
 
+  .beauty-page .industry-hero-art-stage {
+    width: min(100%, 760px);
+    min-height: 430px;
+  }
+
+  .beauty-page .industry-hero-art {
+    width: 118%;
+    margin-left: -9%;
+  }
+
   .solution-row.reverse .solution-copy,
   .solution-row.reverse .solution-media {
     order: initial;
@@ -783,6 +834,20 @@ body.industry-page {
   .health-page .industry-hero-art {
     width: 126%;
     margin-left: -13%;
+  }
+
+  .beauty-page .industry-hero-art-stage {
+    min-height: 330px;
+  }
+
+  .beauty-page .industry-hero-art {
+    width: 130%;
+    margin-left: -15%;
+  }
+
+  .beauty-page .industry-hero-favicon {
+    top: 39%;
+    left: 57%;
   }
 
   .industry-hero-favicon {

@@ -158,6 +158,13 @@
                       <span><strong data-cms="header-sol-name-7">Sức khỏe &amp; TPCN</strong><small data-cms="header-sol-desc-7">Tư vấn sản phẩm và chăm sóc sau mua.</small></span>
                       <span class="mega-item-arrow" aria-hidden="true">→</span>
                     </a>
+                    <a class="mega-item mega-industry-item" href="beauty.html" data-industry-target="beauty">
+                      <div class="mega-item-icon">
+                        <svg class="mega-lucide-icon" viewBox="0 0 24 24" fill="none" stroke="#fb6e5c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1.2 2.5 2.8 3.7 5.5 4.2-1.8 2-2.3 3.9-1.5 6.6-2.6-.3-4.4.5-6 2.7-1.3-2.3-3-3.3-5.7-3.3 1-2.5.7-4.5-.9-6.7 2.7-.2 4.4-1.2 5.7-3.5.7 1.1 1.7 2 2.9 2.6Z"></path><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"></path></svg>
+                      </div>
+                      <span><strong data-cms="header-sol-name-9">Thẩm mỹ &amp; Làm đẹp</strong><small data-cms="header-sol-desc-9">Thu lead, nhắc lịch và chăm khách quay lại.</small></span>
+                      <span class="mega-item-arrow" aria-hidden="true">→</span>
+                    </a>
                     <a class="mega-item mega-industry-item" href="agency.html" data-industry-target="agency">
                       <div class="mega-item-icon">
                         <svg class="mega-lucide-icon" viewBox="0 0 24 24" fill="#fb6e5c"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2Zm-6 0h-4V4h4v2Z"></path></svg>
@@ -173,7 +180,7 @@
                   <p data-cms="header-sol-aside-desc">Smax.ai kết hợp quy trình ngành, dữ liệu và kịch bản automation phù hợp với đội ngũ của bạn.</p>
                   <a class="mega-primary-link" href="index.html#capabilities" data-cms="header-sol-aside-link">Khám phá ứng dụng ngành <span aria-hidden="true">→</span></a>
                   <div class="mega-aside-metrics" aria-label="Điểm nổi bật">
-                    <span><strong>8</strong> lĩnh vực</span>
+                    <span><strong>9</strong> lĩnh vực</span>
                     <span><strong>1</strong> hệ thống</span>
                   </div>
                 </aside>
@@ -340,6 +347,7 @@
             <a href="fb.html" data-industry-target="fb">F&amp;B</a>
             <a href="travel.html" data-industry-target="travel">Du lịch</a>
             <a href="health.html" data-industry-target="health">Sức khỏe &amp; TPCN</a>
+            <a href="beauty.html" data-industry-target="beauty">Thẩm mỹ &amp; Làm đẹp</a>
             <a href="agency.html" data-industry-target="agency">Agency &amp; Consultant</a>
           </div>
         </details>

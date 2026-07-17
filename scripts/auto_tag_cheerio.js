@@ -4,7 +4,7 @@ const cheerio = require('cheerio');
 
 const pagesToTag = [
   'ecommerce', 'education', 'realestate', 'service', 'fb', 'agency', 
-  'travel', 'health',
+  'travel', 'health', 'beauty',
   'tich-hop', 'crm-sync', 'partnership', 'livechat', 'chatbot', 'genai', 
   'insight', 'marketing', 'gamification', 'blog', 'blog-detail', 'remarketing'
 ];

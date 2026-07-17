@@ -179,7 +179,7 @@ const loadHeader = async () => {
       } else if (currentPath.includes("livechat.html") || currentPath.includes("chatbot.html") || currentPath.includes("gamification.html") || currentPath.includes("insight.html") || currentPath.includes("genai.html") || currentPath.includes("marketing.html") || currentPath.includes("remarketing.html") || currentPath.includes("crm-sync.html")) {
         const trigger = headerEl.querySelector('[data-mega-trigger="products"]');
         if (trigger) trigger.style.color = "var(--process-blue, #4277FF)";
-      } else if (["ecommerce.html", "education.html", "realestate.html", "service.html", "fb.html", "agency.html", "travel.html", "health.html"].includes(currentPath)) {
+      } else if (["ecommerce.html", "education.html", "realestate.html", "service.html", "fb.html", "agency.html", "travel.html", "health.html", "beauty.html"].includes(currentPath)) {
         const trigger = headerEl.querySelector('[data-mega-trigger="solutions"]');
         if (trigger) trigger.style.color = "var(--process-blue, #4277FF)";
         headerEl.querySelectorAll(`a[href="${currentPath}"]`).forEach((link) => link.setAttribute("aria-current", "page"));
