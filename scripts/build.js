@@ -248,7 +248,7 @@ function finalizeBuild(contentMap) {
     });
   }
 
-  function sanitizeStructuralCmsHtml(html, cheerio) {
+  function sanitizeStructuralCmsHtml(html, cheerio, contentKey = '') {
     if (!html) return '';
     const fragment = cheerio.load(`<div id="cms-structural-root">${html}</div>`, { decodeEntities: false }, false);
     const root = fragment('#cms-structural-root');
@@ -257,6 +257,12 @@ function finalizeBuild(contentMap) {
     root.find('[contenteditable]').removeAttr('contenteditable');
     root.find('.visual-container-selected, .visual-block-selected, .visual-img-selected')
       .removeClass('visual-container-selected visual-block-selected visual-img-selected');
+
+    // The Beauty hero artwork already contains the complete automation hub.
+    // Keep the legacy favicon overlay out even if an older CMS session saves it again.
+    if (contentKey === 'beauty-sections') {
+      root.find('.industry-hero-favicon').remove();
+    }
 
     root.find('.cms-custom-block').each((i, el) => {
       const node = fragment(el);
@@ -354,7 +360,7 @@ function finalizeBuild(contentMap) {
           if (!isTextField && contentMap[key] !== undefined) {
             let value = contentMap[key];
             if (key && key.endsWith('-sections')) {
-              const sanitized = sanitizeStructuralCmsHtml(value, cheerio);
+              const sanitized = sanitizeStructuralCmsHtml(value, cheerio, key);
               if (hasBalancedStructuralHtml(sanitized)) {
                 value = sanitized;
               } else {
