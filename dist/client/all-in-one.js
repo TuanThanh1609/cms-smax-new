@@ -28,20 +28,22 @@
   });
 
   nav.innerHTML = catalog.groups.map((group, index) => `
-    <details class="aio-nav-group" data-nav-group="${group.id}" ${index === 0 ? 'open' : ''}>
-      <summary>
+    <div class="aio-nav-group ${index === 0 ? 'is-open' : ''}" data-nav-group="${group.id}">
+      <button class="aio-nav-toggle" type="button" aria-expanded="${index === 0 ? 'true' : 'false'}">
         <span>${group.title}</span>
         <span class="aio-nav-sign" aria-hidden="true"></span>
-      </summary>
-      <div class="aio-nav-links">
-        ${group.features.map((feature) => `
-          <a class="aio-nav-link" href="#${feature.id}" data-feature-link="${feature.id}">
-            <span>${feature.title}</span>
-            <small>${featureNumber.get(feature.id)}</small>
-          </a>
-        `).join('')}
+      </button>
+      <div class="aio-nav-panel">
+        <div class="aio-nav-links">
+          ${group.features.map((feature) => `
+            <a class="aio-nav-link" href="#${feature.id}" data-feature-link="${feature.id}">
+              <span>${feature.title}</span>
+              <small>${featureNumber.get(feature.id)}</small>
+            </a>
+          `).join('')}
+        </div>
       </div>
-    </details>
+    </div>
   `).join('');
 
   stream.innerHTML = catalog.groups.map((group, groupIndex) => `
@@ -138,7 +140,7 @@
 
       groupElement.hidden = visibleInGroup === 0;
       groupNav.hidden = visibleInGroup === 0;
-      if (term && visibleInGroup > 0) groupNav.open = true;
+      if (term) setGroupOpen(groupNav, visibleInGroup > 0);
     });
 
     empty.hidden = visibleFeatures > 0;
@@ -153,7 +155,13 @@
   let activeGroupId = '';
   let activeFeatureId = '';
   let scrollFrame = 0;
-  let syncingAccordion = false;
+
+  function setGroupOpen(group, shouldOpen) {
+    if (!group) return;
+    group.classList.toggle('is-open', shouldOpen);
+    group.querySelector('.aio-nav-toggle')
+      ?.setAttribute('aria-expanded', String(shouldOpen));
+  }
 
   const keepActiveItemVisible = (target) => {
     if (!sidebar || !target || window.innerWidth < 1020) return;
@@ -183,11 +191,9 @@
 
     activeGroupId = groupId;
     activeFeatureId = featureId;
-    syncingAccordion = true;
-    navGroups.forEach((details) => {
-      details.open = details.dataset.navGroup === groupId;
+    navGroups.forEach((group) => {
+      setGroupOpen(group, group.dataset.navGroup === groupId);
     });
-    syncingAccordion = false;
 
     nav.querySelectorAll('.aio-nav-link').forEach((link) => {
       link.classList.toggle('is-active', link.dataset.featureLink === featureId);
@@ -197,7 +203,7 @@
       ? nav.querySelector(`[data-feature-link="${featureId}"]`)
       : null;
     const activeGroup = nav.querySelector(`[data-nav-group="${groupId}"]`);
-    keepActiveItemVisible(activeLink || activeGroup?.querySelector('summary'));
+    keepActiveItemVisible(activeLink || activeGroup?.querySelector('.aio-nav-toggle'));
   };
 
   const updateNavigationFromScroll = () => {
@@ -233,14 +239,19 @@
     scrollFrame = requestAnimationFrame(updateNavigationFromScroll);
   };
 
-  navGroups.forEach((details) => {
-    details.addEventListener('toggle', () => {
-      if (!details.open || syncingAccordion || search?.value.trim()) return;
-      syncingAccordion = true;
+  navGroups.forEach((group) => {
+    group.querySelector('.aio-nav-toggle')?.addEventListener('click', () => {
+      const shouldOpen = !group.classList.contains('is-open');
+      if (search?.value.trim()) {
+        setGroupOpen(group, shouldOpen);
+        return;
+      }
+
       navGroups.forEach((other) => {
-        if (other !== details) other.open = false;
+        setGroupOpen(other, other === group && shouldOpen);
       });
-      syncingAccordion = false;
+      activeGroupId = '';
+      activeFeatureId = '';
     });
   });
 
