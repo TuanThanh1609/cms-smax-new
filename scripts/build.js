@@ -29,7 +29,8 @@ const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseAnonKey = process.env.SUPABASE_ANON_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 // We will run compilation if keys exist, then we will ALWAYS copy everything to public/ folder
-const hasKeys = supabaseUrl && supabaseAnonKey;
+// Allow local and CI validation builds without reading or repairing remote CMS data.
+const hasKeys = process.env.SKIP_CMS_SYNC !== '1' && supabaseUrl && supabaseAnonKey;
 
 if (hasKeys) {
   console.log('🚀 [Smax CMS] Fetching site content from Supabase...');
@@ -65,11 +66,12 @@ function fetchContentAndCompile() {
     };
 
     const req = https.request(reqOptions, (res) => {
-      let body = '';
+      const chunks = [];
       res.on('data', (chunk) => {
-        body += chunk.toString('utf8');
+        chunks.push(chunk);
       });
       res.on('end', () => {
+        const body = Buffer.concat(chunks).toString('utf8');
         if (res.statusCode !== 200) {
           console.error(`❌ [Smax CMS] Failed to fetch data: HTTP ${res.statusCode}`);
           console.error('Response:', body);
@@ -92,7 +94,7 @@ function fetchContentAndCompile() {
             const repairs = [];
             const cheerio = require('cheerio');
             const rootDir = path.resolve(__dirname, '..');
-            const pages = ['ecommerce', 'education', 'realestate', 'service', 'fb', 'agency', 'travel', 'health', 'beauty', 'custom_service'];
+            const pages = ['ecommerce', 'education', 'realestate', 'service', 'fb', 'agency', 'travel', 'health', 'beauty', 'custom_service', 'all-in-one'];
             const localDefaults = {};
 
             pages.forEach(page => {
@@ -190,11 +192,12 @@ function fetchContentAndCompile() {
               };
 
               const req = https.request(reqOptions, (res) => {
-                let body = '';
+                const chunks = [];
                 res.on('data', (chunk) => {
-                  body += chunk.toString('utf8');
+                  chunks.push(chunk);
                 });
                 res.on('end', () => {
+                  const body = Buffer.concat(chunks).toString('utf8');
                   if (res.statusCode >= 200 && res.statusCode < 300) {
                     console.log(`🎉 [Smax CMS Repair] Successfully synced ${repairs.length} repaired records to Supabase.`);
                   } else {

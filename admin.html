@@ -1914,6 +1914,7 @@
       { key: 'health', name: 'Sức khỏe & TPCN (health.html)' },
       { key: 'beauty', name: 'Thẩm mỹ & Làm đẹp (beauty.html)' },
       { key: 'partnership', name: 'Đối tác (partnership.html)' },
+      { key: 'all-in-one', name: 'Automation Map (all-in-one.html)' },
       { key: 'tich-hop', name: 'Tích hợp (tich-hop.html)' },
       { key: 'crm-sync', name: 'CRM & Đơn hàng (crm-sync.html)' },
       { key: 'livechat', name: 'Livechat (livechat.html)' },
@@ -2048,7 +2049,7 @@
           id: 'features',
           name: 'Tính năng (Features)',
           icon: 'folder',
-          pages: sitePages.filter(p => ['tich-hop', 'crm-sync', 'livechat', 'chatbot', 'genai', 'insight', 'marketing', 'gamification', 'remarketing', 'custom_service'].includes(p.key))
+          pages: sitePages.filter(p => ['all-in-one', 'tich-hop', 'crm-sync', 'livechat', 'chatbot', 'genai', 'insight', 'marketing', 'gamification', 'remarketing', 'custom_service'].includes(p.key))
         },
         {
           id: 'others',
@@ -2380,8 +2381,10 @@
         console.warn("Không thể tải cấu trúc HTML để sắp xếp:", e);
       }
       // Sanitize/clean any corrupted HTML blocks (e.g. unclosed divs inside phrasing containers)
+      // Exclude page-level structural fields (*-sections) which legitimately end with tags like </section> or </main>
       sortedData = sortedData.map(row => {
-        if (row.content_value && row.content_value.includes('cms-custom-block') && !row.content_value.trim().endsWith('</div>')) {
+        const isStructural = row.content_key && row.content_key.endsWith('-sections');
+        if (!isStructural && row.content_value && row.content_value.includes('cms-custom-block') && !row.content_value.trim().endsWith('</div>')) {
           console.log(`🔧 [Smax CMS Auto Repair] Cleaning corrupted HTML value for key: ${row.content_key}`);
           
           let clean = row.content_value.replace(/<\/p>\s*$/gi, '');
@@ -3967,7 +3970,9 @@
       temp.innerHTML = htmlStr;
 
       temp.querySelectorAll('.cms-editor-inline-helper, .img-resize-handle, .block-add-handle').forEach(el => el.remove());
-      temp.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
+      temp.querySelectorAll('*').forEach(el => {
+        if (el.hasAttribute('contenteditable')) el.removeAttribute('contenteditable');
+      });
       temp.querySelectorAll('.visual-container-selected, .visual-block-selected, .visual-img-selected').forEach(el => {
         el.classList.remove('visual-container-selected', 'visual-block-selected', 'visual-img-selected');
       });
