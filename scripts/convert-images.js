@@ -8,6 +8,10 @@ const jobs = [
     input: path.join(root, 'asset smax', 'smax-all-in-one', 'hero-smax-all-in-one-transparent.png'),
     output: path.join(root, 'asset smax', 'smax-all-in-one', 'hero-smax-all-in-one.webp'),
   },
+  {
+    input: path.join(root, 'asset smax', 'smax-all-in-one', 'feature-listing-visual-transparent.png'),
+    output: path.join(root, 'asset smax', 'smax-all-in-one', 'feature-listing-visual.webp'),
+  },
 ];
 
 async function convertImage({ input, output }) {

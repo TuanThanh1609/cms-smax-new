@@ -196,6 +196,71 @@
     article.append(detailHead, grid);
   }
 
+  function shortened(value, maxLength = 42) {
+    const text = withoutNumber(value);
+    return text.length > maxLength ? `${text.slice(0, maxLength - 1).trim()}…` : text;
+  }
+
+  function renderFeatureShowcase(chapter, model, article) {
+    const showcase = createElement(
+      "div",
+      `aio-feature-showcase${chapter.number % 2 === 0 ? " is-reversed" : ""}`,
+    );
+
+    const content = createElement("div", "aio-feature-showcase-content");
+    content.append(
+      createElement("span", "aio-feature-showcase-kicker", "Minh họa vận hành"),
+      createElement("h4", "", chapter.title),
+      createElement(
+        "p",
+        "",
+        `Một cách trực quan để hình dung ${chapter.title.toLocaleLowerCase("vi")} trong hành trình hội thoại và tự động hóa của Smax.`,
+      ),
+    );
+
+    const flowSource = chapter.descendants.length
+      ? chapter.descendants.slice(0, 3).map((item) => item.title)
+      : [model.group.title, chapter.chapter.title, "Hoàn tất tự động"];
+    const flow = createElement("div", "aio-feature-showcase-flow");
+    flowSource.forEach((item, index) => {
+      const step = createElement("div", "aio-feature-showcase-step");
+      step.append(
+        createElement("span", "", String(index + 1).padStart(2, "0")),
+        createElement("strong", "", shortened(item)),
+      );
+      flow.append(step);
+    });
+    content.append(flow);
+
+    const updatedSource = chapter.chapter.updatedAt || model.group.updatedAt;
+    const updatedYear = updatedSource ? new Date(updatedSource).getFullYear() : 2026;
+    const metrics = createElement("div", "aio-feature-showcase-metrics");
+    [
+      { value: String(chapter.descendants.length + 1), label: "nội dung" },
+      { value: String(chapter.number).padStart(2, "0"), label: "chương tính năng" },
+      { value: String(updatedYear), label: "năm cập nhật" },
+    ].forEach((metric) => {
+      const item = createElement("div", "");
+      item.append(createElement("strong", "", metric.value), createElement("span", "", metric.label));
+      metrics.append(item);
+    });
+    content.append(metrics);
+
+    const figure = createElement("figure", "aio-feature-showcase-visual");
+    const image = document.createElement("img");
+    image.src = chapter.number % 2 === 0
+      ? "asset smax/smax-all-in-one/feature-listing-visual.webp"
+      : "asset smax/smax-all-in-one/hero-smax-all-in-one.webp";
+    image.alt = `Minh họa ${chapter.title} với cô gái Việt Nam, màn hình chat, luồng tự động hóa và chỉ số`;
+    image.loading = "lazy";
+    image.width = 1536;
+    image.height = 1024;
+    figure.append(image);
+
+    showcase.append(content, figure);
+    article.append(showcase);
+  }
+
   function renderFeatureStream(models, stream) {
     models.forEach((model) => {
       const groupSection = createElement("section", `aio-feature-group aio-feature-tone-${(model.groupIndex % 4) + 1}`);
@@ -244,6 +309,7 @@
           : model.profile.description;
 
         article.append(chapterHead, createElement("p", "aio-feature-chapter-lead", lead));
+        renderFeatureShowcase(chapter, model, article);
         renderSubfeatures(chapter, article);
         groupSection.append(article);
       });
