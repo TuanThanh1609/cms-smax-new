@@ -1,0 +1,1182 @@
+[
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-btn-1",
+    "content_value": "Thử miễn phí"
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-1",
+    "content_value": "Case Study"
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-2",
+    "content_value": "Phan Hoàng Đa"
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-3",
+    "content_value": "Cập nhật ngày 25 Tháng 6, 2026"
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-4",
+    "content_value": "7 phút đọc"
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-5",
+    "content_value": "<a href=\"#intro\">1. Giới thiệu</a>"
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-6",
+    "content_value": "<a href=\"#painpoints\">2. Điểm nghẽn vận hành</a>"
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-7",
+    "content_value": "<a href=\"#solution\">3. Kịch bản tự động hóa</a>"
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-8",
+    "content_value": "<a href=\"#results\">4. Kết quả &amp; Đánh giá</a>"
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-9",
+    "content_value": "Phan Hoàng Đa"
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-10",
+    "content_value": "<strong>Tỷ lệ bỏ rơi giỏ hàng (Cart Abandonment) cao:</strong> Có đến 75% khách hàng thêm hàng vào giỏ hoặc nhắn tin hỏi mua nhưng không hoàn tất giao dịch vì nhân sự trực page phản hồi trễ quá 15 phút."
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-11",
+    "content_value": "<strong>Dữ liệu khách hàng phân mảnh:</strong> Khách nhắn tin từ Zalo OA, Facebook Page và mua tại cửa hàng được lưu trữ ở 3 phần mềm khác nhau, nhân viên không biết lịch sử mua sắm (Customer 360) để tư vấn chính xác."
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-12",
+    "content_value": "<strong>Chăm sóc sau mua bỏ ngỏ:</strong> Việc gửi tin nhắn chúc mừng, xin đánh giá sản phẩm hay nhắc nhở ưu đãi sinh nhật đều làm thủ công bằng Excel, tốn nhân lực và hay xảy ra sai sót."
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-13",
+    "content_value": "<strong>Sau 1 giờ:</strong> Chatbot gửi tin nhắn nhắc nhở kèm hình ảnh giỏ hàng thân thiện."
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-14",
+    "content_value": "<strong>Sau 24 giờ:</strong> Hệ thống tự động gửi tặng mã giảm giá độc quyền giới hạn thời gian (flash sale) kích hoạt chuyển đổi."
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-15",
+    "content_value": "<strong>Sau 3 ngày:</strong> Chatbot tự động gửi tin nhắn thăm hỏi độ hài lòng của sản phẩm kèm link khảo sát sao."
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-16",
+    "content_value": "<strong>Sau 30 ngày:</strong> Gửi thông báo tích điểm thành viên và đề xuất sản phẩm phối cùng dựa trên dữ liệu mua sắm trước đó (Kích hoạt bán lại)."
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-17",
+    "content_value": "AI &amp; Automation"
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-18",
+    "content_value": "22 Tháng 6, 2026"
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-19",
+    "content_value": "5 phút đọc"
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-20",
+    "content_value": "Case Study"
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-21",
+    "content_value": "18 Tháng 6, 2026"
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-22",
+    "content_value": "6 phút đọc"
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-23",
+    "content_value": "Tài liệu"
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-24",
+    "content_value": "14 Tháng 6, 2026"
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-text-25",
+    "content_value": "8 phút đọc"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-btn-1",
+    "content_value": "Đọc bài viết"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-btn-2",
+    "content_value": "Đăng ký ngay"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-text-1",
+    "content_value": "Bài viết nổi bật"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-text-2",
+    "content_value": "By Phan Hoàng Đa"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-text-3",
+    "content_value": "25 Tháng 6, 2026"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-text-4",
+    "content_value": "7 phút đọc"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-text-5",
+    "content_value": "AI &amp; Automation"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-text-6",
+    "content_value": "22 Tháng 6, 2026"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-text-7",
+    "content_value": "5 phút đọc"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-text-8",
+    "content_value": "Case Study"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-text-9",
+    "content_value": "18 Tháng 6, 2026"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-text-10",
+    "content_value": "6 phút đọc"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-text-11",
+    "content_value": "Tài liệu"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-text-12",
+    "content_value": "14 Tháng 6, 2026"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-text-13",
+    "content_value": "8 phút đọc"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-text-14",
+    "content_value": "Tính năng mới"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-text-15",
+    "content_value": "10 Tháng 6, 2026"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-text-16",
+    "content_value": "4 phút đọc"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-text-17",
+    "content_value": "AI &amp; Automation"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-text-18",
+    "content_value": "05 Tháng 6, 2026"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-text-19",
+    "content_value": "5 phút đọc"
+  },
+  {
+    "page_name": "chatbot",
+    "content_key": "chatbot-btn-1",
+    "content_value": "Đăng ký tư vấn"
+  },
+  {
+    "page_name": "chatbot",
+    "content_key": "chatbot-btn-2",
+    "content_value": "Trải nghiệm miễn phí"
+  },
+  {
+    "page_name": "chatbot",
+    "content_key": "chatbot-btn-3",
+    "content_value": "Áp dụng mã ngay"
+  },
+  {
+    "page_name": "chatbot",
+    "content_key": "chatbot-btn-4",
+    "content_value": "Dùng thử miễn phí"
+  },
+  {
+    "page_name": "chatbot",
+    "content_key": "chatbot-btn-5",
+    "content_value": "Đặt lịch hẹn tư vấn"
+  },
+  {
+    "page_name": "crm-sync",
+    "content_key": "crm-sync-btn-1",
+    "content_value": "Đăng ký tư vấn"
+  },
+  {
+    "page_name": "crm-sync",
+    "content_key": "crm-sync-btn-2",
+    "content_value": "Trải nghiệm miễn phí"
+  },
+  {
+    "page_name": "crm-sync",
+    "content_key": "crm-sync-btn-3",
+    "content_value": "Dùng thử miễn phí"
+  },
+  {
+    "page_name": "crm-sync",
+    "content_key": "crm-sync-btn-4",
+    "content_value": "Đặt lịch hẹn tư vấn"
+  },
+  {
+    "page_name": "fb",
+    "content_key": "fb-img-1",
+    "content_value": "asset smax/fb/visuals/bento-nhac-lich.png"
+  },
+  {
+    "page_name": "fb",
+    "content_key": "fb-img-2",
+    "content_value": "asset smax/fb/visuals/bento-minigame.png"
+  },
+  {
+    "page_name": "fb",
+    "content_key": "fb-img-3",
+    "content_value": "asset smax/fb/visuals/bento-csat.png"
+  },
+  {
+    "page_name": "fb",
+    "content_key": "fb-img-4",
+    "content_value": "asset smax/fb/visuals/bento-sinh-nhat.png"
+  },
+  {
+    "page_name": "gamification",
+    "content_key": "gamification-btn-1",
+    "content_value": "Đăng ký tư vấn"
+  },
+  {
+    "page_name": "gamification",
+    "content_key": "gamification-btn-2",
+    "content_value": "Trải nghiệm miễn phí"
+  },
+  {
+    "page_name": "gamification",
+    "content_key": "gamification-btn-3",
+    "content_value": "Dùng thử miễn phí"
+  },
+  {
+    "page_name": "gamification",
+    "content_key": "gamification-btn-4",
+    "content_value": "Đặt lịch hẹn tư vấn"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-1",
+    "content_value": "asset smax/integration-icons/facebook.svg"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-2",
+    "content_value": "asset smax/integration-icons/zalo.svg"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-3",
+    "content_value": "asset smax/integration-icons/tiktok.svg"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-4",
+    "content_value": "asset smax/integration-icons/instagram.svg"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-5",
+    "content_value": "asset smax/integration-icons/shopee.svg"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-6",
+    "content_value": "asset smax/integration-icons/facebook.svg"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-7",
+    "content_value": "asset smax/integration-icons/zalo.svg"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-8",
+    "content_value": "asset smax/integration-icons/tiktok.svg"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-9",
+    "content_value": "asset smax/integration-icons/instagram.svg"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-10",
+    "content_value": "asset smax/integration-icons/shopee.svg"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-11",
+    "content_value": "asset smax/gamification/game-flow-chat-v2.webp"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-12",
+    "content_value": "asset smax/gamification/reward-distribution-v2.webp"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-13",
+    "content_value": "asset smax/gamification/voucher-conversion-v2.webp"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-14",
+    "content_value": "docs/ui-gamification/tong-quan-quan-ly_2.webp"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-15",
+    "content_value": "docs/ui-gamification/lucky-wheel-add-turn-number_img_22e53559.webp"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-16",
+    "content_value": "docs/ui-gamification/gift-opening-game_img_ab1786bb.webp"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-17",
+    "content_value": "docs/ui-gamification/tong-quan-giao-dien-quan-ly_2.webp"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-18",
+    "content_value": "docs/ui-gamification/gift-opening-game_img_19679329.webp"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-19",
+    "content_value": "asset smax/ai-insight/bao-cao-tu-van-chot-don.webp"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-20",
+    "content_value": "asset smax/ai-insight/bao-cao-cham-soc-sau-mua.webp"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-21",
+    "content_value": "asset smax/ai-insight/bao-cao-ket-qua-chot-don.webp"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-22",
+    "content_value": "asset smax/gamification/game-flow-chat-v2.webp"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-23",
+    "content_value": "asset smax/gamification/hero-gamification-smax-v2.webp"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-img-24",
+    "content_value": "asset smax/gamification/voucher-conversion-v2.webp"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-btn-1",
+    "content_value": "Đăng ký tư vấn"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-btn-2",
+    "content_value": "Trải nghiệm miễn phí"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-btn-3",
+    "content_value": "Dùng thử miễn phí"
+  },
+  {
+    "page_name": "gamification_test",
+    "content_key": "gamification_test-btn-4",
+    "content_value": "Đặt lịch hẹn tư vấn"
+  },
+  {
+    "page_name": "genai",
+    "content_key": "genai-btn-1",
+    "content_value": "Đăng ký tư vấn"
+  },
+  {
+    "page_name": "genai",
+    "content_key": "genai-btn-2",
+    "content_value": "Trải nghiệm miễn phí"
+  },
+  {
+    "page_name": "genai",
+    "content_key": "genai-btn-3",
+    "content_value": "Dùng thử miễn phí"
+  },
+  {
+    "page_name": "genai",
+    "content_key": "genai-btn-4",
+    "content_value": "Đặt lịch hẹn tư vấn"
+  },
+  {
+    "page_name": "health",
+    "content_key": "health-btn-1",
+    "content_value": "Dùng thử miễn phí"
+  },
+  {
+    "page_name": "health",
+    "content_key": "health-btn-2",
+    "content_value": "Đặt lịch tư vấn"
+  },
+  {
+    "page_name": "index",
+    "content_key": "index-btn-1",
+    "content_value": "Dùng thử miễn phí"
+  },
+  {
+    "page_name": "index",
+    "content_key": "index-btn-2",
+    "content_value": "<span class=\"play-dot\"></span>Xem sản phẩm"
+  },
+  {
+    "page_name": "index",
+    "content_key": "index-btn-3",
+    "content_value": "Thiết lập bản đồ tự động hóa ngay"
+  },
+  {
+    "page_name": "index",
+    "content_key": "index-btn-4",
+    "content_value": "Khám phá tất cả kịch bản"
+  },
+  {
+    "page_name": "index",
+    "content_key": "index-btn-5",
+    "content_value": "Đăng ký tư vấn ngay"
+  },
+  {
+    "page_name": "index",
+    "content_key": "index-btn-6",
+    "content_value": "Dùng thử miễn phí"
+  },
+  {
+    "page_name": "index",
+    "content_key": "index-btn-7",
+    "content_value": "Đăng ký tư vấn"
+  },
+  {
+    "page_name": "index",
+    "content_key": "index-btn-8",
+    "content_value": "Vẽ Automation Map"
+  },
+  {
+    "page_name": "insight",
+    "content_key": "insight-btn-1",
+    "content_value": "Dùng thử miễn phí"
+  },
+  {
+    "page_name": "insight",
+    "content_key": "insight-btn-2",
+    "content_value": "Đặt lịch hẹn tư vấn"
+  },
+  {
+    "page_name": "livechat",
+    "content_key": "livechat-btn-1",
+    "content_value": "Đăng ký tư vấn"
+  },
+  {
+    "page_name": "livechat",
+    "content_key": "livechat-btn-2",
+    "content_value": "Trải nghiệm miễn phí"
+  },
+  {
+    "page_name": "livechat",
+    "content_key": "livechat-btn-3",
+    "content_value": "Dùng thử miễn phí"
+  },
+  {
+    "page_name": "livechat",
+    "content_key": "livechat-btn-4",
+    "content_value": "Đặt lịch hẹn tư vấn"
+  },
+  {
+    "page_name": "marketing",
+    "content_key": "marketing-btn-1",
+    "content_value": "Đăng ký tư vấn"
+  },
+  {
+    "page_name": "marketing",
+    "content_key": "marketing-btn-2",
+    "content_value": "Trải nghiệm miễn phí"
+  },
+  {
+    "page_name": "marketing",
+    "content_key": "marketing-btn-3",
+    "content_value": "Xem chi tiết"
+  },
+  {
+    "page_name": "marketing",
+    "content_key": "marketing-btn-4",
+    "content_value": "Xem chi tiết"
+  },
+  {
+    "page_name": "marketing",
+    "content_key": "marketing-btn-5",
+    "content_value": "Xem chi tiết"
+  },
+  {
+    "page_name": "marketing",
+    "content_key": "marketing-btn-6",
+    "content_value": "Dùng thử miễn phí"
+  },
+  {
+    "page_name": "marketing",
+    "content_key": "marketing-btn-7",
+    "content_value": "Đặt lịch hẹn tư vấn"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-img-1",
+    "content_value": "asset smax/product-bento/smax-genai.png"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-img-2",
+    "content_value": "asset smax/product-bento/crm-connect.png"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-img-3",
+    "content_value": "asset smax/product-bento/marketing-tools.png"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-img-4",
+    "content_value": "asset smax/product-bento/remarketing.png"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-img-5",
+    "content_value": "asset smax/integration-feature-cards/advanced-03-rest-api.png"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-btn-1",
+    "content_value": "Đăng ký hợp tác"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-btn-2",
+    "content_value": "Xem mô hình phù hợp"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-btn-3",
+    "content_value": "Đăng ký tham gia"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-btn-4",
+    "content_value": "Đăng ký tham gia"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-btn-5",
+    "content_value": "Đăng ký tham gia"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-btn-6",
+    "content_value": "Đăng ký tham gia"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-btn-7",
+    "content_value": "Đăng ký tham gia ngay"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-btn-8",
+    "content_value": "Liên hệ trực tiếp hỗ trợ"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-1",
+    "content_value": "ĐỐI TÁC SMAX"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-2",
+    "content_value": "Cùng bán — cùng triển khai — cùng tăng trưởng"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-3",
+    "content_value": "hệ sinh thái Smax.ai"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-4",
+    "content_value": "Partner API &amp; Webhook"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-5",
+    "content_value": "Tài liệu triển khai thực chiến"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-6",
+    "content_value": "Hỗ trợ presales &amp; kỹ thuật"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-7",
+    "content_value": "Bán hàng · Triển khai · Tích hợp · Đào tạo"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-8",
+    "content_value": "Không chỉ giới thiệu phần mềm. Bạn có thể xây cả một giải pháp."
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-9",
+    "content_value": "Partner API của Smax.ai cho phép kết nối CRM, ERP, website, n8n, Make, Zapier và ứng dụng riêng. Đối tác có thể quản lý khách hàng, hội thoại, tin nhắn đa kênh, sản phẩm và đơn hàng trong cùng một kiến trúc tích hợp."
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-10",
+    "content_value": "nhóm chức năng chính"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-11",
+    "content_value": "endpoint phục vụ tích hợp"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-12",
+    "content_value": "HTTPS · JSON · JWT"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-13",
+    "content_value": "Từ đăng ký đến triển khai khách hàng đầu tiên"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-14",
+    "content_value": "Một quy trình rõ ràng để hai bên nhanh chóng thống nhất mô hình, năng lực và cách phối hợp."
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-15",
+    "content_value": "Khám phá &amp; phân loại"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-16",
+    "content_value": "Smax tìm hiểu năng lực, tệp khách hàng và mục tiêu để đề xuất mô hình đối tác phù hợp."
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-17",
+    "content_value": "Thống nhất chính sách"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-18",
+    "content_value": "Hai bên làm rõ phạm vi hợp tác, quyền lợi, cách ghi nhận doanh số và đầu mối hỗ trợ."
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-19",
+    "content_value": "Đào tạo &amp; kích hoạt"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-20",
+    "content_value": "Nhận tài liệu, môi trường demo, hướng dẫn sản phẩm và hỗ trợ xây use case đầu tiên."
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-21",
+    "content_value": "Go-to-market"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-22",
+    "content_value": "Cùng presales, triển khai, theo dõi cơ hội và mở rộng doanh thu trên tệp khách hàng."
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-23",
+    "content_value": "Những điều đối tác thường muốn biết trước khi bắt đầu"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-24",
+    "content_value": "Thông tin cơ bản để bạn đánh giá mức độ phù hợp trước khi gửi đăng ký."
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-25",
+    "content_value": "Có. Đội ngũ Smax sẽ đánh giá nền tảng chuyên môn hiện tại, sau đó đề xuất lộ trình đào tạo sản phẩm và use case phù hợp trước khi cùng triển khai khách hàng."
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-26",
+    "content_value": "Partner API hỗ trợ các nhóm dữ liệu và tác vụ về khách hàng, hội thoại, tin nhắn, trang/kênh, nhãn, block, sản phẩm, đơn hàng và integration. Phạm vi triển khai cụ thể phụ thuộc quyền API và kiến trúc của từng hệ thống."
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-27",
+    "content_value": "Chính sách được xác định theo mô hình đối tác, cấp độ hợp tác, vai trò trong quy trình bán hàng và phạm vi triển khai. Đội ngũ phụ trách sẽ gửi bảng chính sách phù hợp sau bước trao đổi ban đầu."
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-28",
+    "content_value": "Đối tác được cung cấp tài liệu sản phẩm, demo, tư vấn use case, đào tạo triển khai và đầu mối hỗ trợ kỹ thuật. Với cơ hội phù hợp, hai bên có thể phối hợp demo hoặc workshop cùng khách hàng."
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-29",
+    "content_value": "Hồ sơ sẽ được chuyển đến đầu mối phụ trách để đánh giá mô hình hợp tác. Smax dự kiến liên hệ lại trong vòng 24 giờ làm việc để xác nhận thông tin và sắp xếp buổi trao đổi."
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-30",
+    "content_value": "Họ và tên *"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-31",
+    "content_value": "Số điện thoại *"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-32",
+    "content_value": "Email công việc *"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-33",
+    "content_value": "Doanh nghiệp / tổ chức *"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-34",
+    "content_value": "Hình thức hợp tác mong muốn *"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-35",
+    "content_value": "Website / trang giới thiệu"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-36",
+    "content_value": "Tệp khách hàng chính"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-37",
+    "content_value": "Mục tiêu hợp tác *"
+  },
+  {
+    "page_name": "partnership",
+    "content_key": "partnership-text-38",
+    "content_value": "Bằng việc gửi thông tin, bạn đồng ý để Smax.ai liên hệ tư vấn về chương trình đối tác."
+  },
+  {
+    "page_name": "remarketing",
+    "content_key": "remarketing-btn-1",
+    "content_value": "Dùng thử miễn phí"
+  },
+  {
+    "page_name": "remarketing",
+    "content_key": "remarketing-btn-2",
+    "content_value": "Đặt lịch hẹn tư vấn"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-btn-1",
+    "content_value": "Đặt lại bộ lọc"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-1",
+    "content_value": "Thư viện mẫu Smax.ai"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-2",
+    "content_value": "Kho Template kịch bản tối ưu"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-3",
+    "content_value": "Khám phá và áp dụng ngay các kịch bản chatbot, AI Agent và quy trình tự động hóa vận hành được cấu hình sẵn theo ngành hàng của bạn."
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-4",
+    "content_value": "Bộ lọc"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-5",
+    "content_value": "Lọc kịch bản"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-6",
+    "content_value": "Loại kịch bản"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-7",
+    "content_value": "<input type=\"radio\" name=\"category\" value=\"all\" checked=\"\">\n                      <span>Tất cả</span>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-8",
+    "content_value": "Tất cả"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-9",
+    "content_value": "<input type=\"radio\" name=\"category\" value=\"interaction\">\n                      <span>Tương tác mẫu</span>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-10",
+    "content_value": "Tương tác mẫu"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-11",
+    "content_value": "<input type=\"radio\" name=\"category\" value=\"care\">\n                      <span>Chăm sóc khách hàng</span>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-12",
+    "content_value": "Chăm sóc khách hàng"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-13",
+    "content_value": "<input type=\"radio\" name=\"category\" value=\"operations\">\n                      <span>Vận hành &amp; Kết nối</span>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-14",
+    "content_value": "Vận hành &amp; Kết nối"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-15",
+    "content_value": "<input type=\"radio\" name=\"category\" value=\"meta\">\n                      <span>Meta Business AI</span>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-16",
+    "content_value": "Meta Business AI"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-17",
+    "content_value": "Nền tảng kết nối"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-18",
+    "content_value": "<input type=\"checkbox\" name=\"platform\" value=\"facebook\">\n                        <span>Facebook Messenger</span>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-19",
+    "content_value": "Facebook Messenger"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-20",
+    "content_value": "<input type=\"checkbox\" name=\"platform\" value=\"zalo\">\n                        <span>Zalo OA</span>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-21",
+    "content_value": "Zalo OA"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-22",
+    "content_value": "<input type=\"checkbox\" name=\"platform\" value=\"whatsapp\">\n                        <span>WhatsApp Business</span>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-23",
+    "content_value": "WhatsApp Business"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-24",
+    "content_value": "<input type=\"checkbox\" name=\"platform\" value=\"instagram\">\n                        <span>Instagram DM</span>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-25",
+    "content_value": "Instagram DM"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-26",
+    "content_value": "<input type=\"checkbox\" name=\"platform\" value=\"sapo\">\n                        <span>Sapo</span>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-27",
+    "content_value": "Sapo"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-28",
+    "content_value": "<input type=\"checkbox\" name=\"platform\" value=\"haravan\">\n                        <span>Haravan</span>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-29",
+    "content_value": "Haravan"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-30",
+    "content_value": "<input type=\"checkbox\" name=\"platform\" value=\"kiotviet\">\n                        <span>KiotViet</span>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-31",
+    "content_value": "KiotViet"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-32",
+    "content_value": "<input type=\"checkbox\" name=\"platform\" value=\"nhanh\">\n                        <span>Nhanh.vn</span>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-33",
+    "content_value": "Nhanh.vn"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-34",
+    "content_value": "<input type=\"checkbox\" name=\"platform\" value=\"poscake\">\n                        <span>PosCake</span>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-35",
+    "content_value": "PosCake"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-36",
+    "content_value": "Ngành hàng &amp; Lĩnh vực"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-37",
+    "content_value": "<input type=\"checkbox\" name=\"industry\" value=\"ecommerce\">\n                        <span>E-commerce &amp; Bán lẻ</span>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-38",
+    "content_value": "E-commerce &amp; Bán lẻ"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-39",
+    "content_value": "<input type=\"checkbox\" name=\"industry\" value=\"fb\">\n                        <span>F&amp;B (Ẩm thực)</span>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-40",
+    "content_value": "F&amp;B (Ẩm thực)"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-41",
+    "content_value": "<input type=\"checkbox\" name=\"industry\" value=\"service\">\n                        <span>Dịch vụ &amp; Spa</span>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-42",
+    "content_value": "Dịch vụ &amp; Spa"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-43",
+    "content_value": "<input type=\"checkbox\" name=\"industry\" value=\"education\">\n                        <span>Giáo dục &amp; Tuyển sinh</span>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-44",
+    "content_value": "Giáo dục &amp; Tuyển sinh"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-45",
+    "content_value": "<input type=\"checkbox\" name=\"industry\" value=\"realestate\">\n                        <span>Bất động sản</span>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-46",
+    "content_value": "Bất động sản"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-47",
+    "content_value": "<input type=\"checkbox\" name=\"industry\" value=\"agency\">\n                        <span>Agency &amp; Tư vấn</span>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-48",
+    "content_value": "Agency &amp; Tư vấn"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-49",
+    "content_value": "Lọc"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-50",
+    "content_value": "Sắp xếp:"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-text-51",
+    "content_value": "Không tìm thấy kịch bản mẫu nào phù hợp với bộ lọc đã chọn."
+  },
+  {
+    "page_name": "tich-hop",
+    "content_key": "tich-hop-btn-1",
+    "content_value": "Kết nối hệ thống ngay"
+  },
+  {
+    "page_name": "tich-hop",
+    "content_key": "tich-hop-btn-2",
+    "content_value": "Tìm hiểu giải pháp"
+  },
+  {
+    "page_name": "tich-hop",
+    "content_key": "tich-hop-btn-3",
+    "content_value": "Dùng thử miễn phí"
+  },
+  {
+    "page_name": "tich-hop",
+    "content_key": "tich-hop-btn-4",
+    "content_value": "Đăng ký tư vấn"
+  },
+  {
+    "page_name": "tich-hop",
+    "content_key": "tich-hop-btn-5",
+    "content_value": "Vẽ Automation Map"
+  },
+  {
+    "page_name": "travel",
+    "content_key": "travel-btn-1",
+    "content_value": "Đăng ký demo"
+  },
+  {
+    "page_name": "travel",
+    "content_key": "travel-btn-2",
+    "content_value": "Xem hành trình tự động"
+  },
+  {
+    "page_name": "travel",
+    "content_key": "travel-btn-3",
+    "content_value": "Dùng thử miễn phí"
+  },
+  {
+    "page_name": "travel",
+    "content_key": "travel-btn-4",
+    "content_value": "Đặt lịch tư vấn"
+  },
+  {
+    "page_name": "blog",
+    "content_key": "blog-sections",
+    "content_value": "<!-- Hero Section -->\n      <section class=\"blog-hero\">\n        <div class=\"container\">\n          <p class=\"eyebrow\" style=\"margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.15em; font-size: 11px; font-weight: 800; color: var(--blue);\" data-cms=\"blog-text-1\">Smax.ai Insights</p>\n          <h1 data-cms=\"blog-hero-title\" style=\"font-size: 38px; font-weight: 900; color: var(--ink); margin-bottom: 16px; letter-spacing: -0.02em;\">Tin tức &amp; Blog công nghệ</h1>\n          <p style=\"font-size: 16px; color: var(--muted); max-width: 600px; margin: 0 auto; line-height: 1.5; font-weight: 550;\" data-cms=\"blog-text-2\">\n            Khám phá xu hướng công nghệ mới, hướng dẫn tích hợp AI và các Case Study tự động hóa tăng trưởng doanh thu thực chiến.\n          </p>\n        </div>\n      </section>\n\n      <!-- Featured Section -->\n      <section class=\"blog-featured-section\">\n        <div class=\"container\">\n          <article class=\"featured-card\">\n            <div class=\"featured-info\">\n              <span class=\"blog-badge badge-featured\" data-cms=\"blog-text-1\">Bài viết nổi bật</span>\n              <h2 data-cms=\"blog-text-3\">Cách SmaxAI giúp tăng trưởng doanh thu 200% nhờ tự động hóa hành trình khách hàng</h2>\n              <p data-cms=\"blog-text-4\">\n                Phân tích Case Study thực tế từ chuỗi bán lẻ tối ưu hóa hoạt động tiếp cận, chốt đơn tự động đến chăm sóc sau mua thông qua Automation Map, giúp giảm thiểu 50% chi phí vận hành và tăng gấp đôi tỷ lệ giữ chân khách hàng cũ.\n              </p>\n              <div class=\"blog-meta-row\">\n                <img src=\"asset smax/smax-ai-logo.png\" alt=\"Smax Team\" class=\"blog-author-avatar\" data-cms-img=\"blog-img-1\">\n                <span data-cms=\"blog-text-2\">By Phan Hoàng Đa</span>\n                <span>•</span>\n                <span data-cms=\"blog-text-3\">25 Tháng 6, 2026</span>\n                <span>•</span>\n                <span data-cms=\"blog-text-4\">7 phút đọc</span>\n              </div>\n              <a href=\"blog-detail.html\" class=\"btn btn-soft\" style=\"padding: 12px 24px; font-size: 13px; font-weight: 750;\" data-cms=\"blog-btn-1\">Đọc bài viết</a>\n            </div>\n            <div class=\"featured-img-wrapper\">\n              <img src=\"asset smax/blog_banner_featured.png\" alt=\"Tăng trưởng doanh thu 200%\" class=\"featured-img\" data-cms-img=\"blog-img-2\">\n            </div>\n          </article>\n        </div>\n      </section>\n\n      <!-- Archive / Grid Section -->\n      <section class=\"blog-grid-section\">\n        <div class=\"container\">\n          <!-- Filter tabs -->\n          <div class=\"blog-filter-bar\" role=\"tablist\">\n            <button class=\"filter-tab active\" data-filter=\"all\">Tất cả</button>\n            <button class=\"filter-tab\" data-filter=\"ai\">AI &amp; Automation</button>\n            <button class=\"filter-tab\" data-filter=\"case\">Case Study</button>\n            <button class=\"filter-tab\" data-filter=\"docs\">Tài liệu</button>\n            <button class=\"filter-tab\" data-filter=\"news\">Tính năng mới</button>\n          </div>\n\n          <!-- Cards Grid -->\n          <div class=\"blog-grid\" id=\"blog-grid-container\">\n            \n            <!-- Card 1: AI & Automation -->\n            <article class=\"blog-card\" data-category=\"ai\">\n              <div class=\"blog-card-img-wrapper\">\n                <img src=\"asset smax/blog_banner_genai.png\" alt=\"Xu hướng GenAI\" class=\"blog-card-img\" data-cms-img=\"blog-img-3\">\n              </div>\n              <div class=\"blog-card-content\">\n                <span class=\"blog-badge badge-ai\" style=\"align-self: flex-start;\" data-cms=\"blog-text-5\">AI &amp; Automation</span>\n                <h3 data-cms=\"blog-text-5\">Xuuyên ứng dụng GenAI và Meta Business AI trong Social Commerce 2026</h3>\n                <p data-cms=\"blog-text-6\">Khám phá cách sự kết hợp giữa mô hình ngôn ngữ lớn GenAI và Meta Business AI tạo ra những bước nhảy vọt trong quy trình tự động tư vấn, chốt đơn trực tiếp thông qua hội thoại Messenger và WhatsApp.</p>\n                <div class=\"blog-card-footer\">\n                  <span data-cms=\"blog-text-6\">22 Tháng 6, 2026</span>\n                  <span data-cms=\"blog-text-7\">5 phút đọc</span>\n                </div>\n              </div>\n            </article>\n\n            <!-- Card 2: Case Study -->\n            <article class=\"blog-card\" data-category=\"case\">\n              <div class=\"blog-card-img-wrapper\">\n                <img src=\"asset smax/blog_banner_retail.png\" alt=\"Tự động hóa chuỗi cửa hàng\" class=\"blog-card-img\" data-cms-img=\"blog-img-4\">\n              </div>\n              <div class=\"blog-card-content\">\n                <span class=\"blog-badge badge-case\" style=\"align-self: flex-start;\" data-cms=\"blog-text-8\">Case Study</span>\n                <h3 data-cms=\"blog-text-7\">Chuỗi cửa hàng thời trang tự động hóa vận hành 10.000 đơn hàng/ngày với Automation Map</h3>\n                <p data-cms=\"blog-text-8\">Hành trình xây dựng quy trình tự động hoàn toàn từ khâu thu thập thông tin khách hàng, bám đuổi giỏ hàng bỏ quên đến đồng bộ tự động lên POS KiotViet và Nhanh.vn.</p>\n                <div class=\"blog-card-footer\">\n                  <span data-cms=\"blog-text-9\">18 Tháng 6, 2026</span>\n                  <span data-cms=\"blog-text-10\">6 phút đọc</span>\n                </div>\n              </div>\n            </article>\n\n            <!-- Card 3: Hướng dẫn / Tài liệu -->\n            <article class=\"blog-card\" data-category=\"docs\">\n              <div class=\"blog-card-img-wrapper\">\n                <img src=\"asset smax/blog_banner_crm.png\" alt=\"Tích hợp CRM Lark\" class=\"blog-card-img\" data-cms-img=\"blog-img-5\">\n              </div>\n              <div class=\"blog-card-content\">\n                <span class=\"blog-badge badge-docs\" style=\"align-self: flex-start;\" data-cms=\"blog-text-11\">Tài liệu</span>\n                <h3 data-cms=\"blog-text-9\">Hướng dẫn tích hợp Google Sheets, Lark và CRM kết nối dữ liệu Customer 360</h3>\n                <p data-cms=\"blog-text-10\">Từng bước xây dựng hệ thống thu thập thông tin khách hàng từ mọi điểm chạm và tự động ghi nhận lịch sử trao đổi đa kênh vào Google Sheets và Lark Base tập trung.</p>\n                <div class=\"blog-card-footer\">\n                  <span data-cms=\"blog-text-12\">14 Tháng 6, 2026</span>\n                  <span data-cms=\"blog-text-13\">8 phút đọc</span>\n                </div>\n              </div>\n            </article>\n\n            <!-- Card 4: Tính năng mới -->\n            <article class=\"blog-card\" data-category=\"news\">\n              <div class=\"blog-card-img-wrapper\">\n                <img src=\"asset smax/blog_banner_aiagent.png\" alt=\"AI Agent Voice\" class=\"blog-card-img\" data-cms-img=\"blog-img-6\">\n              </div>\n              <div class=\"blog-card-content\">\n                <span class=\"blog-badge badge-news\" style=\"align-self: flex-start;\" data-cms=\"blog-text-14\">Tính năng mới</span>\n                <h3 data-cms=\"blog-text-11\">SmaxAI ra mắt tính năng AI Agent tự động gọi và thuyết phục khách hàng thanh toán</h3>\n                <p data-cms=\"blog-text-12\">Đột phá công nghệ mới giúp các doanh nghiệp thương mại điện tử tự động hóa khâu gọi xác nhận đơn hàng và nhắc nhở thanh toán hóa đơn quá hạn một cách tự nhiên như người thật.</p>\n                <div class=\"blog-card-footer\">\n                  <span data-cms=\"blog-text-15\">10 Tháng 6, 2026</span>\n                  <span data-cms=\"blog-text-16\">4 phút đọc</span>\n                </div>\n              </div>\n            </article>\n\n            <!-- Card 5: AI & Automation -->\n            <article class=\"blog-card\" data-category=\"ai\">\n              <div class=\"blog-card-img-wrapper\">\n                <img src=\"asset smax/blog_banner_remarketing.png\" alt=\"Remarketing đa kênh\" class=\"blog-card-img\" data-cms-img=\"blog-img-7\">\n              </div>\n              <div class=\"blog-card-content\">\n                <span class=\"blog-badge badge-ai\" style=\"align-self: flex-start;\" data-cms=\"blog-text-17\">AI &amp; Automation</span>\n                <h3 data-cms=\"blog-text-13\">Xây dựng kịch bản remarketing bám đuổi giỏ hàng đa kênh qua Messenger, Zalo OA</h3>\n                <p data-cms=\"blog-text-14\">Giải pháp tối ưu hóa tỷ lệ chuyển đổi đơn hàng bị bỏ rơi bằng các kịch bản tương tác nhắc nhở cá nhân hóa tự động gửi sau 1 giờ, 24 giờ và tặng ưu đãi thu hút.</p>\n                <div class=\"blog-card-footer\">\n                  <span data-cms=\"blog-text-18\">05 Tháng 6, 2026</span>\n                  <span data-cms=\"blog-text-19\">5 phút đọc</span>\n                </div>\n              </div>\n            </article>\n\n          </div>\n\n          <!-- Newsletter Sign-up Box -->\n          <div class=\"blog-newsletter reveal\">\n            <h3 data-cms=\"blog-text-15\">Đăng ký nhận tin tức công nghệ</h3>\n            <p data-cms=\"blog-text-16\">Nhận các bài viết chia sẻ kinh nghiệm vận hành, hướng dẫn tích hợp AI và ưu đãi mới nhất từ Smax.ai trực tiếp vào hòm thư của bạn hàng tuần.</p>\n            <form class=\"newsletter-form\" onsubmit=\"event.preventDefault(); alert('Cảm ơn bạn đã đăng ký nhận tin từ Smax.ai!'); this.reset();\">\n              <input type=\"email\" placeholder=\"Địa chỉ email của bạn...\" class=\"newsletter-input\" required=\"\">\n              <button class=\"btn btn-coral\" type=\"submit\" style=\"padding: 14px 28px; font-size: 14px; font-weight: 850;\" data-cms=\"blog-btn-2\">Đăng ký ngay</button>\n            </form>\n          </div>\n\n        </div>\n      </section>"
+  },
+  {
+    "page_name": "blog-detail",
+    "content_key": "blog-detail-sections",
+    "content_value": "<!-- Hero Header -->\n      <section class=\"detail-hero\">\n        <div class=\"container\">\n          <div class=\"breadcrumbs\">\n            <a href=\"index.html\">Trang chủ</a>\n            <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"><polyline points=\"9 18 15 12 9 6\"></polyline></svg>\n            <a href=\"blog.html\">Tin tức &amp; Blog</a>\n            <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"><polyline points=\"9 18 15 12 9 6\"></polyline></svg>\n            <span data-cms=\"blog-detail-text-1\">Case Study</span>\n          </div>\n          \n          <h1 class=\"detail-title\" data-cms=\"blogdetail-hero-title\">Cách SmaxAI giúp tăng trưởng doanh thu 200% nhờ tự động hóa hành trình khách hàng</h1>\n          \n          <div class=\"blog-meta-large\">\n            <div class=\"author-profile\" style=\"margin:0;\">\n              <img src=\"asset smax/smax-ai-logo.png\" alt=\"Smax Team\" class=\"author-profile-img\" style=\"width:36px; height:36px;\" data-cms-img=\"blog-detail-img-1\">\n              <div class=\"author-profile-info\">\n                <span data-cms=\"blog-detail-text-2\">Phan Hoàng Đa</span>\n              </div>\n            </div>\n            <span>•</span>\n            <span data-cms=\"blog-detail-text-3\">Cập nhật ngày 25 Tháng 6, 2026</span>\n            <span>•</span>\n            <span data-cms=\"blog-detail-text-4\">7 phút đọc</span>\n          </div>\n        </div>\n      </section>\n\n      <!-- Main Layout -->\n      <div class=\"container\" style=\"padding-top: 0;\">\n        <!-- Large Banner Image -->\n        <div class=\"detail-main-img-wrapper\">\n          <img src=\"asset smax/blog_banner_featured.png\" alt=\"Tự động hóa hành trình\" class=\"detail-main-img\" data-cms-img=\"blog-detail-img-2\">\n        </div>\n\n        <div class=\"article-layout\">\n          <!-- Sidebar -->\n          <aside class=\"article-sidebar\">\n            <h3 class=\"toc-title\" data-cms=\"blog-detail-text-1\">MỤC LỤC BÀI VIẾT</h3>\n            <ul class=\"toc-list\">\n              <li class=\"toc-item active\" data-cms=\"blog-detail-text-5\"><a href=\"#intro\">1. Giới thiệu</a></li>\n              <li class=\"toc-item\" data-cms=\"blog-detail-text-6\"><a href=\"#painpoints\">2. Điểm nghẽn vận hành</a></li>\n              <li class=\"toc-item\" data-cms=\"blog-detail-text-7\"><a href=\"#solution\">3. Kịch bản tự động hóa</a></li>\n              <li class=\"toc-item\" data-cms=\"blog-detail-text-8\"><a href=\"#results\">4. Kết quả &amp; Đánh giá</a></li>\n            </ul>\n            \n            <div class=\"author-box\">\n              <h4 data-cms=\"blog-detail-text-2\">TÁC GIẢ BÀI VIẾT</h4>\n              <div class=\"author-profile\">\n                <img src=\"asset smax/smax-ai-logo.png\" alt=\"Phan Hoàng Đa\" class=\"author-profile-img\" data-cms-img=\"blog-detail-img-3\">\n                <div class=\"author-profile-info\">\n                  <span data-cms=\"blog-detail-text-9\">Phan Hoàng Đa</span>\n                  <p data-cms=\"blog-detail-text-3\">Product Strategist @ Smax</p>\n                </div>\n              </div>\n            </div>\n          </aside>\n\n          <!-- Content Body -->\n          <article class=\"article-content\">\n            <section id=\"intro\">\n              <p data-cms=\"blog-detail-text-4\">\n                Trong thời đại cạnh tranh khốc liệt của Social Commerce và bán hàng đa kênh, bài toán lớn nhất của doanh nghiệp không chỉ là thu hút khách hàng mới, mà làm thế nào để <strong>chăm sóc, chuyển đổi và giữ chân khách hàng cũ</strong> một cách tối ưu. Rất nhiều doanh nghiệp đang đổ tiền vào quảng cáo đa kênh (Facebook, Zalo, Web) nhưng lại để mất doanh thu ở những bước sau đó vì quy trình vận hành thủ công và rời rạc.\n              </p>\n              <p data-cms=\"blog-detail-text-5\">\n                Nhận thấy cơ hội lớn từ việc tối ưu hóa phễu, Smax.ai đã hỗ trợ một thương hiệu bán lẻ chuỗi thời trang đa kênh tái thiết lập toàn bộ quy trình tiếp cận, bán hàng và chăm sóc dựa trên triết lý <strong>Hành trình khách hàng tự động hóa 3 giai đoạn</strong>. Kết quả thu được vượt mong đợi: Doanh số vòng đời khách hàng cũ (LTV) tăng 200% sau 3 tháng thử nghiệm.\n              </p>\n            </section>\n\n            <section id=\"painpoints\">\n              <h2 data-cms=\"blog-detail-text-6\">2. Những điểm nghẽn vận hành trước khi ứng dụng SmaxAI</h2>\n              <p data-cms=\"blog-detail-text-7\">\n                Trước khi kết nối hệ sinh thái Smax.ai, đối tác bán lẻ của chúng tôi đối mặt với 3 bài toán nan giải:\n              </p>\n              <ul>\n                <li data-cms=\"blog-detail-text-10\"><strong>Tỷ lệ bỏ rơi giỏ hàng (Cart Abandonment) cao:</strong> Có đến 75% khách hàng thêm hàng vào giỏ hoặc nhắn tin hỏi mua nhưng không hoàn tất giao dịch vì nhân sự trực page phản hồi trễ quá 15 phút.</li>\n                <li data-cms=\"blog-detail-text-11\"><strong>Dữ liệu khách hàng phân mảnh:</strong> Khách nhắn tin từ Zalo OA, Facebook Page và mua tại cửa hàng được lưu trữ ở 3 phần mềm khác nhau, nhân viên không biết lịch sử mua sắm (Customer 360) để tư vấn chính xác.</li>\n                <li data-cms=\"blog-detail-text-12\"><strong>Chăm sóc sau mua bỏ ngỏ:</strong> Việc gửi tin nhắn chúc mừng, xin đánh giá sản phẩm hay nhắc nhở ưu đãi sinh nhật đều làm thủ công bằng Excel, tốn nhân lực và hay xảy ra sai sót.</li>\n              </ul>\n              <blockquote>\n                <p data-cms=\"blog-detail-text-8\">\"Việc để dữ liệu khách hàng nằm rải rác ở nhiều nền tảng giống như việc chúng ta đang đổ nước vào một chiếc xô bị thủng đáy. Chi phí tìm kiếm khách hàng mới thì đắt đỏ, trong khi tài nguyên khách hàng cũ lại hoàn toàn bị lãng phí.\"</p>\n              </blockquote>\n            </section>\n\n            <section id=\"solution\">\n              <h2 data-cms=\"blog-detail-text-9\">3. Kịch bản tự động hóa 3 giai đoạn: Trước - Trong - Sau mua</h2>\n              <p data-cms=\"blog-detail-text-10\">\n                Bằng việc vẽ lại quy trình trên <strong>Automation Map</strong>, Smax đã thiết lập hệ thống kịch bản kết hợp chặt chẽ giữa AI Agent và Livechat hợp nhất:\n              </p>\n              \n              <h3 data-cms=\"blog-detail-text-11\">Giai đoạn 1: Trước mua (Thu hút khách hàng tự động)</h3>\n              <p data-cms=\"blog-detail-text-12\">\n                Sử dụng <strong>GenAI content creator</strong> để tự sinh kịch bản quảng cáo và tặng quà. Khi người dùng click vào quảng cáo hoặc follow Zalo OA, Chatbot tự động phát hiện, gửi mã ưu đãi chào mừng 20% và tặng quà khảo sát lấy thông tin cá nhân (size đồ, phong cách yêu thích) tự động ghi nhận vào CRM.\n              </p>\n\n              <h3 data-cms=\"blog-detail-text-13\">Giai đoạn 2: Trong mua (Thuyết phục &amp; Chốt đơn thần tốc)</h3>\n              <p data-cms=\"blog-detail-text-14\">\n                Tất cả hội thoại đổ về một màn hình Livechat tập trung. Với các câu hỏi cơ bản về sản phẩm và size, <strong>AI Agent tư vấn tự động</strong> phản hồi trong vòng 5 giây. Nếu khách hàng dừng lại ở bước đặt hàng mà chưa hoàn tất đơn, hệ thống tự động bám đuổi qua kịch bản:\n              </p>\n              <ol>\n                <li data-cms=\"blog-detail-text-13\"><strong>Sau 1 giờ:</strong> Chatbot gửi tin nhắn nhắc nhở kèm hình ảnh giỏ hàng thân thiện.</li>\n                <li data-cms=\"blog-detail-text-14\"><strong>Sau 24 giờ:</strong> Hệ thống tự động gửi tặng mã giảm giá độc quyền giới hạn thời gian (flash sale) kích hoạt chuyển đổi.</li>\n              </ol>\n\n              <h3 data-cms=\"blog-detail-text-15\">Giai đoạn 3: Sau mua (Chăm sóc &amp; Bán lại thông minh)</h3>\n              <p data-cms=\"blog-detail-text-16\">\n                Khi đơn hàng thành công và được đồng bộ hóa từ KiotViet lên hệ thống:\n              </p>\n              <ul>\n                <li data-cms=\"blog-detail-text-15\"><strong>Sau 3 ngày:</strong> Chatbot tự động gửi tin nhắn thăm hỏi độ hài lòng của sản phẩm kèm link khảo sát sao.</li>\n                <li data-cms=\"blog-detail-text-16\"><strong>Sau 30 ngày:</strong> Gửi thông báo tích điểm thành viên và đề xuất sản phẩm phối cùng dựa trên dữ liệu mua sắm trước đó (Kích hoạt bán lại).</li>\n              </ul>\n            </section>\n\n            <section id=\"results\">\n              <h2 data-cms=\"blog-detail-text-17\">4. Kết quả đạt được &amp; Bài học cho nhà quản lý</h2>\n              <p data-cms=\"blog-detail-text-18\">\n                Dưới đây là bảng so sánh các chỉ số đo lường hiệu suất vận hành của chuỗi bán lẻ thời trang này trước và sau 3 tháng thiết lập kịch bản tự động hóa hành trình trên Smax.ai:\n              </p>\n\n              <div class=\"article-table-wrapper\">\n                <table class=\"article-table\">\n                  <thead>\n                    <tr>\n                      <th>Chỉ số đo lường</th>\n                      <th>Trước khi dùng Smax</th>\n                      <th>Sau 3 tháng ứng dụng</th>\n                      <th>Mức độ cải thiện</th>\n                    </tr>\n                  </thead>\n                  <tbody>\n                    <tr>\n                      <td>Thời gian phản hồi khách hàng trung bình</td>\n                      <td>12 phút</td>\n                      <td><strong>5 giây</strong></td>\n                      <td>Giảm 99% thời gian chờ</td>\n                    </tr>\n                    <tr>\n                      <td>Tỷ lệ chốt đơn tự động (từ lead quan tâm)</td>\n                      <td>8.5%</td>\n                      <td><strong>22%</strong></td>\n                      <td>Tăng gấp 2.5 lần</td>\n                    </tr>\n                    <tr>\n                      <td>Tỷ lệ khôi phục giỏ hàng bỏ quên</td>\n                      <td>2%</td>\n                      <td><strong>18.5%</strong></td>\n                      <td>Tăng trưởng vượt bậc</td>\n                    </tr>\n                    <tr>\n                      <td>Chi phí vận hành đội ngũ Sales &amp; CS</td>\n                      <td>42 Triệu/Tháng</td>\n                      <td><strong>21 Triệu/Tháng</strong></td>\n                      <td>Tiết kiệm 50% chi phí</td>\n                    </tr>\n                    <tr>\n                      <td>Doanh thu quay lại từ khách hàng cũ (LTV)</td>\n                      <td>Mức cơ bản</td>\n                      <td><strong>Tăng 200%</strong></td>\n                      <td>Gấp 3 lần doanh số cũ</td>\n                    </tr>\n                  </tbody>\n                </table>\n              </div>\n\n              <p data-cms=\"blog-detail-text-19\">\n                Chiến dịch đã minh chứng một điều: Khi Sales, Marketing và Customer Service được nối liền trên một <strong>hệ thống dữ liệu khách hàng tập trung (Customer 360)</strong> và xử lý tự động thông minh, doanh nghiệp có thể tăng trưởng doanh thu mạnh mẽ mà không cần phụ thuộc hoàn toàn vào việc gia tăng ngân sách quảng cáo.\n              </p>\n            </section>\n\n            <!-- CTA Box -->\n            <div class=\"article-cta-box\">\n              <div class=\"article-cta-text\">\n                <h4 data-cms=\"blog-detail-text-20\">Trải nghiệm hệ thống AI-Automation ngay hôm nay!</h4>\n                <p data-cms=\"blog-detail-text-21\">Khám phá cách xây dựng Automation Map cho doanh nghiệp của bạn hoàn toàn miễn phí trong 14 ngày.</p>\n              </div>\n              <a href=\"index.html#cta\" class=\"btn btn-coral\" style=\"flex-shrink: 0; padding: 14px 28px; font-size: 14px; font-weight: 850;\" data-cms=\"blog-detail-btn-1\">Thử miễn phí</a>\n            </div>\n          </article>\n        </div>\n      </div>\n\n      <!-- Related Section -->\n      <section class=\"related-section\">\n        <div class=\"container\">\n          <div class=\"related-heading\">\n            <h3 data-cms=\"blog-detail-text-22\">Bài viết liên quan</h3>\n          </div>\n          \n          <div class=\"related-grid\">\n            <!-- Article 1: AI & Automation -->\n            <article class=\"blog-card\">\n              <div class=\"blog-card-img-wrapper\">\n                <img src=\"asset smax/blog_banner_genai.png\" alt=\"Xu hướng GenAI\" class=\"blog-card-img\" data-cms-img=\"blog-detail-img-4\">\n              </div>\n              <div class=\"blog-card-content\">\n                <span class=\"blog-badge badge-ai\" style=\"align-self: flex-start;\" data-cms=\"blog-detail-text-17\">AI &amp; Automation</span>\n                <h4 data-cms=\"blog-detail-text-23\">Xu hướng ứng dụng GenAI và Meta Business AI trong Social Commerce 2026</h4>\n                <p data-cms=\"blog-detail-text-24\">Khám phá cách sự kết hợp giữa mô hình ngôn ngữ lớn GenAI và Meta Business AI tạo ra những bước nhảy vọt trong quy trình tự động tư vấn, chốt đơn trực tiếp thông qua hội thoại Messenger và WhatsApp.</p>\n                <div class=\"blog-card-footer\">\n                  <span data-cms=\"blog-detail-text-18\">22 Tháng 6, 2026</span>\n                  <span data-cms=\"blog-detail-text-19\">5 phút đọc</span>\n                </div>\n              </div>\n            </article>\n\n            <!-- Article 2: Case Study -->\n            <article class=\"blog-card\">\n              <div class=\"blog-card-img-wrapper\">\n                <img src=\"asset smax/blog_banner_retail.png\" alt=\"Tự động hóa chuỗi cửa hàng\" class=\"blog-card-img\" data-cms-img=\"blog-detail-img-5\">\n              </div>\n              <div class=\"blog-card-content\">\n                <span class=\"blog-badge badge-case\" style=\"align-self: flex-start;\" data-cms=\"blog-detail-text-20\">Case Study</span>\n                <h4 data-cms=\"blog-detail-text-25\">Chuỗi cửa hàng thời trang tự động hóa vận hành 10.000 đơn hàng/ngày với Automation Map</h4>\n                <p data-cms=\"blog-detail-text-26\">Hành trình xây dựng quy trình tự động hoàn toàn từ khâu thu thập thông tin khách hàng, bám đuổi giỏ hàng bỏ quên đến đồng bộ tự động lên POS KiotViet và Nhanh.vn.</p>\n                <div class=\"blog-card-footer\">\n                  <span data-cms=\"blog-detail-text-21\">18 Tháng 6, 2026</span>\n                  <span data-cms=\"blog-detail-text-22\">6 phút đọc</span>\n                </div>\n              </div>\n            </article>\n\n            <!-- Article 3: Hướng dẫn / Tài liệu -->\n            <article class=\"blog-card\">\n              <div class=\"blog-card-img-wrapper\">\n                <img src=\"asset smax/blog_banner_crm.png\" alt=\"Tích hợp CRM Lark\" class=\"blog-card-img\" data-cms-img=\"blog-detail-img-6\">\n              </div>\n              <div class=\"blog-card-content\">\n                <span class=\"blog-badge badge-docs\" style=\"align-self: flex-start;\" data-cms=\"blog-detail-text-23\">Tài liệu</span>\n                <h4 data-cms=\"blog-detail-text-27\">Hướng dẫn tích hợp Google Sheets, Lark và CRM kết nối dữ liệu Customer 360</h4>\n                <p data-cms=\"blog-detail-text-28\">Từng bước xây dựng hệ thống thu thập thông tin khách hàng từ mọi điểm chạm và tự động ghi nhận lịch sử trao đổi đa kênh vào Google Sheets và Lark Base tập trung.</p>\n                <div class=\"blog-card-footer\">\n                  <span data-cms=\"blog-detail-text-24\">14 Tháng 6, 2026</span>\n                  <span data-cms=\"blog-detail-text-25\">8 phút đọc</span>\n                </div>\n              </div>\n            </article>\n          </div>\n        </div>\n      </section>"
+  },
+  {
+    "page_name": "templates",
+    "content_key": "templates-sections",
+    "content_value": "<!-- Hero Section -->\n      <section class=\"hero templates-hero\" style=\"min-height: auto; padding-top: 140px; padding-bottom: 56px; background: radial-gradient(120% 120% at 50% 0%, #ffffff 40%, rgba(66, 119, 255, 0.05) 100%); border-bottom: 1px solid rgba(39, 38, 51, 0.04); position: relative; overflow: hidden;\">\n        <div class=\"hero-grid-bg\" style=\"position: absolute; inset: 0; background-image: radial-gradient(rgba(15, 24, 53, 0.04) 1px, transparent 1px); background-size: 24px 24px; opacity: 0.7; pointer-events: none; z-index: 2;\"></div>\n        <div class=\"hero-glow-soft-1\" style=\"position: absolute; top: -20%; left: 10%; width: 400px; height: 400px; background: rgba(66, 119, 255, 0.06); filter: blur(120px); border-radius: 50%; pointer-events: none; z-index: 1;\"></div>\n        <div class=\"hero-glow-soft-2\" style=\"position: absolute; bottom: -20%; right: 10%; width: 450px; height: 450px; background: rgba(66, 119, 255, 0.04); filter: blur(120px); border-radius: 50%; pointer-events: none; z-index: 1;\"></div>\n        <div class=\"container\" style=\"text-align: center; position: relative; z-index: 10;\">\n          <p class=\"eyebrow\" style=\"margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.15em; font-size: 11px; font-weight: 800; color: var(--blue);\" data-cms=\"templates-text-1\">Thư viện mẫu Smax.ai</p>\n          <h1 style=\"font-size: 38px; font-weight: 900; color: var(--ink); margin-bottom: 16px; letter-spacing: -0.02em;\" data-cms=\"templates-text-2\">Kho Template kịch bản tối ưu</h1>\n          <p style=\"font-size: 16px; color: var(--muted); max-width: 600px; margin: 0 auto 32px; line-height: 1.5; font-weight: 550;\" data-cms=\"templates-text-3\">\n            Khám phá và áp dụng ngay các kịch bản chatbot, AI Agent và quy trình tự động hóa vận hành được cấu hình sẵn theo ngành hàng của bạn.\n          </p>\n          <!-- Hero Search Bar -->\n          <div style=\"max-width: 560px; margin: 0 auto; position: relative;\">\n            <div class=\"template-search-wrapper\" style=\"margin: 0; width: 100%; position: relative;\">\n              <input type=\"text\" id=\"template-search\" placeholder=\"Tìm kiếm kịch bản...\" style=\"width: 100%; padding: 14px 52px 14px 20px; border-radius: 14px; font-size: 15px; border: 1.5px solid rgba(39,38,51,0.12); background: #fff; box-shadow: 0 2px 16px rgba(39,38,51,0.06); outline: none; transition: border-color 0.2s, box-shadow 0.2s; color: var(--ink);\">\n              <button class=\"search-btn\" type=\"button\" style=\"position: absolute; right: 8px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 10px;\">\n                <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><circle cx=\"11\" cy=\"11\" r=\"8\"></circle><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"></line></svg>\n              </button>\n            </div>\n          </div>\n        </div>\n      </section>\n\n      <!-- Store Section -->\n      <section class=\"section templates-section\" style=\"padding-top: 50px; padding-bottom: 80px; background: #ffffff;\">\n        <div class=\"container\">\n          <div class=\"templates-layout\">\n            \n            <!-- Left Sidebar Filters -->\n            <aside class=\"templates-sidebar\" id=\"templates-sidebar\">\n              <div class=\"sidebar-mobile-header\">\n                <span class=\"sidebar-mobile-title\" data-cms=\"templates-text-4\">Bộ lọc</span>\n                <button class=\"sidebar-mobile-close\" id=\"sidebar-close-btn\" aria-label=\"Đóng bộ lọc\">\n                  <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><line x1=\"18\" y1=\"6\" x2=\"6\" y2=\"18\"></line><line x1=\"6\" y1=\"6\" x2=\"18\" y2=\"18\"></line></svg>\n                </button>\n              </div>\n\n              <div class=\"templates-filters\">\n                <div class=\"filter-group\">\n                  <h3 data-cms=\"templates-text-5\">Lọc kịch bản</h3>\n                  \n                  <!-- Filter Section: Categories -->\n                  <div class=\"filter-section\">\n                    <h4 data-cms=\"templates-text-6\">Loại kịch bản</h4>\n                    <label class=\"filter-radio\" data-cms=\"templates-text-7\">\n                      <input type=\"radio\" name=\"category\" value=\"all\" checked=\"\">\n                      <span data-cms=\"templates-text-8\">Tất cả</span>\n                    </label>\n                    <label class=\"filter-radio\" data-cms=\"templates-text-9\">\n                      <input type=\"radio\" name=\"category\" value=\"interaction\">\n                      <span data-cms=\"templates-text-10\">Tương tác mẫu</span>\n                    </label>\n                    <label class=\"filter-radio\" data-cms=\"templates-text-11\">\n                      <input type=\"radio\" name=\"category\" value=\"care\">\n                      <span data-cms=\"templates-text-12\">Chăm sóc khách hàng</span>\n                    </label>\n                    <label class=\"filter-radio\" data-cms=\"templates-text-13\">\n                      <input type=\"radio\" name=\"category\" value=\"operations\">\n                      <span data-cms=\"templates-text-14\">Vận hành &amp; Kết nối</span>\n                    </label>\n                    <label class=\"filter-radio\" data-cms=\"templates-text-15\">\n                      <input type=\"radio\" name=\"category\" value=\"meta\">\n                      <span data-cms=\"templates-text-16\">Meta Business AI</span>\n                    </label>\n                  </div>\n\n                  <!-- Filter Section: Platforms -->\n                  <div class=\"filter-section\">\n                    <h4 data-cms=\"templates-text-17\">Nền tảng kết nối</h4>\n                    <div id=\"platforms-filter-container\" style=\"display: flex; flex-direction: column; gap: 8px;\">\n                      <label class=\"filter-checkbox\" data-cms=\"templates-text-18\">\n                        <input type=\"checkbox\" name=\"platform\" value=\"facebook\">\n                        <span data-cms=\"templates-text-19\">Facebook Messenger</span>\n                      </label>\n                      <label class=\"filter-checkbox\" data-cms=\"templates-text-20\">\n                        <input type=\"checkbox\" name=\"platform\" value=\"zalo\">\n                        <span data-cms=\"templates-text-21\">Zalo OA</span>\n                      </label>\n                      <label class=\"filter-checkbox\" data-cms=\"templates-text-22\">\n                        <input type=\"checkbox\" name=\"platform\" value=\"whatsapp\">\n                        <span data-cms=\"templates-text-23\">WhatsApp Business</span>\n                      </label>\n                      <label class=\"filter-checkbox\" data-cms=\"templates-text-24\">\n                        <input type=\"checkbox\" name=\"platform\" value=\"instagram\">\n                        <span data-cms=\"templates-text-25\">Instagram DM</span>\n                      </label>\n                      <label class=\"filter-checkbox\" data-cms=\"templates-text-26\">\n                        <input type=\"checkbox\" name=\"platform\" value=\"sapo\">\n                        <span data-cms=\"templates-text-27\">Sapo</span>\n                      </label>\n                      <label class=\"filter-checkbox\" data-cms=\"templates-text-28\">\n                        <input type=\"checkbox\" name=\"platform\" value=\"haravan\">\n                        <span data-cms=\"templates-text-29\">Haravan</span>\n                      </label>\n                      <label class=\"filter-checkbox\" data-cms=\"templates-text-30\">\n                        <input type=\"checkbox\" name=\"platform\" value=\"kiotviet\">\n                        <span data-cms=\"templates-text-31\">KiotViet</span>\n                      </label>\n                      <label class=\"filter-checkbox\" data-cms=\"templates-text-32\">\n                        <input type=\"checkbox\" name=\"platform\" value=\"nhanh\">\n                        <span data-cms=\"templates-text-33\">Nhanh.vn</span>\n                      </label>\n                      <label class=\"filter-checkbox\" data-cms=\"templates-text-34\">\n                        <input type=\"checkbox\" name=\"platform\" value=\"poscake\">\n                        <span data-cms=\"templates-text-35\">PosCake</span>\n                      </label>\n                    </div>\n                  </div>\n\n                  <!-- Filter Section: Industries -->\n                  <div class=\"filter-section\">\n                    <h4 data-cms=\"templates-text-36\">Ngành hàng &amp; Lĩnh vực</h4>\n                    <div id=\"industries-filter-container\" style=\"display: flex; flex-direction: column; gap: 8px;\">\n                      <label class=\"filter-checkbox\" data-cms=\"templates-text-37\">\n                        <input type=\"checkbox\" name=\"industry\" value=\"ecommerce\">\n                        <span data-cms=\"templates-text-38\">E-commerce &amp; Bán lẻ</span>\n                      </label>\n                      <label class=\"filter-checkbox\" data-cms=\"templates-text-39\">\n                        <input type=\"checkbox\" name=\"industry\" value=\"fb\">\n                        <span data-cms=\"templates-text-40\">F&amp;B (Ẩm thực)</span>\n                      </label>\n                      <label class=\"filter-checkbox\" data-cms=\"templates-text-41\">\n                        <input type=\"checkbox\" name=\"industry\" value=\"service\">\n                        <span data-cms=\"templates-text-42\">Dịch vụ &amp; Spa</span>\n                      </label>\n                      <label class=\"filter-checkbox\" data-cms=\"templates-text-43\">\n                        <input type=\"checkbox\" name=\"industry\" value=\"education\">\n                        <span data-cms=\"templates-text-44\">Giáo dục &amp; Tuyển sinh</span>\n                      </label>\n                      <label class=\"filter-checkbox\" data-cms=\"templates-text-45\">\n                        <input type=\"checkbox\" name=\"industry\" value=\"realestate\">\n                        <span data-cms=\"templates-text-46\">Bất động sản</span>\n                      </label>\n                      <label class=\"filter-checkbox\" data-cms=\"templates-text-47\">\n                        <input type=\"checkbox\" name=\"industry\" value=\"agency\">\n                        <span data-cms=\"templates-text-48\">Agency &amp; Tư vấn</span>\n                      </label>\n                    </div>\n                  </div>\n\n                </div>\n              </div>\n            </aside>\n\n            <!-- Right Content Main -->\n            <div class=\"templates-main\">\n              \n              <!-- Sort & Count Top Bar -->\n              <div class=\"templates-top-bar\" style=\"display: flex; align-items: center; justify-content: space-between; flex-wrap: nowrap; gap: 12px;\">\n                <div class=\"templates-results-count\" id=\"results-count\" style=\"white-space: nowrap; flex-shrink: 0;\">\n                  Đang hiển thị <span>0</span> kịch bản mẫu\n                </div>\n\n                <div style=\"display: flex; align-items: center; gap: 10px;\">\n                  <!-- Mobile Filter Toggle Button -->\n                  <button class=\"btn-mobile-filter\" id=\"mobile-filter-toggle\">\n                    <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><polygon points=\"22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3\"></polygon></svg>\n                    <span data-cms=\"templates-text-49\">Lọc</span>\n                  </button>\n\n                  <!-- Sort dropdown -->\n                  <div class=\"templates-sort-wrapper\" style=\"margin: 0;\">\n                    <span class=\"templates-sort-label\" data-cms=\"templates-text-50\">Sắp xếp:</span>\n                    <select class=\"templates-sort-select\" id=\"template-sort\">\n                      <option value=\"newest\">Mới nhất</option>\n                      <option value=\"popular\">Xem nhiều nhất</option>\n                      <option value=\"rating\">Đánh giá cao nhất</option>\n                      <option value=\"alphabetical\">Tên A-Z</option>\n                    </select>\n                  </div>\n                </div>\n              </div>\n\n              <!-- Active Tags Row -->\n              <div class=\"templates-active-tags\" id=\"active-tags-container\" style=\"display: none;\">\n                <!-- Dynamically populated tags -->\n              </div>\n\n              <!-- Templates Grid -->\n              <div class=\"templates-grid\" id=\"templates-container\">\n                <!-- Dynamically populated cards -->\n              </div>\n\n              <!-- Empty State -->\n              <div class=\"templates-empty-state\" id=\"templates-empty\" style=\"display: none;\">\n                <svg class=\"empty-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line x1=\"12\" y1=\"8\" x2=\"12\" y2=\"12\"></line><line x1=\"12\" y1=\"16\" x2=\"12.01\" y2=\"16\"></line></svg>\n                <p data-cms=\"templates-text-51\">Không tìm thấy kịch bản mẫu nào phù hợp với bộ lọc đã chọn.</p>\n                <button class=\"btn btn-soft\" id=\"btn-reset-filters\" style=\"margin-top: 16px; padding: 10px 20px; font-size: 13px; font-weight: 750;\" data-cms=\"templates-btn-1\">Đặt lại bộ lọc</button>\n              </div>\n\n            </div>\n\n          </div>\n        </div>\n      </section>"
+  }
+]

@@ -1,0 +1,4 @@
+- What Failed:      SyntaxError: Identifier 'activeVisualImageKey' has already been declared.
+- Why It Failed:    We declared the global state variable activeVisualImageKey twice in admin.html (line 1919 and line 2063).
+- How to Prevent:   Always verify scope variables are unique before declaring them. Use check_admin_syntax_simple.js tool to verify JS syntax validity on admin.html.
+- Scope:            file:admin.html

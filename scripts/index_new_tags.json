@@ -1,0 +1,2720 @@
+[
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-1",
+    "content_type": "text",
+    "content_value": "Tự động hóa toàn diện"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-2",
+    "content_type": "text",
+    "content_value": "Từ thu hút khách hàng, tư vấn, chốt đơn đến chăm sóc và bán lại."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-3",
+    "content_type": "text",
+    "content_value": "Livechat →"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-4",
+    "content_type": "text",
+    "content_value": "Smax.ai cung cấp giải pháp livechat đa kênh toàn diện cho khách hàng, giúp đồng bộ hóa dữ liệu và vận hành hội thoại hiệu quả."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-5",
+    "content_type": "text",
+    "content_value": "Tích hợp chat đa kênh"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-6",
+    "content_type": "text",
+    "content_value": "Hợp nhất tin nhắn từ Facebook, Instagram, Zalo, Website vào một hộp thư duy nhất."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-7",
+    "content_type": "text",
+    "content_value": "Phân chia hội thoại nhân viên"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-8",
+    "content_type": "text",
+    "content_value": "Tự động chia việc cho nhân viên trực theo ca, theo nhóm hoặc vòng tròn."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-9",
+    "content_type": "text",
+    "content_value": "Gắn nhãn hội thoại"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-10",
+    "content_type": "text",
+    "content_value": "Phân loại trạng thái khách hàng bằng nhãn màu sắc trực quan dễ theo dõi."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-11",
+    "content_type": "text",
+    "content_value": "Bộ lọc thông minh"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-12",
+    "content_type": "text",
+    "content_value": "Lọc nhanh hội thoại theo nhân viên phụ trách, nhãn tag hoặc kênh liên lạc."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-13",
+    "content_type": "text",
+    "content_value": "Tin nhắn mẫu soạn sẵn"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-14",
+    "content_type": "text",
+    "content_value": "Gửi nhanh câu trả lời soạn trước bằng phím tắt giúp tối ưu thời gian tư vấn."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-15",
+    "content_type": "text",
+    "content_value": "Lịch sử chăm sóc"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-16",
+    "content_type": "text",
+    "content_value": "Lưu trữ chi tiết lịch sử tương tác và hoạt động của nhân viên với khách hàng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-17",
+    "content_type": "text",
+    "content_value": "Chatbot Automation →"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-18",
+    "content_type": "text",
+    "content_value": "Tự động hóa tương tác 24/7, bám đuổi và chốt đơn tự động theo kịch bản thông minh được định sẵn."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-19",
+    "content_type": "text",
+    "content_value": "Kịch bản tự động"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-20",
+    "content_type": "text",
+    "content_value": "Thiết lập luồng chatbot tự động theo từ khóa, hành vi hoặc thời gian thực."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-21",
+    "content_type": "text",
+    "content_value": "Trả lời bình luận & inbox"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-22",
+    "content_type": "text",
+    "content_value": "Tự động phản hồi bình luận và gửi tin nhắn ẩn danh ngay lập tức."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-23",
+    "content_type": "text",
+    "content_value": "Gửi tin nhắn hàng loạt"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-24",
+    "content_type": "text",
+    "content_value": "Phát chiến dịch chăm sóc khách hàng hàng loạt theo tệp đã phân loại."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-25",
+    "content_type": "text",
+    "content_value": "Thu thập lead tự động"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-26",
+    "content_type": "text",
+    "content_value": "Tự động hỏi số điện thoại, email và lưu trực tiếp vào cơ sở dữ liệu."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-27",
+    "content_type": "text",
+    "content_value": "Chuyển giao nhân viên"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-28",
+    "content_type": "text",
+    "content_value": "Tự động chuyển giao cuộc trò chuyện sang tư vấn viên khi có yêu cầu phức tạp."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-29",
+    "content_type": "text",
+    "content_value": "Báo cáo chatbot"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-30",
+    "content_type": "text",
+    "content_value": "Đo lường chi tiết tỷ lệ tương tác và hoàn thành kịch bản của chatbot."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-31",
+    "content_type": "text",
+    "content_value": "Smax GenAI →"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-32",
+    "content_type": "text",
+    "content_value": "Trợ lý AI thế hệ mới, tự học từ tài liệu doanh nghiệp để phản hồi thông minh và chốt đơn như người thật."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-33",
+    "content_type": "text",
+    "content_value": "AI Chatbot thông minh"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-34",
+    "content_type": "text",
+    "content_value": "Phản hồi tự nhiên, linh hoạt 24/7 theo kịch bản và Prompt được thiết lập sẵn."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-35",
+    "content_type": "text",
+    "content_value": "Nạp tài liệu tự học"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-36",
+    "content_type": "text",
+    "content_value": "Học từ file PDF, liên kết website, câu hỏi FAQ để tự động trả lời khách hàng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-37",
+    "content_type": "text",
+    "content_value": "Tóm tắt hội thoại"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-38",
+    "content_type": "text",
+    "content_value": "Tự động tóm tắt ý chính từ các hội thoại dài (Conversation Note) giúp bàn giao ca nhanh."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-39",
+    "content_type": "text",
+    "content_value": "Dịch thuật đa ngôn ngữ"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-40",
+    "content_type": "text",
+    "content_value": "Tự động dịch tin nhắn hai chiều (Translate) giữa khách và nhân viên theo thời gian thực."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-41",
+    "content_type": "text",
+    "content_value": "Trợ lý viết nội dung"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-42",
+    "content_type": "text",
+    "content_value": "Tối ưu hóa tin nhắn nháp (Message Content) và tự động viết bài đăng (Post Content)."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-43",
+    "content_type": "text",
+    "content_value": "Tạo câu đố tương tác"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-44",
+    "content_type": "text",
+    "content_value": "Tự sinh nhanh bộ câu hỏi trắc nghiệm (Quiz Maker) để thu hút và lọc nhu cầu khách hàng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-45",
+    "content_type": "text",
+    "content_value": "Phân tích AI Insight →"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-46",
+    "content_type": "text",
+    "content_value": "Đo lường chất lượng hội thoại, nhận diện tâm lý khách hàng và đánh giá hiệu suất trực quan."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-47",
+    "content_type": "text",
+    "content_value": "Phân tích sắc thái"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-48",
+    "content_type": "text",
+    "content_value": "Đánh giá thái độ của khách hàng (Tích cực/Tiêu cực/Trung lập) trong thời gian thực."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-49",
+    "content_type": "text",
+    "content_value": "Chấm điểm cuộc gọi/chat"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-50",
+    "content_type": "text",
+    "content_value": "Tự động đánh giá chất lượng hội thoại dựa trên kịch bản chuẩn."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-51",
+    "content_type": "text",
+    "content_value": "Cảnh báo nguy cơ"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-52",
+    "content_type": "text",
+    "content_value": "Phát hiện sớm các hội thoại khiếu nại hoặc khách hàng không hài lòng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-53",
+    "content_type": "text",
+    "content_value": "Thống kê từ khóa"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-54",
+    "content_type": "text",
+    "content_value": "Nhận diện các từ khóa, sản phẩm hoặc chủ đề được nhắc đến nhiều nhất."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-55",
+    "content_type": "text",
+    "content_value": "Đánh giá nhân viên"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-56",
+    "content_type": "text",
+    "content_value": "Báo cáo chi tiết về thời gian phản hồi và hiệu suất xử lý của tư vấn viên."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-57",
+    "content_type": "text",
+    "content_value": "Gợi ý tối ưu"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-58",
+    "content_type": "text",
+    "content_value": "Đề xuất thay đổi kịch bản chăm sóc dựa trên phân tích dữ liệu lịch sử."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-59",
+    "content_type": "text",
+    "content_value": "Marketing Tools →"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-60",
+    "content_type": "text",
+    "content_value": "Xây dựng các chiến dịch tiếp cận, thu hút và chuyển đổi khách hàng tiềm năng một cách tự động."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-61",
+    "content_type": "text",
+    "content_value": "Đồng bộ Mess Ads"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-62",
+    "content_type": "text",
+    "content_value": "Tự động thu thập khách hàng từ các chiến dịch quảng cáo tin nhắn Messenger."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-63",
+    "content_type": "text",
+    "content_value": "Tự động thu Lead Ads"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-64",
+    "content_type": "text",
+    "content_value": "Kết nối và lưu trữ trực tiếp dữ liệu từ quảng cáo form của Facebook/Google."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-65",
+    "content_type": "text",
+    "content_value": "Tạo Landing Page"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-66",
+    "content_type": "text",
+    "content_value": "Xây dựng trang đích nhanh chóng để thu hút đăng ký và quà tặng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-67",
+    "content_type": "text",
+    "content_value": "QR Code Marketing"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-68",
+    "content_type": "text",
+    "content_value": "Tạo mã QR động dẫn thẳng đến kịch bản chatbot cho chiến dịch offline."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-69",
+    "content_type": "text",
+    "content_value": "Đo lường nguồn Lead"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-70",
+    "content_type": "text",
+    "content_value": "Theo dõi và gắn thẻ nguồn khách hàng từ các chiến dịch cụ thể."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-71",
+    "content_type": "text",
+    "content_value": "Phân bổ ngân sách AI"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-72",
+    "content_type": "text",
+    "content_value": "Gợi ý tối ưu chi phí quảng cáo dựa trên dữ liệu chuyển đổi thực tế."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-73",
+    "content_type": "text",
+    "content_value": "Gamification & Loyalty →"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-74",
+    "content_type": "text",
+    "content_value": "Giữ chân khách hàng và lan tỏa thương hiệu thông qua các kịch bản trò chơi tương tác có thưởng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-75",
+    "content_type": "text",
+    "content_value": "Vòng quay may mắn"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-76",
+    "content_type": "text",
+    "content_value": "Tạo game vòng quay trúng thưởng với tỉ lệ trúng quà cấu hình linh hoạt."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-77",
+    "content_type": "text",
+    "content_value": "Thẻ cào may mắn"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-78",
+    "content_type": "text",
+    "content_value": "Game cào trúng thưởng tăng tính giải trí và thu hút tương tác."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-79",
+    "content_type": "text",
+    "content_value": "Tích điểm thành viên"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-80",
+    "content_type": "text",
+    "content_value": "Tự động tích lũy điểm thưởng sau mỗi giao dịch và đổi voucher."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-81",
+    "content_type": "text",
+    "content_value": "Bảng xếp hạng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-82",
+    "content_type": "text",
+    "content_value": "Vinh danh những khách hàng tích cực và mua hàng nhiều nhất."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-83",
+    "content_type": "text",
+    "content_value": "Kích thích Viral (Referral)"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-84",
+    "content_type": "text",
+    "content_value": "Khách giới thiệu bạn bè tham gia để nhận thêm lượt chơi/quà tặng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-85",
+    "content_type": "text",
+    "content_value": "Báo cáo Minigame"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-86",
+    "content_type": "text",
+    "content_value": "Đo lường số lượt chơi, quà tặng đã phát và doanh thu tạo ra từ game."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-87",
+    "content_type": "text",
+    "content_value": "Remarketing Tự động →"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-88",
+    "content_type": "text",
+    "content_value": "Gia tăng giá trị trọn đời của khách hàng bằng cách kết nối và chăm sóc lại đúng đối tượng, đúng thời điểm."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-89",
+    "content_type": "text",
+    "content_value": "Bám đuổi giỏ hàng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-90",
+    "content_type": "text",
+    "content_value": "Tự động gửi tin nhắn nhắc nhở thanh toán khi khách bỏ quên giỏ hàng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-91",
+    "content_type": "text",
+    "content_value": "Chăm sóc ngày đặc biệt"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-92",
+    "content_type": "text",
+    "content_value": "Tự động chúc mừng sinh nhật, ngày lễ kèm voucher cá nhân hóa."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-93",
+    "content_type": "text",
+    "content_value": "Gợi ý mua lại"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-94",
+    "content_type": "text",
+    "content_value": "Nhắc khách mua thêm/mua lại khi sản phẩm đã mua sắp hết hạn sử dụng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-95",
+    "content_type": "text",
+    "content_value": "Phân nhóm khách hàng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-96",
+    "content_type": "text",
+    "content_value": "Phân loại khách theo giá trị đơn hàng, tần suất mua và lịch sử tương tác."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-97",
+    "content_type": "text",
+    "content_value": "Remarketing đa kênh"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-98",
+    "content_type": "text",
+    "content_value": "Tự động kết nối gửi Messenger, Zalo ZBS (ZNS), SMS hoặc Email."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-99",
+    "content_type": "text",
+    "content_value": "Thống kê doanh thu"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-100",
+    "content_type": "text",
+    "content_value": "Đo lường doanh thu trực tiếp thu được từ mỗi chiến dịch gửi tin nhắn."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-101",
+    "content_type": "text",
+    "content_value": "CRM & Đơn hàng Sync →"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-102",
+    "content_type": "text",
+    "content_value": "Kết nối chặt chẽ và đồng bộ tức thì mọi dữ liệu đơn hàng, kho vận và hồ sơ khách hàng 360 độ."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-103",
+    "content_type": "text",
+    "content_value": "Đồng bộ đơn hàng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-104",
+    "content_type": "text",
+    "content_value": "Tự động tạo đơn và đẩy sang KiotViet, nhanh.vn, Haravan, Sapo..."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-105",
+    "content_type": "text",
+    "content_value": "Tra cứu vận đơn"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-106",
+    "content_type": "text",
+    "content_value": "Cập nhật trạng thái giao hàng từ đơn vị vận chuyển trực tiếp cho khách."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-107",
+    "content_type": "text",
+    "content_value": "Hồ sơ khách hàng 360"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-108",
+    "content_type": "text",
+    "content_value": "Hợp nhất thông tin khách hàng từ các kênh bán hàng về một nơi duy nhất."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-109",
+    "content_type": "text",
+    "content_value": "API & Webhook mở"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-110",
+    "content_type": "text",
+    "content_value": "Kết nối linh hoạt với ERP/CRM tự phát triển của doanh nghiệp."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-111",
+    "content_type": "text",
+    "content_value": "Nhập xuất Excel"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-112",
+    "content_type": "text",
+    "content_value": "Hỗ trợ xuất dữ liệu khách hàng, đơn hàng ra file Excel nhanh chóng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-113",
+    "content_type": "text",
+    "content_value": "Bảo mật dữ liệu"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-114",
+    "content_type": "text",
+    "content_value": "Phân quyền truy cập thông tin khách hàng chặt chẽ cho từng cấp nhân viên."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-115",
+    "content_type": "text",
+    "content_value": "Hành trình khách hàng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-116",
+    "content_type": "text",
+    "content_value": "Tối ưu trọn vẹn hành trình khách hàng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-117",
+    "content_type": "text",
+    "content_value": "Giải pháp toàn diện đồng hành cùng khách hàng từ điểm chạm đầu tiên cho đến khi mua hàng thành công và quay lại."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-118",
+    "content_type": "text",
+    "content_value": "Thu hút & tiếp cận khách hàng đa kênh tự động"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-119",
+    "content_type": "text",
+    "content_value": "Tư vấn, chốt đơn tự động & tăng tỷ lệ chuyển đổi sales"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-120",
+    "content_type": "text",
+    "content_value": "Chăm sóc tự động, phân tích hành vi & giữ chân khách hàng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-121",
+    "content_type": "text",
+    "content_value": "Thu hút"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-122",
+    "content_type": "text",
+    "content_value": "Tiếp cận đa kênh, thu lead tự động"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-123",
+    "content_type": "text",
+    "content_value": "Tối ưu Mess Ads, Lead Ads và phễu website để đưa dữ liệu khách hàng về một nơi."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-124",
+    "content_type": "text",
+    "content_value": "Tư vấn"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-125",
+    "content_type": "text",
+    "content_value": "Hợp nhất hội thoại, AI tư vấn 24/7"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-126",
+    "content_type": "text",
+    "content_value": "Livechat, Chatbot và Smax GenAI hiểu nhu cầu, gợi ý sản phẩm và chuyển nhân viên đúng lúc."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-127",
+    "content_type": "text",
+    "content_value": "Smax Automation Core"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-128",
+    "content_type": "text",
+    "content_value": "Một lõi điều phối cho toàn bộ hành trình"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-129",
+    "content_type": "text",
+    "content_value": "Kết nối dữ liệu khách hàng, quy trình tự động, phân khúc thông minh và kích hoạt đa kênh."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-130",
+    "content_type": "text",
+    "content_value": "Chốt đơn"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-131",
+    "content_type": "text",
+    "content_value": "Biến hội thoại thành đơn hàng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-132",
+    "content_type": "text",
+    "content_value": "Đồng bộ CRM, tạo đơn và kích hoạt ưu đãi cá nhân hóa để tăng giá trị mua."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-133",
+    "content_type": "text",
+    "content_value": "Vận hành"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-134",
+    "content_type": "text",
+    "content_value": "Kết nối hệ thống, vận hành trơn tru"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-135",
+    "content_type": "text",
+    "content_value": "Liên thông n8n, website, sàn thương mại điện tử và báo cáo trong một luồng dữ liệu."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-136",
+    "content_type": "text",
+    "content_value": "Chăm sóc lại"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-137",
+    "content_type": "text",
+    "content_value": "Giữ chân khách hàng, tăng giá trị vòng đời"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-138",
+    "content_type": "text",
+    "content_value": "Chăm sóc khách cũ qua Zalo, loyalty, remarketing và Meta Business AI."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-139",
+    "content_type": "text",
+    "content_value": "Năng lực AI"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-140",
+    "content_type": "text",
+    "content_value": "Giúp bạn ứng dụng AI mạnh mẽ vào kinh doanh"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-141",
+    "content_type": "text",
+    "content_value": "Trải nghiệm hệ sinh thái AI thông minh tích hợp mascot Smax, tự động hóa tương tác khách hàng vượt trội."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-142",
+    "content_type": "text",
+    "content_value": "AI Agent Chat"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-143",
+    "content_type": "text",
+    "content_value": "Trợ lý AI Agent trả lời hội thoại thông minh tự động 24/7 dựa trên cơ sở tri thức doanh nghiệp."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-144",
+    "content_type": "text",
+    "content_value": "Tính năng AI làm được:"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-145",
+    "content_type": "text",
+    "content_value": "AI Auto Map"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-146",
+    "content_type": "text",
+    "content_value": "Tự động xây dựng và tối ưu hóa quy trình tư vấn bám đuổi đa kênh hiệu quả."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-147",
+    "content_type": "text",
+    "content_value": "Tính năng AI làm được:"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-148",
+    "content_type": "text",
+    "content_value": "AI Assistance"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-149",
+    "content_type": "text",
+    "content_value": "Hỗ trợ sales viết câu trả lời nhanh và đề xuất giải pháp chốt đơn tối ưu."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-150",
+    "content_type": "text",
+    "content_value": "Tính năng AI làm được:"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-151",
+    "content_type": "text",
+    "content_value": "AI Insight"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-152",
+    "content_type": "text",
+    "content_value": "Phân tích dữ liệu hội thoại, giám sát chất lượng và trích xuất cơ hội kinh doanh."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-153",
+    "content_type": "text",
+    "content_value": "Tính năng AI làm được:"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-154",
+    "content_type": "text",
+    "content_value": "AI Auto Post"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-155",
+    "content_type": "text",
+    "content_value": "Lên lịch đăng bài tự động và tối ưu hóa nội dung đa kênh dựa trên dữ liệu."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-156",
+    "content_type": "text",
+    "content_value": "Tính năng AI làm được:"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-157",
+    "content_type": "text",
+    "content_value": "Meta Business AI"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-158",
+    "content_type": "text",
+    "content_value": "Kết hợp chatbot Smax với Meta AI tối ưu chi phí quảng cáo và đối tượng mục tiêu."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-159",
+    "content_type": "text",
+    "content_value": "Tính năng AI làm được:"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-160",
+    "content_type": "text",
+    "content_value": "Tích hợp mạnh mẽ với các nền tảng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-161",
+    "content_type": "text",
+    "content_value": "Smax.ai tích hợp sâu với hơn 50 ứng dụng giao tiếp, bán hàng và tự động hóa dữ liệu để vận hành trơn tru."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-162",
+    "content_type": "text",
+    "content_value": "Mạng xã hội & Chat"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-163",
+    "content_type": "text",
+    "content_value": "Facebook, Zalo, Instagram, Telegram"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-164",
+    "content_type": "text",
+    "content_value": "Thương mại & POS"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-165",
+    "content_type": "text",
+    "content_value": "Shopee, TikTok Shop, KiotViet"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-166",
+    "content_type": "text",
+    "content_value": "Dữ liệu & CRM"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-167",
+    "content_type": "text",
+    "content_value": "Google Sheets, HubSpot, Lark Suite"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-168",
+    "content_type": "text",
+    "content_value": "Hệ thống & AI nâng cao"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-169",
+    "content_type": "text",
+    "content_value": "n8n, Webhook, Smax AI Agent"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-170",
+    "content_type": "text",
+    "content_value": "Áp dụng linh hoạt cho nhiều lĩnh vực"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-171",
+    "content_type": "text",
+    "content_value": "Không chỉ dành cho E-commerce, Smax.ai có thể được triển khai theo quy trình riêng của từng ngành."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-172",
+    "content_type": "text",
+    "content_value": "Nhân sự trực chat & AI Copilot"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-173",
+    "content_type": "text",
+    "content_value": "Kết hợp trực chat & AI chốt đơn thông minh."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-174",
+    "content_type": "text",
+    "content_value": "Kịch bản bám đuổi giỏ hàng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-175",
+    "content_type": "text",
+    "content_value": "Tự động gửi voucher ưu đãi cho khách hàng chưa hoàn tất thanh toán."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-176",
+    "content_type": "text",
+    "content_value": "Đo lường phễu chuyển đổi bán lẻ"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-177",
+    "content_type": "text",
+    "content_value": "Gia tăng tỷ lệ mua hàng thành công qua tin nhắn."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-178",
+    "content_type": "text",
+    "content_value": "Messenger & Zalo OA (Click-to-Chat)"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-179",
+    "content_type": "text",
+    "content_value": "Thu hút khách hàng trực tiếp từ quảng cáo click-to-chat."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-180",
+    "content_type": "text",
+    "content_value": "Webview Builder & Smax POS"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-181",
+    "content_type": "text",
+    "content_value": "Tạo form đặt hàng và thanh toán nhanh ngay trong khung chat."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-182",
+    "content_type": "text",
+    "content_value": "Đồng bộ doanh thu POS/CRM lập tức"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-183",
+    "content_type": "text",
+    "content_value": "Đồng bộ đơn hàng tự động lên KiotViet, Sapo, Haravan."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-184",
+    "content_type": "text",
+    "content_value": "Zalo ZBS (ZNS) xác nhận đơn hàng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-185",
+    "content_type": "text",
+    "content_value": "Gửi tin nhắn thông báo hành trình đơn hàng tự động."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-186",
+    "content_type": "text",
+    "content_value": "Phân nhóm khách hàng RFM"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-187",
+    "content_type": "text",
+    "content_value": "Phân loại tệp khách hàng theo tần suất và giá trị mua sắm."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-188",
+    "content_type": "text",
+    "content_value": "Báo cáo doanh số và ROI bán lẻ"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-189",
+    "content_type": "text",
+    "content_value": "Thống kê doanh số bán lẻ thời gian thực."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-190",
+    "content_type": "text",
+    "content_value": "Tư vấn viên & AI Assistant"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-191",
+    "content_type": "text",
+    "content_value": "AI gợi ý câu trả lời và thông tin lộ trình học tập."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-192",
+    "content_type": "text",
+    "content_value": "Hệ thống Đặt lịch hẹn tư vấn"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-193",
+    "content_type": "text",
+    "content_value": "Tự động sắp xếp lịch tư vấn và nhắc lịch hẹn cho học viên."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-194",
+    "content_type": "text",
+    "content_value": "Tối ưu phễu đăng ký khóa học"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-195",
+    "content_type": "text",
+    "content_value": "Gia tăng tỷ lệ chuyển đổi từ lead sang học viên chính thức."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-196",
+    "content_type": "text",
+    "content_value": "Lead Form thông minh"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-197",
+    "content_type": "text",
+    "content_value": "Thu thập thông tin nhu cầu học tập trực tiếp qua chat."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-198",
+    "content_type": "text",
+    "content_value": "Dataset tri thức khóa học"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-199",
+    "content_type": "text",
+    "content_value": "Cung cấp câu trả lời chuẩn xác về lộ trình học, học phí bằng AI."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-200",
+    "content_type": "text",
+    "content_value": "Phân loại nhu cầu học viên"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-201",
+    "content_type": "text",
+    "content_value": "Tự động gắn tag trình độ, độ tuổi để tư vấn cá nhân hóa."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-202",
+    "content_type": "text",
+    "content_value": "Zalo ZBS (ZNS) nhắc lịch khai giảng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-203",
+    "content_type": "text",
+    "content_value": "Thông báo lịch học, đóng học phí tự động."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-204",
+    "content_type": "text",
+    "content_value": "Nurturing Lead học viên"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-205",
+    "content_type": "text",
+    "content_value": "Bám đuổi và chăm sóc học viên chưa đăng ký qua chuỗi kịch bản."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-206",
+    "content_type": "text",
+    "content_value": "Báo cáo hiệu quả tư vấn tuyển sinh"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-207",
+    "content_type": "text",
+    "content_value": "Thống kê thời gian xử lý và tỷ lệ chuyển đổi của từng tư vấn viên."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-208",
+    "content_type": "text",
+    "content_value": "Chuyên viên tư vấn & AI Copilot"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-209",
+    "content_type": "text",
+    "content_value": "Hỗ trợ cung cấp thông tin dự án, vị trí và pháp lý 24/7."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-210",
+    "content_type": "text",
+    "content_value": "Hệ thống phân chia lead tức thì"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-211",
+    "content_type": "text",
+    "content_value": "Chia lead nóng cho chuyên viên tư vấn ngay lập tức theo cơ chế xoay vòng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-212",
+    "content_type": "text",
+    "content_value": "Tối ưu đăng ký tham quan căn hộ mẫu"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-213",
+    "content_type": "text",
+    "content_value": "Gia tăng tỷ lệ khách hàng đặt lịch xem thực tế dự án."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-214",
+    "content_type": "text",
+    "content_value": "Lead Ads thu thập thông tin"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-215",
+    "content_type": "text",
+    "content_value": "Thu thập thông tin nhu cầu, khu vực và ngân sách của khách hàng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-216",
+    "content_type": "text",
+    "content_value": "Tài liệu dự án & Bảng giá"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-217",
+    "content_type": "text",
+    "content_value": "Tự động gửi tài liệu, sơ đồ mặt bằng và chính sách bán hàng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-218",
+    "content_type": "text",
+    "content_value": "Phân loại lead theo ngân sách"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-219",
+    "content_type": "text",
+    "content_value": "Tự động gắn tag nhu cầu, tầm tài chính của khách hàng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-220",
+    "content_type": "text",
+    "content_value": "Zalo ZBS (ZNS) xác nhận lịch hẹn"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-221",
+    "content_type": "text",
+    "content_value": "Gửi tin xác nhận vị trí, thời gian xem nhà mẫu."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-222",
+    "content_type": "text",
+    "content_value": "Chăm sóc tệp khách hàng cũ"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-223",
+    "content_type": "text",
+    "content_value": "Gửi thông tin cập nhật tiến độ xây dựng định kỳ để giữ tương tác."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-224",
+    "content_type": "text",
+    "content_value": "Báo cáo chi phí trên mỗi Lead (CPL)"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-225",
+    "content_type": "text",
+    "content_value": "Đo lường ROI chiến dịch bán hàng dự án."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-226",
+    "content_type": "text",
+    "content_value": "Nhân viên Spa/Phòng khám & AI Agent"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-227",
+    "content_type": "text",
+    "content_value": "Kết hợp trực chat & AI tối ưu hóa quy trình đặt dịch vụ."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-228",
+    "content_type": "text",
+    "content_value": "Lịch đặt hẹn trực quan trên chat"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-229",
+    "content_type": "text",
+    "content_value": "Khách hàng chủ động lựa chọn khung giờ dịch vụ trực quan."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-230",
+    "content_type": "text",
+    "content_value": "Tối ưu số lượng lịch hẹn hoàn thành"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-231",
+    "content_type": "text",
+    "content_value": "Gia tăng tỷ lệ khách hàng đến trải nghiệm dịch vụ thực tế."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-232",
+    "content_type": "text",
+    "content_value": "Tư vấn gói dịch vụ & Ưu đãi"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-233",
+    "content_type": "text",
+    "content_value": "Giải đáp nhanh các gói liệu trình, bảng giá dịch vụ."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-234",
+    "content_type": "text",
+    "content_value": "Tích điểm & Hạng thành viên"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-235",
+    "content_type": "text",
+    "content_value": "Tra cứu hạng thẻ, điểm tích lũy và voucher tự động."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-236",
+    "content_type": "text",
+    "content_value": "Khảo sát độ hài lòng CSAT"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-237",
+    "content_type": "text",
+    "content_value": "Tự động gửi khảo sát điểm CSAT/NPS sau khi dùng dịch vụ."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-238",
+    "content_type": "text",
+    "content_value": "Zalo ZBS (ZNS) nhắc lịch hẹn tự động"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-239",
+    "content_type": "text",
+    "content_value": "Nhắc lịch hẹn trước 2 tiếng, giảm thiểu tỷ lệ bùng hẹn."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-240",
+    "content_type": "text",
+    "content_value": "Nhắc lịch chăm sóc định kỳ"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-241",
+    "content_type": "text",
+    "content_value": "Nhắc nhở khách quay lại trải nghiệm dịch vụ theo chu kỳ."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-242",
+    "content_type": "text",
+    "content_value": "Báo cáo năng suất CSKH của nhân sự"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-243",
+    "content_type": "text",
+    "content_value": "Thống kê thời gian phản hồi và tỷ lệ hài lòng khách hàng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-244",
+    "content_type": "text",
+    "content_value": "Nhân viên order & AI Assistant"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-245",
+    "content_type": "text",
+    "content_value": "Hỗ trợ gọi món và thanh toán QR tiện lợi qua chat."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-246",
+    "content_type": "text",
+    "content_value": "Gửi mã ưu đãi chúc mừng sinh nhật"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-247",
+    "content_type": "text",
+    "content_value": "Tự động tặng voucher vào các dịp sinh nhật hoặc khung giờ vàng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-248",
+    "content_type": "text",
+    "content_value": "Tăng tỷ lệ gọi món qua chat"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-249",
+    "content_type": "text",
+    "content_value": "Tăng số lượng đơn hàng tự động phục vụ qua chatbot."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-250",
+    "content_type": "text",
+    "content_value": "Đặt bàn & Order trực tuyến"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-251",
+    "content_type": "text",
+    "content_value": "Đặt bàn trước, chọn món và thanh toán QR thuận tiện."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-252",
+    "content_type": "text",
+    "content_value": "E-Menu tích hợp hình ảnh sinh động"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-253",
+    "content_type": "text",
+    "content_value": "Menu điện tử trực quan hiển thị danh mục món ăn hấp dẫn."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-254",
+    "content_type": "text",
+    "content_value": "Đo lường tần suất ghé quán"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-255",
+    "content_type": "text",
+    "content_value": "Phân tích thói quen gọi món và thời gian quay lại của khách."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-256",
+    "content_type": "text",
+    "content_value": "Zalo ZBS (ZNS) tích điểm đổi quà"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-257",
+    "content_type": "text",
+    "content_value": "Thông báo điểm thưởng và gửi mã giảm giá tri ân."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-258",
+    "content_type": "text",
+    "content_value": "Remarketing tệp khách hàng cũ"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-259",
+    "content_type": "text",
+    "content_value": "Gửi tin nhắn giới thiệu món mới hoặc ưu đãi đặc biệt cuối tuần."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-260",
+    "content_type": "text",
+    "content_value": "Báo cáo doanh thu & Đơn hàng F&B"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-261",
+    "content_type": "text",
+    "content_value": "Thống kê chi tiết doanh số bán hàng qua hệ thống chatbot."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-262",
+    "content_type": "text",
+    "content_value": "Technical Team & AI Copilot"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-263",
+    "content_type": "text",
+    "content_value": "Thiết kế sơ đồ quy trình tự động hóa quy mô lớn."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-264",
+    "content_type": "text",
+    "content_value": "Nhân bản quy trình nhanh chóng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-265",
+    "content_type": "text",
+    "content_value": "Sao chép và kích hoạt nhanh kịch bản chatbot mẫu sang các dự án mới."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-266",
+    "content_type": "text",
+    "content_value": "Tối ưu phễu chuyển đổi cho nhãn hàng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-267",
+    "content_type": "text",
+    "content_value": "Gia tăng hiệu suất của các chiến dịch quảng cáo tin nhắn."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-268",
+    "content_type": "text",
+    "content_value": "Tích hợp Pixel & Conversions API"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-269",
+    "content_type": "text",
+    "content_value": "Đo lường và tối ưu hóa quảng cáo chuyển đổi đa kênh."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-270",
+    "content_type": "text",
+    "content_value": "Thư viện Automation template"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-271",
+    "content_type": "text",
+    "content_value": "Kho kịch bản tự động hóa phong phú cho mọi lĩnh vực kinh doanh."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-272",
+    "content_type": "text",
+    "content_value": "Báo cáo đa kênh tổng hợp"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-273",
+    "content_type": "text",
+    "content_value": "Tổng hợp chỉ số từ nhiều kênh chat về một dashboard duy nhất."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-274",
+    "content_type": "text",
+    "content_value": "Quản lý tập trung nhiều fanpage/OA"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-275",
+    "content_type": "text",
+    "content_value": "Quản lý tập trung mọi tin nhắn từ nhiều trang mạng xã hội."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-276",
+    "content_type": "text",
+    "content_value": "Chiến dịch viral thu hút follower"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-277",
+    "content_type": "text",
+    "content_value": "Tạo kịch bản viral, tặng quà để tăng lượng quan tâm OA."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-278",
+    "content_type": "text",
+    "content_value": "Báo cáo hiệu quả toàn hệ thống"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-279",
+    "content_type": "text",
+    "content_value": "Thống kê lượng tương tác và tỷ lệ tự động hóa toàn hệ thống."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-280",
+    "content_type": "text",
+    "content_value": "Kho kịch bản mẫu giúp bạn bắt đầu trong 5 phút"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-281",
+    "content_type": "text",
+    "content_value": "Hơn 100+ kịch bản sẵn có được tối ưu hóa theo ngành nghề, click để cài đặt và sử dụng ngay."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-282",
+    "content_type": "text",
+    "content_value": "Trả lời quảng cáo - Bám đuổi khách hàng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-283",
+    "content_type": "text",
+    "content_value": "Tự động phản hồi bình luận, gửi tin nhắn Messenger để lấy SĐT và bám đuổi khách hàng tiềm năng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-284",
+    "content_type": "text",
+    "content_value": "Zalo OA - Chào mừng & Tặng quà thành viên"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-285",
+    "content_type": "text",
+    "content_value": "Kịch bản chào mừng tự động khi người dùng quan tâm OA, tự động phát mã giảm giá mua hàng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-286",
+    "content_type": "text",
+    "content_value": "AI Agent - Tư vấn bán hàng thời trang"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-287",
+    "content_type": "text",
+    "content_value": "AI đọc bảng thông tin sản phẩm để tư vấn chọn kích thước, kiểm tra kho và chốt đơn."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-288",
+    "content_type": "text",
+    "content_value": "WhatsApp - Khảo sát lọc nhu cầu tự động"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-289",
+    "content_type": "text",
+    "content_value": "Hỏi đáp tương tác qua nút bấm WhatsApp để phân loại khách hàng trước khi chia cho sale."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-290",
+    "content_type": "text",
+    "content_value": "Instagram - Tặng Voucher tự động"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-291",
+    "content_type": "text",
+    "content_value": "Tự động gửi kịch bản nhận mã giảm giá/voucher ngay khi khách nhắn tin trực tiếp trên Instagram."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-292",
+    "content_type": "text",
+    "content_value": "CSKH - Khảo sát hài lòng CSAT"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-293",
+    "content_type": "text",
+    "content_value": "Tự động nhắn tin hỏi thăm và xin đánh giá sao sau khi đơn hàng được ghi nhận thành công."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-294",
+    "content_type": "text",
+    "content_value": "Nhắc lịch hẹn tự động trước 2h"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-295",
+    "content_type": "text",
+    "content_value": "Gửi tin nhắn Zalo thông báo thời gian hẹn và thu thập xác nhận tham dự của khách hàng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-296",
+    "content_type": "text",
+    "content_value": "Sapo - Xác nhận đơn hàng mới"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-297",
+    "content_type": "text",
+    "content_value": "Tự động nhắn tin qua Messenger chào mừng và gửi hóa đơn khi có đơn hàng mới từ Sapo."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-298",
+    "content_type": "text",
+    "content_value": "Haravan - Xác nhận đơn hàng mới"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-299",
+    "content_type": "text",
+    "content_value": "Tự động gửi tin nhắn tổng hợp chi tiết đơn hàng qua Zalo/Messenger khi khách mua hàng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-300",
+    "content_type": "text",
+    "content_value": "KiotViet - Xác nhận đơn hàng mới"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-301",
+    "content_type": "text",
+    "content_value": "Nhận tín hiệu đơn hàng mới tạo trên KiotViet và gửi tin nhắn tự động thông báo đơn thành công."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-302",
+    "content_type": "text",
+    "content_value": "Cung cấp bộ kỹ năng toàn diện cho Marketer và đội ngũ Sales"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-303",
+    "content_type": "text",
+    "content_value": "Tối ưu quảng cáo tin nhắn"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-304",
+    "content_type": "text",
+    "content_value": "Tối ưu quảng cáo tin nhắn bằng kịch bản chăm sóc tự động"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-305",
+    "content_type": "text",
+    "content_value": "Tối ưu Dataset"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-306",
+    "content_type": "text",
+    "content_value": "Gia tăng tỉ lệ chuyển đổi với Dataset"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-307",
+    "content_type": "text",
+    "content_value": "Custom Audience"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-308",
+    "content_type": "text",
+    "content_value": "Loại bỏ Leads Rác với đồng bộ Custom Audience"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-309",
+    "content_type": "text",
+    "content_value": "AI hỗ trợ Marketing"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-310",
+    "content_type": "text",
+    "content_value": "AI tự động phân tích hiệu quả quảng cáo, tối ưu ngân sách chiến dịch và dự đoán hành vi của tệp khách hàng tiềm năng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-311",
+    "content_type": "text",
+    "content_value": "Webview Builder"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-312",
+    "content_type": "text",
+    "content_value": "Tăng thêm giá trị AOV với Webview builder"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-313",
+    "content_type": "text",
+    "content_value": "Báo cáo chiến dịch"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-314",
+    "content_type": "text",
+    "content_value": "Báo cáo hiệu quả chiến dịch nhanh chóng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-315",
+    "content_type": "text",
+    "content_value": "Thu thập SĐT"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-316",
+    "content_type": "text",
+    "content_value": "Tự động thu thập SĐT qua tin nhắn"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-317",
+    "content_type": "text",
+    "content_value": "Nuôi dưỡng Lead"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-318",
+    "content_type": "text",
+    "content_value": "Tự động nuôi dưỡng Leads tiềm năng qua chuỗi kịch bản chăm sóc"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-319",
+    "content_type": "text",
+    "content_value": "Phân loại Lead"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-320",
+    "content_type": "text",
+    "content_value": "Tự động phân loại Leads tiềm năng, leads rác"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-321",
+    "content_type": "text",
+    "content_value": "Insight hội thoại"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-322",
+    "content_type": "text",
+    "content_value": "Thu thập thông tin Insight từ Hội thoại"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-323",
+    "content_type": "text",
+    "content_value": "AI hỗ trợ Sales"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-324",
+    "content_type": "text",
+    "content_value": "AI gợi ý hành động, tự động soạn thảo câu trả lời và tối ưu chiến lược chốt đơn theo từng khách hàng."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-325",
+    "content_type": "text",
+    "content_value": "Dữ liệu 360 độ"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-326",
+    "content_type": "text",
+    "content_value": "Nắm bắt dữ liệu khách hàng qua 360 độ"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-327",
+    "content_type": "text",
+    "content_value": "Chốt đơn tự động"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-328",
+    "content_type": "text",
+    "content_value": "Chốt đơn tự động & nhắc khi khách hàng chưa mua"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-329",
+    "content_type": "text",
+    "content_value": "Đồng bộ POS/CRM"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-330",
+    "content_type": "text",
+    "content_value": "Đồng bộ thông tin đơn hàng tự động lên các hệ thống CRM/POS"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-331",
+    "content_type": "text",
+    "content_value": "Phản hồi 24/7"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-332",
+    "content_type": "text",
+    "content_value": "Tự động phản hồi bình luận & tin nhắn 24/7 tức thì"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-333",
+    "content_type": "text",
+    "content_value": "Phân tích cảm xúc"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-334",
+    "content_type": "text",
+    "content_value": "Nhận diện thái độ tiêu cực/tích cực của khách hàng bằng AI"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-335",
+    "content_type": "text",
+    "content_value": "Quản lý Ticket"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-336",
+    "content_type": "text",
+    "content_value": "Tự động tạo và phân phối ticket hỗ trợ cho nhân viên"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-337",
+    "content_type": "text",
+    "content_value": "AI hỗ trợ Customer Service"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-338",
+    "content_type": "text",
+    "content_value": "Hỗ trợ tự động phân tích và giải quyết các câu hỏi thường gặp, giảm tải tối đa cho nhân viên support."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-339",
+    "content_type": "text",
+    "content_value": "Tri ân tự động"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-340",
+    "content_type": "text",
+    "content_value": "Gửi tin nhắn chúc mừng & tặng mã ưu đãi sinh nhật tự động"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-341",
+    "content_type": "text",
+    "content_value": "Khảo sát CSAT"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-342",
+    "content_type": "text",
+    "content_value": "Tự động thu thập phản hồi, điểm CSAT/NPS sau khi chat"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-343",
+    "content_type": "text",
+    "content_value": "Nhắc lịch bảo hành"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-344",
+    "content_type": "text",
+    "content_value": "Tự động gửi thông báo lịch hẹn & nhắc nhở bảo hành định kỳ"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-345",
+    "content_type": "text",
+    "content_value": "Sơ đồ kéo thả"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-346",
+    "content_type": "text",
+    "content_value": "Xây dựng kịch bản không code bằng Drag-and-Drop"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-347",
+    "content_type": "text",
+    "content_value": "Phân chia thông minh"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-348",
+    "content_type": "text",
+    "content_value": "Tự động chia việc cho nhân viên theo ca trực & kỹ năng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-349",
+    "content_type": "text",
+    "content_value": "Liên kết dữ liệu"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-350",
+    "content_type": "text",
+    "content_value": "Đẩy thông tin khách hàng lên Google Sheets & CRM thời gian thực"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-351",
+    "content_type": "text",
+    "content_value": "AI hỗ trợ Automation"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-352",
+    "content_type": "text",
+    "content_value": "Tự động đề xuất quy trình tối ưu, phát hiện điểm nghẽn và cải tiến luồng công việc tự động."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-353",
+    "content_type": "text",
+    "content_value": "Thông báo ZBS (ZNS)"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-354",
+    "content_type": "text",
+    "content_value": "Kích hoạt gửi tin Zalo ZBS tự động theo hành trình đơn hàng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-355",
+    "content_type": "text",
+    "content_value": "Cảnh báo Slack/Tele"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-356",
+    "content_type": "text",
+    "content_value": "Gửi thông báo tức thì cho đội ngũ khi có đơn hàng mới"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-357",
+    "content_type": "text",
+    "content_value": "Trigger linh hoạt"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-358",
+    "content_type": "text",
+    "content_value": "Thiết lập kịch bản tự động hóa theo thời gian và hành vi khách"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-359",
+    "content_type": "text",
+    "content_value": "Báo cáo Real-time"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-360",
+    "content_type": "text",
+    "content_value": "Thống kê doanh thu & hiệu suất bán hàng thời gian thực"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-361",
+    "content_type": "text",
+    "content_value": "Đo lường ROI"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-362",
+    "content_type": "text",
+    "content_value": "Phân tích chi phí quảng cáo và hiệu quả nguồn khách hàng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-363",
+    "content_type": "text",
+    "content_value": "AI QC Call/Chat"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-364",
+    "content_type": "text",
+    "content_value": "Tự động chấm điểm chất lượng hội thoại của tư vấn viên"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-365",
+    "content_type": "text",
+    "content_value": "AI hỗ trợ Analytics"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-366",
+    "content_type": "text",
+    "content_value": "Phân tích dữ liệu đa kênh tự động, đưa ra cảnh báo sớm chỉ số bất thường và đề xuất phương án tối ưu."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-367",
+    "content_type": "text",
+    "content_value": "Thời gian phản hồi"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-368",
+    "content_type": "text",
+    "content_value": "Đo lường thời gian phản hồi trung bình của nhân viên"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-369",
+    "content_type": "text",
+    "content_value": "Chuyển đổi phễu"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-370",
+    "content_type": "text",
+    "content_value": "Báo cáo chi tiết tỷ lệ chuyển đổi từ chat đến đơn hàng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-371",
+    "content_type": "text",
+    "content_value": "Phân khúc AI"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-372",
+    "content_type": "text",
+    "content_value": "Tự động phân khúc hành vi và dự báo xu hướng khách hàng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-373",
+    "content_type": "text",
+    "content_value": "Khách hàng"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-374",
+    "content_type": "text",
+    "content_value": "Doanh nghiệp nói gì về Smax.ai?"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-375",
+    "content_type": "text",
+    "content_value": "Sẵn sàng xây dựng hệ thống AI-Automation cho doanh nghiệp?"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-text-376",
+    "content_type": "text",
+    "content_value": "Bắt đầu từ quy trình hiện tại của bạn. Smax.ai sẽ giúp kết nối dữ liệu, hội thoại và automation thành một hệ thống vận hành thống nhất."
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-1",
+    "content_type": "image",
+    "content_value": "asset smax/module-feature-images/livechat/multi-channel-chat.webp"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-2",
+    "content_type": "image",
+    "content_value": "asset smax/module-feature-images/chatbot/auto-scenarios.webp"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-3",
+    "content_type": "image",
+    "content_value": "asset smax/module-feature-images/genai/smart-ai-chatbot.webp"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-4",
+    "content_type": "image",
+    "content_value": "asset smax/module-feature-images/ai-insight/sentiment-analysis.webp"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-5",
+    "content_type": "image",
+    "content_value": "asset smax/module-feature-images/marketing-tools/mess-ads-sync.webp"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-6",
+    "content_type": "image",
+    "content_value": "asset smax/module-feature-images/gamification/lucky-wheel.webp"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-7",
+    "content_type": "image",
+    "content_value": "asset smax/module-feature-images/remarketing/cart-reminder.webp"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-8",
+    "content_type": "image",
+    "content_value": "asset smax/module-feature-images/crm-connect/order-sync.webp"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-9",
+    "content_type": "image",
+    "content_value": "asset smax/journey-before-purchase.webp"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-10",
+    "content_type": "image",
+    "content_value": "asset smax/journey-during-purchase.webp"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-11",
+    "content_type": "image",
+    "content_value": "asset smax/journey-after-purchase.webp"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-12",
+    "content_type": "image",
+    "content_value": "asset smax/automation-map-v2/attract.webp"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-13",
+    "content_type": "image",
+    "content_value": "asset smax/automation-map-v2/consult.webp"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-14",
+    "content_type": "image",
+    "content_value": "asset smax/automation-map-v2/core-v2.webp"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-15",
+    "content_type": "image",
+    "content_value": "asset smax/automation-map-v2/close.webp"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-16",
+    "content_type": "image",
+    "content_value": "asset smax/automation-map-v2/operate.webp"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-17",
+    "content_type": "image",
+    "content_value": "asset smax/automation-map-v2/retain-wide.webp"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-18",
+    "content_type": "image",
+    "content_value": "asset smax/mascot/agent-chat.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-19",
+    "content_type": "image",
+    "content_value": "asset smax/mascot/guide.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-20",
+    "content_type": "image",
+    "content_value": "asset smax/mascot/assistance.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-21",
+    "content_type": "image",
+    "content_value": "asset smax/mascot/thinking.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-22",
+    "content_type": "image",
+    "content_value": "asset smax/mascot/celebrate.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-23",
+    "content_type": "image",
+    "content_value": "asset smax/mascot/wave.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-24",
+    "content_type": "image",
+    "content_value": "https://cdn.simpleicons.org/n8n/FF6C37"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-25",
+    "content_type": "image",
+    "content_value": "asset smax/smax-ai-logo.webp"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-26",
+    "content_type": "image",
+    "content_value": "https://cdn.worldvectorlogo.com/logos/webhooks.svg"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-27",
+    "content_type": "image",
+    "content_value": "https://img.icons8.com/color/96/phone.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-28",
+    "content_type": "image",
+    "content_value": "https://img.icons8.com/color/96/gmail-new.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-29",
+    "content_type": "image",
+    "content_value": "asset smax/smax_standard_flow.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-30",
+    "content_type": "image",
+    "content_value": "asset smax/industry-ecommerce.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-31",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-32",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-33",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-34",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-35",
+    "content_type": "image",
+    "content_value": "asset smax/industry-education.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-36",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-37",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-38",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-39",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-40",
+    "content_type": "image",
+    "content_value": "asset smax/industry-realestate.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-41",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-42",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-43",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-44",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-45",
+    "content_type": "image",
+    "content_value": "asset smax/industry-service.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-46",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-47",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-48",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-49",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-50",
+    "content_type": "image",
+    "content_value": "asset smax/industry-fb.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-51",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-52",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-53",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-54",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-55",
+    "content_type": "image",
+    "content_value": "asset smax/industry-agency.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-56",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-57",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-58",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-59",
+    "content_type": "image",
+    "content_value": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&fit=crop&q=80"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-60",
+    "content_type": "image",
+    "content_value": "template/212e373e-52a6-44d2-95a0-64cae1697d95.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-61",
+    "content_type": "image",
+    "content_value": "template/3899ce62-8ff6-4694-be67-28aa0c79a9de.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-62",
+    "content_type": "image",
+    "content_value": "template/c1ec3299-ce9f-4133-9449-f9ff4011f4a6.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-63",
+    "content_type": "image",
+    "content_value": "template/49ea4f00-e528-4d06-b469-45487daa8f1d.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-64",
+    "content_type": "image",
+    "content_value": "template/20260626-161645.jpg"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-65",
+    "content_type": "image",
+    "content_value": "template/4da725c3-f78e-4fc8-aefa-9c4ee43608b7.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-66",
+    "content_type": "image",
+    "content_value": "template/57fc10fc-8a11-458c-9d90-221b75ea768c.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-67",
+    "content_type": "image",
+    "content_value": "template/sapo/8c592561-a737-49cd-a833-49d3c5714516.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-68",
+    "content_type": "image",
+    "content_value": "template/haravan/cf95d1af-b47c-499f-918c-23dc1db6757a.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-69",
+    "content_type": "image",
+    "content_value": "template/kiotviet/86ac62bd-38eb-4db3-b217-538cbedb1bb9.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-70",
+    "content_type": "image",
+    "content_value": "asset smax/asian_business_woman.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-71",
+    "content_type": "image",
+    "content_value": "asset smax/asian_business_woman.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-72",
+    "content_type": "image",
+    "content_value": "asset smax/asian_business_woman.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-73",
+    "content_type": "image",
+    "content_value": "asset smax/asian_business_woman.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-74",
+    "content_type": "image",
+    "content_value": "asset smax/asian_business_woman.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-75",
+    "content_type": "image",
+    "content_value": "https://picsum.photos/seed/coolmate/150/150"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-76",
+    "content_type": "image",
+    "content_value": "asset smax/meta-business-partner.png"
+  },
+  {
+    "page_key": "index",
+    "content_key": "index-auto-img-77",
+    "content_type": "image",
+    "content_value": "https://picsum.photos/seed/yody/150/150"
+  }
+]

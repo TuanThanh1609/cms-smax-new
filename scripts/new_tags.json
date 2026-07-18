@@ -1,0 +1,782 @@
+[
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-1",
+    "content_type": "text",
+    "content_value": "AI tư vấn tour theo nhu cầu, thu thập thông tin đoàn, gợi ý lịch trình và chăm sóc khách trước – trong – sau chuyến đi. Đội ngũ của bạn nhận đúng khách, đúng bối cảnh để chốt nhanh hơn."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-2",
+    "content_type": "text",
+    "content_value": "Khách muốn đi ngay, nhưng quy trình tư vấn vẫn còn chậm"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-3",
+    "content_type": "text",
+    "content_value": "Mỗi yêu cầu tour có nhiều biến số. Khi dữ liệu nằm rải rác trong inbox và bảng tính, đội ngũ dễ bỏ lỡ thời điểm khách sẵn sàng đặt."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-4",
+    "content_type": "text",
+    "content_value": "Inbox quá tải vào mùa cao điểm"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-5",
+    "content_type": "text",
+    "content_value": "Nhân viên lặp lại câu hỏi về lịch khởi hành, giá, khách sạn và chính sách trẻ em trên nhiều kênh."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-6",
+    "content_type": "text",
+    "content_value": "Nhu cầu đoàn chưa được chuẩn hóa"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-7",
+    "content_type": "text",
+    "content_value": "Thiếu thông tin số khách, ngân sách, điểm đi và sở thích khiến báo giá phải sửa nhiều lần."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-8",
+    "content_type": "text",
+    "content_value": "Dễ quên hồ sơ và mốc thanh toán"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-9",
+    "content_type": "text",
+    "content_value": "Giấy tờ, lịch cọc và giờ khởi hành được nhắc thủ công nên phụ thuộc vào từng tư vấn viên."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-10",
+    "content_type": "text",
+    "content_value": "Khách cũ chưa được chăm sóc đúng lúc"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-11",
+    "content_type": "text",
+    "content_value": "Dữ liệu sở thích sau chuyến đi chưa trở thành chiến dịch gợi ý hành trình tiếp theo."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-12",
+    "content_type": "text",
+    "content_value": "AI hỏi đúng câu để tạo hồ sơ tour đủ dữ liệu"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-13",
+    "content_type": "text",
+    "content_value": "Trợ lý hội thoại phản hồi tức thì theo kho tour được duyệt, sau đó thu thập các trường thông tin cần thiết trước khi chuyển cho chuyên viên."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-14",
+    "content_type": "text",
+    "content_value": "Tư vấn theo nhu cầu thực"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-15",
+    "content_type": "text",
+    "content_value": "Điểm đến, ngày đi, số khách, ngân sách và phong cách trải nghiệm được ghi nhận ngay trong hội thoại."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-16",
+    "content_type": "text",
+    "content_value": "Chuyển chuyên viên kèm bối cảnh"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-17",
+    "content_type": "text",
+    "content_value": "Nhân viên thấy toàn bộ lịch sử và nhu cầu đã chuẩn hóa, không bắt khách trả lời lại từ đầu."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-18",
+    "content_type": "text",
+    "content_value": "Cá nhân hóa lịch trình từ dữ liệu hội thoại"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-19",
+    "content_type": "text",
+    "content_value": "Thay vì gửi một chương trình tour giống nhau cho mọi khách, hệ thống gom sở thích để đội ngũ xây hành trình có lý do thuyết phục rõ ràng."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-20",
+    "content_type": "text",
+    "content_value": "Nhận diện sở thích"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-21",
+    "content_type": "text",
+    "content_value": "Nghỉ dưỡng, khám phá, ẩm thực, gia đình có trẻ nhỏ hay chuyến đi cho nhóm công ty."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-22",
+    "content_type": "text",
+    "content_value": "Lưu hồ sơ cho lần tư vấn sau"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-23",
+    "content_type": "text",
+    "content_value": "Dữ liệu chuyến đi cũ trở thành ngữ cảnh để gợi ý điểm đến phù hợp hơn."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-24",
+    "content_type": "text",
+    "content_value": "Nhắc giấy tờ, thanh toán và giờ khởi hành tự động"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-25",
+    "content_type": "text",
+    "content_value": "Mỗi mốc quan trọng được gửi đúng người, đúng thời điểm và có trạng thái theo dõi để đội vận hành không phải nhắc thủ công."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-26",
+    "content_type": "text",
+    "content_value": "Sequence trước chuyến đi"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-27",
+    "content_type": "text",
+    "content_value": "Nhắc bổ sung hồ sơ, xác nhận thanh toán, hành lý và điểm tập trung theo lịch đã thiết lập."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-28",
+    "content_type": "text",
+    "content_value": "Chủ động xử lý ngoại lệ"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-29",
+    "content_type": "text",
+    "content_value": "Khách chưa xác nhận hoặc cần đổi thông tin được chuyển cho nhân viên phụ trách."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-30",
+    "content_type": "text",
+    "content_value": "Khép vòng bằng phản hồi sau tour và gợi ý chuyến đi mới"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-31",
+    "content_type": "text",
+    "content_value": "Sau khi khách trở về, hệ thống tự gửi khảo sát ngắn, phân loại phản hồi và tạo nhóm khách phù hợp cho chiến dịch tiếp theo."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-32",
+    "content_type": "text",
+    "content_value": "Khảo sát CSAT sau chuyến đi"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-33",
+    "content_type": "text",
+    "content_value": "Ghi nhận chất lượng hướng dẫn viên, khách sạn và lịch trình ngay khi trải nghiệm còn mới."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-34",
+    "content_type": "text",
+    "content_value": "Remarketing có ngữ cảnh"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-35",
+    "content_type": "text",
+    "content_value": "Gợi ý tour mới dựa trên điểm đến, nhóm đi và sở thích đã có trong hồ sơ khách hàng."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-36",
+    "content_type": "text",
+    "content_value": "Nuôi dưỡng lead chưa chốt bằng Sequence có kiểm soát"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-37",
+    "content_type": "text",
+    "content_value": "Kịch bản được kích hoạt sau đúng điểm chạm, gửi nội dung theo độ trễ và khung giờ cho phép; khi khách phản hồi, hệ thống dừng luồng để chuyển tư vấn viên."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-38",
+    "content_type": "text",
+    "content_value": "Kích hoạt đúng điểm chạm"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-39",
+    "content_type": "text",
+    "content_value": "Bắt đầu sau khi khách hỏi giá, đăng ký tư vấn hoặc chưa hoàn tất đặt tour."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-40",
+    "content_type": "text",
+    "content_value": "Mỗi bước có mục tiêu và khung giờ"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-41",
+    "content_type": "text",
+    "content_value": "Block nội dung, thời gian chờ và giờ gửi được cấu hình rõ ràng để hạn chế làm phiền khách."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-42",
+    "content_type": "text",
+    "content_value": "Hợp nhất dữ liệu CRM để gợi ý hành trình tiếp theo"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-43",
+    "content_type": "text",
+    "content_value": "Hội thoại, nguồn chiến dịch, thuộc tính riêng, tag và lịch sử đơn hàng được nối vào một hồ sơ để AI hiểu khách xuyên suốt nhiều kênh."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-44",
+    "content_type": "text",
+    "content_value": "Một hồ sơ xuyên kênh"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-45",
+    "content_type": "text",
+    "content_value": "Nhận diện khách bằng thông tin liên hệ và giữ lại toàn bộ bối cảnh tương tác."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-46",
+    "content_type": "text",
+    "content_value": "Remarketing có ngữ cảnh"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-47",
+    "content_type": "text",
+    "content_value": "Phân nhóm theo sở thích và hành trình cũ để gợi ý tour mới phù hợp hơn."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-48",
+    "content_type": "text",
+    "content_value": "Đưa toàn bộ hành trình tư vấn tour về một luồng hội thoại"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-text-49",
+    "content_type": "text",
+    "content_value": "Bắt đầu từ một kịch bản nhỏ, đo lường chất lượng hội thoại và mở rộng sang chăm sóc trước – sau chuyến đi khi đội ngũ sẵn sàng."
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-img-1",
+    "content_type": "image",
+    "content_value": "asset smax/favicon.png"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-img-2",
+    "content_type": "image",
+    "content_value": "asset smax/favicon.png"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-img-3",
+    "content_type": "image",
+    "content_value": "asset smax/favicon.png"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-img-4",
+    "content_type": "image",
+    "content_value": "asset smax/travel/visuals/travel-consultant.png"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-img-5",
+    "content_type": "image",
+    "content_value": "asset smax/favicon.png"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-img-6",
+    "content_type": "image",
+    "content_value": "asset smax/travel/flows/flow-01-lead-qualification.png"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-img-7",
+    "content_type": "image",
+    "content_value": "asset smax/favicon.png"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-img-8",
+    "content_type": "image",
+    "content_value": "asset smax/travel/flows/flow-02-personal-itinerary.png"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-img-9",
+    "content_type": "image",
+    "content_value": "asset smax/favicon.png"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-img-10",
+    "content_type": "image",
+    "content_value": "asset smax/travel/flows/flow-03-pretrip-sequence.png"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-img-11",
+    "content_type": "image",
+    "content_value": "asset smax/favicon.png"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-img-12",
+    "content_type": "image",
+    "content_value": "asset smax/travel/flows/flow-04-csat-insight.png"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-img-13",
+    "content_type": "image",
+    "content_value": "asset smax/favicon.png"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-img-14",
+    "content_type": "image",
+    "content_value": "asset smax/travel/flows/flow-05-lead-sequence.png"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-img-15",
+    "content_type": "image",
+    "content_value": "asset smax/favicon.png"
+  },
+  {
+    "page_key": "travel",
+    "content_key": "travel-img-16",
+    "content_type": "image",
+    "content_value": "asset smax/travel/flows/flow-06-crm-remarketing.png"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-1",
+    "content_type": "text",
+    "content_value": "AI trả lời theo kho thông tin sản phẩm đã duyệt, đặt câu hỏi sàng lọc, chuyển chuyên viên khi cần và tự động chăm sóc sau mua. Mỗi hội thoại đều có ngữ cảnh, trạng thái và lịch sử rõ ràng."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-2",
+    "content_type": "text",
+    "content_value": "Tư vấn nhanh là chưa đủ, câu trả lời còn phải nhất quán"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-3",
+    "content_type": "text",
+    "content_value": "Với sản phẩm sức khỏe, trải nghiệm khách hàng và kỷ luật nội dung phải đi cùng nhau. Sai ngữ cảnh hoặc chăm sóc quá dày đều làm giảm niềm tin."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-4",
+    "content_type": "text",
+    "content_value": "Câu hỏi lặp lại chiếm thời gian"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-5",
+    "content_type": "text",
+    "content_value": "Thành phần, cách dùng theo nhãn, đối tượng phù hợp và chính sách đổi trả xuất hiện liên tục trên nhiều kênh."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-6",
+    "content_type": "text",
+    "content_value": "Nội dung tư vấn thiếu đồng nhất"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-7",
+    "content_type": "text",
+    "content_value": "Mỗi nhân viên diễn giải một cách khác nhau khi chưa có kho thông tin sản phẩm dùng chung."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-8",
+    "content_type": "text",
+    "content_value": "Chuyển chuyên viên quá muộn"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-9",
+    "content_type": "text",
+    "content_value": "Những câu hỏi cần đánh giá chuyên môn dễ bị giữ lại trong luồng tự động thay vì chuyển người phụ trách."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-10",
+    "content_type": "text",
+    "content_value": "Chăm sóc sau mua thiếu ngữ cảnh"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-11",
+    "content_type": "text",
+    "content_value": "Không biết khách đã mua gì, khi nào nhận hàng và phản hồi ra sao khiến remarketing trở nên đại trà."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-12",
+    "content_type": "text",
+    "content_value": "AI trả lời từ kho thông tin sản phẩm đã duyệt"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-13",
+    "content_type": "text",
+    "content_value": "Trợ lý chỉ sử dụng dữ liệu doanh nghiệp cung cấp, hiển thị câu trả lời theo kịch bản và nhận diện tình huống cần chuyển cho chuyên viên."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-14",
+    "content_type": "text",
+    "content_value": "Chuẩn hóa nội dung tư vấn"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-15",
+    "content_type": "text",
+    "content_value": "Thành phần, hướng dẫn trên nhãn, nguồn gốc, chính sách bán hàng và câu hỏi thường gặp được quản lý tập trung."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-16",
+    "content_type": "text",
+    "content_value": "Không tự chẩn đoán"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-17",
+    "content_type": "text",
+    "content_value": "Câu hỏi vượt phạm vi sản phẩm được nhận diện và chuyển đến chuyên viên hoặc khuyến nghị hỏi người có chuyên môn."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-18",
+    "content_type": "text",
+    "content_value": "Phân loại nhu cầu và chuyển đúng chuyên viên"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-19",
+    "content_type": "text",
+    "content_value": "Hệ thống ghi nhận mục tiêu tìm hiểu, sản phẩm quan tâm, lịch sử mua và dấu hiệu cần hỗ trợ trực tiếp trước khi bàn giao."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-20",
+    "content_type": "text",
+    "content_value": "Đủ bối cảnh trước khi gọi lại"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-21",
+    "content_type": "text",
+    "content_value": "Chuyên viên xem được các câu hỏi đã trao đổi và tài liệu khách đã nhận."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-22",
+    "content_type": "text",
+    "content_value": "Ưu tiên trường hợp cần người thật"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-23",
+    "content_type": "text",
+    "content_value": "Khách có câu hỏi chuyên sâu, phản hồi bất thường hoặc cần xác nhận thêm được đưa lên đầu hàng chờ."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-24",
+    "content_type": "text",
+    "content_value": "Chăm sóc sau mua theo đơn hàng và sự đồng ý của khách"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-25",
+    "content_type": "text",
+    "content_value": "Sequence được kích hoạt theo trạng thái giao hàng, thời điểm nhận sản phẩm và lựa chọn nhận thông tin của từng khách hàng."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-26",
+    "content_type": "text",
+    "content_value": "Gửi đúng hướng dẫn trên nhãn"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-27",
+    "content_type": "text",
+    "content_value": "Khách nhận lại cách dùng, cách bảo quản và kênh hỗ trợ sau khi đơn hàng được giao."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-28",
+    "content_type": "text",
+    "content_value": "Phát hiện phản hồi cần xử lý"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-29",
+    "content_type": "text",
+    "content_value": "Từ khóa bất thường được chuyển ngay cho đội chăm sóc, không tiếp tục gửi nội dung quảng bá tự động."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-30",
+    "content_type": "text",
+    "content_value": "Đọc phản hồi hội thoại để cải thiện sản phẩm và trải nghiệm"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-31",
+    "content_type": "text",
+    "content_value": "AI Insight tổng hợp chủ đề khách quan tâm, câu hỏi chưa được giải đáp và mức độ hài lòng sau mua để đội ngũ điều chỉnh nội dung."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-32",
+    "content_type": "text",
+    "content_value": "Nhóm phản hồi theo chủ đề"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-33",
+    "content_type": "text",
+    "content_value": "Thành phần, cách dùng, giao hàng, bao bì và trải nghiệm tư vấn được theo dõi riêng."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-34",
+    "content_type": "text",
+    "content_value": "Remarketing có kiểm soát"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-35",
+    "content_type": "text",
+    "content_value": "Chỉ gửi nội dung phù hợp tới khách đã đồng ý nhận tin, dựa trên sản phẩm và lịch sử tương tác."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-36",
+    "content_type": "text",
+    "content_value": "Nuôi dưỡng khách còn cân nhắc bằng Sequence nội dung đã duyệt"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-37",
+    "content_type": "text",
+    "content_value": "Sequence chỉ gửi tài liệu doanh nghiệp kiểm soát theo độ trễ và khung giờ cho phép; khi khách phản hồi, luồng được dừng để tư vấn viên tiếp nhận."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-38",
+    "content_type": "text",
+    "content_value": "Nội dung nhất quán, có kiểm soát"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-39",
+    "content_type": "text",
+    "content_value": "Tài liệu sản phẩm, hướng dẫn trên nhãn và chính sách bán hàng được đóng thành các Block tái sử dụng."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-40",
+    "content_type": "text",
+    "content_value": "Dừng đúng lúc, chuyển đúng người"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-41",
+    "content_type": "text",
+    "content_value": "Khách phản hồi hoặc xuất hiện câu hỏi chuyên sâu sẽ được chuyển cho chuyên viên, không tiếp tục gửi tự động."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-42",
+    "content_type": "text",
+    "content_value": "Hợp nhất hồ sơ 360° từ hội thoại, thuộc tính và đơn hàng"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-43",
+    "content_type": "text",
+    "content_value": "Smax nối dữ liệu đa kênh vào một hồ sơ gồm thuộc tính hệ thống, trường riêng, Tags, Sequences và lịch sử đơn hàng để chăm sóc có bối cảnh."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-44",
+    "content_type": "text",
+    "content_value": "Nhận diện một khách trên nhiều kênh"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-45",
+    "content_type": "text",
+    "content_value": "Thông tin liên hệ và lịch sử hội thoại giúp đội ngũ không tạo các hồ sơ rời rạc."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-46",
+    "content_type": "text",
+    "content_value": "Kết nối quy trình hiện có"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-47",
+    "content_type": "text",
+    "content_value": "CRM Sync hỗ trợ nối dữ liệu với hệ thống ngoài qua API, webhook và các luồng tích hợp."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-48",
+    "content_type": "text",
+    "content_value": "Chuẩn hóa từng hội thoại tư vấn sản phẩm sức khỏe"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-text-49",
+    "content_type": "text",
+    "content_value": "Bắt đầu từ kho thông tin đã duyệt, thiết lập điểm chuyển người và đo lường chất lượng hội thoại trước khi mở rộng sang chăm sóc sau mua."
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-img-1",
+    "content_type": "image",
+    "content_value": "asset smax/favicon.png"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-img-2",
+    "content_type": "image",
+    "content_value": "asset smax/favicon.png"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-img-3",
+    "content_type": "image",
+    "content_value": "asset smax/favicon.png"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-img-4",
+    "content_type": "image",
+    "content_value": "asset smax/health/visuals/health-consultant.png"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-img-5",
+    "content_type": "image",
+    "content_value": "asset smax/favicon.png"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-img-6",
+    "content_type": "image",
+    "content_value": "asset smax/health/flows/flow-01-product-genai.png"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-img-7",
+    "content_type": "image",
+    "content_value": "asset smax/favicon.png"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-img-8",
+    "content_type": "image",
+    "content_value": "asset smax/health/flows/flow-02-need-routing.png"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-img-9",
+    "content_type": "image",
+    "content_value": "asset smax/favicon.png"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-img-10",
+    "content_type": "image",
+    "content_value": "asset smax/health/flows/flow-03-postpurchase-sequence.png"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-img-11",
+    "content_type": "image",
+    "content_value": "asset smax/favicon.png"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-img-12",
+    "content_type": "image",
+    "content_value": "asset smax/health/flows/flow-04-csat-insight.png"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-img-13",
+    "content_type": "image",
+    "content_value": "asset smax/favicon.png"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-img-14",
+    "content_type": "image",
+    "content_value": "asset smax/health/flows/flow-05-lead-sequence.png"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-img-15",
+    "content_type": "image",
+    "content_value": "asset smax/favicon.png"
+  },
+  {
+    "page_key": "health",
+    "content_key": "health-img-16",
+    "content_type": "image",
+    "content_value": "asset smax/health/flows/flow-06-crm-360.png"
+  }
+]
