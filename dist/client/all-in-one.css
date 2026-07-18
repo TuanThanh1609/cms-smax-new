@@ -212,6 +212,14 @@ html {
   box-shadow: var(--aio-shadow);
 }
 
+.aio-hero-media .aio-hero-composite {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  filter: drop-shadow(0 24px 34px rgba(20, 32, 62, 0.14));
+  box-shadow: none;
+}
+
 .aio-proof-grid {
   position: relative;
   z-index: 1;
