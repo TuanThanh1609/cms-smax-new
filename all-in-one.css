@@ -92,8 +92,8 @@ html { scroll-behavior: smooth; }
 .aio-button-secondary { background: rgba(255, 255, 255, .72); }
 
 .aio-hero-proof { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 40px; }
-.aio-hero-proof span { display: inline-flex; align-items: baseline; gap: 8px; color: var(--aio-muted); font-size: .7rem; }
-.aio-hero-proof strong { color: var(--aio-ink); font-size: 1.3rem; letter-spacing: -.05em; }
+.aio-hero-proof span { display: inline-grid; gap: 4px; max-width: 180px; color: var(--aio-muted); font-size: .68rem; line-height: 1.45; }
+.aio-hero-proof strong { color: var(--aio-ink); font-size: .78rem; letter-spacing: -.015em; }
 
 .aio-hero-media { position: relative; min-height: 650px; }
 .aio-hero-orbit {
