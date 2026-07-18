@@ -17,6 +17,10 @@ const jobs = [
     'automation-flow-v3',
     'ai-knowledge-v3',
     'customer-360-v3',
+    'commerce-pos-payment',
+    'live-commerce-catalog',
+    'personalized-data-content',
+    'team-dashboard-insight',
   ].map((name) => ({
     input: path.join(root, 'asset smax', 'smax-all-in-one', `${name}-transparent.png`),
     output: path.join(root, 'asset smax', 'smax-all-in-one', `${name}.webp`),

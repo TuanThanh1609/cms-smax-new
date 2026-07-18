@@ -286,6 +286,17 @@ window.SMAX_FEATURES = {
           ]
         },
         {
+          id: "meta-catalog-live-shopping",
+          title: "Meta Catalog & Live Shopping",
+          headline: "Biến Messenger và Livestream thành một cửa hàng có thể tự phục vụ",
+          description: "Đồng bộ danh mục sản phẩm vào Messenger, để khách chủ động xem mẫu, chọn phiên bản và tiếp tục tạo đơn ngay khi đang xem Livestream.",
+          layout: "mobile",
+          cards: [
+            { title: "Gian hàng ngay trong Messenger", description: "Khách xem bộ sưu tập, giá bán và chi tiết sản phẩm mà không phải chờ nhân viên gửi từng ảnh riêng lẻ.", image: "asset smax/smax-all-in-one/live-commerce-catalog.webp" },
+            { title: "Chốt đơn tự động từ Livestream", description: "Khi khách chọn sản phẩm trên Live, Smax tiếp tục hội thoại, hướng dẫn chọn màu, kích thước và đưa khách tới bước hoàn tất đơn.", image: "asset smax/ecommerce-v2/chat-commerce-channel.webp" }
+          ]
+        },
+        {
           id: "form-thu-lead",
           title: "Biểu mẫu thu lead",
           headline: "Thu đủ thông tin mà không biến hội thoại thành bảng hỏi dài",
@@ -321,8 +332,8 @@ window.SMAX_FEATURES = {
       id: "ban-hang-don-hang",
       title: "Bán hàng & đơn hàng",
       promise: "Đưa giao dịch vào cùng dòng dữ liệu hội thoại",
-      description: "Quản lý sản phẩm, tạo và theo dõi đơn hàng, tự động thông báo trạng thái và đồng bộ với nền tảng bán hàng đang sử dụng.",
-      hero: "asset smax/integration-feature-map/ecommerce-feature-map.png",
+      description: "Từ tư vấn, tạo đơn và bán hàng tại quầy đến kho, vận chuyển, thanh toán và chăm sóc sau mua — mọi giao dịch được nối liền với dữ liệu khách hàng.",
+      hero: "asset smax/smax-all-in-one/commerce-pos-payment.webp",
       features: [
         {
           id: "san-pham-va-don-hang",
@@ -332,6 +343,52 @@ window.SMAX_FEATURES = {
           cards: [
             { title: "Quản lý sản phẩm", description: "Chuẩn hóa danh mục để nhân viên và chatbot có thể tra cứu, tư vấn và thêm vào đơn.", image: "asset smax/integration-feature-cards/ecommerce-05-flash-sale-sync.png" },
             { title: "Trung tâm quản lý đơn", description: "Theo dõi trạng thái xử lý và hiệu suất tạo đơn thay cho ghi chép rời rạc.", image: "asset smax/integration-feature-cards/ecommerce-02-order-confirmation.png" }
+          ]
+        },
+        {
+          id: "pos-ban-hang-tai-quay",
+          title: "POS & bán hàng tại quầy",
+          headline: "Một trải nghiệm bán hàng liền mạch từ cửa hàng đến hội thoại",
+          description: "Smax POS tập trung thao tác bán hàng, sản phẩm, khách hàng và báo cáo để nhân viên phục vụ nhanh hơn mà dữ liệu vẫn đồng bộ xuyên suốt.",
+          layout: "tiles",
+          cards: [
+            { title: "Tạo và xử lý đơn tại quầy", description: "Tìm sản phẩm, ghi nhận khách hàng, tạo đơn và theo dõi giao dịch trên cùng một màn hình bán hàng.", image: "asset smax/smax-all-in-one/commerce-pos-payment.webp" },
+            { title: "Sản phẩm và giá bán thống nhất", description: "Chuẩn hóa danh mục, giá bán và thông tin sản phẩm để cửa hàng và đội ngũ trực tuyến cùng sử dụng một nguồn dữ liệu.", image: "asset smax/integration-feature-map/pos-feature-map.png" },
+            { title: "Khách hàng và điểm thành viên", description: "Nhận diện khách tại quầy, xem lịch sử mua sắm và cập nhật điểm thành viên cho lần chăm sóc tiếp theo.", image: "asset smax/integration-feature-cards/pos-03-member-points.png" },
+            { title: "Báo cáo bán hàng theo thời gian", description: "Theo dõi doanh thu, số đơn và hiệu suất bán hàng để người quản lý nắm tình hình nhanh chóng.", image: "asset smax/fb/visuals/pos-report-sync.png" }
+          ]
+        },
+        {
+          id: "kho-va-van-chuyen",
+          title: "Kho & vận chuyển",
+          headline: "Biết hàng đang ở đâu và đơn đang đi đến đâu",
+          description: "Theo dõi tồn kho, chi nhánh và trạng thái giao hàng để tư vấn chính xác, hạn chế bán vượt tồn và chủ động thông báo cho khách.",
+          layout: "split",
+          cards: [
+            { title: "Tra cứu tồn kho theo chi nhánh", description: "Kiểm tra số lượng còn lại, định tuyến cửa hàng phù hợp và nhận cảnh báo khi sản phẩm sắp hết.", image: "asset smax/integration-feature-cards/pos-01-inventory-lookup.png" },
+            { title: "Theo dõi hành trình giao hàng", description: "Cập nhật trạng thái vận chuyển và tự động gửi thông báo đúng thời điểm cho khách hàng.", image: "asset smax/integration-feature-cards/pos-04-shipping-status.png" }
+          ]
+        },
+        {
+          id: "payment-hub",
+          title: "Payment Hub",
+          headline: "Tạo mã QR, xác nhận thanh toán và tiếp tục phục vụ hoàn toàn tự động",
+          description: "Smax tạo mã QR theo từng giao dịch, theo dõi kết quả thu tiền và kích hoạt bước tiếp theo ngay khi ngân hàng xác nhận thành công.",
+          layout: "panorama",
+          cards: [
+            { title: "Thu tiền ngay trong hành trình chatbot", description: "Phù hợp cho đặt cọc, phí vận chuyển, sản phẩm số hoặc dịch vụ cần xác nhận thanh toán tức thì.", image: "asset smax/smax-all-in-one/commerce-pos-payment.webp" },
+            { title: "Theo dõi giao dịch tập trung", description: "Quản lý mã QR, cổng thanh toán, lịch sử giao dịch và nhật ký xác nhận tại một nơi.", image: "asset smax/integration-feature-cards/pos-02-invoice-sync.png" }
+          ]
+        },
+        {
+          id: "khuyen-mai-phieu-giam-gia",
+          title: "Khuyến mãi & phiếu giảm giá",
+          headline: "Tạo động lực mua hàng bằng ưu đãi đúng người, đúng thời điểm",
+          description: "Kết hợp chính sách khuyến mãi, mã ưu đãi và phiếu giảm giá với dữ liệu khách hàng để tăng chuyển đổi mà vẫn kiểm soát điều kiện sử dụng.",
+          layout: "duo",
+          cards: [
+            { title: "Ưu đãi theo sản phẩm và nhóm khách", description: "Thiết lập chương trình phù hợp với từng mặt hàng, chiến dịch hoặc phân khúc khách hàng.", image: "asset smax/integration-feature-cards/ecommerce-05-flash-sale-sync.png" },
+            { title: "Phiếu giảm giá có thể đo lường", description: "Phát hành mã ưu đãi, kết nối với chatbot và theo dõi hiệu quả chuyển đổi của từng chiến dịch.", image: "asset smax/gamification/voucher-conversion-v2.webp" }
           ]
         },
         {
@@ -352,6 +409,70 @@ window.SMAX_FEATURES = {
           cards: [
             { title: "Đồng bộ đơn và trạng thái", description: "Nhận đơn mới, cập nhật trạng thái giao hàng và kích hoạt thông báo đến khách.", image: "asset smax/module-feature-images/crm-connect/order-sync.webp" },
             { title: "Tra cứu tồn kho & chi nhánh", description: "Kết nối POS để kiểm tra tồn, định tuyến chi nhánh và cảnh báo số lượng thấp.", image: "asset smax/integration-feature-cards/pos-01-inventory-lookup.png" }
+          ]
+        }
+      ]
+    },
+    {
+      id: "noi-dung-du-lieu-quan-tri",
+      title: "Dữ liệu, nội dung & quản trị",
+      promise: "Thêm những công cụ giúp đội ngũ làm việc nhanh và nhất quán hơn",
+      description: "Quản lý dữ liệu vận hành, thiết kế nội dung cá nhân hóa, tái sử dụng tài nguyên chăm sóc và tổ chức đội ngũ trên cùng nền tảng.",
+      hero: "asset smax/smax-all-in-one/personalized-data-content.webp",
+      features: [
+        {
+          id: "bang-du-lieu-noi-bo",
+          title: "Bảng dữ liệu nội bộ",
+          headline: "Để chatbot đọc, ghi và cập nhật dữ liệu theo thời gian thực",
+          description: "Lưu thông tin khách hàng, sản phẩm, đơn hàng hoặc điểm thành viên trong một bảng dữ liệu được kết nối trực tiếp với kịch bản tự động.",
+          layout: "panorama",
+          cards: [
+            { title: "Tra cứu và phản hồi tức thì", description: "Bot tìm trạng thái đơn, giá sản phẩm hoặc điểm tích lũy rồi trả lời khách mà không cần nhân viên kiểm tra thủ công.", image: "asset smax/smax-all-in-one/personalized-data-content.webp" },
+            { title: "Tự động ghi và cập nhật thông tin", description: "Mỗi dữ liệu khách cung cấp có thể được lưu, thay đổi và dùng lại ở những bước chăm sóc tiếp theo.", image: "docs/ui-data/tao-bang-import-file_2.webp" }
+          ]
+        },
+        {
+          id: "email-va-anh-ca-nhan-hoa",
+          title: "Email & ảnh cá nhân hóa",
+          headline: "Tạo nội dung mang dấu ấn riêng cho từng khách hàng",
+          description: "Thiết kế email kéo thả và tự động tạo ảnh chứa tên, ảnh đại diện, mã QR hoặc ưu đãi riêng để mỗi thông điệp trở nên gần gũi hơn.",
+          layout: "split",
+          cards: [
+            { title: "Email Builder kéo thả", description: "Bắt đầu từ mẫu có sẵn hoặc tự thiết kế email chào mừng, bản tin, sinh nhật và khuyến mãi mà không cần viết mã.", image: "asset smax/smax-all-in-one/personalized-data-content.webp" },
+            { title: "Hình ảnh riêng cho từng người", description: "Tự động chèn tên, mã QR, voucher hoặc thông tin sự kiện vào mẫu ảnh trước khi gửi cho khách.", image: "asset smax/module-feature-images/remarketing/special-day-care.webp" }
+          ]
+        },
+        {
+          id: "tin-nhan-mau-thu-vien-block",
+          title: "Tin nhắn mẫu & thư viện block",
+          headline: "Chuẩn hóa nội dung để cả đội ngũ phản hồi nhanh và đúng giọng thương hiệu",
+          description: "Lưu câu trả lời thường dùng, nhóm các khối nội dung và tái sử dụng trong hội thoại, chatbot hoặc chiến dịch chăm sóc.",
+          layout: "mobile",
+          cards: [
+            { title: "Câu trả lời lưu sẵn", description: "Nhân viên tìm và gửi nhanh nội dung đã chuẩn hóa thay vì nhập lại những câu trả lời lặp lại.", image: "asset smax/module-feature-images/livechat/saved-replies-new.webp" },
+            { title: "Thư viện block dùng chung", description: "Tái sử dụng lời chào, báo giá, hướng dẫn hoặc bước điều hướng trong nhiều kịch bản khác nhau.", image: "asset smax/chatbot/thu-vien-block.webp" }
+          ]
+        },
+        {
+          id: "to-chuc-va-phan-quyen",
+          title: "Tổ chức & phân quyền",
+          headline: "Đưa đúng hội thoại đến đúng người và bảo vệ dữ liệu theo đúng vai trò",
+          description: "Quản lý thành viên, bộ phận và nhóm quyền để mỗi nhân sự chỉ nhìn thấy, xử lý và cấu hình phần việc được giao.",
+          layout: "split",
+          cards: [
+            { title: "Thành viên và bộ phận", description: "Tổ chức đội ngũ theo phòng ban, ca trực hoặc nhiệm vụ để phân công hội thoại rõ ràng hơn.", image: "asset smax/smax-all-in-one/team-dashboard-insight.webp" },
+            { title: "Nhóm quyền linh hoạt", description: "Kiểm soát quyền xem dữ liệu, xử lý khách hàng, quản lý kênh và thay đổi cấu hình hệ thống.", image: "asset smax/module-feature-images/livechat/staff-assignment-new.webp" }
+          ]
+        },
+        {
+          id: "quan-tri-he-thong",
+          title: "Quản trị hệ thống",
+          headline: "Vận hành minh bạch hơn với lịch sử thao tác và cấu hình tập trung",
+          description: "Theo dõi nhật ký hoạt động, quản lý tên miền, cấu hình chung và hỗ trợ di chuyển dữ liệu khi doanh nghiệp mở rộng.",
+          layout: "duo",
+          cards: [
+            { title: "Lịch sử thao tác rõ ràng", description: "Tra cứu những thay đổi quan trọng để kiểm soát chất lượng và xử lý sự cố nhanh hơn.", image: "asset smax/livechat/audit-history-logs.webp" },
+            { title: "Dữ liệu và cấu hình an toàn", description: "Quản lý cấu hình, quyền truy cập và quá trình chuyển đổi dữ liệu theo nhu cầu vận hành.", image: "asset smax/module-feature-images/crm-connect/data-security.webp" }
           ]
         }
       ]
@@ -440,6 +561,19 @@ window.SMAX_FEATURES = {
           cards: [
             { title: "Báo cáo tư vấn & chốt đơn", description: "Phân tích kết quả theo kênh, nhân viên, nhóm nhu cầu và giai đoạn xử lý.", image: "asset smax/ai-insight/bao-cao-tu-van-chot-don.webp" },
             { title: "Cảnh báo rủi ro", description: "Phát hiện hội thoại tiêu cực, bỏ quên hoặc có khả năng mất khách để can thiệp sớm.", image: "asset smax/module-feature-images/ai-insight/risk-alert.webp" }
+          ]
+        },
+        {
+          id: "dashboard-theo-vai-tro",
+          title: "Dashboard theo vai trò",
+          headline: "Mỗi đội ngũ nhìn thấy đúng chỉ số cần để hành động",
+          description: "Các bảng điều khiển riêng cho khách hàng, tương tác, tư vấn viên, marketing và hệ thống thẻ giúp nhà quản lý tìm điểm nghẽn nhanh hơn.",
+          layout: "tiles",
+          cards: [
+            { title: "Dashboard khách hàng", description: "Theo dõi khách mới, khách quay lại, nguồn tiếp cận và phễu từ nhắn tin đến đơn hàng.", image: "asset smax/smax-all-in-one/team-dashboard-insight.webp" },
+            { title: "Dashboard tương tác", description: "Nhìn rõ khối lượng tin nhắn, bình luận, khung giờ cao điểm và tỷ lệ thu được thông tin liên hệ.", image: "asset smax/livechat/report-activity.webp" },
+            { title: "Dashboard đội tư vấn", description: "So sánh khối lượng hội thoại, tốc độ xử lý và tỷ lệ chuyển đổi để phân bổ nhân sự hợp lý.", image: "asset smax/livechat/report-conversion.webp" },
+            { title: "Dashboard marketing & thẻ", description: "Đánh giá kênh mang lại khách chất lượng và theo dõi sự dịch chuyển của các nhóm khách hàng qua hệ thống thẻ.", image: "asset smax/livechat/report-performance.webp" }
           ]
         },
         {

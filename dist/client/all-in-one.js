@@ -46,6 +46,8 @@
     </div>
   `).join('');
 
+  const layoutSequence = ['duo', 'panorama', 'split', 'mobile', 'tiles'];
+
   stream.innerHTML = catalog.groups.map((group, groupIndex) => `
     <section class="aio-group aio-tone-${(groupIndex % 4) + 1}" id="${group.id}" data-group-section="${group.id}">
       <header class="aio-group-hero">
@@ -60,8 +62,10 @@
         </figure>
       </header>
 
-      ${group.features.map((feature) => `
-        <article class="aio-feature" id="${feature.id}" data-feature-section="${feature.id}" data-search="${normalize(`${group.title} ${feature.title} ${feature.headline} ${feature.description} ${feature.cards.map((card) => `${card.title} ${card.description}`).join(' ')}`)}">
+      ${group.features.map((feature, featureIndex) => {
+        const layout = feature.layout || layoutSequence[(groupIndex * 2 + featureIndex) % layoutSequence.length];
+        return `
+        <article class="aio-feature aio-layout-${layout}" id="${feature.id}" data-feature-section="${feature.id}" data-layout="${layout}" data-search="${normalize(`${group.title} ${feature.title} ${feature.headline} ${feature.description} ${feature.cards.map((card) => `${card.title} ${card.description}`).join(' ')}`)}">
           <div class="aio-feature-heading">
             <div class="aio-feature-label"><strong>${featureNumber.get(feature.id)}</strong><span>${feature.title}</span></div>
             <div class="aio-feature-heading-grid">
@@ -69,7 +73,7 @@
               <p>${feature.description}</p>
             </div>
           </div>
-          <div class="aio-card-grid">
+          <div class="aio-card-grid aio-card-count-${Math.min(feature.cards.length, 5)}">
             ${feature.cards.map((card, cardIndex) => `
               <section class="aio-card ${cardIndex % 2 ? 'aio-card-warm' : ''}">
                 <figure class="aio-card-media">
@@ -83,8 +87,8 @@
               </section>
             `).join('')}
           </div>
-        </article>
-      `).join('')}
+        </article>`;
+      }).join('')}
     </section>
   `).join('');
 
