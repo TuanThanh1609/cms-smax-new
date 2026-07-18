@@ -31,8 +31,8 @@
           <h1>Một nền tảng cho toàn bộ hành trình khách hàng</h1>
           <p class="aio-hero-lead">Hợp nhất hội thoại, khách hàng, AI, automation và bán hàng trong một hệ thống vận hành tăng trưởng.</p>
           <div class="aio-actions">
-            <a class="aio-button aio-button-primary" href="#capabilities">Khám phá tính năng</a>
-            <a class="aio-button aio-button-secondary" href="#catalog">Xem danh mục đầy đủ</a>
+            <a class="aio-button aio-button-primary" href="#features">Khám phá 113 chương tính năng</a>
+            <a class="aio-button aio-button-secondary" href="#latest-updates">Xem cập nhật mới</a>
           </div>
         </div>
 
@@ -44,12 +44,89 @@
       <div class="aio-container aio-proof-grid" aria-label="Phạm vi hệ sinh thái Smax">
         <div><strong>14</strong><span>nhóm tài liệu sản phẩm</span></div>
         <div><strong>557</strong><span>mục hướng dẫn kỹ thuật</span></div>
-        <div><strong>27+</strong><span>kênh và tích hợp</span></div>
+        <div><strong>113</strong><span>chương tính năng chính</span></div>
         <div><strong>24/7</strong><span>tự động hóa chăm sóc</span></div>
       </div>
     </section>
 
-    <nav class="aio-anchor-nav" aria-label="Điều hướng trang All-in-one">
+    <section class="aio-directory" id="features">
+      <div class="aio-container aio-directory-heading aio-reveal">
+        <p class="aio-eyebrow">Toàn bộ hệ sinh thái Smax</p>
+        <h2>Chọn tính năng ở sidebar. Khám phá chi tiết theo dòng cuộn.</h2>
+        <p>14 nhóm sản phẩm, 113 chương chính và toàn bộ 557 mục tài liệu được sắp xếp thành một hành trình liền mạch.</p>
+      </div>
+
+      <button class="aio-directory-mobile-trigger" type="button" aria-controls="feature-sidebar" aria-expanded="false" data-directory-toggle>
+        <span>Mở danh mục tính năng</span>
+        <strong>14 nhóm · 557 mục</strong>
+      </button>
+
+      <div class="aio-directory-backdrop" data-directory-backdrop></div>
+
+      <div class="aio-container aio-directory-layout">
+        <aside class="aio-directory-sidebar" id="feature-sidebar" aria-label="Danh mục toàn bộ tính năng Smax">
+          <div class="aio-directory-sidebar-head">
+            <div>
+              <strong>Danh mục tính năng</strong>
+              <span data-directory-count>113 chương · 557 mục</span>
+            </div>
+            <button type="button" aria-label="Đóng danh mục tính năng" data-directory-close>×</button>
+          </div>
+
+          <label class="aio-directory-search" for="feature-search">
+            <span>Tìm nhanh</span>
+            <input id="feature-search" type="search" placeholder="Chatbot, Zalo, API, POS..." autocomplete="off" data-directory-search>
+          </label>
+
+          <a class="aio-directory-update-link" href="#latest-updates">
+            <span>Cập nhật mới</span>
+            <strong>NEW</strong>
+          </a>
+
+          <nav class="aio-directory-nav" data-directory-nav></nav>
+        </aside>
+
+        <div class="aio-directory-content">
+          <section class="aio-latest-updates" id="latest-updates">
+            <div class="aio-directory-section-heading">
+              <p class="aio-eyebrow">Cập nhật gần đây</p>
+              <h2>Những khả năng mới trong hệ sinh thái Smax</h2>
+              <p>Tổng hợp từ changelog chính thức và các tài liệu vừa cập nhật trên Smax Docs.</p>
+            </div>
+            <div class="aio-latest-update-grid">
+              <article>
+                <time datetime="2026-07-17">17/07/2026</time>
+                <h3>Kho kịch bản chatbot thực chiến</h3>
+                <p>Chào mừng, bình luận, minigame và bám đuổi khách hàng trong hoặc ngoài cửa sổ 24 giờ.</p>
+              </article>
+              <article>
+                <time datetime="2026-07-09">09/07/2026</time>
+                <h3>Partner API cho CRM và hệ thống ngoài</h3>
+                <p>Quản lý khách hàng, đồng bộ CRM và gửi tin chủ động qua Messenger, Zalo OA, Zalo ZNS.</p>
+              </article>
+              <article>
+                <time datetime="2026-07-04">04/07/2026</time>
+                <h3>Google Sheet Trigger</h3>
+                <p>Kích hoạt workflow từ dữ liệu Sheet để xác nhận đơn, cập nhật trạng thái và gửi thông báo.</p>
+              </article>
+              <article>
+                <time datetime="2025-09-20">20/09/2025</time>
+                <h3>Audience, Session &amp; Insight và Livechat</h3>
+                <p>Ổn định đồng bộ Audience, bổ sung phân tích phiên, nhóm tin nhắn mẫu và mention Zalo User Group.</p>
+              </article>
+            </div>
+          </section>
+
+          <div class="aio-feature-stream" data-feature-stream></div>
+          <div class="aio-directory-empty" data-directory-empty hidden>
+            <h3>Chưa tìm thấy tính năng phù hợp</h3>
+            <p>Hãy thử một từ khóa ngắn hơn hoặc xóa nội dung tìm kiếm.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="aio-anchor-nav" aria-label="Điều hướng trang All-in-one" hidden>
       <div class="aio-container">
         <a href="#overview">Tổng quan</a>
         <a href="#capabilities">Trụ cột sản phẩm</a>
@@ -59,7 +136,7 @@
       </div>
     </nav>
 
-    <section class="aio-section aio-overview" id="overview">
+    <section class="aio-section aio-overview" id="overview" hidden>
       <div class="aio-container">
         <div class="aio-section-intro aio-reveal">
           <h2>Một dòng dữ liệu, ba vòng tăng trưởng</h2>
@@ -91,7 +168,7 @@
       </div>
     </section>
 
-    <section class="aio-section aio-capabilities" id="capabilities">
+    <section class="aio-section aio-capabilities" id="capabilities" hidden>
       <div class="aio-container">
         <div class="aio-section-intro aio-reveal">
           <h2>Toàn bộ năng lực trên một hệ điều hành</h2>
@@ -105,7 +182,7 @@
       </div>
     </section>
 
-    <section class="aio-section aio-automation-story">
+    <section class="aio-section aio-automation-story" hidden>
       <div class="aio-container aio-automation-grid">
         <div class="aio-automation-copy aio-reveal">
           <h2>Từ một tín hiệu đến cả chuỗi hành động</h2>
@@ -122,7 +199,7 @@
       </div>
     </section>
 
-    <section class="aio-section aio-updates" id="updates">
+    <section class="aio-section aio-updates" id="updates" hidden>
       <div class="aio-container">
         <div class="aio-section-intro aio-reveal">
           <h2>Smax luôn mở rộng theo nhu cầu vận hành</h2>
@@ -163,7 +240,7 @@
       </div>
     </section>
 
-    <section class="aio-section aio-integrations" id="integrations">
+    <section class="aio-section aio-integrations" id="integrations" hidden>
       <div class="aio-container">
         <div class="aio-section-intro aio-reveal">
           <h2>Kết nối nơi khách hàng và dữ liệu đang tồn tại</h2>
@@ -191,7 +268,7 @@
       </div>
     </section>
 
-    <section class="aio-section aio-catalog" id="catalog">
+    <section class="aio-section aio-catalog" id="catalog" hidden>
       <div class="aio-container">
         <div class="aio-section-intro aio-reveal">
           <p class="aio-eyebrow">Nguồn dữ liệu: smax_doc_mcp</p>
