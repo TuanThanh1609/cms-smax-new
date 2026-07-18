@@ -21,7 +21,7 @@ html { scroll-behavior: smooth; }
 
 .all-in-one-body * { box-sizing: border-box; }
 .aio-page { overflow: clip; }
-.aio-container { width: min(1540px, calc(100% - 64px)); margin: 0 auto; }
+.aio-container { width: min(100% - 48px, var(--container)); margin: 0 auto; }
 
 .aio-eyebrow {
   margin: 0 0 16px;
@@ -274,12 +274,12 @@ html { scroll-behavior: smooth; }
 }
 
 @media (max-width: 1019px) {
-  .aio-container { width: min(100% - 36px, 900px); }
+  .aio-container { width: min(100% - 48px, var(--container)); }
   .aio-hero-grid { grid-template-columns: 1fr; }
   .aio-hero-media { min-height: 0; }
   .aio-section-heading, .aio-source-card { grid-template-columns: 1fr; gap: 28px; }
   .aio-directory-layout { grid-template-columns: 1fr; }
-  .aio-mobile-directory { position: sticky; top: 70px; z-index: 40; display: flex; width: min(100% - 36px, 900px); min-height: 58px; align-items: center; justify-content: space-between; gap: 14px; margin: 0 auto 18px; padding: 10px 16px; border: 1px solid var(--aio-line); border-radius: 15px; background: rgba(255,255,255,.94); color: var(--aio-ink); box-shadow: 0 12px 30px rgba(17,24,45,.12); backdrop-filter: blur(16px); font: inherit; }
+  .aio-mobile-directory { position: sticky; top: 70px; z-index: 40; display: flex; width: min(100% - 48px, var(--container)); min-height: 58px; align-items: center; justify-content: space-between; gap: 14px; margin: 0 auto 18px; padding: 10px 16px; border: 1px solid var(--aio-line); border-radius: 15px; background: rgba(255,255,255,.94); color: var(--aio-ink); box-shadow: 0 12px 30px rgba(17,24,45,.12); backdrop-filter: blur(16px); font: inherit; }
   .aio-mobile-directory span { font-size: .8rem; font-weight: 800; }
   .aio-mobile-directory strong { color: var(--aio-muted); font-size: .62rem; }
   .aio-sidebar { position: fixed; inset: 0 auto 0 0; z-index: 1002; width: min(88vw, 390px); max-height: none; height: 100dvh; border-radius: 0 24px 24px 0; transform: translateX(-104%); transition: transform 220ms ease; }
@@ -295,7 +295,8 @@ html { scroll-behavior: smooth; }
 }
 
 @media (max-width: 720px) {
-  .aio-container { width: calc(100% - 28px); }
+  .aio-container,
+  .aio-mobile-directory { width: min(100% - 32px, var(--container)); }
   .aio-hero { padding: 72px 0 48px; }
   .aio-hero-copy h1 { font-size: clamp(3rem, 14vw, 4.7rem); }
   .aio-hero-media img { width: 108%; margin-left: -4%; }
