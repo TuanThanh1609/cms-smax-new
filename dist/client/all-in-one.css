@@ -107,9 +107,10 @@ html { scroll-behavior: smooth; }
   position: relative;
   z-index: 1;
   display: block;
-  width: 116%;
+  width: 108%;
   max-width: none;
-  margin: -1% 0 0 -8%;
+  margin: 0 0 0 -4%;
+  object-fit: contain;
   filter: drop-shadow(0 32px 40px rgba(24, 38, 76, .14));
 }
 
@@ -297,7 +298,7 @@ html { scroll-behavior: smooth; }
   .aio-container { width: calc(100% - 28px); }
   .aio-hero { padding: 72px 0 48px; }
   .aio-hero-copy h1 { font-size: clamp(3rem, 14vw, 4.7rem); }
-  .aio-hero-media img { width: 124%; margin-left: -12%; }
+  .aio-hero-media img { width: 108%; margin-left: -4%; }
   .aio-hero-proof { gap: 14px; }
   .aio-new { padding: 70px 0; }
   .aio-update-grid { grid-template-columns: 1fr; }

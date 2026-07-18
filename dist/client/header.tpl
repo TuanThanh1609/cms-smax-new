@@ -20,7 +20,7 @@
                       <div class="mega-item-icon">
                         <img src="asset smax/favicon.png" alt="" width="24" height="24">
                       </div>
-                      <span><strong>Smax All-in-one</strong><small>Khám phá toàn bộ hệ sinh thái tính năng.</small></span>
+                      <span><strong data-cms="header-prod-name-automation-map">Automation Map</strong><small data-cms="header-prod-desc-automation-map">Khám phá toàn bộ bản đồ tính năng và hành trình tự động hóa.</small></span>
                       <span class="mega-item-arrow" aria-hidden="true">→</span>
                     </a>
                     <a class="mega-item" href="livechat.html">
@@ -90,7 +90,7 @@
                 <aside class="mega-aside">
                   <p class="mega-aside-label" data-cms="header-prod-aside-desc">Nền tảng hợp nhất</p>
                   <h2 data-cms="header-prod-aside-title">Từ hội thoại đến doanh thu trong một luồng.</h2>
-                  <p data-cms="header-prod-aside-desc">Nền tảng hợp nhất</p>
+                  <p data-cms="header-prod-aside-desc">Kết nối kênh bán, dữ liệu khách hàng và automation trên cùng hệ thống Smax.ai.</p>
                   <a class="mega-primary-link" href="index.html#automation" data-cms="header-prod-aside-link">Xem Automation Map <span aria-hidden="true">→</span></a>
                   <div class="mega-aside-metrics" aria-label="Điểm nổi bật">
                     <span><strong>8</strong> phân hệ</span>
@@ -191,7 +191,7 @@
                 <aside class="mega-aside mega-aside-coral">
                   <p class="mega-aside-label" data-cms="header-sol-aside-desc">Thiết kế theo doanh nghiệp</p>
                   <h2 data-cms="header-sol-aside-title">Một nền tảng, nhiều mô hình vận hành.</h2>
-                  <p data-cms="header-sol-aside-desc">Thiết kế theo doanh nghiệp</p>
+                  <p data-cms="header-sol-aside-desc">Smax.ai kết hợp quy trình ngành, dữ liệu và kịch bản automation phù hợp với đội ngũ của bạn.</p>
                   <a class="mega-primary-link" href="index.html#capabilities" data-cms="header-sol-aside-link">Khám phá ứng dụng ngành <span aria-hidden="true">→</span></a>
                   <div class="mega-aside-metrics" aria-label="Điểm nổi bật">
                     <span><strong>9</strong> lĩnh vực</span>
@@ -304,7 +304,7 @@
                 <aside class="mega-aside mega-aside-blue">
                   <p class="mega-aside-label" data-cms="header-int-aside-desc">Mở rộng vô hạn</p>
                   <h2 data-cms="header-int-aside-title">Tự động hóa luồng dữ liệu 2 chiều.</h2>
-                  <p data-cms="header-int-aside-desc">Mở rộng vô hạn</p>
+                  <p data-cms="header-int-aside-desc">Đồng bộ dữ liệu khách hàng từ hội thoại chat về hệ thống quản trị của doanh nghiệp thời gian thực.</p>
                   <a class="mega-primary-link" href="tich-hop.html" data-cms="header-int-aside-link">Xem tất cả kết nối <span aria-hidden="true">→</span></a>
                 </aside>
               </div>
@@ -341,7 +341,7 @@
         <details class="mobile-nav-group">
           <summary>Sản phẩm</summary>
           <div class="mobile-nav-submenu">
-            <a href="all-in-one.html">Smax All-in-one</a>
+            <a href="all-in-one.html" data-cms="header-prod-name-automation-map">Automation Map</a>
             <a href="livechat.html">Livechat</a>
             <a href="chatbot.html">Chatbot</a>
             <a href="genai.html">Smax GenAI</a>

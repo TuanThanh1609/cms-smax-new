@@ -20,7 +20,7 @@
                       <div class="mega-item-icon">
                         <img src="asset smax/favicon.png" alt="" width="24" height="24">
                       </div>
-                      <span><strong>Smax All-in-one</strong><small>Khám phá toàn bộ hệ sinh thái tính năng.</small></span>
+                      <span><strong data-cms="header-prod-name-automation-map">Automation Map</strong><small data-cms="header-prod-desc-automation-map">Khám phá toàn bộ bản đồ tính năng và hành trình tự động hóa.</small></span>
                       <span class="mega-item-arrow" aria-hidden="true">→</span>
                     </a>
                     <a class="mega-item" href="livechat.html">
@@ -341,7 +341,7 @@
         <details class="mobile-nav-group">
           <summary>Sản phẩm</summary>
           <div class="mobile-nav-submenu">
-            <a href="all-in-one.html">Smax All-in-one</a>
+            <a href="all-in-one.html" data-cms="header-prod-name-automation-map">Automation Map</a>
             <a href="livechat.html">Livechat</a>
             <a href="chatbot.html">Chatbot</a>
             <a href="genai.html">Smax GenAI</a>
