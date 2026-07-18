@@ -542,6 +542,28 @@
         margin: 0;
       }
 
+      .acq-support-visual {
+        margin-top: 20px;
+        min-height: 210px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .acq-support-visual img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3 / 2;
+        object-fit: contain;
+        display: block;
+        filter: drop-shadow(0 14px 22px rgba(15, 24, 53, 0.08));
+      }
+
+      .acq-sub-grid .acq-support-visual {
+        margin-top: 24px;
+      }
+
       /* Solution 4 Loyalty (Centered vertical stack) */
       .solution-loyalty-section {
         background: #F8F9FC;
@@ -798,6 +820,10 @@
         .solution-acquisition-grid:has([data-cms-img="education-img-3"]) > .acq-card:nth-child(2) {
           grid-column: auto;
           grid-template-columns: 1fr;
+        }
+
+        .acq-support-visual {
+          min-height: 0;
         }
 
         .acq-card-right-img {
@@ -1114,10 +1140,16 @@
                 <div class="acq-sub-card">
                   <h4 data-cms="education-text-25">Khảo sát trình độ tự động</h4>
                   <p data-cms="education-text-26">Hỏi các câu hỏi trắc nghiệm thông minh trên chat để đánh giá mức độ phù hợp trước khi thi thử.</p>
+                  <div class="acq-support-visual">
+                    <img src="asset smax/education-v2/level-survey.webp" alt="Hội thoại AI khảo sát trình độ và đánh giá năng lực học viên" data-cms-img="education-img-14">
+                  </div>
                 </div>
                 <div class="acq-sub-card">
                   <h4 data-cms="education-text-27">Đề xuất lộ trình cá nhân hóa</h4>
                   <p data-cms="education-text-28">AI tự động phân tích kết quả test để đề xuất chương trình học, số buổi và học phí cá nhân hóa.</p>
+                  <div class="acq-support-visual">
+                    <img src="asset smax/education-v2/personalized-roadmap.webp" alt="AI phân tích kết quả và đề xuất lộ trình học cá nhân hóa" data-cms-img="education-img-15">
+                  </div>
                 </div>
               </div>
 
@@ -1126,10 +1158,16 @@
                 <div class="acq-card">
                   <h3 style="font-size: 17px; font-weight: 700; margin: 0 0 8px; color: var(--primary-navy, #0F1835);" data-cms="education-text-29">Nurturing Lead học viên bỏ dở</h3>
                   <p style="font-size: 14px; line-height: 1.5; color: var(--text-secondary, #475467); margin: 0;" data-cms="education-text-30">Tự động phát hiện học viên chưa hoàn thành form đăng ký hoặc chưa chọn lịch test để gửi tin nhắn bám đuổi qua kịch bản Sequence chăm sóc.</p>
+                  <div class="acq-support-visual">
+                    <img src="asset smax/education-v2/lead-nurturing.webp" alt="Luồng tự động chăm sóc học viên bỏ dở đăng ký" data-cms-img="education-img-16">
+                  </div>
                 </div>
                 <div class="acq-card">
                   <h3 style="font-size: 17px; font-weight: 700; margin: 0 0 8px; color: var(--primary-navy, #0F1835);" data-cms="education-text-31">Nhắc lịch học thử trước 1 giờ</h3>
                   <p style="font-size: 14px; line-height: 1.5; color: var(--text-secondary, #475467); margin: 0;" data-cms="education-text-32">Tự động gửi tin nhắn kèm link Zoom và tài liệu học thử trước giờ hẹn 1 tiếng, tăng tỷ lệ tham gia lớp học lên 80%.</p>
+                  <div class="acq-support-visual">
+                    <img src="asset smax/education-v2/trial-reminder.webp" alt="Tin nhắn tự động nhắc lịch học thử kèm link phòng học" data-cms-img="education-img-17">
+                  </div>
                 </div>
               </div>
             </div>
