@@ -146,23 +146,114 @@
 
   search?.addEventListener('input', applySearch);
 
+  const navGroups = [...nav.querySelectorAll('[data-nav-group]')];
   const featureSections = [...document.querySelectorAll('[data-feature-section]')];
-  const activeObserver = new IntersectionObserver((entries) => {
-    const visible = entries
-      .filter((entry) => entry.isIntersecting && !entry.target.hidden)
-      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-    if (!visible) return;
+  const groupSections = [...document.querySelectorAll('[data-group-section]')];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let activeGroupId = '';
+  let activeFeatureId = '';
+  let scrollFrame = 0;
+  let syncingAccordion = false;
 
-    const id = visible.target.dataset.featureSection;
-    nav.querySelectorAll('.aio-nav-link').forEach((link) => {
-      link.classList.toggle('is-active', link.dataset.featureLink === id);
+  const keepActiveItemVisible = (target) => {
+    if (!sidebar || !target || window.innerWidth < 1020) return;
+    requestAnimationFrame(() => {
+      const sidebarRect = sidebar.getBoundingClientRect();
+      const targetRect = target.getBoundingClientRect();
+      const safeTop = sidebarRect.top + 92;
+      const safeBottom = sidebarRect.bottom - 18;
+      if (targetRect.top >= safeTop && targetRect.bottom <= safeBottom) return;
+
+      const nextTop = sidebar.scrollTop
+        + targetRect.top
+        - sidebarRect.top
+        - (sidebar.clientHeight - targetRect.height) / 2;
+      sidebar.scrollTo({
+        top: Math.max(0, nextTop),
+        behavior: reduceMotion.matches ? 'auto' : 'smooth'
+      });
     });
-    const group = visible.target.closest('[data-group-section]')?.dataset.groupSection;
-    const details = document.querySelector(`[data-nav-group="${group}"]`);
-    if (details && !details.open) details.open = true;
-  }, { rootMargin: '-18% 0px -62% 0px', threshold: [0.04, 0.2, 0.45] });
+  };
 
-  featureSections.forEach((section) => activeObserver.observe(section));
+  const setActiveNavigation = (groupId, featureId = '') => {
+    if (!groupId || search?.value.trim()) return;
+    const groupChanged = groupId !== activeGroupId;
+    const featureChanged = featureId !== activeFeatureId;
+    if (!groupChanged && !featureChanged) return;
+
+    activeGroupId = groupId;
+    activeFeatureId = featureId;
+    syncingAccordion = true;
+    navGroups.forEach((details) => {
+      details.open = details.dataset.navGroup === groupId;
+    });
+    syncingAccordion = false;
+
+    nav.querySelectorAll('.aio-nav-link').forEach((link) => {
+      link.classList.toggle('is-active', link.dataset.featureLink === featureId);
+    });
+
+    const activeLink = featureId
+      ? nav.querySelector(`[data-feature-link="${featureId}"]`)
+      : null;
+    const activeGroup = nav.querySelector(`[data-nav-group="${groupId}"]`);
+    keepActiveItemVisible(activeLink || activeGroup?.querySelector('summary'));
+  };
+
+  const updateNavigationFromScroll = () => {
+    scrollFrame = 0;
+    if (search?.value.trim()) return;
+
+    const marker = Math.min(window.innerHeight * 0.3, 260);
+    let currentGroup = groupSections.find((section) => {
+      if (section.hidden) return false;
+      const rect = section.getBoundingClientRect();
+      return rect.top <= marker && rect.bottom > marker;
+    });
+
+    if (!currentGroup) {
+      currentGroup = [...groupSections]
+        .filter((section) => !section.hidden && section.getBoundingClientRect().top <= marker)
+        .pop() || groupSections.find((section) => !section.hidden);
+    }
+    if (!currentGroup) return;
+
+    const currentFeature = [...currentGroup.querySelectorAll('[data-feature-section]')]
+      .filter((section) => !section.hidden && section.getBoundingClientRect().top <= marker)
+      .pop();
+
+    setActiveNavigation(
+      currentGroup.dataset.groupSection,
+      currentFeature?.dataset.featureSection || ''
+    );
+  };
+
+  const scheduleNavigationUpdate = () => {
+    if (scrollFrame) return;
+    scrollFrame = requestAnimationFrame(updateNavigationFromScroll);
+  };
+
+  navGroups.forEach((details) => {
+    details.addEventListener('toggle', () => {
+      if (!details.open || syncingAccordion || search?.value.trim()) return;
+      syncingAccordion = true;
+      navGroups.forEach((other) => {
+        if (other !== details) other.open = false;
+      });
+      syncingAccordion = false;
+    });
+  });
+
+  window.addEventListener('scroll', scheduleNavigationUpdate, { passive: true });
+  window.addEventListener('resize', scheduleNavigationUpdate);
+  search?.addEventListener('input', () => {
+    if (!search.value.trim()) {
+      activeGroupId = '';
+      activeFeatureId = '';
+      scheduleNavigationUpdate();
+    }
+  });
+  scheduleNavigationUpdate();
 
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
