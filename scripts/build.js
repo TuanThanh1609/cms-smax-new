@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const https = require('https');
 const url = require('url');
+const { loadCatalog, applyContentMap, buildRegistryHtml } = require('./automation-map-cms');
 
 // Load environment variables
 function loadEnv() {
@@ -400,6 +401,14 @@ function finalizeBuild(contentMap) {
             $(el).attr('style', contentMap[styleKey]);
           }
         });
+
+        if (file === 'all-in-one.html') {
+          const catalog = applyContentMap(loadCatalog(rootDir), contentMap);
+          $('.automation-map-cms-registry, #automation-map-cms-data').remove();
+          $('body').append(buildRegistryHtml(catalog));
+          const serializedCatalog = JSON.stringify(catalog).replace(/<\//g, '<\\/');
+          $('body').append(`<script id="automation-map-cms-data" type="application/json">${serializedCatalog}</script>`);
+        }
 
         let htmlContent = $.html();
 

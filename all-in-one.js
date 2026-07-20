@@ -1,5 +1,13 @@
 (() => {
-  const catalog = window.SMAX_FEATURES;
+  const cmsCatalog = document.getElementById('automation-map-cms-data');
+  let catalog = window.SMAX_FEATURES;
+  if (cmsCatalog?.textContent) {
+    try {
+      catalog = JSON.parse(cmsCatalog.textContent);
+    } catch (error) {
+      console.warn('[Automation Map] Không thể đọc dữ liệu CMS, đang dùng nội dung mặc định.', error);
+    }
+  }
   if (!catalog?.groups?.length) return;
 
   const nav = document.querySelector('[data-sidebar-nav]');

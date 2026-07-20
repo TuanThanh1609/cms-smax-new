@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const cheerio = require('cheerio');
+const { loadCatalog, collectCatalogRows } = require('./automation-map-cms');
 
 const rootDir = path.resolve(__dirname, '..');
 
@@ -46,6 +47,8 @@ function collectRows() {
     { page_name: 'global', content_key: 'header-prod-desc-automation-map', content_value: 'Khám phá toàn bộ bản đồ tính năng và hành trình tự động hóa.' }
   );
 
+  rows.push(...collectCatalogRows(loadCatalog(rootDir)));
+
   return Array.from(new Map(rows.map((row) => [row.content_key, row])).values());
 }
 
@@ -56,6 +59,32 @@ async function main() {
   if (!supabaseUrl || !key) throw new Error('Thiếu SUPABASE_URL hoặc Supabase key.');
 
   const rows = collectRows();
+  const existingResponse = await fetch(`${supabaseUrl.replace(/\/$/, '')}/rest/v1/site_content?select=content_key&page_name=eq.all-in-one`, {
+    headers: {
+      apikey: key,
+      Authorization: `Bearer ${key}`
+    }
+  });
+  if (!existingResponse.ok) throw new Error(`Supabase HTTP ${existingResponse.status}: ${await existingResponse.text()}`);
+  const existingKeys = new Set((await existingResponse.json()).map((row) => row.content_key));
+  const globalRows = rows.filter((row) => row.page_name === 'global');
+  const globalKeys = globalRows.map((row) => row.content_key).join(',');
+  const globalResponse = await fetch(`${supabaseUrl.replace(/\/$/, '')}/rest/v1/site_content?select=content_key&page_name=eq.global&content_key=in.(${encodeURIComponent(globalKeys)})`, {
+    headers: {
+      apikey: key,
+      Authorization: `Bearer ${key}`
+    }
+  });
+  if (!globalResponse.ok) throw new Error(`Supabase HTTP ${globalResponse.status}: ${await globalResponse.text()}`);
+  (await globalResponse.json()).forEach((row) => existingKeys.add(row.content_key));
+
+  const missingRows = rows.filter((row) => !existingKeys.has(row.content_key));
+
+  if (missingRows.length === 0) {
+    console.log(`CMS ready: all ${rows.length} Automation Map fields already exist.`);
+    return;
+  }
+
   const response = await fetch(`${supabaseUrl.replace(/\/$/, '')}/rest/v1/site_content?on_conflict=content_key`, {
     method: 'POST',
     headers: {
@@ -64,11 +93,11 @@ async function main() {
       'Content-Type': 'application/json',
       Prefer: 'resolution=merge-duplicates,return=minimal'
     },
-    body: JSON.stringify(rows)
+    body: JSON.stringify(missingRows)
   });
 
   if (!response.ok) throw new Error(`Supabase HTTP ${response.status}: ${await response.text()}`);
-  console.log(`CMS synced: ${rows.length} content fields for Automation Map.`);
+  console.log(`CMS synced: ${missingRows.length} new fields; ${rows.length} total Automation Map fields are configured.`);
 }
 
 main().catch((error) => {

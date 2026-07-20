@@ -2313,6 +2313,7 @@
       let sortedData = [...data];
       let uniqueOrderedKeys = [];
       let doc = null;
+      const fieldLabels = new Map();
       
       try {
         const htmlResp = await fetch(`/${pageKey}.html`);
@@ -2325,7 +2326,11 @@
           const elements = doc.querySelectorAll('[data-cms], [data-cms-img]');
           elements.forEach(el => {
             const key = el.getAttribute('data-cms') || el.getAttribute('data-cms-img');
-            if (key) orderedKeys.push(key);
+            if (key) {
+              orderedKeys.push(key);
+              const label = el.getAttribute('data-cms-label');
+              if (label) fieldLabels.set(key, label);
+            }
           });
           
           uniqueOrderedKeys = [...new Set(orderedKeys)];
@@ -2525,12 +2530,13 @@
               ${sec.fields.map((field) => {
                 const globalIndex = sortedData.findIndex(f => f.content_key === field.content_key);
                 const isImage = field.content_key.includes('img') || field.content_key.includes('logo') || field.content_key.includes('avatar') || field.content_value.startsWith('http') && (field.content_value.endsWith('.png') || field.content_value.endsWith('.jpg') || field.content_value.endsWith('.webp') || field.content_value.endsWith('.svg'));
+                const fieldLabel = fieldLabels.get(field.content_key) || field.content_key;
                 
                 if (isImage) {
                   return `
                     <div class="bg-zinc-950/40 border border-zinc-800/50 rounded-xl p-5 flex flex-col gap-3">
                       <div class="flex justify-between items-center">
-                        <span class="text-xs font-semibold text-zinc-400 uppercase tracking-wider">${field.content_key}</span>
+                        <span class="text-xs font-semibold text-zinc-400 tracking-wider">${fieldLabel}</span>
                         <span class="bg-indigo-500/10 text-indigo-400 text-[10px] px-2 py-0.5 rounded font-mono">Image</span>
                       </div>
                       <div class="flex gap-4 items-center">
@@ -2557,7 +2563,7 @@
                   return `
                     <div class="bg-zinc-950/40 border border-zinc-800/50 rounded-xl p-5 flex flex-col gap-2">
                       <div class="flex justify-between items-center">
-                        <span class="text-xs font-semibold text-zinc-400 uppercase tracking-wider">${field.content_key}</span>
+                        <span class="text-xs font-semibold text-zinc-400 tracking-wider">${fieldLabel}</span>
                         <span class="bg-indigo-500/10 text-indigo-400 text-[10px] px-2 py-0.5 rounded font-mono">Text</span>
                       </div>
                       ${isMultiline ? `
