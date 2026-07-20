@@ -3205,6 +3205,21 @@
             if (iframe.contentWindow.location.href === 'about:blank') return;
             const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
             if (iframeDoc && iframeDoc.body) {
+              // Dynamic pages such as Automation Map render their feature cards after
+              // the HTML was parsed above. Re-apply the current form values so those
+              // visible elements are editable immediately, including unsaved changes.
+              currentPageFields.forEach((field, index) => {
+                if (field.content_key.endsWith('-sections')) return;
+                const inputEl = document.getElementById(`input-val-${index}`);
+                if (!inputEl) return;
+                const val = inputEl.value;
+                iframeDoc.querySelectorAll(`[data-cms="${field.content_key}"]`).forEach((textEl) => {
+                  textEl.innerHTML = val;
+                });
+                iframeDoc.querySelectorAll(`[data-cms-img="${field.content_key}"]`).forEach((imgEl) => {
+                  imgEl.src = val;
+                });
+              });
               setupVisualEditing(iframeDoc);
             }
           } catch (e) {

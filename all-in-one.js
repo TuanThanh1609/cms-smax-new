@@ -26,6 +26,10 @@
     .replace(/Đ/g, 'D')
     .toLowerCase();
 
+  const groupCmsKey = (groupId, field) => `automation-map-group-${groupId}-${field}`;
+  const featureCmsKey = (featureId, field) => `automation-map-feature-${featureId}-${field}`;
+  const cardCmsKey = (featureId, cardIndex, field) => `automation-map-feature-${featureId}-card-${String(cardIndex + 1).padStart(2, '0')}-${field}`;
+
   const featureNumber = new Map();
   let sequence = 1;
   catalog.groups.forEach((group) => {
@@ -38,14 +42,14 @@
   nav.innerHTML = catalog.groups.map((group, index) => `
     <div class="aio-nav-group ${index === 0 ? 'is-open' : ''}" data-nav-group="${group.id}">
       <button class="aio-nav-toggle" type="button" aria-expanded="${index === 0 ? 'true' : 'false'}">
-        <span>${group.title}</span>
+        <span data-cms="${groupCmsKey(group.id, 'title')}">${group.title}</span>
         <span class="aio-nav-sign" aria-hidden="true"></span>
       </button>
       <div class="aio-nav-panel">
         <div class="aio-nav-links">
           ${group.features.map((feature) => `
             <a class="aio-nav-link" href="#${feature.id}" data-feature-link="${feature.id}">
-              <span>${feature.title}</span>
+              <span data-cms="${featureCmsKey(feature.id, 'title')}">${feature.title}</span>
               <small>${featureNumber.get(feature.id)}</small>
             </a>
           `).join('')}
@@ -61,12 +65,12 @@
       <header class="aio-group-hero">
         <div class="aio-group-copy">
           <span class="aio-group-index">Nhóm ${String(groupIndex + 1).padStart(2, '0')}</span>
-          <p>${group.title}</p>
-          <h2>${group.promise}</h2>
-          <div>${group.description}</div>
+          <p data-cms="${groupCmsKey(group.id, 'title')}">${group.title}</p>
+          <h2 data-cms="${groupCmsKey(group.id, 'promise')}">${group.promise}</h2>
+          <div data-cms="${groupCmsKey(group.id, 'description')}">${group.description}</div>
         </div>
         <figure class="aio-group-visual">
-          <img src="${group.hero}" alt="Minh họa ${group.title} trên Smax" loading="lazy">
+          <img data-cms-img="${groupCmsKey(group.id, 'img')}" src="${group.hero}" alt="Minh họa ${group.title} trên Smax" loading="lazy">
         </figure>
       </header>
 
@@ -75,21 +79,21 @@
         return `
         <article class="aio-feature aio-layout-${layout}" id="${feature.id}" data-feature-section="${feature.id}" data-layout="${layout}" data-search="${normalize(`${group.title} ${feature.title} ${feature.headline} ${feature.description} ${feature.cards.map((card) => `${card.title} ${card.description}`).join(' ')}`)}">
           <div class="aio-feature-heading">
-            <div class="aio-feature-label"><strong>${featureNumber.get(feature.id)}</strong><span>${feature.title}</span></div>
+            <div class="aio-feature-label"><strong>${featureNumber.get(feature.id)}</strong><span data-cms="${featureCmsKey(feature.id, 'title')}">${feature.title}</span></div>
             <div class="aio-feature-heading-grid">
-              <h3>${feature.headline}</h3>
-              <p>${feature.description}</p>
+              <h3 data-cms="${featureCmsKey(feature.id, 'headline')}">${feature.headline}</h3>
+              <p data-cms="${featureCmsKey(feature.id, 'description')}">${feature.description}</p>
             </div>
           </div>
           <div class="aio-card-grid aio-card-count-${Math.min(feature.cards.length, 5)}">
             ${feature.cards.map((card, cardIndex) => `
               <section class="aio-card ${cardIndex % 2 ? 'aio-card-warm' : ''}">
                 <figure class="aio-card-media">
-                  <img src="${card.image}" alt="${card.title}" loading="lazy">
+                  <img data-cms-img="${cardCmsKey(feature.id, cardIndex, 'img')}" src="${card.image}" alt="${card.title}" loading="lazy">
                 </figure>
                 <div class="aio-card-copy">
-                  <h4>${card.title}</h4>
-                  <p>${card.description}</p>
+                  <h4 data-cms="${cardCmsKey(feature.id, cardIndex, 'title')}">${card.title}</h4>
+                  <p data-cms="${cardCmsKey(feature.id, cardIndex, 'description')}">${card.description}</p>
                   <a href="#lien-he">Tìm hiểu thêm <span aria-hidden="true">↗</span></a>
                 </div>
               </section>
