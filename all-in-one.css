@@ -343,7 +343,7 @@ html { scroll-behavior: smooth; }
   .aio-source-card { padding: 38px 24px; border-radius: 22px; }
   .aio-final { padding: 72px 0; }
   .aio-actions { width: 100%; }
-  .aio-button { flex: 1 1 180px; }
+  .aio-button { flex: 0 0 auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {
