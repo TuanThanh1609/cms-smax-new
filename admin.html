@@ -248,13 +248,17 @@
     .theme-light #tab-left-pages,
     .theme-light #tab-left-sites,
     .theme-light #tab-right-media,
-    .theme-light #tab-right-blocks {
+    .theme-light #tab-right-blocks,
+    .theme-light #tab-right-typography,
+    .theme-light #tab-right-style {
       color: #64748b !important;
     }
     .theme-light #tab-left-pages.border-indigo-500,
     .theme-light #tab-left-sites.border-indigo-500,
     .theme-light #tab-right-media.border-indigo-500,
-    .theme-light #tab-right-blocks.border-indigo-500 {
+    .theme-light #tab-right-blocks.border-indigo-500,
+    .theme-light #tab-right-typography.border-indigo-500,
+    .theme-light #tab-right-style.border-indigo-500 {
       color: #4f46e5 !important;
     }
     
@@ -267,6 +271,115 @@
       background-color: #f1f5f9 !important;
     }
     .theme-light #drag-drop-zone span {
+      color: #475569 !important;
+    }
+
+    /* Light Mode Typography Panel Overrides */
+    .theme-light #typography-tab-content .typo-scope-card {
+      background-color: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05) !important;
+    }
+    .theme-light #typography-tab-content .typo-scope-title {
+      color: #0f172a !important;
+    }
+    .theme-light #typography-tab-content .typo-scope-bar {
+      background-color: #f1f5f9 !important;
+      border-color: #cbd5e1 !important;
+    }
+    .theme-light #typography-tab-content #scope-btn-global.bg-indigo-600,
+    .theme-light #typography-tab-content #scope-btn-page.bg-indigo-600,
+    .theme-light #typography-tab-content #scope-btn-element.bg-indigo-600 {
+      background-color: #4f46e5 !important;
+      color: #ffffff !important;
+      box-shadow: 0 1px 2px rgba(79, 70, 229, 0.2) !important;
+    }
+    .theme-light #typography-tab-content #scope-btn-global:not(.bg-indigo-600),
+    .theme-light #typography-tab-content #scope-btn-page:not(.bg-indigo-600),
+    .theme-light #typography-tab-content #scope-btn-element:not(.bg-indigo-600) {
+      color: #64748b !important;
+    }
+    .theme-light #typography-tab-content #scope-btn-global:not(.bg-indigo-600):hover,
+    .theme-light #typography-tab-content #scope-btn-page:not(.bg-indigo-600):hover,
+    .theme-light #typography-tab-content #scope-btn-element:not(.bg-indigo-600):hover {
+      color: #0f172a !important;
+    }
+    .theme-light #typography-tab-content #typo-scope-desc {
+      color: #64748b !important;
+    }
+    .theme-light #typography-tab-content .typo-label {
+      color: #475569 !important;
+    }
+    .theme-light #typography-tab-content .typo-pill {
+      background-color: #ffffff !important;
+      color: #475569 !important;
+      border: 1px solid #cbd5e1 !important;
+    }
+    .theme-light #typography-tab-content .typo-pill:hover {
+      background-color: #f1f5f9 !important;
+      color: #0f172a !important;
+    }
+    .theme-light #typography-tab-content .typo-pill.active,
+    .theme-light #typography-tab-content .typo-pill.active:hover {
+      background-color: #4f46e5 !important;
+      color: #ffffff !important;
+      border-color: #4f46e5 !important;
+    }
+    .theme-light #typo-form-fields {
+      background-color: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05) !important;
+    }
+    .theme-light #typo-form-fields label {
+      color: #334155 !important;
+    }
+    .theme-light #typo-form-fields select,
+    .theme-light #typo-form-fields input[type="text"] {
+      background-color: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      color: #0f172a !important;
+    }
+    .theme-light #typo-form-fields select:focus,
+    .theme-light #typo-form-fields input[type="text"]:focus {
+      border-color: #4f46e5 !important;
+    }
+    .theme-light #typo-form-fields select option {
+      background-color: #ffffff !important;
+      color: #0f172a !important;
+    }
+    .theme-light #typo-form-fields input[type="color"] {
+      background-color: #ffffff !important;
+      border-color: #cbd5e1 !important;
+    }
+    .theme-light #typography-tab-content .typo-footer {
+      border-color: #e2e8f0 !important;
+    }
+    .theme-light #typography-tab-content .typo-btn-reset {
+      background-color: #ffffff !important;
+      color: #475569 !important;
+      border-color: #cbd5e1 !important;
+    }
+    .theme-light #typography-tab-content .typo-btn-reset:hover {
+      background-color: #f1f5f9 !important;
+      color: #0f172a !important;
+    }
+
+    /* Light Mode Blocks Tab Overrides */
+    .theme-light #blocks-tab-content button.bg-zinc-900 {
+      background-color: #ffffff !important;
+      border-color: #e2e8f0 !important;
+    }
+    .theme-light #blocks-tab-content button.bg-zinc-900:hover {
+      background-color: #f8fafc !important;
+      border-color: #cbd5e1 !important;
+    }
+    .theme-light #blocks-tab-content button.bg-zinc-900 h4 {
+      color: #0f172a !important;
+    }
+    .theme-light #blocks-tab-content button.bg-zinc-900 p {
+      color: #64748b !important;
+    }
+    .theme-light #blocks-tab-content h5 {
       color: #475569 !important;
     }
     
@@ -1574,9 +1687,9 @@
         <!-- Typography Tab Content (Right Sidebar Panel) -->
         <div id="typography-tab-content" class="hidden flex flex-col gap-4 max-h-[75vh] overflow-y-auto custom-scroll pr-1">
           <!-- 3-Level Scope Header -->
-          <div class="bg-zinc-900/90 border border-zinc-800 rounded-xl p-3 flex flex-col gap-2.5">
+          <div class="bg-zinc-900/90 border border-zinc-800 rounded-xl p-3 flex flex-col gap-2.5 typo-scope-card">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-white flex items-center gap-1.5">
+              <span class="text-xs font-bold text-white flex items-center gap-1.5 typo-scope-title">
                 <i data-lucide="type" class="w-4 h-4 text-indigo-400"></i>
                 <span>Cấu hình Font Tiếng Việt</span>
               </span>
@@ -1584,7 +1697,7 @@
             </div>
             
             <!-- 3-Level Scope Selector Buttons -->
-            <div class="grid grid-cols-3 gap-1 bg-zinc-950 p-1 rounded-lg border border-zinc-850">
+            <div class="grid grid-cols-3 gap-1 bg-zinc-950 p-1 rounded-lg border border-zinc-850 typo-scope-bar">
               <button onclick="setTypographyScope('global')" id="scope-btn-global" class="text-[10px] font-semibold py-1.5 px-1 rounded-md text-center transition-all bg-indigo-600 text-white shadow" title="Đổi Font cho tất cả các trang">
                 🌐 Toàn trang
               </button>
@@ -1603,7 +1716,7 @@
 
           <!-- Target Element Selector Pills -->
           <div class="flex flex-col gap-1.5">
-            <label class="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">Chọn loại phần tử chỉnh sửa</label>
+            <label class="text-[10px] font-bold text-zinc-500 uppercase tracking-wider typo-label">Chọn loại phần tử chỉnh sửa</label>
             <div class="flex gap-1 overflow-x-auto pb-1 custom-scroll" id="typo-element-pills">
               <button onclick="switchElementTypoTab('global')" id="typo-pill-global" class="typo-pill active text-[10px] font-semibold px-2.5 py-1 rounded-lg bg-indigo-600 text-white whitespace-nowrap">Tất cả</button>
               <button onclick="switchElementTypoTab('h1')" id="typo-pill-h1" class="typo-pill text-[10px] font-semibold px-2.5 py-1 rounded-lg bg-zinc-900 text-zinc-400 hover:text-white whitespace-nowrap">H1 Hero</button>
@@ -1622,8 +1735,8 @@
           </div>
 
           <!-- Actions Footer -->
-          <div class="flex items-center gap-2 pt-2 border-t border-zinc-900">
-            <button onclick="resetTypographyConfig()" class="flex-1 bg-zinc-900 hover:bg-zinc-800 text-zinc-400 text-xs py-2 rounded-xl font-medium border border-zinc-800 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+          <div class="flex items-center gap-2 pt-2 border-t border-zinc-900 typo-footer">
+            <button onclick="resetTypographyConfig()" class="flex-1 bg-zinc-900 hover:bg-zinc-800 text-zinc-400 text-xs py-2 rounded-xl font-medium border border-zinc-800 transition-all flex items-center justify-center gap-1.5 cursor-pointer typo-btn-reset">
               <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
               Reset
             </button>
