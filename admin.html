@@ -1572,7 +1572,7 @@
         </div>
 
         <!-- Typography Tab Content (Right Sidebar Panel) -->
-        <div id="typography-tab-content" class="hidden flex-col gap-4 max-h-[75vh] overflow-y-auto custom-scroll pr-1">
+        <div id="typography-tab-content" class="hidden flex flex-col gap-4 max-h-[75vh] overflow-y-auto custom-scroll pr-1">
           <!-- 3-Level Scope Header -->
           <div class="bg-zinc-900/90 border border-zinc-800 rounded-xl p-3 flex flex-col gap-2.5">
             <div class="flex items-center justify-between">
@@ -3209,10 +3209,6 @@
       }
     }
 
-    function filterPages() {
-      loadSidebarPages();
-    }
-
     // ==========================================
     // SMAX TYPOGRAPHY & VIETNAMESE FONT ENGINE (3-LEVEL HIERARCHY)
     // ==========================================
@@ -3770,39 +3766,6 @@
 
     // CMS Layout V2 Right Sidebar Media Library
     let mediaFilesList = [];
-    
-    function switchRightTab(tab) {
-      document.getElementById('tab-right-media').className = tab === 'media'
-        ? "text-xs font-bold border-b-2 border-indigo-500 pb-2 px-1 text-white uppercase tracking-wider transition-all"
-        : "text-xs font-bold border-b-2 border-transparent pb-2 px-1 text-zinc-500 hover:text-zinc-300 uppercase tracking-wider transition-all";
-      document.getElementById('tab-right-blocks').className = tab === 'blocks'
-        ? "text-xs font-bold border-b-2 border-indigo-500 pb-2 px-1 text-white uppercase tracking-wider transition-all"
-        : "text-xs font-bold border-b-2 border-transparent pb-2 px-1 text-zinc-500 hover:text-zinc-300 uppercase tracking-wider transition-all";
-      
-      const tabStyleBtn = document.getElementById('tab-right-style');
-      if (tabStyleBtn) {
-        tabStyleBtn.className = tab === 'style'
-          ? "text-xs font-bold border-b-2 border-indigo-500 pb-2 px-1 text-white uppercase tracking-wider transition-all"
-          : "text-xs font-bold border-b-2 border-transparent pb-2 px-1 text-zinc-500 hover:text-zinc-300 uppercase tracking-wider transition-all";
-      }
-        
-      if (tab === 'media') {
-        document.getElementById('media-tab-content').classList.remove('hidden');
-        document.getElementById('blocks-tab-content').classList.add('hidden');
-        const styleContent = document.getElementById('style-tab-content');
-        if (styleContent) styleContent.classList.add('hidden');
-      } else if (tab === 'blocks') {
-        document.getElementById('media-tab-content').classList.add('hidden');
-        document.getElementById('blocks-tab-content').classList.remove('hidden');
-        const styleContent = document.getElementById('style-tab-content');
-        if (styleContent) styleContent.classList.add('hidden');
-      } else if (tab === 'style') {
-        document.getElementById('media-tab-content').classList.add('hidden');
-        document.getElementById('blocks-tab-content').classList.add('hidden');
-        const styleContent = document.getElementById('style-tab-content');
-        if (styleContent) styleContent.classList.remove('hidden');
-      }
-    }
 
     async function loadMediaLibrary() {
       const mediaListContainer = document.getElementById('media-list');
