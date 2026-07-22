@@ -783,10 +783,11 @@
       <aside class="w-72 bg-zinc-950 border-r border-zinc-900 p-5 flex flex-col gap-5 overflow-y-auto custom-scroll flex-shrink-0">
         <!-- Left Sidebar Tabs -->
         <div class="border-b border-zinc-900 pb-2">
-          <div class="flex gap-4">
-            <button onclick="switchLeftTab('pages')" id="tab-left-pages" class="text-xs font-bold border-b-2 border-indigo-500 pb-2 px-1 text-white uppercase tracking-wider transition-all">Pages</button>
-            <button onclick="switchLeftTab('sites')" id="tab-left-sites" class="text-xs font-bold border-b-2 border-transparent pb-2 px-1 text-zinc-500 hover:text-zinc-300 uppercase tracking-wider transition-all">Sites</button>
-            <button onclick="switchLeftTab('tracking')" id="tab-left-tracking" class="text-xs font-bold border-b-2 border-transparent pb-2 px-1 text-zinc-500 hover:text-zinc-300 uppercase tracking-wider transition-all">Báo cáo</button>
+          <div class="flex gap-3 overflow-x-auto custom-scroll">
+            <button onclick="switchLeftTab('pages')" id="tab-left-pages" class="text-xs font-bold border-b-2 border-indigo-500 pb-2 px-1 text-white uppercase tracking-wider transition-all whitespace-nowrap">Pages</button>
+            <button onclick="switchLeftTab('typography')" id="tab-left-typography" class="text-xs font-bold border-b-2 border-transparent pb-2 px-1 text-zinc-500 hover:text-zinc-300 uppercase tracking-wider transition-all whitespace-nowrap">Typography</button>
+            <button onclick="switchLeftTab('sites')" id="tab-left-sites" class="text-xs font-bold border-b-2 border-transparent pb-2 px-1 text-zinc-500 hover:text-zinc-300 uppercase tracking-wider transition-all whitespace-nowrap">Sites</button>
+            <button onclick="switchLeftTab('tracking')" id="tab-left-tracking" class="text-xs font-bold border-b-2 border-transparent pb-2 px-1 text-zinc-500 hover:text-zinc-300 uppercase tracking-wider transition-all whitespace-nowrap">Báo cáo</button>
           </div>
         </div>
 
@@ -800,6 +801,56 @@
           <div>
             <div class="flex flex-col gap-1" id="pages-tree">
               <!-- Dynamic Pages Tree -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Typography Sidebar Content -->
+        <div id="typography-tab-content" class="hidden flex-col gap-4">
+          <div class="relative">
+            <span class="text-xs text-zinc-400 font-semibold uppercase tracking-wider">Cấu hình Font chữ</span>
+          </div>
+          <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-3 flex flex-col gap-2.5">
+            <div class="flex items-center gap-2 text-xs text-zinc-300 font-semibold">
+              <i data-lucide="type" class="w-4 h-4 text-indigo-400"></i>
+              <span>Font chữ Tiếng Việt</span>
+            </div>
+            <p class="text-[11px] text-zinc-500 leading-relaxed">
+              Nạp sẵn Google Sans, Open Sans & các font Tiếng Việt chuẩn. Tùy chỉnh Toàn trang hoặc từng phần tử.
+            </p>
+            <div class="flex flex-col gap-1 border-t border-zinc-800/80 pt-2.5">
+              <button onclick="switchElementTypoTab('global')" id="typo-nav-global" class="typo-nav-btn w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center justify-between bg-indigo-600/20 text-indigo-400 border border-indigo-500/30">
+                <span>Toàn trang (Global)</span>
+                <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+              </button>
+              <button onclick="switchElementTypoTab('h1')" id="typo-nav-h1" class="typo-nav-btn w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center justify-between text-zinc-400 hover:text-white hover:bg-zinc-900">
+                <span>H1 (Hero Title)</span>
+                <span class="text-[9px] bg-zinc-800 px-1 py-0.5 rounded font-mono text-zinc-400">H1</span>
+              </button>
+              <button onclick="switchElementTypoTab('h2')" id="typo-nav-h2" class="typo-nav-btn w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center justify-between text-zinc-400 hover:text-white hover:bg-zinc-900">
+                <span>H2 (Section Title)</span>
+                <span class="text-[9px] bg-zinc-800 px-1 py-0.5 rounded font-mono text-zinc-400">H2</span>
+              </button>
+              <button onclick="switchElementTypoTab('h3')" id="typo-nav-h3" class="typo-nav-btn w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center justify-between text-zinc-400 hover:text-white hover:bg-zinc-900">
+                <span>H3 (Sub Header)</span>
+                <span class="text-[9px] bg-zinc-800 px-1 py-0.5 rounded font-mono text-zinc-400">H3</span>
+              </button>
+              <button onclick="switchElementTypoTab('title')" id="typo-nav-title" class="typo-nav-btn w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center justify-between text-zinc-400 hover:text-white hover:bg-zinc-900">
+                <span>Title (Tiêu đề khối)</span>
+                <span class="text-[9px] bg-zinc-800 px-1 py-0.5 rounded font-mono text-zinc-400">Title</span>
+              </button>
+              <button onclick="switchElementTypoTab('subtitle')" id="typo-nav-subtitle" class="typo-nav-btn w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center justify-between text-zinc-400 hover:text-white hover:bg-zinc-900">
+                <span>Subtitle (Phụ đề)</span>
+                <span class="text-[9px] bg-zinc-800 px-1 py-0.5 rounded font-mono text-zinc-400">Sub</span>
+              </button>
+              <button onclick="switchElementTypoTab('text')" id="typo-nav-text" class="typo-nav-btn w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center justify-between text-zinc-400 hover:text-white hover:bg-zinc-900">
+                <span>Text (Đoạn văn)</span>
+                <span class="text-[9px] bg-zinc-800 px-1 py-0.5 rounded font-mono text-zinc-400">Body</span>
+              </button>
+              <button onclick="switchElementTypoTab('button')" id="typo-nav-button" class="typo-nav-btn w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center justify-between text-zinc-400 hover:text-white hover:bg-zinc-900">
+                <span>Button (Nút bấm)</span>
+                <span class="text-[9px] bg-zinc-800 px-1 py-0.5 rounded font-mono text-zinc-400">Btn</span>
+              </button>
             </div>
           </div>
         </div>
@@ -1524,8 +1575,105 @@
             </div>
           </div>
 
+        <!-- Scrollable Typography Config Workspace -->
+        <div id="workspace-typography" class="hidden flex-1 p-6 overflow-y-auto custom-scroll bg-zinc-950/40">
+          <div class="max-w-5xl mx-auto flex flex-col gap-6">
+            <!-- Header section with actions -->
+            <div class="flex justify-between items-start border-b border-zinc-900 pb-4">
+              <div>
+                <h1 class="text-xl font-bold text-white flex items-center gap-2">
+                  <i data-lucide="type" class="w-5 h-5 text-indigo-400"></i>
+                  <span>Quản lý Typography & Font chữ Tiếng Việt</span>
+                </h1>
+                <p class="text-xs text-zinc-500 mt-1">Cấu hình Font chữ và định dạng kiểu chữ cho toàn bộ Website Smax AI.</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="resetTypographyConfig()" class="bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-200 border border-zinc-800 px-3.5 py-2 text-xs font-medium rounded-xl transition-all flex items-center gap-1.5 cursor-pointer">
+                  <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                  Khôi phục mặc định
+                </button>
+                <button onclick="saveTypographyConfig()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2 text-xs font-semibold rounded-xl transition-all shadow-lg shadow-indigo-600/20 flex items-center gap-1.5 cursor-pointer">
+                  <i data-lucide="save" class="w-3.5 h-3.5"></i>
+                  Lưu cấu hình Font
+                </button>
+              </div>
+            </div>
+
+            <!-- Main controls & preview grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <!-- Controls Panel (7 cols) -->
+              <div class="lg:col-span-7 flex flex-col gap-6">
+                <div class="bg-zinc-950 border border-zinc-900 rounded-2xl p-5 flex flex-col gap-4 shadow-xl">
+                  <div class="flex justify-between items-center border-b border-zinc-900 pb-3">
+                    <span class="text-sm font-bold text-white flex items-center gap-2" id="typo-section-title">
+                      <i data-lucide="globe" class="w-4 h-4 text-indigo-400"></i>
+                      <span>Toàn trang (Global)</span>
+                    </span>
+                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20" id="typo-section-badge">Base Theme</span>
+                  </div>
+
+                  <!-- Form fields populated by JS -->
+                  <div class="flex flex-col gap-4" id="typo-form-fields">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Live Preview Card (5 cols) -->
+              <div class="lg:col-span-5 flex flex-col gap-4">
+                <div class="sticky top-0 bg-zinc-950 border border-zinc-900 rounded-2xl p-5 flex flex-col gap-4 shadow-xl">
+                  <div class="flex justify-between items-center border-b border-zinc-900 pb-3">
+                    <span class="text-xs font-bold text-zinc-300 uppercase tracking-wider flex items-center gap-1.5">
+                      <i data-lucide="eye" class="w-3.5 h-3.5 text-indigo-400"></i>
+                      Khung xem trước thực tế
+                    </span>
+                    <span class="text-[10px] text-emerald-400 flex items-center gap-1">
+                      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                      Realtime
+                    </span>
+                  </div>
+
+                  <div id="typo-preview-card" class="bg-zinc-900/60 border border-zinc-800/80 rounded-xl p-5 flex flex-col gap-4 transition-all">
+                    <div>
+                      <span class="text-[9px] uppercase tracking-wider text-zinc-500 font-mono">H1 / Hero Title</span>
+                      <h1 id="typo-demo-h1" class="text-2xl font-extrabold text-white leading-tight mt-0.5">Smax AI Automation</h1>
+                    </div>
+
+                    <div>
+                      <span class="text-[9px] uppercase tracking-wider text-zinc-500 font-mono">H2 / Section Title</span>
+                      <h2 id="typo-demo-h2" class="text-lg font-bold text-indigo-300 leading-snug mt-0.5">Tự động hóa chăm sóc đa kênh</h2>
+                    </div>
+
+                    <div>
+                      <span class="text-[9px] uppercase tracking-wider text-zinc-500 font-mono">H3 / Sub Header</span>
+                      <h3 id="typo-demo-h3" class="text-base font-semibold text-zinc-200 mt-0.5">Báo cáo hiệu suất chuyển đổi</h3>
+                    </div>
+
+                    <div>
+                      <span class="text-[9px] uppercase tracking-wider text-zinc-500 font-mono">Title & Subtitle</span>
+                      <div id="typo-demo-title" class="text-base font-bold text-white">Quản trị Font Tiếng Việt</div>
+                      <div id="typo-demo-subtitle" class="text-xs text-zinc-400 mt-0.5 font-medium">Hỗ trợ đầy đủ Font chữ Tiếng Việt chuẩn hóa Google Fonts.</div>
+                    </div>
+
+                    <div>
+                      <span class="text-[9px] uppercase tracking-wider text-zinc-500 font-mono">Text / Paragraph</span>
+                      <p id="typo-demo-text" class="text-xs text-zinc-300 leading-relaxed mt-0.5">
+                        Smax CMS hỗ trợ hiển thị phông chữ mượt mà, không lo vỡ nét hay lỗi dấu tiếng Việt (á, ớ, ê, ư, đ).
+                      </p>
+                    </div>
+
+                    <div class="pt-2 border-t border-zinc-800/60 flex items-center gap-2">
+                      <button id="typo-demo-button" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow-md transition-all flex items-center gap-1.5">
+                        <span>Trải nghiệm ngay</span>
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        
+
         <!-- Pinned Actions bar -->
         <div id="editor-actions" class="hidden glass border-t border-zinc-800/80 px-6 py-3.5 flex justify-end gap-3 z-20 flex-shrink-0">
           <button onclick="loadPageContent(currentSelectedPage)" class="bg-zinc-900 hover:bg-zinc-800 text-zinc-400 px-5 py-2 rounded-xl font-medium transition-all text-xs border border-zinc-800">
@@ -3059,47 +3207,81 @@
       currentLeftTab = tab;
       
       // Update tab buttons styling
-      document.getElementById('tab-left-pages').className = tab === 'pages' 
-        ? "text-xs font-bold border-b-2 border-indigo-500 pb-2 px-1 text-white uppercase tracking-wider transition-all"
-        : "text-xs font-bold border-b-2 border-transparent pb-2 px-1 text-zinc-500 hover:text-zinc-300 uppercase tracking-wider transition-all";
-      document.getElementById('tab-left-sites').className = tab === 'sites'
-        ? "text-xs font-bold border-b-2 border-indigo-500 pb-2 px-1 text-white uppercase tracking-wider transition-all"
-        : "text-xs font-bold border-b-2 border-transparent pb-2 px-1 text-zinc-500 hover:text-zinc-300 uppercase tracking-wider transition-all";
-      document.getElementById('tab-left-tracking').className = tab === 'tracking'
-        ? "text-xs font-bold border-b-2 border-indigo-500 pb-2 px-1 text-white uppercase tracking-wider transition-all"
-        : "text-xs font-bold border-b-2 border-transparent pb-2 px-1 text-zinc-500 hover:text-zinc-300 uppercase tracking-wider transition-all";
+      const tabPages = document.getElementById('tab-left-pages');
+      const tabTypo = document.getElementById('tab-left-typography');
+      const tabSites = document.getElementById('tab-left-sites');
+      const tabTracking = document.getElementById('tab-left-tracking');
+
+      if (tabPages) tabPages.className = tab === 'pages' 
+        ? "text-xs font-bold border-b-2 border-indigo-500 pb-2 px-1 text-white uppercase tracking-wider transition-all whitespace-nowrap"
+        : "text-xs font-bold border-b-2 border-transparent pb-2 px-1 text-zinc-500 hover:text-zinc-300 uppercase tracking-wider transition-all whitespace-nowrap";
+      
+      if (tabTypo) tabTypo.className = tab === 'typography'
+        ? "text-xs font-bold border-b-2 border-indigo-500 pb-2 px-1 text-white uppercase tracking-wider transition-all whitespace-nowrap"
+        : "text-xs font-bold border-b-2 border-transparent pb-2 px-1 text-zinc-500 hover:text-zinc-300 uppercase tracking-wider transition-all whitespace-nowrap";
+
+      if (tabSites) tabSites.className = tab === 'sites'
+        ? "text-xs font-bold border-b-2 border-indigo-500 pb-2 px-1 text-white uppercase tracking-wider transition-all whitespace-nowrap"
+        : "text-xs font-bold border-b-2 border-transparent pb-2 px-1 text-zinc-500 hover:text-zinc-300 uppercase tracking-wider transition-all whitespace-nowrap";
+
+      if (tabTracking) tabTracking.className = tab === 'tracking'
+        ? "text-xs font-bold border-b-2 border-indigo-500 pb-2 px-1 text-white uppercase tracking-wider transition-all whitespace-nowrap"
+        : "text-xs font-bold border-b-2 border-transparent pb-2 px-1 text-zinc-500 hover:text-zinc-300 uppercase tracking-wider transition-all whitespace-nowrap";
         
       // Show/hide sidebar tab content
-      document.getElementById('pages-tab-content').classList.toggle('hidden', tab !== 'pages');
-      document.getElementById('sites-tab-content').classList.toggle('hidden', tab !== 'sites');
-      document.getElementById('tracking-tab-content').classList.toggle('hidden', tab !== 'tracking');
+      const pagesContent = document.getElementById('pages-tab-content');
+      const typoContent = document.getElementById('typography-tab-content');
+      const sitesContent = document.getElementById('sites-tab-content');
+      const trackingContent = document.getElementById('tracking-tab-content');
+
+      if (pagesContent) pagesContent.classList.toggle('hidden', tab !== 'pages');
+      if (typoContent) typoContent.classList.toggle('hidden', tab !== 'typography');
+      if (sitesContent) sitesContent.classList.toggle('hidden', tab !== 'sites');
+      if (trackingContent) trackingContent.classList.toggle('hidden', tab !== 'tracking');
       
       // Show/hide right sidebar depending on tab
       const rightSidebar = document.querySelector('aside.w-80');
       if (rightSidebar) {
-        rightSidebar.classList.toggle('hidden', tab === 'tracking');
+        rightSidebar.classList.toggle('hidden', tab === 'tracking' || tab === 'typography');
       }
       
       // Update main workspace view
       const workspaceEdit = document.getElementById('workspace-edit');
       const workspacePreview = document.getElementById('workspace-preview');
       const workspaceTracking = document.getElementById('workspace-tracking');
+      const workspaceTypo = document.getElementById('workspace-typography');
       const topBarModes = document.querySelector('#workspace-top-bar .flex.gap-2');
       const addFieldBtn = document.getElementById('add-field-btn');
       const editorActions = document.getElementById('editor-actions');
       
       if (tab === 'tracking') {
-        workspaceEdit.classList.add('hidden');
-        workspacePreview.classList.add('hidden');
-        workspaceTracking.classList.remove('hidden');
+        if (workspaceEdit) workspaceEdit.classList.add('hidden');
+        if (workspacePreview) workspacePreview.classList.add('hidden');
+        if (workspaceTypo) workspaceTypo.classList.add('hidden');
+        if (workspaceTracking) workspaceTracking.classList.remove('hidden');
         if (editorActions) editorActions.classList.add('hidden');
         if (topBarModes) topBarModes.classList.add('hidden');
         if (addFieldBtn) addFieldBtn.classList.add('hidden');
         
-        // Load tracking dashboard data
         switchAnalyticsSection(currentAnalyticsSection);
+      } else if (tab === 'typography') {
+        if (workspaceEdit) workspaceEdit.classList.add('hidden');
+        if (workspacePreview) workspacePreview.classList.add('hidden');
+        if (workspaceTracking) workspaceTracking.classList.add('hidden');
+        if (workspaceTypo) workspaceTypo.classList.remove('hidden');
+        if (editorActions) editorActions.classList.add('hidden');
+        if (topBarModes) topBarModes.classList.add('hidden');
+        if (addFieldBtn) addFieldBtn.classList.add('hidden');
+
+        if (!isTypographyLoaded) {
+          loadTypographyConfig();
+        } else {
+          renderTypographyForm();
+          refreshTypographyPreview();
+        }
       } else {
-        workspaceTracking.classList.add('hidden');
+        if (workspaceTracking) workspaceTracking.classList.add('hidden');
+        if (workspaceTypo) workspaceTypo.classList.add('hidden');
         if (topBarModes) topBarModes.classList.remove('hidden');
         // Restore active editor mode (edit or preview)
         switchWorkspaceMode(currentWorkspaceMode);
@@ -3111,6 +3293,388 @@
         
         stopLiveFeedPolling();
       }
+    }
+
+    // ==========================================
+    // SMAX TYPOGRAPHY & VIETNAMESE FONT ENGINE
+    // ==========================================
+    const DEFAULT_TYPOGRAPHY_CONFIG = {
+      global: {
+        fontFamily: 'Google Sans',
+        fontSize: '16px',
+        fontWeight: '400',
+        lineHeight: '1.6',
+        color: ''
+      },
+      elements: {
+        h1: { fontFamily: 'inherit', fontSize: '2.25rem', fontWeight: '800', lineHeight: '1.2', letterSpacing: '-0.02em', transform: 'none', color: '' },
+        h2: { fontFamily: 'inherit', fontSize: '1.75rem', fontWeight: '700', lineHeight: '1.3', letterSpacing: '-0.01em', transform: 'none', color: '' },
+        h3: { fontFamily: 'inherit', fontSize: '1.25rem', fontWeight: '600', lineHeight: '1.4', letterSpacing: '0em', transform: 'none', color: '' },
+        title: { fontFamily: 'inherit', fontSize: '1.5rem', fontWeight: '700', lineHeight: '1.3', letterSpacing: '0em', transform: 'none', color: '' },
+        subtitle: { fontFamily: 'inherit', fontSize: '1rem', fontWeight: '500', lineHeight: '1.5', letterSpacing: '0em', transform: 'none', color: '' },
+        text: { fontFamily: 'inherit', fontSize: '0.9375rem', fontWeight: '400', lineHeight: '1.6', letterSpacing: '0em', transform: 'none', color: '' },
+        button: { fontFamily: 'inherit', fontSize: '0.875rem', fontWeight: '600', lineHeight: '1.4', letterSpacing: '0.02em', transform: 'none', color: '' }
+      }
+    };
+
+    let currentTypographyConfig = JSON.parse(JSON.stringify(DEFAULT_TYPOGRAPHY_CONFIG));
+    let activeElementTypoTab = 'global';
+    let isTypographyLoaded = false;
+
+    const PRELOADED_FONTS = [
+      { name: 'Google Sans', group: 'Phổ biến (Tiếng Việt)' },
+      { name: 'Open Sans', group: 'Phổ biến (Tiếng Việt)' },
+      { name: 'Plus Jakarta Sans', group: 'Hiện đại Sans' },
+      { name: 'Be Vietnam Pro', group: 'Hiện đại Sans (Việt Nam)' },
+      { name: 'Inter', group: 'Hiện đại Sans' },
+      { name: 'Roboto', group: 'Phổ biến' },
+      { name: 'Montserrat', group: 'Hình học Sans' },
+      { name: 'Playfair Display', group: 'Serif Sang trọng' },
+      { name: 'Lexend', group: 'Dễ đọc' },
+      { name: 'Outfit', group: 'Hình học Sans' }
+    ];
+
+    const ELEMENT_LABELS = {
+      global: { title: 'Toàn trang (Global Theme)', badge: 'Base Theme', desc: 'Font mặc định & kiểu chữ cho toàn bộ Website.' },
+      h1: { title: 'H1 / Hero Title', badge: 'Heading', desc: 'Tiêu đề chính lớn nhất ở đầu trang (Hero Banner).' },
+      h2: { title: 'H2 / Section Title', badge: 'Heading', desc: 'Tiêu đề cho các phần nội dung (Sections).' },
+      h3: { title: 'H3 / Sub Header', badge: 'Heading', desc: 'Tiêu đề khối nhỏ hoặc card tiêu đề.' },
+      title: { title: 'Title (Tiêu đề khối)', badge: 'Block', desc: 'Các tiêu đề thuộc thẻ [data-cms*="title"].' },
+      subtitle: { title: 'Subtitle (Phụ đề)', badge: 'Block', desc: 'Các đoạn phụ đề hoặc mô tả ngắn dưới tiêu đề.' },
+      text: { title: 'Text (Văn bản body)', badge: 'Body', desc: 'Đoạn văn nội dung chính bài viết & mô tả.' },
+      button: { title: 'Button (Nút hành động)', badge: 'Action', desc: 'Kiểu chữ cho các nút bấm CTA & Menu.' }
+    };
+
+    function switchElementTypoTab(elKey) {
+      activeElementTypoTab = elKey;
+      
+      document.querySelectorAll('.typo-nav-btn').forEach(btn => {
+        btn.className = 'typo-nav-btn w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center justify-between text-zinc-400 hover:text-white hover:bg-zinc-900';
+      });
+      const activeBtn = document.getElementById(`typo-nav-${elKey}`);
+      if (activeBtn) {
+        activeBtn.className = 'typo-nav-btn w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center justify-between bg-indigo-600/20 text-indigo-400 border border-indigo-500/30';
+      }
+
+      const info = ELEMENT_LABELS[elKey] || ELEMENT_LABELS.global;
+      const titleEl = document.getElementById('typo-section-title');
+      const badgeEl = document.getElementById('typo-section-badge');
+      if (titleEl) {
+        titleEl.innerHTML = `
+          <i data-lucide="${elKey === 'global' ? 'globe' : 'type'}" class="w-4 h-4 text-indigo-400"></i>
+          <span>${info.title}</span>
+        `;
+      }
+      if (badgeEl) badgeEl.textContent = info.badge;
+      
+      renderTypographyForm();
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+
+    function renderTypographyForm() {
+      const container = document.getElementById('typo-form-fields');
+      if (!container) return;
+
+      const isGlobal = activeElementTypoTab === 'global';
+      const targetObj = isGlobal ? currentTypographyConfig.global : (currentTypographyConfig.elements[activeElementTypoTab] || {});
+
+      let fontOptionsHtml = isGlobal ? '' : `<option value="inherit">Kế thừa toàn trang (Inherit)</option>`;
+      PRELOADED_FONTS.forEach(font => {
+        const selected = (targetObj.fontFamily === font.name) ? 'selected' : '';
+        fontOptionsHtml += `<option value="${font.name}" ${selected}>${font.name} (${font.group})</option>`;
+      });
+
+      const fontSizeVal = targetObj.fontSize || (isGlobal ? '16px' : '1rem');
+      const fontWeightVal = String(targetObj.fontWeight || '400');
+      const lineHeightVal = String(targetObj.lineHeight || '1.5');
+      const letterSpacingVal = String(targetObj.letterSpacing || '0em');
+      const transformVal = String(targetObj.transform || 'none');
+      const colorVal = targetObj.color || '';
+
+      container.innerHTML = `
+        <div class="flex flex-col gap-1.5">
+          <label class="text-xs font-semibold text-zinc-300 flex items-center justify-between">
+            <span>Phông chữ (Font Family)</span>
+            <span class="text-[10px] text-indigo-400 font-mono">Tiếng Việt Supported</span>
+          </label>
+          <select onchange="updateTypographyValue('fontFamily', this.value)" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500 cursor-pointer">
+            ${fontOptionsHtml}
+          </select>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="flex flex-col gap-1.5">
+            <label class="text-xs font-semibold text-zinc-300">Kích thước chữ (Font Size)</label>
+            <input type="text" value="${fontSizeVal}" oninput="updateTypographyValue('fontSize', this.value)" placeholder="Ví dụ: 16px hoặc 2rem" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500">
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label class="text-xs font-semibold text-zinc-300">Độ đậm chữ (Font Weight)</label>
+            <select onchange="updateTypographyValue('fontWeight', this.value)" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500 cursor-pointer">
+              <option value="300" ${fontWeightVal === '300' ? 'selected' : ''}>300 - Light</option>
+              <option value="400" ${fontWeightVal === '400' ? 'selected' : ''}>400 - Regular</option>
+              <option value="500" ${fontWeightVal === '500' ? 'selected' : ''}>500 - Medium</option>
+              <option value="600" ${fontWeightVal === '600' ? 'selected' : ''}>600 - SemiBold</option>
+              <option value="700" ${fontWeightVal === '700' ? 'selected' : ''}>700 - Bold</option>
+              <option value="800" ${fontWeightVal === '800' ? 'selected' : ''}>800 - ExtraBold</option>
+              <option value="900" ${fontWeightVal === '900' ? 'selected' : ''}>900 - Black</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="flex flex-col gap-1.5">
+            <label class="text-xs font-semibold text-zinc-300">Khoảng cách dòng (Line Height)</label>
+            <select onchange="updateTypographyValue('lineHeight', this.value)" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500 cursor-pointer">
+              <option value="1.1" ${lineHeightVal === '1.1' ? 'selected' : ''}>1.1 - Rất chặt</option>
+              <option value="1.2" ${lineHeightVal === '1.2' ? 'selected' : ''}>1.2 - Tiêu đề Hero</option>
+              <option value="1.3" ${lineHeightVal === '1.3' ? 'selected' : ''}>1.3 - Tiêu đề Heading</option>
+              <option value="1.4" ${lineHeightVal === '1.4' ? 'selected' : ''}>1.4 - Nhỏ gọn</option>
+              <option value="1.5" ${lineHeightVal === '1.5' ? 'selected' : ''}>1.5 - Chuẩn UI</option>
+              <option value="1.6" ${lineHeightVal === '1.6' ? 'selected' : ''}>1.6 - Đoạn văn thoải mái</option>
+              <option value="1.8" ${lineHeightVal === '1.8' ? 'selected' : ''}>1.8 - Rộng rãi</option>
+            </select>
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label class="text-xs font-semibold text-zinc-300">Khoảng cách chữ (Letter Spacing)</label>
+            <select onchange="updateTypographyValue('letterSpacing', this.value)" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500 cursor-pointer">
+              <option value="-0.03em" ${letterSpacingVal === '-0.03em' ? 'selected' : ''}>Chặt hơn (-0.03em)</option>
+              <option value="-0.01em" ${letterSpacingVal === '-0.01em' ? 'selected' : ''}>Hơi chặt (-0.01em)</option>
+              <option value="0em" ${letterSpacingVal === '0em' ? 'selected' : ''}>Mặc định (0)</option>
+              <option value="0.02em" ${letterSpacingVal === '0.02em' ? 'selected' : ''}>Hơi rộng (+0.02em)</option>
+              <option value="0.05em" ${letterSpacingVal === '0.05em' ? 'selected' : ''}>Rộng (+0.05em)</option>
+              <option value="0.1em" ${letterSpacingVal === '0.1em' ? 'selected' : ''}>Rất rộng (+0.1em)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="flex flex-col gap-1.5">
+            <label class="text-xs font-semibold text-zinc-300">Kiểu chữ Hoa / Thường (Text Transform)</label>
+            <select onchange="updateTypographyValue('transform', this.value)" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500 cursor-pointer">
+              <option value="none" ${transformVal === 'none' ? 'selected' : ''}>Giữ nguyên (None)</option>
+              <option value="capitalize" ${transformVal === 'capitalize' ? 'selected' : ''}>Viết Hoa Chữ Đầu (Capitalize)</option>
+              <option value="uppercase" ${transformVal === 'uppercase' ? 'selected' : ''}>CHỮ IN HOA (UPPERCASE)</option>
+              <option value="lowercase" ${transformVal === 'lowercase' ? 'selected' : ''}>chữ thường (lowercase)</option>
+            </select>
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label class="text-xs font-semibold text-zinc-300">Màu chữ (Custom Color)</label>
+            <div class="flex gap-2">
+              <input type="color" value="${colorVal || '#ffffff'}" onchange="updateTypographyValue('color', this.value)" class="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 cursor-pointer p-0.5">
+              <input type="text" value="${colorVal}" oninput="updateTypographyValue('color', this.value)" placeholder="Mặc định (HEX/CSS)" class="flex-1 bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500">
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function updateTypographyValue(key, value) {
+      if (activeElementTypoTab === 'global') {
+        currentTypographyConfig.global[key] = value;
+      } else {
+        if (!currentTypographyConfig.elements[activeElementTypoTab]) {
+          currentTypographyConfig.elements[activeElementTypoTab] = {};
+        }
+        currentTypographyConfig.elements[activeElementTypoTab][key] = value;
+      }
+      
+      refreshTypographyPreview();
+    }
+
+    const FONT_GOOGLE_MAP = {
+      'Google Sans': 'family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400',
+      'Plus Jakarta Sans': 'family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400',
+      'Open Sans': 'family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400',
+      'Be Vietnam Pro': 'family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400',
+      'Inter': 'family=Inter:wght@300;400;500;600;700;800',
+      'Roboto': 'family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400',
+      'Montserrat': 'family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400',
+      'Playfair Display': 'family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400',
+      'Lexend': 'family=Lexend:wght@300;400;500;600;700',
+      'Outfit': 'family=Outfit:wght@300;400;500;600;700;800'
+    };
+
+    function loadGoogleFont(fontName) {
+      if (!fontName || fontName === 'inherit' || fontName === 'system-ui') return;
+      const param = FONT_GOOGLE_MAP[fontName];
+      if (!param) return;
+      
+      const linkId = 'smax-font-' + fontName.toLowerCase().replace(/\s+/g, '-');
+      if (document.getElementById(linkId)) return;
+      
+      const link = document.createElement('link');
+      link.id = linkId;
+      link.rel = 'stylesheet';
+      link.href = `https://fonts.googleapis.com/css2?${param}&display=swap`;
+      document.head.appendChild(link);
+    }
+
+    function applyTypography(config) {
+      if (!config) return;
+      
+      const globalFont = config.global?.fontFamily || 'Plus Jakarta Sans';
+      loadGoogleFont(globalFont);
+      
+      if (config.elements) {
+        Object.values(config.elements).forEach(item => {
+          if (item && item.fontFamily) {
+            loadGoogleFont(item.fontFamily);
+          }
+        });
+      }
+      
+      let styleEl = document.getElementById('smax-typography-vars-admin');
+      if (!styleEl) {
+        styleEl = document.createElement('style');
+        styleEl.id = 'smax-typography-vars-admin';
+        document.head.appendChild(styleEl);
+      }
+
+      const el = config.elements || {};
+      const resolveFont = (f) => (!f || f === 'inherit') ? `'${globalFont}', sans-serif` : `'${f}', sans-serif`;
+
+      styleEl.textContent = `
+        #typo-demo-h1 {
+          font-family: ${resolveFont(el.h1?.fontFamily)} !important;
+          ${el.h1?.fontSize ? `font-size: ${el.h1.fontSize} !important;` : ''}
+          ${el.h1?.fontWeight ? `font-weight: ${el.h1.fontWeight} !important;` : ''}
+          ${el.h1?.lineHeight ? `line-height: ${el.h1.lineHeight} !important;` : ''}
+          ${el.h1?.letterSpacing ? `letter-spacing: ${el.h1.letterSpacing} !important;` : ''}
+          ${el.h1?.transform && el.h1.transform !== 'none' ? `text-transform: ${el.h1.transform} !important;` : ''}
+          ${el.h1?.color ? `color: ${el.h1.color} !important;` : ''}
+        }
+
+        #typo-demo-h2 {
+          font-family: ${resolveFont(el.h2?.fontFamily)} !important;
+          ${el.h2?.fontSize ? `font-size: ${el.h2.fontSize} !important;` : ''}
+          ${el.h2?.fontWeight ? `font-weight: ${el.h2.fontWeight} !important;` : ''}
+          ${el.h2?.lineHeight ? `line-height: ${el.h2.lineHeight} !important;` : ''}
+          ${el.h2?.letterSpacing ? `letter-spacing: ${el.h2.letterSpacing} !important;` : ''}
+          ${el.h2?.transform && el.h2.transform !== 'none' ? `text-transform: ${el.h2.transform} !important;` : ''}
+          ${el.h2?.color ? `color: ${el.h2.color} !important;` : ''}
+        }
+
+        #typo-demo-h3 {
+          font-family: ${resolveFont(el.h3?.fontFamily)} !important;
+          ${el.h3?.fontSize ? `font-size: ${el.h3.fontSize} !important;` : ''}
+          ${el.h3?.fontWeight ? `font-weight: ${el.h3.fontWeight} !important;` : ''}
+          ${el.h3?.lineHeight ? `line-height: ${el.h3.lineHeight} !important;` : ''}
+          ${el.h3?.letterSpacing ? `letter-spacing: ${el.h3.letterSpacing} !important;` : ''}
+          ${el.h3?.transform && el.h3.transform !== 'none' ? `text-transform: ${el.h3.transform} !important;` : ''}
+          ${el.h3?.color ? `color: ${el.h3.color} !important;` : ''}
+        }
+
+        #typo-demo-title {
+          font-family: ${resolveFont(el.title?.fontFamily)} !important;
+          ${el.title?.fontSize ? `font-size: ${el.title.fontSize} !important;` : ''}
+          ${el.title?.fontWeight ? `font-weight: ${el.title.fontWeight} !important;` : ''}
+          ${el.title?.lineHeight ? `line-height: ${el.title.lineHeight} !important;` : ''}
+          ${el.title?.color ? `color: ${el.title.color} !important;` : ''}
+        }
+
+        #typo-demo-subtitle {
+          font-family: ${resolveFont(el.subtitle?.fontFamily)} !important;
+          ${el.subtitle?.fontSize ? `font-size: ${el.subtitle.fontSize} !important;` : ''}
+          ${el.subtitle?.fontWeight ? `font-weight: ${el.subtitle.fontWeight} !important;` : ''}
+          ${el.subtitle?.lineHeight ? `line-height: ${el.subtitle.lineHeight} !important;` : ''}
+          ${el.subtitle?.color ? `color: ${el.subtitle.color} !important;` : ''}
+        }
+
+        #typo-demo-text {
+          font-family: ${resolveFont(el.text?.fontFamily)} !important;
+          ${el.text?.fontSize ? `font-size: ${el.text.fontSize} !important;` : ''}
+          ${el.text?.fontWeight ? `font-weight: ${el.text.fontWeight} !important;` : ''}
+          ${el.text?.lineHeight ? `line-height: ${el.text.lineHeight} !important;` : ''}
+          ${el.text?.color ? `color: ${el.text.color} !important;` : ''}
+        }
+
+        #typo-demo-button {
+          font-family: ${resolveFont(el.button?.fontFamily)} !important;
+          ${el.button?.fontSize ? `font-size: ${el.button.fontSize} !important;` : ''}
+          ${el.button?.fontWeight ? `font-weight: ${el.button.fontWeight} !important;` : ''}
+          ${el.button?.letterSpacing ? `letter-spacing: ${el.button.letterSpacing} !important;` : ''}
+          ${el.button?.transform && el.button.transform !== 'none' ? `text-transform: ${el.button.transform} !important;` : ''}
+        }
+      `;
+    }
+
+    window.applyTypography = applyTypography;
+
+    function refreshTypographyPreview() {
+      if (window.applyTypography) {
+        window.applyTypography(currentTypographyConfig);
+      }
+
+      const iframe = document.getElementById('preview-iframe');
+      if (iframe && iframe.contentWindow) {
+        iframe.contentWindow.postMessage({
+          type: 'SMAX_TYPOGRAPHY_UPDATE',
+          config: currentTypographyConfig
+        }, '*');
+      }
+    }
+
+    async function loadTypographyConfig() {
+      if (!supabaseClient) return;
+      try {
+        const { data, error } = await supabaseClient
+          .from('site_content')
+          .select('content_value')
+          .eq('content_key', 'theme_typography')
+          .maybeSingle();
+
+        if (data && data.content_value) {
+          const configObj = typeof data.content_value === 'string' ? JSON.parse(data.content_value) : data.content_value;
+          currentTypographyConfig = Object.assign({}, DEFAULT_TYPOGRAPHY_CONFIG, configObj);
+          isTypographyLoaded = true;
+          renderTypographyForm();
+          refreshTypographyPreview();
+        } else {
+          isTypographyLoaded = true;
+          renderTypographyForm();
+          refreshTypographyPreview();
+        }
+      } catch (err) {
+        console.log("No existing theme_typography in database, using default.");
+        isTypographyLoaded = true;
+        renderTypographyForm();
+        refreshTypographyPreview();
+      }
+    }
+
+    async function saveTypographyConfig() {
+      if (!supabaseClient) {
+        alert("Vui lòng kết nối Supabase trước khi lưu cấu hình!");
+        return;
+      }
+
+      try {
+        const jsonString = JSON.stringify(currentTypographyConfig);
+        const { error } = await supabaseClient
+          .from('site_content')
+          .upsert({
+            page_name: 'global',
+            content_key: 'theme_typography',
+            content_value: jsonString
+          }, { onConflict: 'content_key' });
+
+        if (error) {
+          alert(`Lỗi khi lưu Font chữ: ${error.message}`);
+        } else {
+          showToast('Lưu cấu hình Font chữ thành công!', 'success');
+          refreshTypographyPreview();
+        }
+      } catch (err) {
+        alert(`Lỗi lưu cấu hình: ${err.message}`);
+      }
+    }
+
+    function resetTypographyConfig() {
+      if (!confirm("Bạn có chắc muốn khôi phục lại cấu hình Font mặc định?")) return;
+      currentTypographyConfig = JSON.parse(JSON.stringify(DEFAULT_TYPOGRAPHY_CONFIG));
+      renderTypographyForm();
+      refreshTypographyPreview();
+      showToast('Đã khôi phục Font mặc định!', 'info');
     }
 
     function filterPages() {
