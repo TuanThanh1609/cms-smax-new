@@ -1,5 +1,5 @@
 /**
- * SMAX.AI CMS Client SDK - Live Preview & Typography Helper
+ * SMAX.AI CMS Client SDK - Live Preview & Typography Helper (3-Level Cascade)
  * 
  * Included on pages to fetch live database content & typography in real-time
  * when the "?preview=true" parameter is present in the URL.
@@ -205,17 +205,38 @@
       contentMap[row.content_key] = row.content_value;
     });
 
-    // Check if typography config exists in DB
+    // Extract page path name
+    const currentPath = window.location.pathname.replace(/^\//, '').replace(/\.html$/, '') || 'index';
+
+    // 3-Level Cascade Merge: Global < Page < Element
+    let mergedConfig = { global: {}, elements: {} };
+
     if (contentMap['theme_typography']) {
       try {
-        const typoConfig = typeof contentMap['theme_typography'] === 'string' 
+        const globalConfig = typeof contentMap['theme_typography'] === 'string' 
           ? JSON.parse(contentMap['theme_typography']) 
           : contentMap['theme_typography'];
-        applyTypography(typoConfig);
+        mergedConfig.global = Object.assign({}, globalConfig.global);
+        mergedConfig.elements = Object.assign({}, globalConfig.elements);
       } catch (err) {
         console.warn('⚠️ [Smax CMS] Failed to parse theme_typography:', err);
       }
     }
+
+    const pageKey = `page_typography_${currentPath}`;
+    if (contentMap[pageKey]) {
+      try {
+        const pageConfig = typeof contentMap[pageKey] === 'string'
+          ? JSON.parse(contentMap[pageKey])
+          : contentMap[pageKey];
+        if (pageConfig.global) Object.assign(mergedConfig.global, pageConfig.global);
+        if (pageConfig.elements) Object.assign(mergedConfig.elements, pageConfig.elements);
+      } catch (err) {
+        console.warn('⚠️ [Smax CMS] Failed to parse page_typography:', err);
+      }
+    }
+
+    applyTypography(mergedConfig);
 
     // Replace all text elements
     document.querySelectorAll('[data-cms]').forEach(element => {
