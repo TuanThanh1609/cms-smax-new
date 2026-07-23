@@ -3950,48 +3950,68 @@
     let activeVisualImageKey = null;
 
     function copyMediaUrl(url) {
+      let replaced = false;
+      const iframe = document.getElementById('preview-iframe');
+      const doc = iframe ? (iframe.contentDocument || iframe.contentWindow?.document) : null;
+
+      // 1. If an image with data-cms-img key is selected
       if (activeVisualImageKey) {
         const idx = currentPageFields.findIndex(f => f.content_key === activeVisualImageKey);
         if (idx !== -1) {
+          currentPageFields[idx].content_value = url;
           const inputEl = document.getElementById(`input-val-${idx}`);
-          if (inputEl) {
-            inputEl.value = url;
-            
-            // Show the actions bar
-            document.getElementById('editor-actions').classList.remove('hidden');
-            
-            // Update preview iframe visually immediately
-            const iframe = document.getElementById('preview-iframe');
-            const doc = iframe.contentDocument || iframe.contentWindow.document;
-            if (doc) {
-              doc.querySelectorAll(`[data-cms-img="${activeVisualImageKey}"]`).forEach(img => {
-                img.src = url;
-              });
-              doc.querySelectorAll(`img[data-cms-img="${activeVisualImageKey}"]`).forEach(img => {
-                img.src = url;
-              });
-            }
-            
-            showToast(`Đã thay thế ảnh [${activeVisualImageKey}] trực tiếp trong Iframe!`);
-            clearVisualImageSelection();
-          }
+          if (inputEl) inputEl.value = url;
         }
-      } else if (activeVisualBlock && activeVisualBlock.classList.contains('img-block')) {
-        const media = activeVisualBlock.querySelector('.block-content');
-        if (media) {
-          media.setAttribute('src', url);
-          document.getElementById('block-url-input').value = url;
-          
-          // Trigger sync
-          const parentCms = activeVisualBlock.closest('[data-cms]');
+        if (doc) {
+          doc.querySelectorAll(`[data-cms-img="${activeVisualImageKey}"]`).forEach(img => {
+            if (img.tagName === 'IMG') img.src = url;
+            else img.style.backgroundImage = `url('${url}')`;
+          });
+        }
+        replaced = true;
+      }
+      
+      // 2. If activeStyleElement, activeVisualBlock or activeVisualElement is an <img> or has <img> inside
+      const targetImg = activeStyleElement || activeVisualBlock || activeVisualElement;
+      if (!replaced && targetImg) {
+        let imgEl = null;
+        if (targetImg.tagName === 'IMG') {
+          imgEl = targetImg;
+        } else if (targetImg.classList && targetImg.classList.contains('img-block')) {
+          imgEl = targetImg.querySelector('.block-content') || targetImg.querySelector('img');
+        } else {
+          imgEl = targetImg.querySelector('img');
+        }
+
+        if (imgEl) {
+          imgEl.src = url;
+          const parentCms = imgEl.closest('[data-cms]');
           if (parentCms) {
             syncVisualTextToForm(parentCms.getAttribute('data-cms'), parentCms.innerHTML);
           }
-          showToast(`Đã đổi ảnh cho Custom Block!`);
+          const blockUrlInput = document.getElementById('block-url-input');
+          if (blockUrlInput) blockUrlInput.value = url;
+          replaced = true;
+        } else if (targetImg.style) {
+          // Fallback: Set background-image if it's a styled container
+          targetImg.style.backgroundImage = `url('${url}')`;
+          const parentCms = targetImg.closest('[data-cms]');
+          if (parentCms) {
+            syncVisualTextToForm(parentCms.getAttribute('data-cms'), parentCms.innerHTML);
+          }
+          replaced = true;
         }
+      }
+
+      if (replaced) {
+        // ALWAYS reveal the global Save Changes bar!
+        document.getElementById('editor-actions').classList.remove('hidden');
+        showToast("Đã thay thế hình ảnh thành công!", "success");
+        clearVisualImageSelection();
       } else {
+        // Fallback: Copy URL to clipboard
         navigator.clipboard.writeText(url).then(() => {
-          showToast("Đã copy link ảnh!");
+          showToast("Đã copy URL ảnh vào bộ nhớ tạm!");
         }).catch(err => {
           alert("Lỗi copy: " + err.message);
         });
