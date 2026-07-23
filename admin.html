@@ -2845,6 +2845,8 @@
     }
 
     // Save Changes
+    let isTypographyModified = false;
+
     async function savePageChanges() {
       const newFieldsToId = [];
       let invalidStructuralKey = null;
@@ -2894,6 +2896,10 @@
       if (error) {
         alert(`Lỗi khi lưu dữ liệu: ${error.message}`);
       } else {
+        if (isTypographyModified) {
+          await saveTypographyConfig(true);
+          isTypographyModified = false;
+        }
         showToast('Lưu nội dung thành công!');
         loadPageContent(currentSelectedPage);
       }
@@ -3630,6 +3636,8 @@
         targetObj[key] = value;
       }
       refreshTypographyPreview();
+      isTypographyModified = true;
+      document.getElementById('editor-actions').classList.remove('hidden');
     }
 
     function getEffectiveTypographyConfig() {
@@ -3696,9 +3704,9 @@
       }
     }
 
-    async function saveTypographyConfig() {
+    async function saveTypographyConfig(silent = false) {
       if (!supabaseClient) {
-        alert("Vui lòng kết nối Supabase trước khi lưu cấu hình!");
+        if (!silent) alert("Vui lòng kết nối Supabase trước khi lưu cấu hình!");
         return;
       }
 
@@ -3733,13 +3741,13 @@
           }, { onConflict: 'content_key' });
 
         if (error) {
-          alert(`Lỗi khi lưu Font chữ: ${error.message}`);
+          if (!silent) alert(`Lỗi khi lưu Font chữ: ${error.message}`);
         } else {
-          showToast(`Lưu cấu hình Font chữ [${currentTypographyScope.toUpperCase()}] thành công!`, 'success');
+          if (!silent) showToast(`Lưu cấu hình Font chữ [${currentTypographyScope.toUpperCase()}] thành công!`, 'success');
           refreshTypographyPreview();
         }
       } catch (err) {
-        alert(`Lỗi lưu cấu hình: ${err.message}`);
+        if (!silent) alert(`Lỗi lưu cấu hình: ${err.message}`);
       }
     }
 
