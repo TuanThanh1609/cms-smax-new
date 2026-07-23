@@ -308,6 +308,7 @@ function finalizeBuild(contentMap) {
     // Ignore build output and source control directories, as well as raw design/temp folders
     const ignoredItems = [
       'public',
+      'dist',
       'node_modules',
       '.git',
       '.vercel',

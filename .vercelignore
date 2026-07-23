@@ -1,0 +1,18 @@
+node_modules
+dist
+public
+.git
+.agents
+.cm
+.codex
+.openai
+.playwright-mcp
+tmp
+UI chính thức của Smax
+PNG TÁCH NỀN-*
+tham khao *
+*.png
+*.txt
+.vscode
+.idea
+*.log
