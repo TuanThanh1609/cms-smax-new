@@ -242,6 +242,19 @@ function finalizeBuild(contentMap) {
   const rootDir = path.resolve(__dirname, '..');
   const publicDir = path.join(rootDir, 'public');
 
+  function getDeployableLocalAsset(assetPath) {
+    if (!assetPath || !/^asset smax\//i.test(assetPath) || !/\.png(?:[?#].*)?$/i.test(assetPath)) {
+      return assetPath;
+    }
+
+    const pathWithoutSuffix = assetPath.split(/[?#]/, 1)[0];
+    const suffix = assetPath.slice(pathWithoutSuffix.length);
+    const webpPath = pathWithoutSuffix.replace(/\.png$/i, '.webp');
+    const absoluteWebpPath = path.join(rootDir, webpPath.replace(/\//g, path.sep));
+
+    return fs.existsSync(absoluteWebpPath) ? `${webpPath}${suffix}` : assetPath;
+  }
+
   function hasBalancedStructuralHtml(html) {
     if (!html) return false;
     const criticalTags = ['div', 'section', 'article', 'nav', 'header', 'footer'];
@@ -395,12 +408,23 @@ function finalizeBuild(contentMap) {
         $('[data-cms-img]').each((i, el) => {
           const key = $(el).attr('data-cms-img');
           if (contentMap[key] !== undefined) {
-            $(el).attr('src', contentMap[key]);
+            $(el).attr('src', getDeployableLocalAsset(contentMap[key]));
           }
           const styleKey = key + '-style';
           if (contentMap[styleKey] !== undefined && contentMap[styleKey]) {
             $(el).attr('style', contentMap[styleKey]);
           }
+        });
+
+        // Vercel excludes raw PNG design assets. Prefer the optimized WebP
+        // counterpart for local CMS values and static page references.
+        $('[src]').each((i, el) => {
+          const source = $(el).attr('src');
+          $(el).attr('src', getDeployableLocalAsset(source));
+        });
+        $('link[href]').each((i, el) => {
+          const href = $(el).attr('href');
+          $(el).attr('href', getDeployableLocalAsset(href));
         });
 
         if (file === 'all-in-one.html') {
