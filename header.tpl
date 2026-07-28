@@ -346,10 +346,10 @@
             <a href="chatbot.html">Chatbot</a>
             <a href="genai.html">Smax GenAI</a>
             <a href="insight.html">AI Insight</a>
-            <a href="index.html#modules" data-module-target="marketing-tools">Marketing Tools</a>
+            <a href="marketing.html">Marketing Tools</a>
             <a href="gamification.html">Gamification</a>
-            <a href="index.html#modules" data-module-target="remarketing">Remarketing</a>
-            <a href="index.html#modules" data-module-target="crm-connect">CRM Connect</a>
+            <a href="remarketing.html">Remarketing</a>
+            <a href="crm-sync.html">CRM Connect</a>
             <a href="custom_service.html">Dịch vụ triển khai</a>
           </div>
         </details>
