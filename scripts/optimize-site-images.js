@@ -19,6 +19,7 @@ const contentFiles = [
   'templates.html',
   'templates.js',
   'partnership.html',
+  'tich-hop.html',
   'script.js'
 ];
 
