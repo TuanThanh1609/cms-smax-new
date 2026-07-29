@@ -215,10 +215,9 @@
     var journeyCards = gsap.utils.toArray("[data-journey-card]");
     journeyCards.forEach(function (card, index) {
       gsap.fromTo(card,
-        { scale: 0.94, opacity: 0.42 },
+        { scale: 0.94 },
         {
           scale: 1,
-          opacity: 1,
           ease: "none",
           scrollTrigger: {
             trigger: card,
@@ -247,7 +246,6 @@
       if (index < journeyCards.length - 1) {
         gsap.to(card, {
           scale: 0.965,
-          opacity: 0.22,
           ease: "none",
           scrollTrigger: {
             trigger: journeyCards[index + 1],
