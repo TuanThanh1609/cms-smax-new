@@ -120,6 +120,15 @@
                     <h2 id="mega-solutions-title" data-cms="header-sol-title">Triển khai theo quy trình riêng của từng lĩnh vực</h2>
                   </div>
                   <div class="mega-solution-grid">
+                    <a class="mega-item mega-industry-item" href="social-revenue-journey.html">
+                      <div class="mega-item-icon">
+                        <svg class="mega-lucide-icon" viewBox="0 0 24 24" fill="#fb6e5c" aria-hidden="true">
+                          <path d="M4 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm3 5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm5 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm5 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"></path>
+                        </svg>
+                      </div>
+                      <span><strong>Bán hàng trên Social</strong><small>Xây kênh bán hàng từ hội thoại đến mua lại.</small></span>
+                      <span class="mega-item-arrow" aria-hidden="true">→</span>
+                    </a>
                     <a class="mega-item mega-industry-item" href="ecommerce.html" data-industry-target="ecommerce">
                       <div class="mega-item-icon">
                         <svg class="mega-lucide-icon" viewBox="0 0 24 24" fill="#fb6e5c"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2Zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2Zm-8.9-5h7.75c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.17 5.09 16 6 16h12v-2H6.42l1.1-2Z"></path></svg>
@@ -194,7 +203,7 @@
                   <p data-cms="header-sol-aside-desc">Smax.ai kết hợp quy trình ngành, dữ liệu và kịch bản automation phù hợp với đội ngũ của bạn.</p>
                   <a class="mega-primary-link" href="index.html#capabilities" data-cms="header-sol-aside-link">Khám phá ứng dụng ngành <span aria-hidden="true">→</span></a>
                   <div class="mega-aside-metrics" aria-label="Điểm nổi bật">
-                    <span><strong>9</strong> lĩnh vực</span>
+                    <span><strong>10</strong> giải pháp</span>
                     <span><strong>1</strong> hệ thống</span>
                   </div>
                 </aside>
@@ -356,6 +365,7 @@
         <details class="mobile-nav-group">
           <summary>Giải Pháp</summary>
           <div class="mobile-nav-submenu">
+            <a href="social-revenue-journey.html">Bán hàng trên Social</a>
             <a href="ecommerce.html" data-industry-target="ecommerce">E-commerce &amp; Bán lẻ</a>
             <a href="education.html" data-industry-target="education">Giáo dục</a>
             <a href="realestate.html" data-industry-target="realestate">Bất động sản</a>
