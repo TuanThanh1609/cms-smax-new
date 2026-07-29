@@ -8,7 +8,7 @@ const templatesData = [
     description: 'Tự động phản hồi bình luận, gửi tin nhắn Messenger để lấy SĐT và bám đuổi khách hàng tiềm năng.',
     author: 'Phan Hoàng Đa',
     rating: 5,
-    image: 'template/212e373e-52a6-44d2-95a0-64cae1697d95.png',
+    image: 'template/212e373e-52a6-44d2-95a0-64cae1697d95.webp',
     type: 'Kịch bản',
     industries: ['ecommerce', 'fb', 'service', 'realestate', 'agency']
   },
@@ -20,7 +20,7 @@ const templatesData = [
     description: 'Kịch bản chào mừng tự động khi người dùng quan tâm OA, tự động phát mã giảm giá mua hàng.',
     author: 'Nguyễn Văn A',
     rating: 5,
-    image: 'template/3899ce62-8ff6-4694-be67-28aa0c79a9de.png',
+    image: 'template/3899ce62-8ff6-4694-be67-28aa0c79a9de.webp',
     type: 'Kịch bản',
     industries: ['ecommerce', 'fb', 'service']
   },
@@ -32,7 +32,7 @@ const templatesData = [
     description: 'Hỏi đáp tương tác qua nút bấm WhatsApp để phân loại khách hàng trước khi chia cho sale.',
     author: 'Trần Thị B',
     rating: 5,
-    image: 'template/49ea4f00-e528-4d06-b469-45487daa8f1d.png',
+    image: 'template/49ea4f00-e528-4d06-b469-45487daa8f1d.webp',
     type: 'Kịch bản',
     industries: ['education', 'realestate', 'service', 'agency']
   },
@@ -57,7 +57,7 @@ const templatesData = [
     description: 'Tự động nhắn tin hỏi thăm và xin đánh giá sao sau khi đơn hàng được ghi nhận thành công.',
     author: 'Lê Hoàng C',
     rating: 5,
-    image: 'template/4da725c3-f78e-4fc8-aefa-9c4ee43608b7.png',
+    image: 'template/4da725c3-f78e-4fc8-aefa-9c4ee43608b7.webp',
     type: 'Kịch bản',
     industries: ['ecommerce', 'fb', 'service', 'realestate', 'agency']
   },
@@ -69,7 +69,7 @@ const templatesData = [
     description: 'Gửi tin nhắn Zalo thông báo thời gian hẹn và thu thập xác nhận tham dự của khách hàng.',
     author: 'Phạm Minh D',
     rating: 5,
-    image: 'template/57fc10fc-8a11-458c-9d90-221b75ea768c.png',
+    image: 'template/57fc10fc-8a11-458c-9d90-221b75ea768c.webp',
     type: 'Kịch bản',
     industries: ['education', 'realestate', 'service', 'fb']
   },
@@ -81,7 +81,7 @@ const templatesData = [
     description: 'Chạy chiến dịch gửi tin nhắn hàng loạt theo mẫu đăng ký trước của WhatsApp để remarketing.',
     author: 'Vũ Hoàng E',
     rating: 4.8,
-    image: 'template/ad518338-41d0-41da-a586-3c731891f833.png',
+    image: 'template/ad518338-41d0-41da-a586-3c731891f833.webp',
     type: 'Kịch bản',
     industries: ['ecommerce', 'service']
   },
@@ -94,7 +94,7 @@ const templatesData = [
     description: 'AI đọc bảng thông tin sản phẩm để tư vấn chọn kích thước, kiểm tra kho và chốt đơn.',
     author: 'Smax Product Team',
     rating: 5,
-    image: 'template/c1ec3299-ce9f-4133-9449-f9ff4011f4a6.png',
+    image: 'template/c1ec3299-ce9f-4133-9449-f9ff4011f4a6.webp',
     type: 'Meta Business AI',
     industries: ['ecommerce', 'fb']
   },
@@ -106,7 +106,7 @@ const templatesData = [
     description: 'AI tích hợp tài liệu hướng dẫn sử dụng để giải đáp mọi thắc mắc kỹ thuật của khách hàng.',
     author: 'Smax Product Team',
     rating: 5,
-    image: 'template/fcc5e1de-f822-47c0-9d95-7c33bd729ef2.png',
+    image: 'template/fcc5e1de-f822-47c0-9d95-7c33bd729ef2.webp',
     type: 'Meta Business AI',
     industries: ['education', 'service', 'realestate', 'agency']
   },
@@ -132,7 +132,7 @@ const templatesData = [
     description: 'Tự động nhắn tin qua Messenger chào mừng và gửi thông tin chi tiết hóa đơn khi có đơn hàng mới từ Sapo.',
     author: 'Nghĩa Đắc',
     rating: 5,
-    image: 'template/sapo/8c592561-a737-49cd-a833-49d3c5714516.png',
+    image: 'template/sapo/8c592561-a737-49cd-a833-49d3c5714516.webp',
     type: 'Kịch bản',
     industries: ['ecommerce', 'fb']
   },
@@ -144,7 +144,7 @@ const templatesData = [
     description: 'Tự động thông báo mã vận đơn và link hành trình đơn hàng ngay khi chuyển đối tác giao nhận trên Sapo.',
     author: 'Nghĩa Đắc',
     rating: 5,
-    image: 'template/sapo/ae7ad2d5-4a66-46f1-97b2-913ba1ba3a9b.png',
+    image: 'template/sapo/ae7ad2d5-4a66-46f1-97b2-913ba1ba3a9b.webp',
     type: 'Kịch bản',
     industries: ['ecommerce']
   },
@@ -156,7 +156,7 @@ const templatesData = [
     description: 'Nhắn tin CSKH tự động gửi lời cảm ơn và tặng voucher ưu đãi khi shipper báo giao thành công trên hệ thống Sapo.',
     author: 'Nghĩa Đắc',
     rating: 5,
-    image: 'template/sapo/dbfc5584-defd-407f-a0a4-8609cf69db23.png',
+    image: 'template/sapo/dbfc5584-defd-407f-a0a4-8609cf69db23.webp',
     type: 'Kịch bản',
     industries: ['ecommerce']
   },
@@ -168,7 +168,7 @@ const templatesData = [
     description: 'Tự động gửi tin nhắn nhắc khách hàng hoặc liên hệ lại để xếp lịch giao lại khi đơn hàng Sapo bị hoàn/giao lỗi.',
     author: 'Nghĩa Đắc',
     rating: 4.8,
-    image: 'template/sapo/72943889-e0c1-4db0-bc00-b96792c51105.png',
+    image: 'template/sapo/72943889-e0c1-4db0-bc00-b96792c51105.webp',
     type: 'Kịch bản',
     industries: ['ecommerce']
   },
@@ -181,7 +181,7 @@ const templatesData = [
     description: 'Khi khách chốt đơn trên Haravan, tự động gửi tin nhắn tổng hợp chi tiết đơn hàng qua Zalo/Messenger.',
     author: 'Nghĩa Đắc',
     rating: 5,
-    image: 'template/haravan/cf95d1af-b47c-499f-918c-23dc1db6757a.png',
+    image: 'template/haravan/cf95d1af-b47c-499f-918c-23dc1db6757a.webp',
     type: 'Kịch bản',
     industries: ['ecommerce', 'fb']
   },
@@ -193,7 +193,7 @@ const templatesData = [
     description: 'Gửi mã vận đơn và thông tin nhà vận chuyển cho khách ngay khi đơn hàng chuyển trạng thái gửi hàng trên Haravan.',
     author: 'Nghĩa Đắc',
     rating: 5,
-    image: 'template/haravan/f14624dc-1815-48e4-8cd0-326df636a349.png',
+    image: 'template/haravan/f14624dc-1815-48e4-8cd0-326df636a349.webp',
     type: 'Kịch bản',
     industries: ['ecommerce']
   },
@@ -205,7 +205,7 @@ const templatesData = [
     description: 'Gửi tin nhắn cảm ơn và khảo sát nhanh mức độ hài lòng về sản phẩm/dịch vụ khi đơn Haravan giao thành công.',
     author: 'Nghĩa Đắc',
     rating: 5,
-    image: 'template/haravan/eab1e45b-b81b-4b96-8604-4d82b48dd4a1.png',
+    image: 'template/haravan/eab1e45b-b81b-4b96-8604-4d82b48dd4a1.webp',
     type: 'Kịch bản',
     industries: ['ecommerce']
   },
@@ -217,7 +217,7 @@ const templatesData = [
     description: 'Tự động gửi thông tin báo đơn hàng gặp sự cố giao nhận để khách hàng chủ động phối hợp nhận lại.',
     author: 'Nghĩa Đắc',
     rating: 4.8,
-    image: 'template/haravan/50e6fa52-6ff8-4cac-bae7-c0250207a2b9.png',
+    image: 'template/haravan/50e6fa52-6ff8-4cac-bae7-c0250207a2b9.webp',
     type: 'Kịch bản',
     industries: ['ecommerce']
   },
@@ -230,7 +230,7 @@ const templatesData = [
     description: 'Nhận tín hiệu đơn hàng mới tạo trên KiotViet và gửi tin nhắn tự động thông báo đơn thành công.',
     author: 'Nghĩa Đắc',
     rating: 5,
-    image: 'template/kiotviet/86ac62bd-38eb-4db3-b217-538cbedb1bb9.png',
+    image: 'template/kiotviet/86ac62bd-38eb-4db3-b217-538cbedb1bb9.webp',
     type: 'Kịch bản',
     industries: ['ecommerce', 'fb']
   },
@@ -242,7 +242,7 @@ const templatesData = [
     description: 'Tự động đồng bộ trạng thái giao vận từ KiotViet để gửi tin nhắn thông báo lộ trình đơn hàng cho khách.',
     author: 'Nghĩa Đắc',
     rating: 5,
-    image: 'template/kiotviet/414f954c-3590-4a34-b0fc-412d31c67aca.png',
+    image: 'template/kiotviet/414f954c-3590-4a34-b0fc-412d31c67aca.webp',
     type: 'Kịch bản',
     industries: ['ecommerce']
   },
@@ -254,7 +254,7 @@ const templatesData = [
     description: 'Nhắn tin cảm ơn, cộng điểm thành viên hoặc tặng quà tri ân sau khi đơn hàng KiotViet hoàn tất giao.',
     author: 'Nghĩa Đắc',
     rating: 5,
-    image: 'template/kiotviet/e79e9e96-71e1-4ce3-8cff-e4b9a06f6639.png',
+    image: 'template/kiotviet/e79e9e96-71e1-4ce3-8cff-e4b9a06f6639.webp',
     type: 'Kịch bản',
     industries: ['ecommerce']
   },
@@ -266,7 +266,7 @@ const templatesData = [
     description: 'Hệ thống tự động thông báo đơn lỗi giao nhận trên KiotViet và hướng dẫn khách hàng cách xử lý nhanh chóng.',
     author: 'Nghĩa Đắc',
     rating: 4.8,
-    image: 'template/kiotviet/ffcd0cb6-14c6-4bc2-ae20-56983a69cd61.png',
+    image: 'template/kiotviet/ffcd0cb6-14c6-4bc2-ae20-56983a69cd61.webp',
     type: 'Kịch bản',
     industries: ['ecommerce']
   },
@@ -279,7 +279,7 @@ const templatesData = [
     description: 'Khi có đơn hàng mới trên Nhanh.vn, tự động gửi tin nhắn xác nhận đơn kèm liên kết kiểm tra thông tin.',
     author: 'Smax Product Team',
     rating: 5,
-    image: 'template/nhanh/f2a3dab9-3eb4-4c64-abd9-2f3e26e630e2.png',
+    image: 'template/nhanh/f2a3dab9-3eb4-4c64-abd9-2f3e26e630e2.webp',
     type: 'Kịch bản',
     industries: ['ecommerce', 'fb']
   },
@@ -291,7 +291,7 @@ const templatesData = [
     description: 'Gửi tin nhắn cập nhật trạng thái đơn hàng bắt đầu được giao đến khách kèm số điện thoại shipper trên Nhanh.vn.',
     author: 'Smax Product Team',
     rating: 5,
-    image: 'template/nhanh/28d3def5-8ac3-4679-9aa3-dee74200977c.png',
+    image: 'template/nhanh/28d3def5-8ac3-4679-9aa3-dee74200977c.webp',
     type: 'Kịch bản',
     industries: ['ecommerce']
   },
@@ -303,7 +303,7 @@ const templatesData = [
     description: 'Tự động gửi lời cảm ơn và mã giảm giá cho đơn hàng tiếp theo ngay khi shipper cập nhật giao thành công trên Nhanh.vn.',
     author: 'Smax Product Team',
     rating: 5,
-    image: 'template/nhanh/0e6a6e2a-7e27-443d-9d2b-58b6c4d3b3bf.png',
+    image: 'template/nhanh/0e6a6e2a-7e27-443d-9d2b-58b6c4d3b3bf.webp',
     type: 'Kịch bản',
     industries: ['ecommerce']
   },
@@ -315,7 +315,7 @@ const templatesData = [
     description: 'Gửi tin nhắn cảnh báo đơn giao lỗi hoặc bị hoàn trên Nhanh.vn, hỗ trợ khách hàng liên hệ lại với shipper.',
     author: 'Smax Product Team',
     rating: 4.9,
-    image: 'template/nhanh/84190a29-f41a-494b-8620-650453cc634a.png',
+    image: 'template/nhanh/84190a29-f41a-494b-8620-650453cc634a.webp',
     type: 'Kịch bản',
     industries: ['ecommerce']
   },
@@ -328,7 +328,7 @@ const templatesData = [
     description: 'Đồng bộ tức thời hóa đơn mới từ PosCake và tự động nhắn tin cảm ơn khách hàng qua Zalo/Facebook.',
     author: 'Smax Product Team',
     rating: 5,
-    image: 'template/pos/a48ab30a-8ac2-406e-bc01-637380c820cc.png',
+    image: 'template/pos/a48ab30a-8ac2-406e-bc01-637380c820cc.webp',
     type: 'Kịch bản',
     industries: ['ecommerce', 'fb', 'service']
   },
@@ -340,7 +340,7 @@ const templatesData = [
     description: 'Tự động cập nhật tiến độ vận chuyển đơn hàng từ PosCake lên Messenger/SMS để khách tiện theo dõi.',
     author: 'Smax Product Team',
     rating: 5,
-    image: 'template/pos/3db88776-662c-43aa-92a1-3c5c1259d168.png',
+    image: 'template/pos/3db88776-662c-43aa-92a1-3c5c1259d168.webp',
     type: 'Kịch bản',
     industries: ['ecommerce']
   },
@@ -352,7 +352,7 @@ const templatesData = [
     description: 'Gửi lời cảm ơn, khảo sát sao và tích lũy điểm thưởng thành viên tự động sau khi đơn PosCake giao thành công.',
     author: 'Smax Product Team',
     rating: 5,
-    image: 'template/pos/8a826d13-9b7d-4e93-b068-4e1a268cf16e.png',
+    image: 'template/pos/8a826d13-9b7d-4e93-b068-4e1a268cf16e.webp',
     type: 'Kịch bản',
     industries: ['ecommerce']
   },
@@ -364,7 +364,7 @@ const templatesData = [
     description: 'Hệ thống tự động phát hiện đơn giao thất bại trên PosCake và gửi kịch bản CSKH hỗ trợ giao lại.',
     author: 'Smax Product Team',
     rating: 4.8,
-    image: 'template/pos/0f34fc6f-5cc2-48ea-9d74-4ebd633f6645.png',
+    image: 'template/pos/0f34fc6f-5cc2-48ea-9d74-4ebd633f66f4.webp',
     type: 'Kịch bản',
     industries: ['ecommerce']
   },
@@ -376,7 +376,7 @@ const templatesData = [
     description: 'Giải pháp xác nhận đơn hàng mới gọn nhẹ, trực quan cho các cửa hàng nhỏ dùng PosCake.',
     author: 'Smax Product Team',
     rating: 5,
-    image: 'template/pos/0602d009-1967-48b9-88f8-c2f609a9bbb7.png',
+    image: 'template/pos/0602d009-1967-48b9-88f8-c2f609a9bbb7.webp',
     type: 'Kịch bản',
     industries: ['ecommerce', 'fb']
   },
@@ -388,7 +388,7 @@ const templatesData = [
     description: 'Kịch bản theo dõi đơn giản, tự động nhắn tin hành trình đơn hàng tối giản cho khách qua Messenger.',
     author: 'Smax Product Team',
     rating: 5,
-    image: 'template/pos/8756fdf1-4cb5-4828-86ca-5b14758bf3dd.png',
+    image: 'template/pos/8756fdf1-4cb5-4828-86ca-5b14758bf3dd.webp',
     type: 'Kịch bản',
     industries: ['ecommerce']
   },
@@ -400,7 +400,7 @@ const templatesData = [
     description: 'Tự động gửi tin nhắn báo giao hàng thành công kèm hóa đơn điện tử cho khách hàng từ PosCake.',
     author: 'Smax Product Team',
     rating: 5,
-    image: 'template/pos/4e75c54f-f154-4481-94e3-8d8d9e951af1.png',
+    image: 'template/pos/4e75c54f-f154-4481-94e3-8d8d9e951af1.webp',
     type: 'Kịch bản',
     industries: ['ecommerce']
   },
@@ -412,7 +412,7 @@ const templatesData = [
     description: 'Tự động gửi thông tin sự cố giao hàng và mẫu đăng ký nhận lại hàng dành cho đơn PosCake.',
     author: 'Smax Product Team',
     rating: 4.8,
-    image: 'template/pos/ec9879f3-5e42-48d6-a64e-238b6b138672.png',
+    image: 'template/pos/ec9879f3-5e42-48d6-a64e-238b6b138672.webp',
     type: 'Kịch bản',
     industries: ['ecommerce']
   }

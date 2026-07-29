@@ -156,6 +156,21 @@ function fetchContentAndCompile() {
                     isRepaired = true;
                   }
                 }
+
+                // 4. Replace local PNG values that Vercel intentionally excludes
+                // with their optimized WebP counterparts.
+                if (/^(?:\/?(?:asset smax|template)\/|\/?[^/]+\.png(?:[?#].*)?$)/i.test(val) && /\.png(?:[?#].*)?$/i.test(val)) {
+                  const pathWithoutSuffix = val.split(/[?#]/, 1)[0];
+                  const suffix = val.slice(pathWithoutSuffix.length);
+                  const webpPath = pathWithoutSuffix.replace(/\.png$/i, '.webp');
+                  const absoluteWebpPath = path.join(rootDir, webpPath.replace(/^\/+/, '').replace(/\//g, path.sep));
+
+                  if (fs.existsSync(absoluteWebpPath)) {
+                    console.log(`[Smax CMS Repair] Upgrading image key ${key} to WebP: "${val}" -> "${webpPath}${suffix}"`);
+                    val = `${webpPath}${suffix}`;
+                    isRepaired = true;
+                  }
+                }
               }
               
               contentMap[key] = val;
@@ -243,14 +258,18 @@ function finalizeBuild(contentMap) {
   const publicDir = path.join(rootDir, 'public');
 
   function getDeployableLocalAsset(assetPath) {
-    if (!assetPath || !/^asset smax\//i.test(assetPath) || !/\.png(?:[?#].*)?$/i.test(assetPath)) {
+    if (
+      !assetPath ||
+      !/^(?:\/?(?:asset smax|template)\/|\/?[^/]+\.png(?:[?#].*)?$)/i.test(assetPath) ||
+      !/\.png(?:[?#].*)?$/i.test(assetPath)
+    ) {
       return assetPath;
     }
 
     const pathWithoutSuffix = assetPath.split(/[?#]/, 1)[0];
     const suffix = assetPath.slice(pathWithoutSuffix.length);
     const webpPath = pathWithoutSuffix.replace(/\.png$/i, '.webp');
-    const absoluteWebpPath = path.join(rootDir, webpPath.replace(/\//g, path.sep));
+    const absoluteWebpPath = path.join(rootDir, webpPath.replace(/^\/+/, '').replace(/\//g, path.sep));
 
     return fs.existsSync(absoluteWebpPath) ? `${webpPath}${suffix}` : assetPath;
   }

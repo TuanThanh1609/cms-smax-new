@@ -1,7 +1,8 @@
 {
   "scripts": {
     "seed:automation-map": "node scripts/seed-automation-map-cms.js",
-    "optimize:solution-images": "node scripts/optimize-solution-images.js",
+    "optimize:site-images": "node scripts/optimize-site-images.js",
+    "optimize:solution-images": "node scripts/optimize-site-images.js",
     "build": "node scripts/build.js"
   },
   "dependencies": {
