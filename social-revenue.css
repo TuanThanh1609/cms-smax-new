@@ -17,7 +17,7 @@
   margin: 0;
   color: var(--sr-ink);
   background: #fff;
-  overflow-x: hidden;
+  overflow-x: clip;
   text-rendering: optimizeLegibility;
 }
 
@@ -44,7 +44,7 @@
 .sr-page {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .sr-page *,
@@ -54,8 +54,12 @@
 }
 
 .sr-container {
-  width: min(1280px, calc(100% - 48px));
+  width: min(100% - 48px, var(--container));
   margin-inline: auto;
+}
+
+.sr-is-removed {
+  display: none !important;
 }
 
 .sr-eyebrow {
@@ -340,10 +344,10 @@
 .sr-thesis-copy {
   position: relative;
   z-index: 1;
-  max-width: 1150px;
+  max-width: none;
   margin: 0;
   color: #fff;
-  font-size: clamp(35px, 4.8vw, 68px);
+  font-size: clamp(35px, 3.4vw, 48px);
   font-weight: 600;
   letter-spacing: -0.045em;
   line-height: 1.09;
@@ -354,15 +358,70 @@
   opacity: 0.15;
 }
 
+.sr-thesis-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(480px, 1.22fr);
+  align-items: center;
+  gap: 42px 50px;
+}
+
+.sr-north-star-visual {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  margin: -34px -42px -26px 0;
+}
+
+.sr-north-star-visual > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 30px 62px rgba(13, 92, 255, 0.24));
+}
+
+.sr-north-star-core {
+  position: absolute;
+  top: 49.2%;
+  left: 50%;
+  display: grid;
+  width: 160px;
+  place-items: center;
+  gap: 5px;
+  margin: 0;
+  color: var(--sr-navy);
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.sr-north-star-core img {
+  width: 58px;
+  height: 58px;
+  border-radius: 15px;
+  box-shadow: 0 14px 30px rgba(27, 74, 174, 0.18);
+}
+
+.sr-north-star-core strong {
+  font-size: 18px;
+  letter-spacing: -0.025em;
+}
+
+.sr-north-star-core span {
+  color: #64728f;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
 .sr-thesis-foot {
   position: relative;
   z-index: 1;
+  grid-column: 1 / -1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 28px;
-  max-width: 860px;
-  margin-top: 68px;
+  max-width: none;
+  margin-top: 14px;
   padding-top: 24px;
   border-top: 1px solid rgba(255,255,255,0.18);
 }
@@ -387,41 +446,42 @@
 
 .sr-journey-layout {
   display: grid;
-  grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.58fr);
+  grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.58fr);
   align-items: start;
-  gap: 76px;
+  gap: 54px;
 }
 
 .sr-journey-aside {
-  position: relative;
+  position: sticky;
+  top: 116px;
 }
 
 .sr-journey-aside h2 {
   max-width: 500px;
   margin: 0;
-  font-size: clamp(38px, 4vw, 58px);
+  font-size: clamp(36px, 3vw, 48px);
   letter-spacing: -0.045em;
-  line-height: 1.03;
+  line-height: 1.05;
 }
 
 .sr-journey-aside > p:not(.sr-eyebrow) {
   max-width: 440px;
-  margin: 26px 0 0;
+  margin: 22px 0 0;
   color: var(--sr-muted);
   font-size: 16px;
-  line-height: 1.75;
+  line-height: 1.65;
 }
 
 .sr-stage-nav {
   display: grid;
   gap: 2px;
-  margin-top: 38px;
+  margin-top: 30px;
   border-left: 1px solid #d8deeb;
 }
 
 .sr-stage-nav a {
   position: relative;
-  padding: 9px 0 9px 20px;
+  padding: 7px 0 7px 20px;
   color: #7a859d;
   font-size: 14px;
   font-weight: 650;
@@ -465,13 +525,6 @@
   overflow: hidden;
   box-shadow: var(--sr-shadow);
   transform-origin: center top;
-}
-
-@media (min-width: 901px) {
-  .sr-body-a .sr-stage-card {
-    position: sticky;
-    top: 112px;
-  }
 }
 
 .sr-stage-traffic {
@@ -726,8 +779,8 @@
 
 .sr-insight-board {
   display: grid;
-  grid-template-columns: minmax(0, 0.76fr) minmax(0, 1.24fr);
-  gap: 34px;
+  grid-template-columns: 1fr;
+  gap: 16px;
   margin-top: 68px;
   padding: 18px;
   border-radius: 34px;
@@ -740,10 +793,14 @@
 }
 
 .sr-insight-board-copy {
-  padding: 46px 30px 40px 34px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(330px, 1.08fr);
+  gap: 18px 54px;
+  padding: 42px 36px 30px;
 }
 
 .sr-insight-board-copy > p {
+  grid-column: 1 / -1;
   margin: 0 0 20px;
   color: #8ba6d3;
   font-size: 12px;
@@ -763,7 +820,7 @@
 .sr-insight-questions {
   display: grid;
   gap: 10px;
-  margin-top: 36px;
+  margin-top: 0;
 }
 
 .sr-insight-questions span {
@@ -771,6 +828,35 @@
   border-bottom: 1px solid rgba(255,255,255,0.13);
   color: #d7e2f5;
   font-size: 14px;
+}
+
+.sr-insight-product-visual {
+  position: relative;
+  margin: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #f5f4ff;
+  box-shadow: 0 24px 60px rgba(4, 14, 42, 0.22);
+}
+
+.sr-insight-product-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.sr-insight-product-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 700ms cubic-bezier(.2,.8,.2,1);
+}
+
+.sr-insight-product-visual:hover img {
+  transform: scale(1.018);
 }
 
 .sr-dashboard {
@@ -2048,7 +2134,7 @@
 
 @media (max-width: 1120px) {
   .sr-container {
-    width: min(100% - 40px, 1100px);
+    width: min(100% - 48px, var(--container));
   }
 
   .sr-hero {
@@ -2130,6 +2216,19 @@
     gap: 42px;
   }
 
+  .sr-thesis-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sr-thesis-copy {
+    max-width: 760px;
+  }
+
+  .sr-north-star-visual {
+    width: min(760px, 100%);
+    margin: 0 auto -10px;
+  }
+
   .sr-hero-a .sr-hero-grid {
     display: grid;
     min-height: 0;
@@ -2177,6 +2276,11 @@
     grid-template-columns: 1fr;
   }
 
+  .sr-journey-aside {
+    position: relative;
+    top: auto;
+  }
+
   .sr-stage-nav {
     display: flex;
     flex-wrap: wrap;
@@ -2196,6 +2300,18 @@
 
   .sr-insight-board {
     grid-template-columns: 1fr;
+  }
+
+  .sr-insight-board-copy {
+    grid-template-columns: 1fr;
+  }
+
+  .sr-insight-board-copy > p {
+    grid-column: auto;
+  }
+
+  .sr-insight-questions {
+    margin-top: 16px;
   }
 
   .sr-accordions {
@@ -2288,7 +2404,7 @@
 
 @media (max-width: 680px) {
   .sr-container {
-    width: min(100% - 28px, 640px);
+    width: min(100% - 32px, var(--container));
   }
 
   .sr-hero {
@@ -2373,6 +2489,31 @@
   .sr-thesis-foot {
     display: grid;
     margin-top: 50px;
+  }
+
+  .sr-north-star-visual {
+    width: calc(100% + 26px);
+    margin-left: -13px;
+    margin-right: -13px;
+  }
+
+  .sr-north-star-core {
+    width: 112px;
+  }
+
+  .sr-north-star-core img {
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+  }
+
+  .sr-north-star-core strong {
+    font-size: 14px;
+  }
+
+  .sr-north-star-core span {
+    max-width: 90px;
+    font-size: 8px;
   }
 
   .sr-section-heading h2,
