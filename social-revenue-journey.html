@@ -214,6 +214,146 @@
       </div>
     </section>
 
+    <section class="sr-shopping-experience" id="hanh-trinh-mua-sam">
+      <div class="sr-container">
+        <div class="sr-section-heading sr-section-heading-wide" data-reveal>
+          <p class="sr-eyebrow">Hành trình mua sắm trên Social</p>
+          <h2>Mang trải nghiệm mua sắm liền mạch từ Website lên từng cuộc hội thoại.</h2>
+          <p>Khách hàng không chỉ được trả lời nhanh. Họ được dẫn qua một hành trình rõ ràng từ tìm hiểu sản phẩm, chốt đơn, thanh toán đến chăm sóc và mua lại — ngay trên kênh Social.</p>
+        </div>
+
+        <div class="sr-shopping-tabs" data-shopping-tabs data-reveal>
+          <div class="sr-shopping-tablist" role="tablist" aria-label="Các giai đoạn trong hành trình mua sắm">
+            <button class="is-active" id="shopping-tab-before" type="button" role="tab" aria-selected="true" aria-controls="shopping-panel-before" tabindex="0" data-shopping-tab="before">
+              <span>01</span>
+              <strong>Trước mua</strong>
+            </button>
+            <button id="shopping-tab-during" type="button" role="tab" aria-selected="false" aria-controls="shopping-panel-during" tabindex="-1" data-shopping-tab="during">
+              <span>02</span>
+              <strong>Trong mua</strong>
+            </button>
+            <button id="shopping-tab-after" type="button" role="tab" aria-selected="false" aria-controls="shopping-panel-after" tabindex="-1" data-shopping-tab="after">
+              <span>03</span>
+              <strong>Sau mua</strong>
+            </button>
+          </div>
+
+          <article class="sr-shopping-panel is-active" id="shopping-panel-before" role="tabpanel" aria-labelledby="shopping-tab-before" data-shopping-panel="before">
+            <div class="sr-shopping-panel-copy">
+              <p class="sr-shopping-stage-label">Biến lượt quan tâm thành khách hàng có dữ liệu</p>
+              <h3>Khách vừa nhắn đã được tư vấn, tạo tương tác và phân loại đúng nhu cầu.</h3>
+              <ol class="sr-shopping-scenarios">
+                <li>
+                  <span>01</span>
+                  <div>
+                    <strong>AI tự động tư vấn 24/7</strong>
+                    <p>Nhận diện ý định để trả lời tự nhiên; chuyển nhân viên khi gặp nội dung ngoài kịch bản hoặc không được phép trả lời.</p>
+                  </div>
+                </li>
+                <li>
+                  <span>02</span>
+                  <div>
+                    <strong>Mời khách chơi Minigame để lại thông tin</strong>
+                    <p>Tạo tương tác, thu SĐT và gắn kết dữ liệu người chơi với voucher hoặc kết quả nhận quà.</p>
+                  </div>
+                </li>
+                <li>
+                  <span>03</span>
+                  <div>
+                    <strong>Tự động gắn Tag phân loại khách hàng</strong>
+                    <p>Phân nhóm theo trạng thái, mức độ tiềm năng, sản phẩm quan tâm hoặc nguồn chiến dịch.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <figure class="sr-shopping-flow-visual">
+              <img src="asset smax/social-revenue/shopping-journey/before-purchase-flow-v1.webp" alt="Luồng trước mua gồm AI tư vấn, Minigame thu thập thông tin và tự động gắn Tag khách hàng" width="1536" height="864" loading="lazy">
+            </figure>
+          </article>
+
+          <article class="sr-shopping-panel" id="shopping-panel-during" role="tabpanel" aria-labelledby="shopping-tab-during" data-shopping-panel="during" hidden>
+            <div class="sr-shopping-panel-copy">
+              <p class="sr-shopping-stage-label">Chuyển hội thoại thành đơn hàng đã thanh toán</p>
+              <h3>Khách chọn sản phẩm, hoàn tất đơn và thanh toán như một trải nghiệm E-commerce.</h3>
+              <ol class="sr-shopping-scenarios">
+                <li>
+                  <span>01</span>
+                  <div>
+                    <strong>Webview chuẩn E-commerce giúp khách dễ chốt đơn</strong>
+                    <p>Khách kiểm tra sản phẩm, số lượng, địa chỉ và tổng tiền trước khi xác nhận ngay trong luồng chat.</p>
+                  </div>
+                </li>
+                <li>
+                  <span>02</span>
+                  <div>
+                    <strong>Bám đuổi khách hàng bỏ quên giỏ hàng</strong>
+                    <p>Tự động nhắc khi khách đã quan tâm hoặc chọn sản phẩm nhưng chưa hoàn tất đơn; dừng khi khách phản hồi.</p>
+                  </div>
+                </li>
+                <li>
+                  <span>03</span>
+                  <div>
+                    <strong>Gửi QR động mời thanh toán</strong>
+                    <p>Tạo QR theo từng giao dịch và tự động gửi xác nhận khi ngân hàng ghi nhận thanh toán thành công.</p>
+                  </div>
+                </li>
+                <li>
+                  <span>04</span>
+                  <div>
+                    <strong>Tối ưu Dataset quảng cáo</strong>
+                    <p>Gửi tín hiệu Lead hoặc Purchase cùng giá trị đơn hàng để Meta học đúng hành vi chuyển đổi.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <figure class="sr-shopping-flow-visual">
+              <img src="asset smax/social-revenue/shopping-journey/during-purchase-flow-v1.webp" alt="Luồng trong mua gồm Webview chốt đơn, bám đuổi giỏ hàng, QR thanh toán và Dataset quảng cáo" width="1536" height="864" loading="lazy">
+            </figure>
+          </article>
+
+          <article class="sr-shopping-panel" id="shopping-panel-after" role="tabpanel" aria-labelledby="shopping-tab-after" data-shopping-panel="after" hidden>
+            <div class="sr-shopping-panel-copy">
+              <p class="sr-shopping-stage-label">Biến một đơn hàng thành quan hệ dài hạn</p>
+              <h3>Sau khi mua, mỗi khách hàng tiếp tục được chăm sóc theo dữ liệu và đúng thời điểm.</h3>
+              <ol class="sr-shopping-scenarios">
+                <li>
+                  <span>01</span>
+                  <div>
+                    <strong>Gửi ưu đãi độc quyền cá nhân hóa 1:1</strong>
+                    <p>Lọc theo Tag, thuộc tính, tổng chi tiêu hoặc lịch sử mua để gửi đúng ưu đãi đến đúng khách hàng.</p>
+                  </div>
+                </li>
+                <li>
+                  <span>02</span>
+                  <div>
+                    <strong>Phân tích Insight khách hàng</strong>
+                    <p>Trích xuất sản phẩm quan tâm, cảm xúc, lý do chưa mua và khả năng quay lại từ lịch sử hội thoại.</p>
+                  </div>
+                </li>
+                <li>
+                  <span>03</span>
+                  <div>
+                    <strong>Loyalty khách hàng thân thiết</strong>
+                    <p>Nhận diện khách VIP, mốc chi tiêu hoặc điểm tích lũy để kích hoạt quà tặng và ưu đãi phù hợp.</p>
+                  </div>
+                </li>
+                <li>
+                  <span>04</span>
+                  <div>
+                    <strong>Tin nhắn chăm sóc tự động sau mua</strong>
+                    <p>Kích hoạt theo trạng thái đơn hoặc lịch hẹn trong Sequence; tự dừng các luồng không còn phù hợp.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <figure class="sr-shopping-flow-visual">
+              <img src="asset smax/social-revenue/shopping-journey/after-purchase-flow-v1.webp" alt="Luồng sau mua gồm chăm sóc đơn hàng, ưu đãi cá nhân, AI Insight và Loyalty khách hàng thân thiết" width="1536" height="864" loading="lazy">
+            </figure>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="sr-insight-section">
       <div class="sr-container">
         <div class="sr-section-heading sr-section-heading-wide" data-reveal>

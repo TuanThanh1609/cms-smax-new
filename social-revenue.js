@@ -33,6 +33,49 @@
     });
   }
 
+  function initShoppingTabs() {
+    document.querySelectorAll("[data-shopping-tabs]").forEach(function (component) {
+      var tabs = Array.from(component.querySelectorAll("[data-shopping-tab]"));
+      var panels = Array.from(component.querySelectorAll("[data-shopping-panel]"));
+
+      function activateTab(tab, shouldFocus) {
+        var target = tab.dataset.shoppingTab;
+
+        tabs.forEach(function (candidate) {
+          var active = candidate === tab;
+          candidate.classList.toggle("is-active", active);
+          candidate.setAttribute("aria-selected", active ? "true" : "false");
+          candidate.setAttribute("tabindex", active ? "0" : "-1");
+        });
+
+        panels.forEach(function (panel) {
+          var active = panel.dataset.shoppingPanel === target;
+          panel.classList.toggle("is-active", active);
+          panel.hidden = !active;
+        });
+
+        if (shouldFocus) tab.focus();
+      }
+
+      tabs.forEach(function (tab, index) {
+        tab.addEventListener("click", function () {
+          activateTab(tab, false);
+        });
+
+        tab.addEventListener("keydown", function (event) {
+          var nextIndex = index;
+          if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+          if (event.key === "ArrowLeft") nextIndex = (index - 1 + tabs.length) % tabs.length;
+          if (event.key === "Home") nextIndex = 0;
+          if (event.key === "End") nextIndex = tabs.length - 1;
+          if (nextIndex === index && !["Home", "End"].includes(event.key)) return;
+          event.preventDefault();
+          activateTab(tabs[nextIndex], true);
+        });
+      });
+    });
+  }
+
   function initForms() {
     document.querySelectorAll("[data-plan-form]").forEach(function (form) {
       form.addEventListener("submit", function (event) {
@@ -254,6 +297,7 @@
   function boot() {
     splitScrubText();
     initAccordions();
+    initShoppingTabs();
     initForms();
     initAnchorScroll();
     initGsap();
