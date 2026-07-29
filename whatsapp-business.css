@@ -1770,8 +1770,31 @@
   }
 
   .wa-journey-layout {
-    grid-template-columns: minmax(260px, 0.58fr) minmax(0, 1.42fr);
-    gap: 38px;
+    grid-template-columns: 1fr;
+    gap: 54px;
+  }
+
+  .wa-journey-aside {
+    max-width: 900px;
+    padding-top: 0;
+  }
+
+  .wa-journey-aside h2 {
+    max-width: 880px;
+  }
+
+  .wa-journey-aside > p:nth-of-type(2) {
+    max-width: 720px;
+  }
+
+  .wa-journey-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .wa-journey-nav a {
+    flex: 0 0 auto;
   }
 
   .wa-accordion-content > div {

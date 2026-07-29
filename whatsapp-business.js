@@ -383,58 +383,68 @@
 
     var journeyAside = document.querySelector("[data-journey-pin]");
     var journeyLayout = journeyAside && journeyAside.closest(".wa-journey-layout");
-    if (journeyAside && journeyLayout && window.matchMedia("(min-width: 901px)").matches) {
-      ScrollTrigger.create({
-        trigger: journeyLayout,
-        start: "top 108px",
-        end: "bottom bottom",
-        pin: journeyAside,
-        pinSpacing: false
+    if (journeyAside && journeyLayout) {
+      var journeyMedia = gsap.matchMedia();
+      journeyMedia.add("(min-width: 1121px) and (min-height: 820px)", function () {
+        ScrollTrigger.create({
+          trigger: journeyLayout,
+          start: "top 108px",
+          end: "bottom bottom",
+          pin: journeyAside,
+          pinSpacing: false,
+          invalidateOnRefresh: true
+        });
       });
     }
 
     var cards = gsap.utils.toArray("[data-journey-card]");
     var navLinks = Array.from(document.querySelectorAll(".wa-journey-nav a"));
-    cards.forEach(function (card, index) {
-      gsap.fromTo(card,
-        { scale: 0.88, opacity: 0.42 },
-        {
-          scale: 1,
-          opacity: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 92%",
-            end: "top 50%",
-            scrub: 0.6,
-            onEnter: function () {
-              navLinks.forEach(function (link, linkIndex) {
-                link.classList.toggle("is-active", linkIndex === index);
-              });
-            },
-            onEnterBack: function () {
-              navLinks.forEach(function (link, linkIndex) {
-                link.classList.toggle("is-active", linkIndex === index);
-              });
+    var cardMedia = gsap.matchMedia();
+    cardMedia.add("(min-width: 1121px)", function () {
+      gsap.set(cards, { filter: "brightness(1)" });
+
+      cards.forEach(function (card, index) {
+        gsap.fromTo(card,
+          { scale: 0.94, opacity: 0.68, filter: "brightness(1)" },
+          {
+            scale: 1,
+            opacity: 1,
+            filter: "brightness(1)",
+            ease: "none",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 92%",
+              end: "top 54%",
+              scrub: 0.6,
+              onEnter: function () {
+                navLinks.forEach(function (link, linkIndex) {
+                  link.classList.toggle("is-active", linkIndex === index);
+                });
+              },
+              onEnterBack: function () {
+                navLinks.forEach(function (link, linkIndex) {
+                  link.classList.toggle("is-active", linkIndex === index);
+                });
+              }
             }
           }
-        }
-      );
+        );
 
-      if (index < cards.length - 1) {
-        gsap.to(card, {
-          scale: 0.965,
-          opacity: 0.24,
-          filter: "brightness(0.72)",
-          ease: "none",
-          scrollTrigger: {
-            trigger: cards[index + 1],
-            start: "top 76%",
-            end: "top 32%",
-            scrub: true
-          }
-        });
-      }
+        if (index < cards.length - 1) {
+          gsap.to(card, {
+            scale: 0.985,
+            opacity: 0.56,
+            filter: "brightness(0.92)",
+            ease: "none",
+            scrollTrigger: {
+              trigger: cards[index + 1],
+              start: "top 76%",
+              end: "top 32%",
+              scrub: true
+            }
+          });
+        }
+      });
     });
 
     window.addEventListener("load", function () {
