@@ -98,10 +98,24 @@
 }
 
 .sr-hero-a {
+  min-height: 0;
+  padding: 136px 0 48px;
   background:
-    radial-gradient(circle at 70% 20%, rgba(83, 142, 255, 0.18), transparent 33%),
-    radial-gradient(circle at 14% 72%, rgba(116, 84, 237, 0.13), transparent 31%),
-    linear-gradient(145deg, #f8fbff 0%, #fff 54%, #f6f3ff 100%);
+    radial-gradient(circle at 50% 35%, rgba(95, 137, 255, 0.13), transparent 39%),
+    radial-gradient(circle at 14% 72%, rgba(116, 84, 237, 0.09), transparent 31%),
+    linear-gradient(180deg, #f8fbff 0%, #fff 62%, #f7f9ff 100%);
+}
+
+.sr-hero-a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.26;
+  background-image: radial-gradient(rgba(15, 24, 53, 0.16) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(circle at 50% 46%, #000 28%, transparent 82%);
 }
 
 .sr-ambient {
@@ -135,41 +149,90 @@
   gap: 32px;
 }
 
-.sr-hero-a {
-  min-height: 940px;
-}
-
 .sr-hero-a .sr-hero-grid {
   position: relative;
-  display: block;
-  min-height: 670px;
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
 }
 
 .sr-hero-a .sr-hero-copy {
-  max-width: 1260px;
+  width: 100%;
+  max-width: 1360px;
+  text-align: center;
+}
+
+.sr-hero-a .sr-hero-copy .sr-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  margin-bottom: 24px;
+  padding: 8px 16px;
+  border: 1px solid rgba(18, 104, 239, 0.13);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 8px 24px rgba(35, 69, 134, 0.06);
+  letter-spacing: 0.1em;
 }
 
 .sr-hero-a .sr-hero-copy h1 {
-  max-width: 1260px;
-  font-size: clamp(48px, 4.2vw, 61px);
-  line-height: 1.01;
+  max-width: 1360px;
+  margin-inline: auto;
+  font-size: clamp(44px, 4vw, 58px);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+}
+
+.sr-headline-line {
+  display: block;
 }
 
 .sr-hero-a .sr-hero-lead {
-  max-width: 620px;
+  max-width: 840px;
+  margin-inline: auto;
 }
 
 .sr-hero-a .sr-hero-visual-a {
-  position: absolute;
-  right: -80px;
-  bottom: -62px;
+  position: relative;
   z-index: 1;
-  width: 740px;
+  width: min(1120px, 100%);
+  margin: 28px auto -24px;
 }
 
 .sr-hero-a .sr-hero-visual-a > img {
   width: 100%;
   margin: 0;
+  filter: drop-shadow(0 28px 42px rgba(34, 54, 112, 0.13));
+}
+
+.sr-hero-a .sr-actions {
+  justify-content: center;
+}
+
+.sr-hero-hub-logo {
+  position: absolute;
+  left: 50%;
+  top: 44%;
+  z-index: 4;
+  display: grid;
+  width: clamp(58px, 6.1vw, 88px);
+  aspect-ratio: 1;
+  margin: 0;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  border-radius: 24%;
+  box-shadow: 0 16px 32px rgba(21, 69, 153, 0.18);
+}
+
+.sr-hero-hub-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
 }
 
 .sr-hero-copy {
@@ -272,10 +335,10 @@
 
 .sr-visual-aura {
   position: absolute;
-  inset: 14% 8% 7%;
+  inset: 12% 7% 4%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.94) 0%, rgba(204,226,255,0.44) 44%, transparent 74%);
-  filter: blur(8px);
+  background: radial-gradient(circle, rgba(255,255,255,0.98) 0%, rgba(204,226,255,0.38) 43%, transparent 72%);
+  filter: blur(10px);
 }
 
 .sr-channel-rail {
@@ -2151,6 +2214,14 @@
     font-size: clamp(44px, 5.4vw, 62px);
   }
 
+  .sr-hero-a {
+    padding-top: 132px;
+  }
+
+  .sr-hero-a .sr-hero-visual-a {
+    width: min(1040px, 100%);
+  }
+
   .sr-journey-layout {
     grid-template-columns: 300px minmax(0, 1fr);
     gap: 40px;
@@ -2227,18 +2298,6 @@
   .sr-north-star-visual {
     width: min(760px, 100%);
     margin: 0 auto -10px;
-  }
-
-  .sr-hero-a .sr-hero-grid {
-    display: grid;
-    min-height: 0;
-  }
-
-  .sr-hero-a .sr-hero-visual-a {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    width: 100%;
   }
 
   .sr-hero-copy {
@@ -2411,6 +2470,10 @@
     padding: 126px 0 66px;
   }
 
+  .sr-hero-a {
+    padding: 118px 0 42px;
+  }
+
   .sr-hero-copy h1,
   .sr-hero-a .sr-hero-copy h1,
   .sr-hero-center h1 {
@@ -2452,6 +2515,16 @@
   .sr-hero-visual {
     width: calc(100% + 20px);
     margin-left: -10px;
+  }
+
+  .sr-hero-a .sr-hero-visual-a {
+    width: calc(100% + 48px);
+    margin: 32px -24px -8px;
+  }
+
+  .sr-hero-hub-logo {
+    width: clamp(44px, 12vw, 64px);
+    box-shadow: 0 10px 24px rgba(21, 69, 153, 0.16);
   }
 
   .sr-channel-row {
