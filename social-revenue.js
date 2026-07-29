@@ -146,19 +146,15 @@
     document.querySelectorAll("[data-hero-visual]").forEach(function (visual) {
       gsap.fromTo(visual,
         { scale: 0.88, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 1.15, ease: "power3.out", delay: 0.14 }
-      );
-      gsap.to(visual, {
-        scale: 0.94,
-        opacity: 0.24,
-        ease: "none",
-        scrollTrigger: {
-          trigger: visual.closest(".sr-hero"),
-          start: "55% top",
-          end: "bottom top",
-          scrub: true
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 1.15,
+          ease: "power3.out",
+          delay: 0.14,
+          clearProps: "transform,opacity"
         }
-      });
+      );
     });
 
     var journeyAside = document.querySelector("[data-pin-aside]");
