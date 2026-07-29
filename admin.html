@@ -1913,6 +1913,7 @@
       { key: 'travel', name: 'Du lịch (travel.html)' },
       { key: 'health', name: 'Sức khỏe & TPCN (health.html)' },
       { key: 'beauty', name: 'Thẩm mỹ & Làm đẹp (beauty.html)' },
+      { key: 'social-revenue-journey', name: 'Bán hàng trên Social (social-revenue-journey.html)' },
       { key: 'partnership', name: 'Đối tác (partnership.html)' },
       { key: 'all-in-one', name: 'Automation Map (all-in-one.html)' },
       { key: 'tich-hop', name: 'Tích hợp (tich-hop.html)' },
@@ -2044,6 +2045,12 @@
           name: 'Ngành nghề (Industries)',
           icon: 'folder',
           pages: sitePages.filter(p => ['ecommerce', 'education', 'realestate', 'service', 'fb', 'agency', 'travel', 'health', 'beauty'].includes(p.key))
+        },
+        {
+          id: 'solutions',
+          name: 'Giải pháp (Solutions)',
+          icon: 'folder',
+          pages: sitePages.filter(p => ['social-revenue-journey'].includes(p.key))
         },
         {
           id: 'features',

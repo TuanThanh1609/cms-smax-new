@@ -95,7 +95,7 @@ function fetchContentAndCompile() {
             const repairs = [];
             const cheerio = require('cheerio');
             const rootDir = path.resolve(__dirname, '..');
-            const pages = ['ecommerce', 'education', 'realestate', 'service', 'fb', 'agency', 'travel', 'health', 'beauty', 'custom_service', 'all-in-one'];
+            const pages = ['ecommerce', 'education', 'realestate', 'service', 'fb', 'agency', 'travel', 'health', 'beauty', 'custom_service', 'all-in-one', 'social-revenue-journey'];
             const localDefaults = {};
 
             pages.forEach(page => {
