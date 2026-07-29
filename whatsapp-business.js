@@ -55,16 +55,34 @@
     return attribution;
   }
 
-  async function submitLead(payload) {
-    var configResponse = await fetch("/supabase-config.json?t=" + Date.now(), { cache: "no-store" });
-    if (!configResponse.ok) {
-      throw new Error("Không tải được cấu hình gửi dữ liệu.");
+  var leadConfigPromise = null;
+
+  async function loadLeadConfig() {
+    if (!leadConfigPromise) {
+      leadConfigPromise = fetch("/supabase-config.json?t=" + Date.now(), { cache: "no-store" })
+        .then(function (configResponse) {
+          if (!configResponse.ok) {
+            throw new Error("Không tải được cấu hình gửi dữ liệu.");
+          }
+          return configResponse.json();
+        })
+        .then(function (config) {
+          if (!config.supabase_url || !config.supabase_anon_key) {
+            throw new Error("Thiếu cấu hình gửi dữ liệu.");
+          }
+          return config;
+        })
+        .catch(function (error) {
+          leadConfigPromise = null;
+          throw error;
+        });
     }
 
-    var config = await configResponse.json();
-    if (!config.supabase_url || !config.supabase_anon_key) {
-      throw new Error("Thiếu cấu hình gửi dữ liệu.");
-    }
+    return leadConfigPromise;
+  }
+
+  async function submitLead(payload) {
+    var config = await loadLeadConfig();
 
     var identity = getIdentity();
     var attribution = getAttribution();
