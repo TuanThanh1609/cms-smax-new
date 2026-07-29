@@ -801,19 +801,24 @@
 
 .sr-shopping-tabs {
   margin-top: 64px;
+  padding: 10px 22px 22px;
+  border: 1px solid rgba(16, 48, 101, 0.07);
+  border-radius: 38px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 34px 90px rgba(25, 57, 117, 0.13);
 }
 
 .sr-shopping-tablist {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  width: min(720px, 100%);
-  gap: 6px;
-  padding: 6px;
-  border: 1px solid rgba(20, 48, 101, 0.08);
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: 0 14px 36px rgba(31, 63, 121, 0.08);
-  backdrop-filter: blur(18px);
+  width: 100%;
+  margin-inline: auto;
+  gap: 8px;
+  padding: 8px;
+  border: 0;
+  border-radius: 24px;
+  background: rgba(238, 244, 255, 0.72);
+  box-shadow: none;
 }
 
 .sr-shopping-tablist button {
@@ -880,12 +885,12 @@
   align-items: stretch;
   gap: 18px;
   min-height: 0;
-  margin-top: 26px;
-  padding: 22px;
-  border: 1px solid rgba(16, 48, 101, 0.07);
-  border-radius: 38px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 34px 90px rgba(25, 57, 117, 0.13);
+  margin-top: 0;
+  padding: 12px 0 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .sr-shopping-panel[hidden] {
@@ -2831,6 +2836,8 @@
 
   .sr-shopping-tabs {
     margin-top: 44px;
+    padding: 8px;
+    border-radius: 25px;
   }
 
   .sr-shopping-tablist {
@@ -2859,9 +2866,9 @@
 
   .sr-shopping-panel {
     gap: 8px;
-    margin-top: 16px;
-    padding: 10px;
-    border-radius: 25px;
+    margin-top: 0;
+    padding: 0;
+    border-radius: 0;
   }
 
   .sr-shopping-panel-copy {
