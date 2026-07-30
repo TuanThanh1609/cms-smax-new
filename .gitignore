@@ -23,4 +23,6 @@ education-mobile-final.png
 image-*.png
 pasted-text-*.txt
 .playwright-mcp/
-
+.sites-build/
+.sites-archive/
+*.tar.gz

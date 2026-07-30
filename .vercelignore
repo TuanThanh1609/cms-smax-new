@@ -16,3 +16,6 @@ tham khao *
 .vscode
 .idea
 *.log
+.sites-build
+.sites-archive
+*.tar.gz

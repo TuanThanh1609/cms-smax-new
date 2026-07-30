@@ -348,6 +348,8 @@ function finalizeBuild(contentMap) {
       '.agents',
       '.codex',
       '.playwright-mcp',
+      '.sites-build',
+      '.sites-archive',
       'package.json',
       'package-lock.json',
       'skills-lock.json',
