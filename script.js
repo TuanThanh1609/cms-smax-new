@@ -169,20 +169,20 @@ const loadHeader = async () => {
       });
 
       // Highlight active link based on current URL path
-      const currentPath = window.location.pathname.split("/").pop() || "index.html";
-      if (currentPath.includes("tich-hop.html")) {
+      const currentPath = (window.location.pathname.split("/").pop() || "index").replace(/\.html$/i, "");
+      if (currentPath === "tich-hop") {
         const trigger = headerEl.querySelector('[data-mega-trigger="integrations"]');
         if (trigger) trigger.style.color = "var(--process-blue, #4277FF)";
-      } else if (currentPath.includes("templates.html")) {
-        const link = headerEl.querySelector('a[href="templates.html"]');
+      } else if (currentPath === "templates") {
+        const link = headerEl.querySelector('a[href="templates"], a[href="templates.html"]');
         if (link) link.style.color = "var(--process-blue, #4277FF)";
-      } else if (currentPath.includes("livechat.html") || currentPath.includes("chatbot.html") || currentPath.includes("gamification.html") || currentPath.includes("insight.html") || currentPath.includes("genai.html") || currentPath.includes("marketing.html") || currentPath.includes("remarketing.html") || currentPath.includes("crm-sync.html") || currentPath.includes("custom_service.html")) {
+      } else if (["livechat", "chatbot", "gamification", "insight", "genai", "marketing", "remarketing", "crm-sync", "custom_service"].includes(currentPath)) {
         const trigger = headerEl.querySelector('[data-mega-trigger="products"]');
         if (trigger) trigger.style.color = "var(--process-blue, #4277FF)";
-      } else if (["social-revenue-journey.html", "ecommerce.html", "education.html", "realestate.html", "service.html", "fb.html", "agency.html", "travel.html", "health.html", "beauty.html"].includes(currentPath)) {
+      } else if (["social-revenue-journey", "ecommerce", "education", "realestate", "service", "fb", "agency", "travel", "health", "beauty"].includes(currentPath)) {
         const trigger = headerEl.querySelector('[data-mega-trigger="solutions"]');
         if (trigger) trigger.style.color = "var(--process-blue, #4277FF)";
-        headerEl.querySelectorAll(`a[href="${currentPath}"]`).forEach((link) => link.setAttribute("aria-current", "page"));
+        headerEl.querySelectorAll(`a[href="${currentPath}"], a[href="${currentPath}.html"]`).forEach((link) => link.setAttribute("aria-current", "page"));
       }
 
       // Initialize menu interactive events
