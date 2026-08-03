@@ -1580,6 +1580,219 @@
   line-height: 1.7;
 }
 
+.sr-remarketing-section {
+  position: relative;
+  padding: 165px 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 12%, rgba(18, 104, 239, 0.11), transparent 30%),
+    radial-gradient(circle at 88% 82%, rgba(118, 87, 237, 0.1), transparent 34%),
+    linear-gradient(180deg, #f8faff 0%, #eef4ff 100%);
+}
+
+.sr-remarketing-tabs {
+  margin-top: 68px;
+  padding: 12px;
+  border: 1px solid rgba(18, 45, 94, 0.08);
+  border-radius: 38px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 34px 90px rgba(24, 52, 107, 0.11);
+  backdrop-filter: blur(18px);
+}
+
+.sr-remarketing-tablist {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sr-remarketing-panel {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 18px;
+  padding-top: 12px;
+}
+
+.sr-remarketing-panel[hidden] {
+  display: none;
+}
+
+.sr-remarketing-panel.is-active {
+  animation: srShoppingPanelEnter 480ms cubic-bezier(.2,.8,.2,1);
+}
+
+.sr-remarketing-panel-copy {
+  grid-column: 1 / -1;
+  padding: 42px 44px 18px;
+}
+
+.sr-remarketing-panel-copy h3 {
+  max-width: 1120px;
+  margin: 0;
+  font-size: clamp(36px, 3.4vw, 52px);
+  line-height: 1.06;
+  letter-spacing: -0.048em;
+}
+
+.sr-remarketing-intro {
+  max-width: 860px;
+  margin: 20px 0 0;
+  color: var(--sr-muted);
+  font-size: 16px;
+  line-height: 1.72;
+}
+
+.sr-remarketing-actions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 26px;
+  margin: 38px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sr-remarketing-actions li {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 13px;
+  padding: 20px 0 0;
+  border-top: 1px solid rgba(18, 45, 94, 0.11);
+}
+
+.sr-remarketing-actions li > span {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 12px;
+  color: var(--sr-blue);
+  background: rgba(18, 104, 239, 0.09);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.sr-remarketing-actions strong {
+  display: block;
+  color: var(--sr-navy);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.sr-remarketing-actions p {
+  margin: 7px 0 0;
+  color: #69758f;
+  font-size: 12.5px;
+  line-height: 1.62;
+}
+
+.sr-remarketing-flow-visual {
+  position: relative;
+  grid-column: 1 / -1;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #f9fbff, #eef4ff);
+}
+
+.sr-remarketing-flow-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 22px 34px rgba(28, 62, 127, 0.11));
+}
+
+.sr-remarketing-measure {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+  gap: 34px;
+  align-items: center;
+  padding: 30px 32px;
+  border-radius: 24px;
+  color: #fff;
+  background: linear-gradient(135deg, #0c2b67 0%, #0d4da4 62%, #1769df 100%);
+}
+
+.sr-remarketing-measure span {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.sr-remarketing-measure strong {
+  display: block;
+  font-size: clamp(17px, 1.6vw, 22px);
+  line-height: 1.45;
+}
+
+.sr-remarketing-measure p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .sr-remarketing-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .sr-remarketing-measure {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 680px) {
+  .sr-remarketing-tabs {
+    margin-top: 44px;
+    padding: 8px;
+    border-radius: 25px;
+  }
+
+  .sr-remarketing-panel {
+    gap: 8px;
+    padding-top: 0;
+  }
+
+  .sr-remarketing-panel-copy {
+    padding: 28px 12px 10px;
+  }
+
+  .sr-remarketing-panel-copy h3 {
+    font-size: 30px;
+  }
+
+  .sr-remarketing-intro {
+    font-size: 14px;
+  }
+
+  .sr-remarketing-actions {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 28px;
+  }
+
+  .sr-remarketing-flow-visual {
+    border-radius: 19px;
+  }
+
+  .sr-remarketing-flow-visual img {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .sr-remarketing-measure {
+    gap: 12px;
+    padding: 24px 20px;
+    border-radius: 19px;
+  }
+}
+
 .sr-roadmap {
   padding: 160px 0 180px;
   background: #fff;
@@ -2949,6 +3162,7 @@
   .sr-dataset-section,
   .sr-insight-section,
   .sr-control-section,
+  .sr-remarketing-section,
   .sr-roadmap,
   .sr-final,
   .sr-system-intro,
