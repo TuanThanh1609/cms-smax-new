@@ -287,6 +287,47 @@
       );
     });
 
+    var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reducedMotion) {
+      gsap.utils.toArray("[data-outcome-item]").forEach(function (item) {
+        gsap.fromTo(item,
+          { y: 24 },
+          {
+            y: 0,
+            ease: "none",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 88%",
+              end: "top 56%",
+              scrub: 0.55
+            }
+          }
+        );
+      });
+    }
+
+    var outcomeMarquee = document.querySelector("[data-outcome-marquee]");
+    var outcomeMarqueeGroup = outcomeMarquee && outcomeMarquee.querySelector("[data-outcome-marquee-group]");
+    if (outcomeMarquee && outcomeMarqueeGroup && !outcomeMarquee.dataset.ready) {
+      var outcomeMarqueeClone = outcomeMarqueeGroup.cloneNode(true);
+      outcomeMarqueeClone.setAttribute("aria-hidden", "true");
+      outcomeMarqueeClone.querySelectorAll("[data-cms], [data-cms-label]").forEach(function (element) {
+        element.removeAttribute("data-cms");
+        element.removeAttribute("data-cms-label");
+      });
+      outcomeMarquee.appendChild(outcomeMarqueeClone);
+      outcomeMarquee.dataset.ready = "true";
+
+      if (!reducedMotion) {
+        gsap.to(outcomeMarquee, {
+          xPercent: -50,
+          duration: 28,
+          ease: "none",
+          repeat: -1
+        });
+      }
+    }
+
     window.addEventListener("load", function () {
       ScrollTrigger.refresh();
     }, { once: true });
