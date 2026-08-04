@@ -1436,12 +1436,12 @@
                   <strong data-cms="marketing-text-53" data-cms-label="Marketing OS · Năng lực 1">Thu Lead đa điểm chạm</strong>
                   <small data-cms="marketing-text-59" data-cms-label="Marketing OS · Mô tả năng lực 1">Nhận lead từ quảng cáo, bình luận, QR, Ref Link và hội thoại.</small>
                 </button>
-                <button class="marketing-os-card marketing-os-card--wide" type="button" role="tab" aria-selected="false" aria-controls="marketing-panel-acquisition" id="marketing-tab-landing" data-marketing-feature="acquisition">
+                <button class="marketing-os-card marketing-os-card--wide" type="button" role="tab" aria-selected="false" aria-controls="marketing-panel-landing" id="marketing-tab-landing" data-marketing-feature="landing">
                   <span class="marketing-os-index">02</span>
                   <strong data-cms="marketing-text-54" data-cms-label="Marketing OS · Năng lực 2">Landing Page kết nối hội thoại</strong>
                   <small data-cms="marketing-text-60" data-cms-label="Marketing OS · Mô tả năng lực 2">Đưa dữ liệu đăng ký vào đúng luồng tư vấn và chăm sóc tiếp theo.</small>
                 </button>
-                <button class="marketing-os-card" type="button" role="tab" aria-selected="false" aria-controls="marketing-panel-acquisition" id="marketing-tab-form" data-marketing-feature="acquisition">
+                <button class="marketing-os-card" type="button" role="tab" aria-selected="false" aria-controls="marketing-panel-form" id="marketing-tab-form" data-marketing-feature="lead-form">
                   <span class="marketing-os-index">03</span>
                   <strong data-cms="marketing-text-55" data-cms-label="Marketing OS · Năng lực 3">Lead Form trong luồng chat</strong>
                   <small data-cms="marketing-text-61" data-cms-label="Marketing OS · Mô tả năng lực 3">Thu thông tin ngay trong trải nghiệm khách đang tương tác.</small>
@@ -1451,7 +1451,7 @@
                   <strong data-cms="marketing-text-56" data-cms-label="Marketing OS · Năng lực 4">Vé mời & xác nhận cá nhân hóa</strong>
                   <small data-cms="marketing-text-62" data-cms-label="Marketing OS · Mô tả năng lực 4">Dùng dữ liệu đăng ký để gửi đúng nội dung cho từng khách.</small>
                 </button>
-                <button class="marketing-os-card" type="button" role="tab" aria-selected="false" aria-controls="marketing-panel-experience" id="marketing-tab-engagement" data-marketing-feature="experience">
+                <button class="marketing-os-card" type="button" role="tab" aria-selected="false" aria-controls="marketing-panel-engagement" id="marketing-tab-engagement" data-marketing-feature="engagement">
                   <span class="marketing-os-index">05</span>
                   <strong data-cms="marketing-text-57" data-cms-label="Marketing OS · Năng lực 5">Minigame & kịch bản chăm sóc</strong>
                   <small data-cms="marketing-text-63" data-cms-label="Marketing OS · Mô tả năng lực 5">Kích hoạt tương tác rồi tự động tiếp tục theo trạng thái khách.</small>
@@ -1480,6 +1480,38 @@
                   </figure>
                 </article>
 
+                <article class="marketing-os-panel" id="marketing-panel-landing" role="tabpanel" aria-labelledby="marketing-tab-landing" data-marketing-panel="landing" hidden>
+                  <div class="marketing-os-copy">
+                    <p class="marketing-os-kicker" data-cms="marketing-text-83" data-cms-label="Marketing OS · Nhãn Landing Page">LANDING PAGE KẾT NỐI HỘI THOẠI</p>
+                    <h3 data-cms="marketing-text-84" data-cms-label="Marketing OS · Tiêu đề Landing Page">Mỗi lượt đăng ký đi thẳng vào hành trình tư vấn.</h3>
+                    <p data-cms="marketing-text-85" data-cms-label="Marketing OS · Mô tả Landing Page">Khi khách hoàn tất biểu mẫu trên Landing Page, Ref Link có thể đưa họ vào hội thoại cùng dữ liệu đã đăng ký để xác nhận và tiếp tục chăm sóc.</p>
+                    <ul class="marketing-os-points">
+                      <li data-cms="marketing-text-86" data-cms-label="Marketing OS · Điểm Landing Page 1"><strong>Trang đăng ký:</strong> thiết kế nội dung, biểu mẫu và lời kêu gọi hành động theo chiến dịch.</li>
+                      <li data-cms="marketing-text-87" data-cms-label="Marketing OS · Điểm Landing Page 2"><strong>Dữ liệu đi cùng khách:</strong> tên, số điện thoại hoặc sản phẩm quan tâm được lưu thành Attribute.</li>
+                      <li data-cms="marketing-text-88" data-cms-label="Marketing OS · Điểm Landing Page 3"><strong>Hội thoại tiếp nối:</strong> Bot có thể gửi xác nhận và đưa khách vào kịch bản đúng nhu cầu.</li>
+                    </ul>
+                  </div>
+                  <figure class="marketing-os-visual">
+                    <img src="asset smax/marketing-os/landing-page-chat-flow-v1.webp" alt="Luồng Landing Page chuyển dữ liệu đăng ký vào hội thoại và Lead mới" width="1536" height="864" loading="lazy" data-cms-img="marketing-img-30" data-cms-label="Marketing OS · Ảnh flow Landing Page">
+                  </figure>
+                </article>
+
+                <article class="marketing-os-panel" id="marketing-panel-form" role="tabpanel" aria-labelledby="marketing-tab-form" data-marketing-panel="lead-form" hidden>
+                  <div class="marketing-os-copy">
+                    <p class="marketing-os-kicker" data-cms="marketing-text-89" data-cms-label="Marketing OS · Nhãn Lead Form">LEAD FORM NGAY TRONG HỘI THOẠI</p>
+                    <h3 data-cms="marketing-text-90" data-cms-label="Marketing OS · Tiêu đề Lead Form">Thu thông tin khi khách đang sẵn sàng tương tác.</h3>
+                    <p data-cms="marketing-text-91" data-cms-label="Marketing OS · Mô tả Lead Form">Form Builder có thể được mở qua Webview trong luồng chat, giúp khách để lại thông tin mà không phải rời khỏi cuộc trò chuyện.</p>
+                    <ul class="marketing-os-points">
+                      <li data-cms="marketing-text-92" data-cms-label="Marketing OS · Điểm Lead Form 1"><strong>Form Builder:</strong> tạo form theo mẫu hoặc thiết kế trường dữ liệu cho từng mục tiêu thu lead.</li>
+                      <li data-cms="marketing-text-93" data-cms-label="Marketing OS · Điểm Lead Form 2"><strong>Thông tin có cấu trúc:</strong> dữ liệu gửi về Attribute để phân loại và vận hành tiếp.</li>
+                      <li data-cms="marketing-text-94" data-cms-label="Marketing OS · Điểm Lead Form 3"><strong>Không gián đoạn trải nghiệm:</strong> khách hoàn tất form rồi tiếp tục cuộc hội thoại ngay tại chỗ.</li>
+                    </ul>
+                  </div>
+                  <figure class="marketing-os-visual">
+                    <img src="asset smax/marketing-os/lead-form-chat-flow-v1.webp" alt="Luồng Lead Form được mở trong hội thoại và gắn Tag khách hàng" width="1536" height="864" loading="lazy" data-cms-img="marketing-img-31" data-cms-label="Marketing OS · Ảnh flow Lead Form">
+                  </figure>
+                </article>
+
                 <article class="marketing-os-panel" id="marketing-panel-experience" role="tabpanel" aria-labelledby="marketing-tab-invitation" data-marketing-panel="experience" hidden>
                   <div class="marketing-os-copy">
                     <p class="marketing-os-kicker" data-cms="marketing-text-71" data-cms-label="Marketing OS · Nhãn Trải nghiệm">CÁ NHÂN HÓA SAU KHI KHÁCH ĐỂ LẠI THÔNG TIN</p>
@@ -1493,6 +1525,22 @@
                   </div>
                   <figure class="marketing-os-visual">
                     <img src="asset smax/marketing-os/personalized-invitation-flow-v1.webp" alt="Luồng vé mời và xác nhận cá nhân hóa theo dữ liệu đăng ký" width="1536" height="864" loading="lazy" data-cms-img="marketing-img-28" data-cms-label="Marketing OS · Ảnh flow cá nhân hóa">
+                  </figure>
+                </article>
+
+                <article class="marketing-os-panel" id="marketing-panel-engagement" role="tabpanel" aria-labelledby="marketing-tab-engagement" data-marketing-panel="engagement" hidden>
+                  <div class="marketing-os-copy">
+                    <p class="marketing-os-kicker" data-cms="marketing-text-95" data-cms-label="Marketing OS · Nhãn Minigame">TƯƠNG TÁC CÓ THƯỞNG, CHĂM SÓC CÓ KỊCH BẢN</p>
+                    <h3 data-cms="marketing-text-96" data-cms-label="Marketing OS · Tiêu đề Minigame">Từ một lượt chơi đến chuỗi chăm sóc đúng thời điểm.</h3>
+                    <p data-cms="marketing-text-97" data-cms-label="Marketing OS · Mô tả Minigame">Minigame kết nối qua Webview có thể lưu lượt chơi, kết quả và mã ưu đãi để kích hoạt tin nhắn bám đuổi theo phản hồi của từng khách.</p>
+                    <ul class="marketing-os-points">
+                      <li data-cms="marketing-text-98" data-cms-label="Marketing OS · Điểm Minigame 1"><strong>Trải nghiệm tương tác:</strong> tạo lý do để khách để lại thông tin và quay lại hội thoại.</li>
+                      <li data-cms="marketing-text-99" data-cms-label="Marketing OS · Điểm Minigame 2"><strong>Mã ưu đãi theo người chơi:</strong> dùng kết quả để gửi nội dung phù hợp và có thời hạn.</li>
+                      <li data-cms="marketing-text-100" data-cms-label="Marketing OS · Điểm Minigame 3"><strong>Chăm sóc theo phản hồi:</strong> phân nhóm để nhắc lại, tiếp tục ưu đãi hoặc chuyển nhân viên tư vấn.</li>
+                    </ul>
+                  </div>
+                  <figure class="marketing-os-visual">
+                    <img src="asset smax/marketing-os/minigame-nurture-flow-v1.webp" alt="Luồng Minigame nhận ưu đãi và kịch bản chăm sóc tự động" width="1536" height="864" loading="lazy" data-cms-img="marketing-img-32" data-cms-label="Marketing OS · Ảnh flow Minigame và chăm sóc">
                   </figure>
                 </article>
 
