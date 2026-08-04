@@ -2,6 +2,8 @@
   "scripts": {
     "seed:automation-map": "node scripts/seed-automation-map-cms.js",
     "seed:social-revenue": "node scripts/seed-social-revenue-cms.js",
+    "seed:marketing": "node scripts/seed-marketing-cms.js",
+    "sync:marketing-structure": "node scripts/sync-marketing-structure-cms.js",
     "optimize:site-images": "node scripts/optimize-site-images.js",
     "optimize:solution-images": "node scripts/optimize-site-images.js",
     "build": "node scripts/build.js"
