@@ -1,7 +1,9 @@
 const TOKEN_AI_ENDPOINT = 'https://token.ai.vn/v1/images/generations';
 const TOKEN_AI_MODEL = 'gpt-image-2';
-const ALLOWED_SIZES = new Set(['1024x1024', '1024x1536', '1536x1024']);
+const ALLOWED_SIZES = new Set(['1024x1024', '1024x1536', '1536x1024', '16:9', '9:16']);
 const MAX_PROMPT_LENGTH = 8000;
+const MAX_REFERENCE_IMAGES = 4;
+const MAX_REFERENCE_URL_LENGTH = 4096;
 const MAX_SOURCE_BYTES = 24 * 1024 * 1024;
 const MAX_RESPONSE_BYTES = 4 * 1024 * 1024;
 
@@ -20,6 +22,13 @@ function sendPng(response, imageBuffer, size) {
   response.setHeader('X-Image-Size', size);
   response.setHeader('X-Image-Model', TOKEN_AI_MODEL);
   response.end(imageBuffer);
+}
+
+function isValidReferenceImage(value) {
+  return typeof value === 'string' && (
+    /^https?:\/\//i.test(value) ||
+    /^data:image\/(?:png|jpe?g|webp|gif);base64,/i.test(value)
+  );
 }
 
 async function verifyCmsSession(request) {
@@ -108,6 +117,29 @@ async function handler(request, response) {
     const prompt = typeof requestBody.prompt === 'string' ? requestBody.prompt.trim() : '';
     const requestedSize = typeof requestBody.size === 'string' ? requestBody.size : '';
     const size = ALLOWED_SIZES.has(requestedSize) ? requestedSize : '1024x1024';
+    const rawReferenceImages = requestBody.referenceImages === undefined
+      ? []
+      : requestBody.referenceImages;
+
+    if (!Array.isArray(rawReferenceImages)) {
+      return sendJson(response, 400, { error: 'Danh sách ảnh tham chiếu không hợp lệ.' });
+    }
+    if (rawReferenceImages.length > MAX_REFERENCE_IMAGES) {
+      return sendJson(response, 400, {
+        error: `Chỉ được gửi tối đa ${MAX_REFERENCE_IMAGES} ảnh tham chiếu cho mỗi lần tạo.`
+      });
+    }
+
+    const referenceImages = rawReferenceImages.map(reference => {
+      if (typeof reference === 'string') return reference;
+      return reference?.url;
+    });
+
+    if (referenceImages.some(url => !isValidReferenceImage(url) || url.length > MAX_REFERENCE_URL_LENGTH)) {
+      return sendJson(response, 400, {
+        error: 'Ảnh tham chiếu phải là URL công khai hợp lệ và không vượt quá kích thước cho phép.'
+      });
+    }
 
     if (!prompt) {
       return sendJson(response, 400, { error: 'Prompt không được để trống.' });
@@ -120,23 +152,26 @@ async function handler(request, response) {
 
     const providerPrompt = `${prompt}\n\nNỀN KỸ THUẬT BẮT BUỘC: Toàn bộ vùng nền phải là một màu phẳng, đồng nhất #FF00FF (magenta chroma), phủ kín đến bốn mép ảnh, không gradient, không đổ bóng lên nền, không texture. Tuyệt đối không dùng màu #FF00FF trong chủ thể hoặc chi tiết cần giữ lại. Không tạo khung viền.`;
 
+    const providerPayload = {
+      model: TOKEN_AI_MODEL,
+      prompt: providerPrompt,
+      n: 1,
+      size,
+      quality: 'high',
+      // Token AI accepts reference_images for GPT Image 2 image-to-image generation.
+      output_format: 'png'
+    };
+    if (referenceImages.length) {
+      providerPayload.reference_images = referenceImages;
+    }
+
     const generationResponse = await fetch(TOKEN_AI_ENDPOINT, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${tokenAiApiKey}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        model: TOKEN_AI_MODEL,
-        prompt: providerPrompt,
-        n: 1,
-        size,
-        quality: 'high',
-        // Token AI currently accepts PNG/JPEG for this model. Request PNG to
-        // preserve detail, remove the connected chroma background, then
-        // normalize to transparent WebP before returning it.
-        output_format: 'png'
-      }),
+      body: JSON.stringify(providerPayload),
       signal: AbortSignal.timeout(240000)
     });
 
