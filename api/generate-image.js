@@ -1,6 +1,11 @@
-const TOKEN_AI_ENDPOINT = 'https://token.ai.vn/v1/images/generations';
+const TOKEN_AI_GENERATIONS_ENDPOINT = 'https://token.ai.vn/v1/images/generations';
+const TOKEN_AI_EDITS_ENDPOINT = 'https://token.ai.vn/v1/images/edits';
 const TOKEN_AI_MODEL = 'gpt-image-2';
-const ALLOWED_SIZES = new Set(['1024x1024', '1024x1536', '1536x1024', '16:9', '9:16']);
+const ALLOWED_SIZES = new Set(['1024x1024', '1024x1536', '1536x1024', '1536x864', '864x1536']);
+const SIZE_ALIASES = {
+  '16:9': '1536x864',
+  '9:16': '864x1536'
+};
 const MAX_PROMPT_LENGTH = 8000;
 const MAX_REFERENCE_IMAGES = 4;
 const MAX_REFERENCE_URL_LENGTH = 4096;
@@ -29,6 +34,89 @@ function isValidReferenceImage(value) {
     /^https?:\/\//i.test(value) ||
     /^data:image\/(?:png|jpe?g|webp|gif);base64,/i.test(value)
   );
+}
+
+function inferImageContentType(value) {
+  const extension = value.split('?')[0].split('#')[0].split('.').pop()?.toLowerCase();
+  if (extension === 'jpg' || extension === 'jpeg') return 'image/jpeg';
+  if (extension === 'webp') return 'image/webp';
+  if (extension === 'gif') return 'image/gif';
+  return 'image/png';
+}
+
+function getReferenceFileName(reference, index, contentType) {
+  const fallbackExtension = contentType.split('/')[1] === 'jpeg' ? 'jpg' : contentType.split('/')[1];
+  const rawName = reference.name || `reference-${index + 1}.${fallbackExtension}`;
+  const safeName = rawName
+    .replace(/[^a-zA-Z0-9._-]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 120);
+  return safeName || `reference-${index + 1}.${fallbackExtension}`;
+}
+
+async function readReferenceImage(reference, index) {
+  const source = reference.url;
+  const dataMatch = /^data:(image\/(?:png|jpe?g|webp|gif));base64,(.+)$/i.exec(source);
+  if (dataMatch) {
+    const contentType = dataMatch[1].toLowerCase().replace('jpg', 'jpeg');
+    const buffer = Buffer.from(dataMatch[2], 'base64');
+    if (!buffer.length || buffer.length > MAX_SOURCE_BYTES) {
+      throw new Error('Ảnh tham chiếu có dung lượng không hợp lệ hoặc quá lớn.');
+    }
+    return {
+      buffer,
+      contentType,
+      fileName: getReferenceFileName(reference, index, contentType)
+    };
+  }
+
+  const imageResponse = await fetch(source, {
+    signal: AbortSignal.timeout(60000)
+  });
+  if (!imageResponse.ok) {
+    throw new Error(`Không thể tải ảnh tham chiếu (HTTP ${imageResponse.status}).`);
+  }
+
+  const buffer = Buffer.from(await imageResponse.arrayBuffer());
+  if (!buffer.length || buffer.length > MAX_SOURCE_BYTES) {
+    throw new Error('Ảnh tham chiếu có dung lượng quá lớn.');
+  }
+
+  const headerContentType = imageResponse.headers.get('content-type')?.split(';')[0].trim().toLowerCase();
+  const contentType = /^image\/(?:png|jpeg|webp|gif)$/.test(headerContentType || '')
+    ? headerContentType
+    : inferImageContentType(source);
+
+  return {
+    buffer,
+    contentType,
+    fileName: getReferenceFileName(reference, index, contentType)
+  };
+}
+
+async function createImageEditFormData(referenceEntries, prompt, size) {
+  if (typeof FormData === 'undefined' || typeof Blob === 'undefined') {
+    throw new Error('Máy chủ chưa hỗ trợ gửi ảnh tham chiếu dạng multipart.');
+  }
+
+  const formData = new FormData();
+  formData.append('model', TOKEN_AI_MODEL);
+  formData.append('prompt', prompt);
+  formData.append('n', '1');
+  formData.append('size', size);
+  formData.append('response_format', 'b64_json');
+
+  const references = await Promise.all(referenceEntries.map((reference, index) => (
+    readReferenceImage(reference, index)
+  )));
+  references.forEach(reference => {
+    formData.append(
+      'image[]',
+      new Blob([reference.buffer], { type: reference.contentType }),
+      reference.fileName
+    );
+  });
+  return formData;
 }
 
 async function verifyCmsSession(request) {
@@ -116,7 +204,10 @@ async function handler(request, response) {
 
     const prompt = typeof requestBody.prompt === 'string' ? requestBody.prompt.trim() : '';
     const requestedSize = typeof requestBody.size === 'string' ? requestBody.size : '';
-    const size = ALLOWED_SIZES.has(requestedSize) ? requestedSize : '1024x1024';
+    const sizeAlias = Object.prototype.hasOwnProperty.call(SIZE_ALIASES, requestedSize)
+      ? SIZE_ALIASES[requestedSize]
+      : '';
+    const size = sizeAlias || (ALLOWED_SIZES.has(requestedSize) ? requestedSize : '1024x1024');
     const rawReferenceImages = requestBody.referenceImages === undefined
       ? []
       : requestBody.referenceImages;
@@ -130,10 +221,14 @@ async function handler(request, response) {
       });
     }
 
-    const referenceImages = rawReferenceImages.map(reference => {
-      if (typeof reference === 'string') return reference;
-      return reference?.url;
+    const referenceEntries = rawReferenceImages.map(reference => {
+      if (typeof reference === 'string') return { url: reference, name: '' };
+      return {
+        url: reference?.url,
+        name: typeof reference?.name === 'string' ? reference.name.trim().slice(0, 120) : ''
+      };
     });
+    const referenceImages = referenceEntries.map(reference => reference.url);
 
     if (referenceImages.some(url => !isValidReferenceImage(url) || url.length > MAX_REFERENCE_URL_LENGTH)) {
       return sendJson(response, 400, {
@@ -150,30 +245,44 @@ async function handler(request, response) {
       });
     }
 
-    const providerPrompt = `${prompt}\n\nNỀN KỸ THUẬT BẮT BUỘC: Toàn bộ vùng nền phải là một màu phẳng, đồng nhất #FF00FF (magenta chroma), phủ kín đến bốn mép ảnh, không gradient, không đổ bóng lên nền, không texture. Tuyệt đối không dùng màu #FF00FF trong chủ thể hoặc chi tiết cần giữ lại. Không tạo khung viền.`;
+    const referenceInstruction = referenceImages.length
+      ? `\n\nHƯỚNG DẪN ẢNH THAM CHIẾU BẮT BUỘC: Có ${referenceImages.length} ảnh tham chiếu được đính kèm theo đúng thứ tự người dùng chọn. Phải thực sự xem và sử dụng các ảnh này để giữ đúng logo, nhận diện thương hiệu, đối tượng, màu sắc và phong cách; không được bỏ qua, thay bằng biểu tượng chung chung hoặc tự nghĩ ra logo khác. Nếu có ảnh logo Smax, giữ đúng hình dáng và màu xanh navy/cam của logo, không viết lại logo bằng chữ.`
+      : '';
+    const providerPrompt = `${prompt}${referenceInstruction}\n\nNỀN KỸ THUẬT BẮT BUỘC: Toàn bộ vùng nền phải là một màu phẳng, đồng nhất #FF00FF (magenta chroma), phủ kín đến bốn mép ảnh, không gradient, không đổ bóng lên nền, không texture. Tuyệt đối không dùng màu #FF00FF trong chủ thể hoặc chi tiết cần giữ lại. Không tạo khung viền.`;
 
-    const providerPayload = {
-      model: TOKEN_AI_MODEL,
-      prompt: providerPrompt,
-      n: 1,
-      size,
-      quality: 'high',
-      // Token AI accepts reference_images for GPT Image 2 image-to-image generation.
-      output_format: 'png'
-    };
-    if (referenceImages.length) {
-      providerPayload.reference_images = referenceImages;
+    let generationResponse;
+    if (referenceEntries.length) {
+      // Token AI's generations schema drops unknown reference-image fields. Its
+      // edits route accepts repeated image[] multipart fields, so use that route
+      // whenever the user has supplied real reference images.
+      const formData = await createImageEditFormData(referenceEntries, providerPrompt, size);
+      generationResponse = await fetch(TOKEN_AI_EDITS_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${tokenAiApiKey}`
+        },
+        body: formData,
+        signal: AbortSignal.timeout(240000)
+      });
+    } else {
+      const providerPayload = {
+        model: TOKEN_AI_MODEL,
+        prompt: providerPrompt,
+        n: 1,
+        size,
+        quality: 'high',
+        output_format: 'png'
+      };
+      generationResponse = await fetch(TOKEN_AI_GENERATIONS_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${tokenAiApiKey}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(providerPayload),
+        signal: AbortSignal.timeout(240000)
+      });
     }
-
-    const generationResponse = await fetch(TOKEN_AI_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${tokenAiApiKey}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(providerPayload),
-      signal: AbortSignal.timeout(240000)
-    });
 
     const responseText = await generationResponse.text();
     let generationPayload = null;
