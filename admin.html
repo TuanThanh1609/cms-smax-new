@@ -4076,6 +4076,51 @@
           box-shadow: 0 0 20px rgba(6, 182, 212, 0.4) !important;
         }
 
+        .cms-ai-image-action {
+          position: fixed !important;
+          z-index: 2147483646 !important;
+          display: none !important;
+          align-items: center !important;
+          gap: 7px !important;
+          max-width: calc(100vw - 16px) !important;
+          min-height: 36px !important;
+          padding: 8px 12px !important;
+          border: 1px solid rgba(255, 255, 255, 0.9) !important;
+          border-radius: 12px !important;
+          background: #06b6d4 !important;
+          color: #082f49 !important;
+          box-shadow: 0 8px 24px rgba(8, 47, 73, 0.28) !important;
+          cursor: pointer !important;
+          font-family: Arial, sans-serif !important;
+          font-size: 12px !important;
+          font-weight: 700 !important;
+          line-height: 1 !important;
+          white-space: nowrap !important;
+          opacity: 0 !important;
+          transform: translateY(-3px) !important;
+          transition: opacity 140ms ease, transform 140ms ease, background-color 140ms ease !important;
+        }
+        .cms-ai-image-action.is-visible {
+          display: inline-flex !important;
+          opacity: 1 !important;
+          transform: translateY(0) !important;
+        }
+        .cms-ai-image-action:hover {
+          background: #67e8f9 !important;
+          transform: translateY(-1px) !important;
+        }
+        .cms-ai-image-action:active {
+          transform: scale(0.98) !important;
+        }
+        .cms-ai-image-action:focus-visible {
+          outline: 3px solid #ffffff !important;
+          outline-offset: 2px !important;
+        }
+        .cms-ai-image-action__icon {
+          font-size: 15px !important;
+          line-height: 1 !important;
+        }
+
         /* Custom Drag Blocks resizing wrappers */
         .cms-custom-block {
           position: relative !important;
@@ -4185,6 +4230,8 @@
           // Hide block toolbar, image badge and custom resize handle
           document.getElementById('visual-block-toolbar').classList.add('hidden');
           document.getElementById('visual-image-badge').classList.add('hidden');
+          const aiImageAction = doc.querySelector('.cms-ai-image-action');
+          if (aiImageAction?.__hide) aiImageAction.__hide();
           const handle = doc.querySelector('.img-resize-handle');
           if (handle) handle.style.display = 'none';
           
@@ -4217,6 +4264,82 @@
         resizeHandle.className = 'img-resize-handle';
         doc.body.appendChild(resizeHandle);
       }
+
+      // Direct AI action inside Preview: follows the image being hovered or selected.
+      let aiImageAction = doc.querySelector('.cms-ai-image-action');
+      if (!aiImageAction) {
+        aiImageAction = doc.createElement('button');
+        aiImageAction.type = 'button';
+        aiImageAction.className = 'cms-ai-image-action cms-editor-inline-helper';
+        aiImageAction.setAttribute('aria-label', 'Tạo ảnh bằng AI cho ảnh này');
+        aiImageAction.innerHTML = '<span class="cms-ai-image-action__icon" aria-hidden="true">✦</span><span>Tạo ảnh bằng AI</span>';
+        doc.body.appendChild(aiImageAction);
+      }
+
+      let aiActionTarget = null;
+      let aiActionHideTimer = null;
+
+      function updateAiImageActionPosition() {
+        if (!aiActionTarget || !aiActionTarget.isConnected || !aiImageAction.classList.contains('is-visible')) return;
+
+        const view = doc.defaultView;
+        const rect = aiActionTarget.getBoundingClientRect();
+        const viewportWidth = view?.innerWidth || doc.documentElement.clientWidth;
+        const viewportHeight = view?.innerHeight || doc.documentElement.clientHeight;
+
+        if (rect.bottom < 0 || rect.top > viewportHeight || rect.right < 0 || rect.left > viewportWidth) {
+          aiImageAction.classList.remove('is-visible');
+          return;
+        }
+
+        const buttonWidth = aiImageAction.offsetWidth || 142;
+        const buttonHeight = aiImageAction.offsetHeight || 36;
+        const inset = 8;
+        const preferredTop = rect.top + inset;
+        const preferredLeft = rect.right - buttonWidth - inset;
+        const top = Math.min(Math.max(inset, preferredTop), Math.max(inset, viewportHeight - buttonHeight - inset));
+        const left = Math.min(Math.max(inset, preferredLeft), Math.max(inset, viewportWidth - buttonWidth - inset));
+
+        aiImageAction.style.top = `${Math.round(top)}px`;
+        aiImageAction.style.left = `${Math.round(left)}px`;
+      }
+
+      function showAiImageAction(imgEl) {
+        if (!imgEl) return;
+        clearTimeout(aiActionHideTimer);
+        aiActionTarget = imgEl;
+        aiImageAction.classList.add('is-visible');
+        aiImageAction.setAttribute('aria-label', `Tạo ảnh bằng AI cho ảnh ${imgEl.getAttribute('data-cms-img') || 'đang chọn'}`);
+        updateAiImageActionPosition();
+      }
+
+      function hideAiImageAction(force = false) {
+        clearTimeout(aiActionHideTimer);
+        if (!force && aiActionTarget?.classList.contains('visual-img-selected')) return;
+        aiImageAction.classList.remove('is-visible');
+        if (force) aiActionTarget = null;
+      }
+
+      function scheduleHideAiImageAction() {
+        clearTimeout(aiActionHideTimer);
+        aiActionHideTimer = setTimeout(() => hideAiImageAction(false), 160);
+      }
+
+      aiImageAction.__showFor = showAiImageAction;
+      aiImageAction.__hide = () => hideAiImageAction(true);
+      aiImageAction.addEventListener('mouseenter', () => clearTimeout(aiActionHideTimer));
+      aiImageAction.addEventListener('mouseleave', scheduleHideAiImageAction);
+      aiImageAction.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!aiActionTarget?.isConnected) return;
+
+        const key = aiActionTarget.getAttribute('data-cms-img');
+        if (!key) return;
+        selectVisualImage(key, aiActionTarget, doc);
+        showAiImageAction(aiActionTarget);
+        openAiImageGenerator(key, aiActionTarget, doc);
+      });
 
       function updateHandlePosition(imgEl) {
         if (!imgEl) return;
@@ -4304,9 +4427,15 @@
         if (activeVisualBlock && activeVisualBlock.hasAttribute('data-cms-img')) {
           updateHandlePosition(activeVisualBlock);
         }
-      });
+        updateAiImageActionPosition();
+      }, true);
+      doc.defaultView?.addEventListener('resize', updateAiImageActionPosition);
 
       doc.querySelectorAll('[data-cms-img]').forEach(el => {
+        el.addEventListener('mouseenter', () => showAiImageAction(el));
+        el.addEventListener('mouseleave', scheduleHideAiImageAction);
+        el.addEventListener('focus', () => showAiImageAction(el));
+        el.addEventListener('blur', scheduleHideAiImageAction);
         el.addEventListener('click', (e) => {
           e.preventDefault();
           e.stopPropagation();
@@ -4317,6 +4446,7 @@
           
           const key = el.getAttribute('data-cms-img');
           selectVisualImage(key, el, doc);
+          showAiImageAction(el);
           
           // Treat the image itself as resizable active visual block!
           activeVisualBlock = el;
@@ -4601,7 +4731,7 @@
     function updateInlineHelpers(doc) {
       if (!doc) return;
       // 1. Clean existing helpers to avoid duplicates
-      doc.querySelectorAll('.cms-editor-inline-helper').forEach(h => h.remove());
+      doc.querySelectorAll('.cms-editor-inline-helper:not(.cms-ai-image-action)').forEach(h => h.remove());
 
       // Helper function to show visual feedback for the Blocks tab
       function highlightBlocksTab() {
@@ -4847,6 +4977,8 @@
       // Select new image
       activeVisualImageKey = key;
       imgEl.classList.add('visual-img-selected');
+      const aiImageAction = doc.querySelector('.cms-ai-image-action');
+      if (aiImageAction?.__showFor) aiImageAction.__showFor(imgEl);
       selectVisualElementForStyling(imgEl);
       
       // Update floating badge in parent page
@@ -4885,6 +5017,8 @@
         });
         const handle = doc.querySelector('.img-resize-handle');
         if (handle) handle.style.display = 'none';
+        const aiImageAction = doc.querySelector('.cms-ai-image-action');
+        if (aiImageAction?.__hide) aiImageAction.__hide();
       }
       selectVisualElementForStyling(null);
     }
