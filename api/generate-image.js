@@ -1,6 +1,7 @@
 const TOKEN_AI_GENERATIONS_ENDPOINT = 'https://token.ai.vn/v1/images/generations';
-const TOKEN_AI_EDITS_ENDPOINT = 'https://token.ai.vn/v1/images/edits';
+const TOKEN_AI_CHAT_ENDPOINT = 'https://token.ai.vn/v1/chat/completions';
 const TOKEN_AI_MODEL = 'gpt-image-2';
+const REFERENCE_ANALYSIS_MODEL = 'gpt-4.1-mini';
 const ALLOWED_SIZES = new Set(['1024x1024', '1024x1536', '1536x1024', '1536x864', '864x1536']);
 const SIZE_ALIASES = {
   '16:9': '1536x864',
@@ -44,16 +45,6 @@ function inferImageContentType(value) {
   return 'image/png';
 }
 
-function getReferenceFileName(reference, index, contentType) {
-  const fallbackExtension = contentType.split('/')[1] === 'jpeg' ? 'jpg' : contentType.split('/')[1];
-  const rawName = reference.name || `reference-${index + 1}.${fallbackExtension}`;
-  const safeName = rawName
-    .replace(/[^a-zA-Z0-9._-]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 120);
-  return safeName || `reference-${index + 1}.${fallbackExtension}`;
-}
-
 async function readReferenceImage(reference, index) {
   const source = reference.url;
   const dataMatch = /^data:(image\/(?:png|jpe?g|webp|gif));base64,(.+)$/i.exec(source);
@@ -65,8 +56,7 @@ async function readReferenceImage(reference, index) {
     }
     return {
       buffer,
-      contentType,
-      fileName: getReferenceFileName(reference, index, contentType)
+      contentType
     };
   }
 
@@ -89,34 +79,81 @@ async function readReferenceImage(reference, index) {
 
   return {
     buffer,
-    contentType,
-    fileName: getReferenceFileName(reference, index, contentType)
+    contentType
   };
 }
 
-async function createImageEditFormData(referenceEntries, prompt, size) {
-  if (typeof FormData === 'undefined' || typeof Blob === 'undefined') {
-    throw new Error('Máy chủ chưa hỗ trợ gửi ảnh tham chiếu dạng multipart.');
+function extractChatText(chatPayload) {
+  const content = chatPayload?.choices?.[0]?.message?.content;
+  if (typeof content === 'string') return content.trim();
+  if (Array.isArray(content)) {
+    return content
+      .map(part => typeof part === 'string' ? part : (part?.text || part?.content || ''))
+      .join('\n')
+      .trim();
   }
+  return '';
+}
 
-  const formData = new FormData();
-  formData.append('model', TOKEN_AI_MODEL);
-  formData.append('prompt', prompt);
-  formData.append('n', '1');
-  formData.append('size', size);
-  formData.append('response_format', 'b64_json');
-
+async function analyzeReferenceImages(referenceEntries, prompt, tokenAiApiKey) {
   const references = await Promise.all(referenceEntries.map((reference, index) => (
     readReferenceImage(reference, index)
   )));
-  references.forEach(reference => {
-    formData.append(
-      'image[]',
-      new Blob([reference.buffer], { type: reference.contentType }),
-      reference.fileName
-    );
+  const content = [{
+    type: 'text',
+    text: `Phân tích ${references.length} ảnh tham chiếu theo đúng thứ tự. Mục tiêu ảnh của người dùng: ${prompt.slice(0, 3500)}. Mô tả bằng tiếng Việt, ngắn gọn nhưng cụ thể: logo/wordmark và hình dáng, màu sắc chính, đối tượng, bố cục, phong cách, chi tiết cần giữ. Không tự sáng tạo thêm nội dung không nhìn thấy trong ảnh.`
+  }];
+
+  references.forEach((reference, index) => {
+    content.push({
+      type: 'text',
+      text: `Ảnh tham chiếu số ${index + 1}${referenceEntries[index].name ? ` (${referenceEntries[index].name})` : ''}:`
+    });
+    content.push({
+      type: 'image_url',
+      image_url: {
+        url: `data:${reference.contentType};base64,${reference.buffer.toString('base64')}`
+      }
+    });
   });
-  return formData;
+
+  const analysisResponse = await fetch(TOKEN_AI_CHAT_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${tokenAiApiKey}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      model: REFERENCE_ANALYSIS_MODEL,
+      messages: [
+        {
+          role: 'system',
+          content: 'Bạn là trợ lý phân tích hình ảnh cho CMS. Hãy quan sát ảnh đính kèm và trả về mô tả trực quan bằng tiếng Việt để một model tạo ảnh khác có thể tái hiện đúng nhận diện, logo, màu sắc và bố cục.'
+        },
+        { role: 'user', content }
+      ],
+      max_tokens: 1200
+    }),
+    signal: AbortSignal.timeout(120000)
+  });
+
+  const responseText = await analysisResponse.text();
+  let analysisPayload = null;
+  try {
+    analysisPayload = JSON.parse(responseText);
+  } catch (_) {
+    analysisPayload = null;
+  }
+  if (!analysisResponse.ok) {
+    const upstreamMessage = analysisPayload?.error?.message || analysisPayload?.message;
+    throw new Error(upstreamMessage || `Không thể đọc ảnh tham chiếu (HTTP ${analysisResponse.status}).`);
+  }
+
+  const analysis = extractChatText(analysisPayload);
+  if (!analysis) {
+    throw new Error('Model không trả về mô tả cho ảnh tham chiếu.');
+  }
+  return analysis.slice(0, 6000);
 }
 
 async function verifyCmsSession(request) {
@@ -248,41 +285,30 @@ async function handler(request, response) {
     const referenceInstruction = referenceImages.length
       ? `\n\nHƯỚNG DẪN ẢNH THAM CHIẾU BẮT BUỘC: Có ${referenceImages.length} ảnh tham chiếu được đính kèm theo đúng thứ tự người dùng chọn. Phải thực sự xem và sử dụng các ảnh này để giữ đúng logo, nhận diện thương hiệu, đối tượng, màu sắc và phong cách; không được bỏ qua, thay bằng biểu tượng chung chung hoặc tự nghĩ ra logo khác. Nếu có ảnh logo Smax, giữ đúng hình dáng và màu xanh navy/cam của logo, không viết lại logo bằng chữ.`
       : '';
-    const providerPrompt = `${prompt}${referenceInstruction}\n\nNỀN KỸ THUẬT BẮT BUỘC: Toàn bộ vùng nền phải là một màu phẳng, đồng nhất #FF00FF (magenta chroma), phủ kín đến bốn mép ảnh, không gradient, không đổ bóng lên nền, không texture. Tuyệt đối không dùng màu #FF00FF trong chủ thể hoặc chi tiết cần giữ lại. Không tạo khung viền.`;
+    let providerPrompt = `${prompt}${referenceInstruction}\n\nNỀN KỸ THUẬT BẮT BUỘC: Toàn bộ vùng nền phải là một màu phẳng, đồng nhất #FF00FF (magenta chroma), phủ kín đến bốn mép ảnh, không gradient, không đổ bóng lên nền, không texture. Tuyệt đối không dùng màu #FF00FF trong chủ thể hoặc chi tiết cần giữ lại. Không tạo khung viền.`;
 
-    let generationResponse;
     if (referenceEntries.length) {
-      // Token AI's generations schema drops unknown reference-image fields. Its
-      // edits route accepts repeated image[] multipart fields, so use that route
-      // whenever the user has supplied real reference images.
-      const formData = await createImageEditFormData(referenceEntries, providerPrompt, size);
-      generationResponse = await fetch(TOKEN_AI_EDITS_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${tokenAiApiKey}`
-        },
-        body: formData,
-        signal: AbortSignal.timeout(240000)
-      });
-    } else {
-      const providerPayload = {
-        model: TOKEN_AI_MODEL,
-        prompt: providerPrompt,
-        n: 1,
-        size,
-        quality: 'high',
-        output_format: 'png'
-      };
-      generationResponse = await fetch(TOKEN_AI_GENERATIONS_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${tokenAiApiKey}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(providerPayload),
-        signal: AbortSignal.timeout(240000)
-      });
+      const referenceAnalysis = await analyzeReferenceImages(referenceEntries, prompt, tokenAiApiKey);
+      providerPrompt += `\n\nPHÂN TÍCH ẢNH THAM CHIẾU ĐỂ BÁM SÁT: ${referenceAnalysis}`;
     }
+
+    const providerPayload = {
+      model: TOKEN_AI_MODEL,
+      prompt: providerPrompt,
+      n: 1,
+      size,
+      quality: 'high',
+      output_format: 'png'
+    };
+    const generationResponse = await fetch(TOKEN_AI_GENERATIONS_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${tokenAiApiKey}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(providerPayload),
+      signal: AbortSignal.timeout(240000)
+    });
 
     const responseText = await generationResponse.text();
     let generationPayload = null;
