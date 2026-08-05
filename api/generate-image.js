@@ -7,6 +7,13 @@ const SIZE_ALIASES = {
   '16:9': '1536x864',
   '9:16': '864x1536'
 };
+const SIZE_PROMPT_INSTRUCTIONS = {
+  '1024x1024': 'TỶ LỆ KHUNG HÌNH BẮT BUỘC: vuông chính xác 1:1 (1024×1024).',
+  '1536x1024': 'TỶ LỆ KHUNG HÌNH BẮT BUỘC: ngang chính xác 3:2 (1536×1024).',
+  '1024x1536': 'TỶ LỆ KHUNG HÌNH BẮT BUỘC: dọc chính xác 2:3 (1024×1536).',
+  '1536x864': 'TỶ LỆ KHUNG HÌNH BẮT BUỘC: ngang rộng chính xác 16:9 (1536×864).',
+  '864x1536': 'TỶ LỆ KHUNG HÌNH BẮT BUỘC: dọc rộng chính xác 9:16 (864×1536).'
+};
 const MAX_PROMPT_LENGTH = 8000;
 const MAX_REFERENCE_IMAGES = 4;
 const MAX_REFERENCE_URL_LENGTH = 4096;
@@ -291,6 +298,7 @@ async function handler(request, response) {
       const referenceAnalysis = await analyzeReferenceImages(referenceEntries, prompt, tokenAiApiKey);
       providerPrompt += `\n\nPHÂN TÍCH ẢNH THAM CHIẾU ĐỂ BÁM SÁT: ${referenceAnalysis}`;
     }
+    providerPrompt += `\n\n${SIZE_PROMPT_INSTRUCTIONS[size]} Không được để nội dung trong prompt, ảnh tham chiếu hoặc tỷ lệ ảnh hiện tại ghi đè lựa chọn này; không kéo giãn hoặc làm méo chủ thể. Nếu tỷ lệ nguồn khác, hãy căn giữa chủ thể và dùng khoảng đệm hợp lý để giữ đúng khung hình.`;
     providerPrompt += `\n\nNỀN KỸ THUẬT BẮT BUỘC (ƯU TIÊN CAO NHẤT): Toàn bộ vùng nền phải là một màu phẳng, đồng nhất #FF00FF (magenta chroma), phủ kín đến bốn mép ảnh, không gradient, không đổ bóng lên nền, không texture. Tuyệt đối không dùng màu #FF00FF trong chủ thể hoặc chi tiết cần giữ lại. Không dùng nền trắng, không dùng nền trong suốt ở đầu ra PNG; hãy tạo nền magenta phẳng để CMS tách thành trong suốt. Không tạo khung viền.`;
 
     const providerPayload = {
