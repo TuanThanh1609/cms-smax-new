@@ -3327,6 +3327,20 @@
 
       const imageData = context.getImageData(0, 0, width, height);
       const pixels = width * height;
+      let nativeTransparentPixels = 0;
+      for (let offset = 3; offset < imageData.data.length; offset += 4) {
+        if (imageData.data[offset] < 245) nativeTransparentPixels += 1;
+      }
+      const nativeTransparentRatio = nativeTransparentPixels / pixels;
+      if (nativeTransparentRatio >= 0.03) {
+        context.putImageData(imageData, 0, 0);
+        const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/webp', 0.92));
+        if (!blob || blob.type !== 'image/webp') {
+          throw new Error('Trình duyệt không thể chuyển ảnh sang WebP.');
+        }
+        return { blob, width, height, transparentRatio: nativeTransparentRatio };
+      }
+
       const visited = new Uint8Array(pixels);
       const queue = new Int32Array(pixels);
       const coreDistance = 52;
@@ -3379,7 +3393,73 @@
         if (y < height - 1) enqueueIfChroma(pixelIndex + width);
       }
 
-      const transparentRatio = transparentPixels / pixels;
+      let transparentRatio = transparentPixels / pixels;
+      if (transparentRatio < 0.03) {
+        const targetRed = imageData.data[0];
+        const targetGreen = imageData.data[1];
+        const targetBlue = imageData.data[2];
+        const edgeStep = Math.max(1, Math.floor(Math.max(width, height) / 240));
+        let edgeSamples = 0;
+        let edgeMatches = 0;
+        const edgeColorDistance = (pixelIndex) => {
+          const offset = pixelIndex * 4;
+          const red = imageData.data[offset] - targetRed;
+          const green = imageData.data[offset + 1] - targetGreen;
+          const blue = imageData.data[offset + 2] - targetBlue;
+          return Math.sqrt((red * red) + (green * green) + (blue * blue));
+        };
+        const sampleEdge = (pixelIndex) => {
+          edgeSamples += 1;
+          if (edgeColorDistance(pixelIndex) <= 54) edgeMatches += 1;
+        };
+        for (let x = 0; x < width; x += edgeStep) {
+          sampleEdge(x);
+          sampleEdge(((height - 1) * width) + x);
+        }
+        for (let y = 1; y < height - 1; y += edgeStep) {
+          sampleEdge(y * width);
+          sampleEdge((y * width) + width - 1);
+        }
+
+        if (edgeSamples && edgeMatches / edgeSamples >= 0.45) {
+          visited.fill(0);
+          head = 0;
+          tail = 0;
+          transparentPixels = 0;
+          const enqueueIfEdgeBackground = (pixelIndex) => {
+            if (pixelIndex < 0 || pixelIndex >= pixels || visited[pixelIndex]) return;
+            if (edgeColorDistance(pixelIndex) > 96) return;
+            visited[pixelIndex] = 1;
+            queue[tail] = pixelIndex;
+            tail += 1;
+          };
+          for (let x = 0; x < width; x += 1) {
+            enqueueIfEdgeBackground(x);
+            enqueueIfEdgeBackground(((height - 1) * width) + x);
+          }
+          for (let y = 1; y < height - 1; y += 1) {
+            enqueueIfEdgeBackground(y * width);
+            enqueueIfEdgeBackground((y * width) + width - 1);
+          }
+          while (head < tail) {
+            const pixelIndex = queue[head];
+            head += 1;
+            const x = pixelIndex % width;
+            const y = Math.floor(pixelIndex / width);
+            const distance = edgeColorDistance(pixelIndex);
+            const offset = pixelIndex * 4;
+            const originalAlpha = imageData.data[offset + 3];
+            const feather = Math.max(0, Math.min(1, (distance - 32) / 64));
+            imageData.data[offset + 3] = Math.round(originalAlpha * feather);
+            if (imageData.data[offset + 3] < originalAlpha) transparentPixels += 1;
+            if (x > 0) enqueueIfEdgeBackground(pixelIndex - 1);
+            if (x < width - 1) enqueueIfEdgeBackground(pixelIndex + 1);
+            if (y > 0) enqueueIfEdgeBackground(pixelIndex - width);
+            if (y < height - 1) enqueueIfEdgeBackground(pixelIndex + width);
+          }
+          transparentRatio = transparentPixels / pixels;
+        }
+      }
       if (transparentRatio < 0.03) {
         throw new Error('AI chưa tạo được nền phẳng để tách trong suốt. Hãy bấm Tạo lại.');
       }

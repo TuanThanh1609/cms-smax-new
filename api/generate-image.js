@@ -285,12 +285,13 @@ async function handler(request, response) {
     const referenceInstruction = referenceImages.length
       ? `\n\nHƯỚNG DẪN ẢNH THAM CHIẾU BẮT BUỘC: Có ${referenceImages.length} ảnh tham chiếu được đính kèm theo đúng thứ tự người dùng chọn. Phải thực sự xem và sử dụng các ảnh này để giữ đúng logo, nhận diện thương hiệu, đối tượng, màu sắc và phong cách; không được bỏ qua, thay bằng biểu tượng chung chung hoặc tự nghĩ ra logo khác. Nếu có ảnh logo Smax, giữ đúng hình dáng và màu xanh navy/cam của logo, không viết lại logo bằng chữ.`
       : '';
-    let providerPrompt = `${prompt}${referenceInstruction}\n\nNỀN KỸ THUẬT BẮT BUỘC: Toàn bộ vùng nền phải là một màu phẳng, đồng nhất #FF00FF (magenta chroma), phủ kín đến bốn mép ảnh, không gradient, không đổ bóng lên nền, không texture. Tuyệt đối không dùng màu #FF00FF trong chủ thể hoặc chi tiết cần giữ lại. Không tạo khung viền.`;
+    let providerPrompt = `${prompt}${referenceInstruction}`;
 
     if (referenceEntries.length) {
       const referenceAnalysis = await analyzeReferenceImages(referenceEntries, prompt, tokenAiApiKey);
       providerPrompt += `\n\nPHÂN TÍCH ẢNH THAM CHIẾU ĐỂ BÁM SÁT: ${referenceAnalysis}`;
     }
+    providerPrompt += `\n\nNỀN KỸ THUẬT BẮT BUỘC (ƯU TIÊN CAO NHẤT): Toàn bộ vùng nền phải là một màu phẳng, đồng nhất #FF00FF (magenta chroma), phủ kín đến bốn mép ảnh, không gradient, không đổ bóng lên nền, không texture. Tuyệt đối không dùng màu #FF00FF trong chủ thể hoặc chi tiết cần giữ lại. Không dùng nền trắng, không dùng nền trong suốt ở đầu ra PNG; hãy tạo nền magenta phẳng để CMS tách thành trong suốt. Không tạo khung viền.`;
 
     const providerPayload = {
       model: TOKEN_AI_MODEL,
