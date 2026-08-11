@@ -179,7 +179,7 @@ const loadHeader = async () => {
       } else if (["livechat", "chatbot", "gamification", "insight", "genai", "marketing", "remarketing", "crm-sync", "custom_service"].includes(currentPath)) {
         const trigger = headerEl.querySelector('[data-mega-trigger="products"]');
         if (trigger) trigger.style.color = "var(--process-blue, #4277FF)";
-      } else if (["social-revenue-journey", "ecommerce", "education", "realestate", "service", "fb", "agency", "travel", "health", "beauty"].includes(currentPath)) {
+      } else if (["social-revenue-journey", "smax-vs-pancake", "ecommerce", "education", "realestate", "service", "fb", "agency", "travel", "health", "beauty"].includes(currentPath)) {
         const trigger = headerEl.querySelector('[data-mega-trigger="solutions"]');
         if (trigger) trigger.style.color = "var(--process-blue, #4277FF)";
         headerEl.querySelectorAll(`a[href="${currentPath}"], a[href="${currentPath}.html"]`).forEach((link) => link.setAttribute("aria-current", "page"));

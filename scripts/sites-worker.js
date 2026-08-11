@@ -1,3 +1,17 @@
+function isPublicSupabaseKey(value) {
+  if (!value) return false;
+  if (value.startsWith("sb_publishable_")) return true;
+  if (!value.startsWith("eyJ")) return false;
+  try {
+    const payloadPart = value.split(".")[1].replace(/-/g, "+").replace(/_/g, "/");
+    const padded = payloadPart.padEnd(Math.ceil(payloadPart.length / 4) * 4, "=");
+    const payload = JSON.parse(atob(padded));
+    return payload.role === "anon";
+  } catch (_) {
+    return false;
+  }
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -7,7 +21,7 @@ export default {
     }
 
     if (url.pathname === "/supabase-config.json") {
-      if (!env.SUPABASE_URL || !env.SUPABASE_ANON_KEY) {
+      if (!env.SUPABASE_URL || !isPublicSupabaseKey(env.SUPABASE_ANON_KEY)) {
         return new Response(
           JSON.stringify({ error: "Supabase client configuration is unavailable." }),
           {

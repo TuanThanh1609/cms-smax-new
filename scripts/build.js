@@ -27,11 +27,28 @@ function loadEnv() {
 loadEnv();
 
 const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseAnonKey = process.env.SUPABASE_ANON_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY;
+const supabaseReadKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY;
+
+function isPublicSupabaseKey(value) {
+  if (!value) return false;
+  if (value.startsWith('sb_publishable_')) return true;
+  if (!value.startsWith('eyJ')) return false;
+  try {
+    const payloadPart = value.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
+    const padded = payloadPart.padEnd(Math.ceil(payloadPart.length / 4) * 4, '=');
+    const payload = JSON.parse(Buffer.from(padded, 'base64').toString('utf8'));
+    return payload.role === 'anon';
+  } catch (_) {
+    return false;
+  }
+}
+
+const requestedClientKey = process.env.SUPABASE_PUBLISHABLE_KEY || process.env.SUPABASE_ANON_KEY || '';
+const supabaseClientKey = isPublicSupabaseKey(requestedClientKey) ? requestedClientKey : '';
 
 // We will run compilation if keys exist, then we will ALWAYS copy everything to public/ folder
 // Allow local and CI validation builds without reading or repairing remote CMS data.
-const hasKeys = process.env.SKIP_CMS_SYNC !== '1' && supabaseUrl && supabaseAnonKey;
+const hasKeys = process.env.SKIP_CMS_SYNC !== '1' && supabaseUrl && supabaseReadKey;
 
 if (hasKeys) {
   console.log('🚀 [Smax CMS] Fetching site content from Supabase...');
@@ -53,8 +70,8 @@ function fetchContentAndCompile() {
     const parsedUrl = url.parse(targetUrl);
 
     const headers = {
-      'apikey': supabaseAnonKey,
-      'Authorization': `Bearer ${supabaseAnonKey}`,
+      'apikey': supabaseReadKey,
+      'Authorization': `Bearer ${supabaseReadKey}`,
       'Accept': 'application/json'
     };
 
@@ -95,7 +112,7 @@ function fetchContentAndCompile() {
             const repairs = [];
             const cheerio = require('cheerio');
             const rootDir = path.resolve(__dirname, '..');
-            const pages = ['ecommerce', 'education', 'realestate', 'service', 'fb', 'agency', 'travel', 'health', 'beauty', 'custom_service', 'all-in-one', 'social-revenue-journey'];
+            const pages = ['ecommerce', 'education', 'realestate', 'service', 'fb', 'agency', 'travel', 'health', 'beauty', 'custom_service', 'all-in-one', 'social-revenue-journey', 'smax-vs-pancake'];
             const localDefaults = {};
 
             pages.forEach(page => {
@@ -126,7 +143,7 @@ function fetchContentAndCompile() {
               
               // 1. Specific fix for estate-hero-img user custom transparent image
               if (key === 'estate-hero-img') {
-                const targetImg = 'https://byxzjcypifhhgzyrzbfv.supabase.co/storage/v1/object/public/site_assets/cms-assets/1783761946732-thtb69nb7vf.webp';
+                const targetImg = 'https://nhmxdvvorcivvhoubjsa.supabase.co/storage/v1/object/public/site_assets/cms-assets/1783761946732-thtb69nb7vf.webp';
                 if (val !== targetImg) {
                   console.log(`🔧 [Smax CMS Repair] Restoring estate-hero-img to user transparent WebP image: ${targetImg}`);
                   val = targetImg;
@@ -192,8 +209,8 @@ function fetchContentAndCompile() {
               const bodyData = JSON.stringify(repairs);
 
               const headers = {
-                'apikey': supabaseAnonKey,
-                'Authorization': `Bearer ${supabaseAnonKey}`,
+                'apikey': supabaseReadKey,
+                'Authorization': `Bearer ${supabaseReadKey}`,
                 'Content-Type': 'application/json',
                 'Prefer': 'resolution=merge-duplicates',
                 'Content-Length': Buffer.byteLength(bodyData)
@@ -485,16 +502,19 @@ function finalizeBuild(contentMap) {
 
   // Write Supabase config for Admin CMS login if env variables exist
   const configDest = path.join(publicDir, 'supabase-config.json');
-  if (supabaseUrl && supabaseAnonKey) {
+  if (supabaseUrl && supabaseClientKey) {
     const configContent = {
       supabase_url: supabaseUrl,
-      supabase_anon_key: supabaseAnonKey,
+      supabase_anon_key: supabaseClientKey,
       vercel_deploy_webhook: process.env.VERCEL_DEPLOY_WEBHOOK_URL || ''
     };
     fs.writeFileSync(configDest, JSON.stringify(configContent, null, 2), 'utf8');
   } else {
     if (fs.existsSync(configDest)) {
       fs.unlinkSync(configDest);
+    }
+    if (supabaseUrl && requestedClientKey && !supabaseClientKey) {
+      console.warn('Blocked a privileged Supabase key from public/supabase-config.json. Configure SUPABASE_PUBLISHABLE_KEY or a real anon key for browser login.');
     }
   }
 
