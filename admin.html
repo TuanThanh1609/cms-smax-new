@@ -2081,6 +2081,78 @@
     let heatmapPageSelected = 'index';
     let currentLeftTab = 'pages';
     
+
+    // ============= NocoDB Image Storage Config =============
+    const NOCODB_BASE_URL = 'https://nocodb.smax.in';
+    const NOCODB_API_TOKEN = 'qEV0I3737qwo241Bvmi-L2pGSJ-kR5ih7zh4vdRP';
+    const NOCODB_TABLE_ID = 'mwuh4v1ffa6o46h';
+
+    /**
+     * Upload file to NocoDB Storage + create record in media registry.
+     * Returns the permanent public URL.
+     */
+    async function uploadToNocoDB(blob, fileName, metadata = {}) {
+      // Step 1: Upload file to NocoDB storage
+      const formData = new FormData();
+      formData.append('file', blob, fileName);
+
+      const uploadResp = await fetch(`${NOCODB_BASE_URL}/api/v2/storage/upload`, {
+        method: 'POST',
+        headers: { 'xc-token': NOCODB_API_TOKEN },
+        body: formData
+      });
+
+      if (!uploadResp.ok) {
+        const errText = await uploadResp.text().catch(() => uploadResp.statusText);
+        throw new Error(`NocoDB upload failed: ${errText}`);
+      }
+
+      const uploadData = await uploadResp.json();
+      const fileInfo = Array.isArray(uploadData) ? uploadData[0] : uploadData;
+
+      // Permanent public URL (not signed/temporary)
+      const publicUrl = `${NOCODB_BASE_URL}/${fileInfo.path}`;
+
+      // Step 2: Create record in NocoDB table for media registry
+      const record = {
+        Title: fileName,
+        Attachment: [fileInfo],
+        public_url: publicUrl,
+        page_name: metadata.pageName || '',
+        content_key: metadata.contentKey || '',
+        uploaded_from: metadata.source || 'cms-field'
+      };
+
+      await fetch(`${NOCODB_BASE_URL}/api/v2/tables/${NOCODB_TABLE_ID}/records`, {
+        method: 'POST',
+        headers: {
+          'xc-token': NOCODB_API_TOKEN,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(record)
+      });
+
+      return publicUrl;
+    }
+
+    /**
+     * Load media files list from NocoDB table (replaces Supabase storage.list).
+     */
+    async function loadNocoDBMediaList() {
+      const resp = await fetch(
+        `${NOCODB_BASE_URL}/api/v2/tables/${NOCODB_TABLE_ID}/records?limit=100&sort=-CreatedAt&fields=Title,public_url,Attachment`,
+        { headers: { 'xc-token': NOCODB_API_TOKEN } }
+      );
+      if (!resp.ok) throw new Error('Failed to load NocoDB media list');
+      const { list } = await resp.json();
+      return (list || []).filter(r => r.public_url).map(r => ({
+        name: r.Title || 'Untitled',
+        url: r.public_url,
+        attachment: r.Attachment
+      }));
+    }
+    // ============= End NocoDB Config =============
+
     // Website HTML Pages list
     const sitePages = [
       { key: 'index', name: 'Trang chủ (index.html)' },
@@ -2874,10 +2946,7 @@
       const files = Array.from(event.target.files || []);
       event.target.value = '';
       if (!files.length) return;
-      if (!supabaseClient) {
-        setAiImageError('Phiên đăng nhập CMS chưa sẵn sàng để tải ảnh tham chiếu lên.');
-        return;
-      }
+      // NocoDB upload - no Supabase session needed
 
       const remaining = AI_REFERENCE_LIMIT - aiReferenceImages.length;
       if (remaining <= 0) {
@@ -2899,18 +2968,10 @@
         try {
           const extension = (file.name.split('.').pop() || 'png').toLowerCase().replace(/[^a-z0-9]/g, '') || 'png';
           const filePath = `cms-assets/ai-reference-${Date.now()}-${Math.random().toString(36).slice(2, 8)}-${slugifyAiAssetName(file.name)}.${extension}`;
-          const { error } = await supabaseClient.storage
-            .from('site_assets')
-            .upload(filePath, file, {
-              cacheControl: '3600',
-              upsert: false,
-              contentType: file.type
-            });
-          if (error) throw error;
-
-          const { data: { publicUrl } } = supabaseClient.storage
-            .from('site_assets')
-            .getPublicUrl(filePath);
+          const publicUrl = await uploadToNocoDB(file, filePath.replace('cms-assets/', ''), {
+            pageName: currentSelectedPage,
+            source: 'ai-reference'
+          });
           addAiReferenceImage({
             id: filePath,
             name: file.name,
@@ -2938,8 +2999,7 @@
       }
 
       list.innerHTML = available.slice(0, 36).map(file => {
-        const filePath = `cms-assets/${file.name}`;
-        const { data: { publicUrl } } = supabaseClient.storage.from('site_assets').getPublicUrl(filePath);
+        const publicUrl = file.url || '';
         const alreadyAdded = aiReferenceImages.some(item => item.url === publicUrl);
         return `
           <button type="button" onclick="addAiReferenceFromLibrary(decodeURIComponent('${encodeURIComponent(publicUrl)}'),decodeURIComponent('${encodeURIComponent(file.name)}'))" class="group relative aspect-square overflow-hidden rounded-lg border ${alreadyAdded ? 'border-cyan-400 ring-1 ring-cyan-300' : 'border-slate-200'} bg-slate-50 transition hover:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-500" title="${escapeAiHistoryValue(file.name)}">
@@ -3661,7 +3721,7 @@
     }
 
     async function applyGeneratedAiImage() {
-      if (!aiGeneratedImage || !aiImageTarget || !supabaseClient) return;
+      if (!aiGeneratedImage || !aiImageTarget) return;
 
       const applyButton = document.getElementById('ai-apply-button');
       const originalLabel = applyButton.innerHTML;
@@ -3673,18 +3733,11 @@
         const safeName = slugifyAiAssetName(aiImageTarget.key);
         const fileName = `ai-${safeName}-${Date.now()}.webp`;
         const filePath = `cms-assets/${fileName}`;
-        const { error } = await supabaseClient.storage
-          .from('site_assets')
-          .upload(filePath, aiGeneratedImage.blob, {
-            cacheControl: '3600',
-            upsert: false,
-            contentType: 'image/webp'
-          });
-        if (error) throw error;
-
-        const { data: { publicUrl } } = supabaseClient.storage
-          .from('site_assets')
-          .getPublicUrl(filePath);
+        const publicUrl = await uploadToNocoDB(aiGeneratedImage.blob, fileName, {
+          pageName: currentSelectedPage,
+          contentKey: aiImageTarget?.key || '',
+          source: 'ai-generated'
+        });
 
         const currentSource = aiImageTarget.imageElement?.currentSrc || aiImageTarget.currentSource || '';
         recordAiImageHistory(aiImageTarget.key, currentSource, 'Ảnh trước khi tạo mới');
@@ -3731,30 +3784,14 @@
         const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.webp`;
         const filePath = `cms-assets/${fileName}`;
         
-        statusSpan.textContent = 'Đang tải lên Supabase...';
+        statusSpan.textContent = 'Đang tải lên NocoDB...';
         
-        // Upload to storage bucket site_assets
-        const { data, error } = await supabaseClient.storage
-          .from('site_assets')
-          .upload(filePath, blob, { cacheControl: '3600', upsert: false, contentType: 'image/webp' });
-          
-        if (error) {
-          // If bucket doesn't exist, try creating it automatically
-          if (error.message.includes('bucket not found') || error.message.includes('does not exist')) {
-            statusSpan.textContent = '❌ Lỗi: Hãy tạo bucket "site_assets" ở Supabase!';
-            statusSpan.className = 'text-[11px] text-rose-400';
-            alert('Lỗi: Bucket "site_assets" chưa được tạo trên Supabase Storage. Hãy tạo một bucket công khai (public) có tên "site_assets" trong trang quản trị Supabase rồi tải lại!');
-          } else {
-            statusSpan.textContent = `❌ Lỗi: ${error.message}`;
-            statusSpan.className = 'text-[11px] text-rose-400';
-          }
-          return;
-        }
-        
-        // Get public URL
-        const { data: { publicUrl } } = supabaseClient.storage
-          .from('site_assets')
-          .getPublicUrl(filePath);
+        // Upload to NocoDB storage
+        const publicUrl = await uploadToNocoDB(blob, fileName, {
+          pageName: currentSelectedPage,
+          contentKey: currentPageFields[index]?.content_key || '',
+          source: 'cms-field'
+        });
           
         // Update input and preview
         document.getElementById(`input-val-${index}`).value = publicUrl;
@@ -4372,19 +4409,9 @@
 
     async function loadMediaLibrary() {
       const mediaListContainer = document.getElementById('media-list');
-      if (!supabaseClient) return;
-      
       try {
-        const { data, error } = await supabaseClient.storage
-          .from('site_assets')
-          .list('cms-assets', {
-            limit: 100,
-            sortBy: { column: 'name', order: 'desc' }
-          });
-          
-        if (error) throw error;
-        
-        mediaFilesList = data || [];
+        const nocoFiles = await loadNocoDBMediaList();
+        mediaFilesList = nocoFiles;
         renderMediaItems();
       } catch (err) {
         console.error("Lỗi khi tải thư viện ảnh:", err.message);
@@ -4404,10 +4431,7 @@
       }
       
       mediaListContainer.innerHTML = filtered.map(file => {
-        const filePath = `cms-assets/${file.name}`;
-        const { data: { publicUrl } } = supabaseClient.storage
-          .from('site_assets')
-          .getPublicUrl(filePath);
+        const publicUrl = file.url || '';
           
         return `
           <div class="group relative bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden hover:border-zinc-700 transition-all p-1 flex flex-col gap-1.5 cursor-pointer flex-shrink-0" style="height: 165px !important; min-height: 165px !important;" onclick="copyMediaUrl('${publicUrl}')" title="Nhấp để copy URL ảnh">
@@ -4492,8 +4516,6 @@
     }
     
     async function uploadMediaFile(file) {
-      if (!supabaseClient) return;
-      
       const zone = document.getElementById('drag-drop-zone');
       const originalHtml = zone.innerHTML;
       
@@ -4525,11 +4547,10 @@
         const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.webp`;
         const filePath = `cms-assets/${fileName}`;
         
-        const { data, error } = await supabaseClient.storage
-          .from('site_assets')
-          .upload(filePath, blob, { cacheControl: '3600', upsert: false, contentType: 'image/webp' });
-          
-        if (error) throw error;
+        await uploadToNocoDB(blob, fileName, {
+          pageName: currentSelectedPage,
+          source: 'media-library'
+        });
         
         showToast("Tải lên thành công!");
         loadMediaLibrary();
