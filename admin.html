@@ -2140,7 +2140,7 @@
      */
     async function loadNocoDBMediaList() {
       const resp = await fetch(
-        `${NOCODB_BASE_URL}/api/v2/tables/${NOCODB_TABLE_ID}/records?limit=100&sort=-CreatedAt&fields=Title,public_url,Attachment`,
+        `${NOCODB_BASE_URL}/api/v2/tables/${NOCODB_TABLE_ID}/records?limit=500&sort=-CreatedAt&fields=Title,public_url,Attachment`,
         { headers: { 'xc-token': NOCODB_API_TOKEN } }
       );
       if (!resp.ok) throw new Error('Failed to load NocoDB media list');
@@ -4373,7 +4373,9 @@
 
     // CMS Layout V2 Right Sidebar Media Library
     let mediaFilesList = [];
-    
+    let mediaCurrentPage = 1;
+    const MEDIA_PER_PAGE = 20;
+
     function switchRightTab(tab) {
       document.getElementById('tab-right-media').className = tab === 'media'
         ? "text-xs font-bold border-b-2 border-indigo-500 pb-2 px-1 text-white uppercase tracking-wider transition-all"
@@ -4412,6 +4414,7 @@
       try {
         const nocoFiles = await loadNocoDBMediaList();
         mediaFilesList = nocoFiles;
+        mediaCurrentPage = 1;
         renderMediaItems();
       } catch (err) {
         console.error("Lỗi khi tải thư viện ảnh:", err.message);
@@ -4425,12 +4428,21 @@
       
       const filtered = mediaFilesList.filter(file => file.name.toLowerCase().includes(searchVal));
       
+      if (searchVal && mediaCurrentPage !== 1) mediaCurrentPage = 1;
+
       if (filtered.length === 0) {
         mediaListContainer.innerHTML = `<div class="text-zinc-600 text-xs py-4 text-center col-span-1">Thư viện trống</div>`;
         return;
       }
+
+      // Pagination logic
+      const totalPages = Math.ceil(filtered.length / MEDIA_PER_PAGE);
+      if (mediaCurrentPage > totalPages) mediaCurrentPage = totalPages;
+      if (mediaCurrentPage < 1) mediaCurrentPage = 1;
+      const startIdx = (mediaCurrentPage - 1) * MEDIA_PER_PAGE;
+      const pageItems = filtered.slice(startIdx, startIdx + MEDIA_PER_PAGE);
       
-      mediaListContainer.innerHTML = filtered.map(file => {
+      let html = pageItems.map(file => {
         const publicUrl = file.url || '';
           
         return `
@@ -4449,8 +4461,35 @@
           </div>
         `;
       }).join('');
-      
+
+      // Pagination controls
+      if (totalPages > 1) {
+        const prevDisabled = mediaCurrentPage <= 1;
+        const nextDisabled = mediaCurrentPage >= totalPages;
+        html += `
+          <div class="col-span-full flex items-center justify-center gap-3 py-2">
+            <button type="button" onclick="mediaGoPage(${mediaCurrentPage - 1})" ${prevDisabled ? 'disabled' : ''} class="px-3 py-1.5 rounded-lg text-[11px] font-semibold transition-all ${prevDisabled ? 'bg-zinc-800 text-zinc-600 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-500 text-white'}">
+              ← Trước
+            </button>
+            <span class="text-[11px] text-zinc-400 font-medium">${mediaCurrentPage} / ${totalPages} <span class="text-zinc-600">(${filtered.length} ảnh)</span></span>
+            <button type="button" onclick="mediaGoPage(${mediaCurrentPage + 1})" ${nextDisabled ? 'disabled' : ''} class="px-3 py-1.5 rounded-lg text-[11px] font-semibold transition-all ${nextDisabled ? 'bg-zinc-800 text-zinc-600 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-500 text-white'}">
+              Sau →
+            </button>
+          </div>
+        `;
+      } else {
+        html += `<div class="col-span-full text-center py-1"><span class="text-[10px] text-zinc-600">${filtered.length} ảnh</span></div>`;
+      }
+
+      mediaListContainer.innerHTML = html;
       lucide.createIcons();
+    }
+
+    function mediaGoPage(page) {
+      mediaCurrentPage = page;
+      renderMediaItems();
+      const container = document.getElementById('media-list');
+      if (container) container.scrollTop = 0;
     }
     
     let activeVisualImageKey = null;
@@ -4505,6 +4544,7 @@
     }
 
     function filterMedia() {
+      mediaCurrentPage = 1;
       renderMediaItems();
     }
 
